@@ -177,7 +177,10 @@ const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
     console.log("  source: SEC EDGAR (financials) + Yahoo Finance (prices)\n");
     console.log("  Year  Revenue    RevGrowth  GrossMgn  NetIncome   NetMgn   R&D       OpCashFlow   StockPx*  PxYoY");
     console.log("  ────  ─────────  ─────────  ────────  ──────────  ──────   ───────   ──────────   ────────  ──────");
-    let prev = null, prevPx = null;
+    // Seed from the year BEFORE the table starts so the first row also shows growth.
+    const y0 = years[0] - 1;
+    let prev = rev[y0] ?? null;
+    let prevPx = ends[y0] ? priceAt(px, ends[y0]) : null;
     for (const y of years) {
       const r = rev[y], n = ni[y];
       const gm = r && gp[y] != null ? P(gp[y] / r) : "-";
