@@ -58,10 +58,21 @@ function annualMapMonth(rows) {
   return ann[0]?.month || "12";
 }
 
-// Full-year flows (revenue, income): keep ~365-day periods, key by end-year.
+// Full-year flows (income, R&D): keep ~365-day periods, key by end-year (last wins).
 function annualMap(rows) {
   const m = {};
   for (const r of rows) if (r.dur && r.dur >= 350 && r.dur <= 380) m[+r.end.slice(0, 4)] = r.val;
+  return m;
+}
+// Revenue can be reported under several tags; one may hold a stray partial value.
+// Take the LARGEST per year (true total revenue >= any sub-component) to avoid that.
+function annualMapMax(rows) {
+  const m = {};
+  for (const r of rows) {
+    if (!(r.dur && r.dur >= 350 && r.dur <= 380)) continue;
+    const y = +r.end.slice(0, 4);
+    if (m[y] == null || r.val > m[y]) m[y] = r.val;
+  }
   return m;
 }
 // Balance-sheet snapshots (10-K instants are all fiscal year-ends): key by end-year,
@@ -151,7 +162,7 @@ const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
     ]);
 
     const fyMonth = annualMapMonth(revR);
-    const rev = annualMap(revR), gp = annualMap(gpR), ni = annualMap(niR);
+    const rev = annualMapMax(revR), gp = annualMap(gpR), ni = annualMap(niR);
     const rnd = annualMap(rndR), ocf = annualMap(ocfR);
     const cash = instantMap(cashR), dbtC = instantMap(dbtCR);
     const dbtNC = instantMap(dbtNCR), eq = instantMap(eqR);
