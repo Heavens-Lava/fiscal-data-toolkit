@@ -1,0 +1,15 @@
+{
+  "name": "fiscal-data-toolkit",
+  "version": "1.0.0",
+  "description": "One-command scripts that pull live US fiscal, banking, money-supply, and company-financials data from official government APIs (no API keys required).",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "fiscal": "node scripts/fiscal-snapshot.mjs",
+    "banks": "node scripts/banking-snapshot.mjs",
+    "money": "node scripts/money-supply.mjs",
+    "stock": "node scripts/stock-fundamentals.mjs"
+  },
+  "license": "MIT",
+  "private": true
+}
