@@ -143,6 +143,28 @@ function priceAt(px, date) {
   return bestGap <= 45 * 86_400_000 ? best : null;
 }
 
+// Current shares outstanding — tries several concepts (companies tag this
+// differently). Sums distinct share-class counts at the latest date (multi-class
+// like GOOGL/RBLX); weighted-average falls back to a single figure.
+async function sharesOutstanding(cik) {
+  const tryConcept = async (path, multiclass) => {
+    let d;
+    try { d = await getJSON(`https://data.sec.gov/api/xbrl/companyconcept/CIK${cik}/${path}.json`); }
+    catch { return null; }
+    const units = d.units?.shares || [];
+    if (!units.length) return null;
+    const maxEnd = units.reduce((a, u) => (u.end > a ? u.end : a), "");
+    const distinct = [...new Set(units.filter((u) => u.end === maxEnd).map((u) => u.val))];
+    return (multiclass ? distinct.reduce((s, v) => s + v, 0) : Math.max(...distinct)) || null;
+  };
+  return (
+    (await tryConcept("dei/EntityCommonStockSharesOutstanding", true)) ||
+    (await tryConcept("us-gaap/CommonStockSharesOutstanding", true)) ||
+    (await tryConcept("us-gaap/WeightedAverageNumberOfDilutedSharesOutstanding", false)) ||
+    null
+  );
+}
+
 const B = (n) => (n == null ? "-" : `$${(n / 1e9).toFixed(1)}B`);
 const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
 
@@ -218,9 +240,29 @@ const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
     console.log(`    Cash & equivalents .. ${B(cashL?.val)}`);
     console.log(`    Total debt .......... ${B(totalDebt)}`);
     console.log(`    Shareholder equity .. ${B(eqL?.val)}`);
+
+    // Valuation — how expensive the stock is vs the business ("is it priced in?").
+    const lastY = Math.max(...years);
+    const nowPx = px.length ? px[px.length - 1].c : null;
+    const shares = await sharesOutstanding(cik);
+    const mktCap = shares && nowPx ? shares * nowPx : null;
+    const sales = tRev?.val ?? rev[lastY];
+    const profit = tNi?.val ?? ni[lastY];
+    const cashFlow = tOcf?.val ?? ocf[lastY];
+    const X = (cap, base) => (cap && base > 0 ? `${(cap / base).toFixed(1)}x` : null);
+    const shB = (n) => (n == null ? "-" : n >= 1e9 ? `${(n / 1e9).toFixed(2)}B` : `${(n / 1e6).toFixed(0)}M`);
+    console.log(`\n  Valuation (at current price ${D(nowPx)}):`);
+    console.log(`    Shares outstanding .. ${shB(shares)}`);
+    console.log(`    Market cap .......... ${B(mktCap)}`);
+    console.log(`    Price / Sales ....... ${X(mktCap, sales) || "-"}      (>10x = priced for big growth)`);
+    console.log(`    Price / Earnings .... ${X(mktCap, profit) || "n/a (unprofitable)"}      (market avg ~20x)`);
+    console.log(`    Price / Cash Flow ... ${X(mktCap, cashFlow) || "-"}      (best gauge when there's no profit)`);
+
     console.log("\n  Read it like this:");
-    console.log("    Rising revenue + rising margins + real operating cash = healthy grower (high multiple).");
-    console.log("    Revenue up but margins/cash down = value trap (UNH-style).  More cash than debt = safety.\n");
+    console.log("    Rising revenue + rising margins + real operating cash = healthy grower.");
+    console.log("    Revenue up but margins/cash down = value trap (UNH-style).  More cash than debt = safety.");
+    console.log("    HIGH valuation (P/S, P/E, P/CF) = good news already priced in; even great results");
+    console.log("    can disappoint (PLTR). LOW valuation = less expectation to live up to.\n");
   } catch (err) {
     console.error("Failed:", err.message);
     process.exit(1);
