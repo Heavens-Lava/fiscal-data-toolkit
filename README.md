@@ -15,7 +15,7 @@ Built as a learning toolkit for understanding how the US economy actually works 
 | `node scripts/fiscal-snapshot.mjs` | National debt, receipts, outlays, deficit, interest | [Treasury Fiscal Data](https://fiscaldata.treasury.gov/) |
 | `node scripts/banking-snapshot.mjs` | All ~4,350 US banks: assets, deposits, securities, capital | [FDIC](https://banks.data.fdic.gov/docs/) |
 | `node scripts/money-supply.mjs` | M2, cash in circulation, the 2020–21 "money printing" | [FRED](https://fred.stlouisfed.org/) (St. Louis Fed) |
-| `node scripts/stock-fundamentals.mjs TICKER` | A company's revenue, margins, profit, R&D, cash flow, balance sheet | [SEC EDGAR](https://www.sec.gov/edgar/search/) |
+| `node scripts/stock-fundamentals.mjs TICKER` | A company's revenue, margins, profit, R&D, cash flow, balance sheet, **stock price**, plus a current trailing-12-month (TTM) row | [SEC EDGAR](https://www.sec.gov/edgar/search/) + [Yahoo Finance](https://finance.yahoo.com/) |
 | `node scripts/revenue-growth.mjs [TICKERS...]` | Screen a watchlist by revenue growth + margin trend; flags 20%+ growers | [SEC EDGAR](https://www.sec.gov/edgar/search/) |
 
 Or via npm: `npm run fiscal`, `npm run banks`, `npm run money`, `npm run stock -- AMD`.
