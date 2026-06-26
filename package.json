@@ -9,7 +9,10 @@
     "banks": "node scripts/banking-snapshot.mjs",
     "money": "node scripts/money-supply.mjs",
     "stock": "node scripts/stock-fundamentals.mjs",
-    "screen": "node scripts/revenue-growth.mjs"
+    "screen": "node scripts/revenue-growth.mjs",
+    "trade": "node scripts/trade-balance.mjs",
+    "dashboard": "node scripts/dashboard.mjs",
+    "web": "node server.mjs"
   },
   "license": "MIT",
   "private": true

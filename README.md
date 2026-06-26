@@ -19,7 +19,16 @@ Built as a learning toolkit for understanding how the US economy actually works 
 | `node scripts/stock-fundamentals.mjs TICKER` | Revenue, margins, profit, R&D, cash flow, balance sheet, **stock price**, a current trailing-12-month (TTM) row, and **valuation** (market cap, P/S, P/E, P/CF) | [SEC EDGAR](https://www.sec.gov/edgar/search/) + [Yahoo Finance](https://finance.yahoo.com/) |
 | `node scripts/revenue-growth.mjs [TICKERS...]` | Screen a watchlist by revenue growth + margin trend; flags 20%+ growers | [SEC EDGAR](https://www.sec.gov/edgar/search/) |
 
-Or via npm: `npm run fiscal`, `npm run banks`, `npm run money`, `npm run stock -- AMD`.
+Or via npm: `npm run fiscal`, `npm run banks`, `npm run money`, `npm run trade`, `npm run stock -- AMD`.
+
+### One-command dashboard + web UI
+
+```bash
+npm run dashboard       # prints the whole U.S. macro picture (govt, trade, money, banks) in one shot
+npm run web             # starts a local web dashboard at http://localhost:3000
+```
+
+The web UI shows the live macro cards plus a company-lookup box (revenue, margins, profit, TTM, and valuation) — all served from a tiny zero-dependency Node server that calls the gov APIs server-side (no CORS, no keys). Shared data layer lives in [lib/data.mjs](lib/data.mjs).
 
 ## Examples
 
