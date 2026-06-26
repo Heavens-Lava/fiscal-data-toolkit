@@ -106,9 +106,17 @@ async function pool(items, n, fn) {
   return out;
 }
 
-const P = (x) => (x == null ? "  -  " : `${(x * 100).toFixed(1)}%`);
-const sign = (x) => (x == null ? "  -  " : `${x >= 0 ? "+" : ""}${(x * 100).toFixed(1)}pp`);
-const X = (x) => (x == null ? "  -  " : `${x.toFixed(1)}x`);
+const P = (x) => (x == null ? "-" : `${(x * 100).toFixed(1)}%`);
+const sign = (x) => (x == null ? "-" : `${x >= 0 ? "+" : ""}${(x * 100).toFixed(1)}pp`);
+const X = (x) => (x == null ? "-" : `${x.toFixed(1)}x`);
+
+// One shared column spec drives both the header and every row -> guaranteed alignment.
+const COLS = [
+  ["Ticker", 6, "L"], ["FY", 4, "L"], ["RevGrowth", 9, "R"], ["GrossMgn", 8, "R"],
+  ["MgnChg", 8, "R"], ["NetMgn", 8, "R"], ["P/S", 7, "R"], ["P/CF", 8, "R"], ["Flag", 4, "L"],
+];
+const cell = (s, w, a) => (a === "L" ? String(s).padEnd(w) : String(s).padStart(w));
+const line = (vals) => "  " + COLS.map((c, i) => cell(vals[i] ?? "", c[1], c[2])).join("  ");
 
 (async () => {
   try {
@@ -118,21 +126,19 @@ const X = (x) => (x == null ? "  -  " : `${x.toFixed(1)}x`);
       .sort((a, b) => b.revGrowth - a.revGrowth);
 
     console.log("\n  REVENUE-GROWTH + VALUATION SCREEN  (SEC EDGAR + Yahoo Finance)");
-    console.log("  💎 growth≥20% + expanding margins + cheap (P/S<10)   🚀 growth+margins (pricey)   📈 growth only\n");
-    console.log("  Ticker  FY    RevGrowth   GrossMgn  MgnChange   NetMgn    P/S    P/CF    Flag");
-    console.log("  ──────  ────  ─────────   ────────  ─────────   ──────    ─────  ─────   ────");
+    console.log("  [*] gem = growth>=20% + expanding margins + cheap (P/S<10)   [+] hot = growth+margins (pricey)   [.] = growth only\n");
+    console.log(line(COLS.map((c) => c[0])));
+    console.log(line(COLS.map((c) => "─".repeat(c[1]))));
     for (const r of rows) {
       const grow = r.revGrowth >= GROWTH, hot = grow && r.marginChg > 0;
       const cheap = r.ps != null && r.ps < CHEAP_PS;
-      const flag = hot && cheap ? "💎" : hot ? "🚀" : grow ? "📈" : "";
-      console.log(
-        `  ${r.ticker.padEnd(6)}  ${r.year}  ${P(r.revGrowth).padStart(8)}   ${P(r.gm1).padStart(7)}  ${sign(r.marginChg).padStart(8)}   ${P(r.netMargin).padStart(6)}   ${X(r.ps).padStart(6)} ${X(r.pcf).padStart(6)}   ${flag}`
-      );
+      const flag = hot && cheap ? "[*]" : hot ? "[+]" : grow ? "[.]" : "";
+      console.log(line([r.ticker, r.year, P(r.revGrowth), P(r.gm1), sign(r.marginChg), P(r.netMargin), X(r.ps), X(r.pcf), flag]));
     }
     const missing = WATCHLIST.filter((t) => !rows.find((r) => r.ticker === t));
     if (missing.length) console.log(`\n  (no/insufficient data: ${missing.join(", ")})`);
     console.log("\n  P/S = price-to-sales, P/CF = price-to-cash-flow (works when unprofitable).");
-    console.log("  💎 is the sweet spot: growing fast, margins expanding, not yet bid up.");
+    console.log("  [*] is the sweet spot: growing fast, margins expanding, not yet bid up.");
     console.log("  Reminder: still no guarantee of upside — but it beats screening on growth alone.\n");
   } catch (err) {
     console.error("Failed:", err.message);
