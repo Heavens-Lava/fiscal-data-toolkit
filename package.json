@@ -8,7 +8,8 @@
     "fiscal": "node scripts/fiscal-snapshot.mjs",
     "banks": "node scripts/banking-snapshot.mjs",
     "money": "node scripts/money-supply.mjs",
-    "stock": "node scripts/stock-fundamentals.mjs"
+    "stock": "node scripts/stock-fundamentals.mjs",
+    "screen": "node scripts/revenue-growth.mjs"
   },
   "license": "MIT",
   "private": true
