@@ -28,7 +28,15 @@ npm run dashboard       # prints the whole U.S. macro picture (govt, trade, mone
 npm run web             # starts a local web dashboard at http://localhost:3000
 ```
 
-The web UI shows the live macro cards plus a company-lookup box (revenue, margins, profit, TTM, and valuation) — all served from a tiny zero-dependency Node server that calls the gov APIs server-side (no CORS, no keys). Shared data layer lives in [lib/data.mjs](lib/data.mjs).
+The web UI shows the live macro cards (government, trade, money, banks, **markets**) plus a **company-lookup** box (revenue, margins, profit, cash flow, **valuation**) and a sortable **growth + valuation screener**. Served from a tiny zero-dependency Node server that calls the gov APIs server-side (no CORS, no keys), with 10-minute caching. Shared data layer: [lib/data.mjs](lib/data.mjs).
+
+### Deploy it online
+
+It needs the Node backend (for CORS/User-Agent), so host it as a small web service — not static hosting. Zero dependencies, so it's trivial:
+
+- **Render:** New → Blueprint → point at this repo ([render.yaml](render.yaml) included, free tier).
+- **Docker:** `docker build -t fiscal-toolkit . && docker run -p 3000:3000 fiscal-toolkit` ([Dockerfile](Dockerfile) included).
+- **Railway / Fly / Heroku:** start command `node server.mjs`; the server reads `PORT` from the environment.
 
 ## Examples
 

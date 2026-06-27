@@ -4,7 +4,7 @@
 //
 // Run:  node scripts/dashboard.mjs
 
-import { fiscal, trade, money, banking } from "../lib/data.mjs";
+import { fiscal, trade, money, banking, markets } from "../lib/data.mjs";
 
 const T = (n) => { const a = Math.abs(n), s = n < 0 ? "-" : ""; return a >= 1e12 ? `${s}$${(a / 1e12).toFixed(2)}T` : a >= 1e9 ? `${s}$${(a / 1e9).toFixed(0)}B` : `${s}$${(a / 1e6).toFixed(0)}M`; };
 const pct = (n) => `${n.toFixed(1)}%`;
@@ -13,7 +13,7 @@ const pct = (n) => `${n.toFixed(1)}%`;
   try {
     console.log("\n  ════════════ U.S. MACRO DASHBOARD ════════════");
     console.log("  live from Treasury · BEA/FRED · FDIC — no API keys\n");
-    const [f, t, m, b] = await Promise.all([fiscal(), trade(), money(), banking()]);
+    const [f, t, m, b, k] = await Promise.all([fiscal(), trade(), money(), banking(), markets()]);
 
     console.log("  GOVERNMENT  (FY" + f.fy + " through " + f.asOf + ")");
     console.log(`    National debt ........ ${T(f.debt)}   (as of ${f.debtDate})`);
@@ -37,6 +37,11 @@ const pct = (n) => `${n.toFixed(1)}%`;
     console.log(`    Deposits ............. ${T(b.deposits)}`);
     console.log(`    Securities held ...... ${T(b.securities)}   (mostly govt debt)`);
     console.log(`    Equity cushion ....... ${T(b.equity)}   (${pct(b.equity / b.assets * 100)} of assets)`);
+
+    console.log("\n  MARKETS");
+    console.log(`    S&P 500 .............. ${k.sp500.toLocaleString(undefined, { maximumFractionDigits: 0 })}`);
+    console.log(`    10-yr Treasury ....... ${k.tenYear.toFixed(2)}%   (drives mortgage rates)`);
+    console.log(`    30-yr mortgage ....... ${k.mortgage30.toFixed(2)}%`);
     console.log("\n  ══════════════════════════════════════════════\n");
   } catch (err) {
     console.error("Dashboard failed:", err.message);

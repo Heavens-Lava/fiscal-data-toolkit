@@ -1,0 +1,12 @@
+# Render.com blueprint — one-click deploy of the web dashboard (free tier).
+# In Render: New → Blueprint → point at this repo. Render injects PORT automatically.
+services:
+  - type: web
+    name: fiscal-data-toolkit
+    runtime: node
+    plan: free
+    buildCommand: "npm install"   # no dependencies, but keeps Render happy
+    startCommand: "node server.mjs"
+    envVars:
+      - key: NODE_VERSION
+        value: "20"

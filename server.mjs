@@ -9,7 +9,9 @@ import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { fiscal, trade, money, banking, stock } from "./lib/data.mjs";
+import { fiscal, trade, money, banking, markets, stock, screen } from "./lib/data.mjs";
+
+const DEFAULT_WATCHLIST = ["NVDA", "AMD", "MU", "PLTR", "RBLX", "MSFT", "META", "GOOGL", "AMZN", "INTC", "DELL", "AVGO"];
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -47,18 +49,24 @@ const server = http.createServer(async (req, res) => {
     }
     if (u.pathname === "/api/dashboard") {
       // Each domain cached + settled independently → fast and fault-tolerant.
-      const [f, t, m, b] = await Promise.all([
+      const [f, t, m, b, mk] = await Promise.all([
         settled("fiscal", () => cached("fiscal", TEN_MIN, fiscal)),
         settled("trade", () => cached("trade", TEN_MIN, trade)),
         settled("money", () => cached("money", TEN_MIN, money)),
         settled("banking", () => cached("banking", TEN_MIN, banking)),
+        settled("markets", () => cached("markets", TEN_MIN, markets)),
       ]);
-      return sendJSON(res, 200, { fiscal: f, trade: t, money: m, banking: b });
+      return sendJSON(res, 200, { fiscal: f, trade: t, money: m, banking: b, markets: mk });
     }
     if (u.pathname === "/api/stock") {
       const ticker = (u.searchParams.get("ticker") || "").trim().toUpperCase();
       if (!ticker) return sendJSON(res, 400, { error: "missing ?ticker=" });
       return sendJSON(res, 200, await cached(`stock:${ticker}`, TEN_MIN, () => stock(ticker)));
+    }
+    if (u.pathname === "/api/screen") {
+      const list = (u.searchParams.get("tickers") || "").split(",").map((s) => s.trim()).filter(Boolean);
+      const tickers = list.length ? list : DEFAULT_WATCHLIST;
+      return sendJSON(res, 200, await cached(`screen:${tickers.join(",")}`, TEN_MIN, () => screen(tickers)));
     }
     res.writeHead(404).end("Not found");
   } catch (err) {
