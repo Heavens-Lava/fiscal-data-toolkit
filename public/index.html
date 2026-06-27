@@ -25,7 +25,7 @@
   .row .k { color:var(--dim); }
   .row .v { font-weight:600; }
   .big { font-size:26px; font-weight:700; margin:2px 0 10px; }
-  .neg { color:var(--red); } .pos { color:var(--green); } .blue { color:var(--blue); }
+  .neg { color:var(--red); } .pos { color:var(--green); } .blue { color:var(--blue); } .accent { color:var(--accent); }
   .note { color:var(--dim); font-size:11px; margin-top:10px; }
   section.stock { margin-top:28px; }
   .search { display:flex; gap:8px; margin-bottom:16px; }
@@ -53,6 +53,11 @@
 </header>
 <main>
   <div class="grid" id="cards"><div class="card">Loading live data…</div></div>
+
+  <section class="stock">
+    <h2 style="color:var(--accent);font-size:12px;letter-spacing:1px;">INTEREST RATES BY YEAR</h2>
+    <div id="rates"></div>
+  </section>
 
   <section class="stock">
     <h2 style="color:var(--accent);font-size:12px;letter-spacing:1px;">COMPANY LOOKUP</h2>
@@ -165,15 +170,41 @@ async function loadDash(){
   if(d.markets && d.markets.ok){ const k=d.markets.data; cards.push(`
     <div class="card">
       ${spark(k.sp500History, "#3fb950")}
-      <h2>Markets</h2>
+      <h2>Markets & Rates</h2>
       <div class="big pos">${k.sp500.toLocaleString(undefined,{maximumFractionDigits:0})}</div>
       <div class="note" style="margin-top:-8px">S&P 500</div>
+      ${row("Fed funds rate", k.fedFunds.toFixed(2)+"%", "accent")}
       ${row("10-yr Treasury", k.tenYear.toFixed(2)+"%", "blue")}
       ${row("30-yr mortgage", k.mortgage30.toFixed(2)+"%")}
-      <div class="note">Mortgages ≈ 10-yr yield + ~2%. Watch the 10-yr, not the Fed.</div>
+      <div class="note">Fed sets the short rate; the 10-yr drives mortgages (≈10-yr + 2%).</div>
     </div>`); } else if(d.markets) cards.push(errCard("Markets", d.markets.error));
 
+  if(d.housing && d.housing.ok){ const h=d.housing.data; cards.push(`
+    <div class="card">
+      ${spark(h.caseShillerHistory, "#d29922")}
+      <h2>Housing</h2>
+      <div class="big">$${(h.medianPrice/1000).toFixed(0)}K</div>
+      <div class="note" style="margin-top:-8px">median home price</div>
+      ${row("Home prices YoY", (h.caseShillerYoY>=0?"+":"")+h.caseShillerYoY.toFixed(1)+"%", h.caseShillerYoY>=0?"pos":"neg")}
+      ${row("30-yr mortgage", h.mortgage30.toFixed(2)+"%")}
+      ${row("Housing starts", (h.housingStarts/1000).toFixed(2)+"M/yr")}
+      <div class="note">High rates froze the market: prices flat, few sellers (lock-in effect).</div>
+    </div>`); } else if(d.housing) cards.push(errCard("Housing", d.housing.error));
+
   document.getElementById("cards").innerHTML = cards.join("");
+
+  // Interest rates by year (under the cards)
+  if(d.markets && d.markets.ok && d.markets.data.rateHistory){
+    const rh=d.markets.data.rateHistory;
+    const head=`<tr><th>Year</th><th>Fed funds</th><th>10-yr Treasury</th><th>30-yr mortgage</th></tr>`;
+    const body=rh.map(r=>`<tr>
+      <td>${r.year}</td>
+      <td class="accent">${r.fedFunds!=null?r.fedFunds.toFixed(2)+"%":"–"}</td>
+      <td class="blue">${r.tenYear!=null?r.tenYear.toFixed(2)+"%":"–"}</td>
+      <td>${r.mortgage!=null?r.mortgage.toFixed(2)+"%":"–"}</td></tr>`).join("");
+    document.getElementById("rates").innerHTML=`<div class="card scroll"><table>${head}${body}</table>
+      <div class="note">Annual averages. See the 0% COVID era (2020–21), the fastest hikes in 40 years (2022–23), and today.</div></div>`;
+  }
 }
 
 async function loadStock(){

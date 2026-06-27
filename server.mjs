@@ -9,7 +9,7 @@ import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { fiscal, trade, money, banking, markets, stock, screen } from "./lib/data.mjs";
+import { fiscal, trade, money, banking, markets, housing, stock, screen } from "./lib/data.mjs";
 
 const DEFAULT_WATCHLIST = ["NVDA", "AMD", "MU", "PLTR", "RBLX", "MSFT", "META", "GOOGL", "AMZN", "INTC", "DELL", "AVGO"];
 
@@ -56,7 +56,8 @@ const server = http.createServer(async (req, res) => {
         settled("banking", () => cached("banking", TEN_MIN, banking)),
         settled("markets", () => cached("markets", TEN_MIN, markets)),
       ]);
-      return sendJSON(res, 200, { fiscal: f, trade: t, money: m, banking: b, markets: mk });
+      const h = await settled("housing", () => cached("housing", TEN_MIN, housing));
+      return sendJSON(res, 200, { fiscal: f, trade: t, money: m, banking: b, markets: mk, housing: h });
     }
     if (u.pathname === "/api/stock") {
       const ticker = (u.searchParams.get("ticker") || "").trim().toUpperCase();
