@@ -15,7 +15,10 @@
   .sub { color:var(--dim); font-size:12px; margin-top:4px; }
   main { padding:24px 28px; max-width:1200px; margin:0 auto; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; position:relative; }
+  .spark { position:absolute; top:16px; right:18px; opacity:.9; }
+  .stock .spark { position:static; }
+  .scroll { overflow-x:auto; }
   .card h2 { margin:0 0 12px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--accent); }
   .row { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dashed #1c2430; }
   .row:last-child { border-bottom:0; }
@@ -75,40 +78,72 @@ const sign = (n) => n<0?"neg":"pos";
 
 function row(k,v,cls=""){ return `<div class="row"><span class="k">${k}</span><span class="v ${cls}">${v}</span></div>`; }
 
+// Inline SVG sparkline (line) — no library.
+function spark(vals, color, w=150, h=36){
+  vals = (vals||[]).filter(v=>Number.isFinite(v));
+  if(vals.length<2) return "";
+  const min=Math.min(...vals), max=Math.max(...vals), rng=(max-min)||1;
+  const pts = vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-((v-min)/rng)*(h-4)-2).toFixed(1)}`).join(" ");
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <polyline fill="none" stroke="${color}" stroke-width="2" points="${pts}"/></svg>`;
+}
+// Inline SVG bars (for revenue).
+function bars(vals, color, w=150, h=36){
+  vals = (vals||[]).filter(v=>Number.isFinite(v));
+  if(!vals.length) return "";
+  const max=Math.max(...vals.map(Math.abs))||1, bw=w/vals.length;
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`+
+    vals.map((v,i)=>{const bh=Math.abs(v)/max*(h-4);return `<rect x="${(i*bw+1).toFixed(1)}" y="${(h-bh).toFixed(1)}" width="${(bw-2).toFixed(1)}" height="${bh.toFixed(1)}" fill="${color}"/>`;}).join("")+
+  `</svg>`;
+}
+
+const errCard = (label, msg) => `<div class="card"><h2>${label}</h2><div class="err">⚠ ${msg}</div></div>`;
+
 async function loadDash(){
   const d = await (await fetch("/api/dashboard")).json();
-  const f=d.fiscal, t=d.trade, m=d.money, b=d.banking;
   document.getElementById("ts").textContent = "updated " + new Date().toLocaleString();
-  document.getElementById("cards").innerHTML = `
+  const cards = [];
+
+  if(d.fiscal.ok){ const f=d.fiscal.data; cards.push(`
     <div class="card">
+      ${spark(f.debtHistory, "#f85149")}
       <h2>Government — FY${f.fy}</h2>
       <div class="big neg">${T(f.debt)}</div>
-      <div class="note" style="margin-top:-8px">national debt</div>
+      <div class="note" style="margin-top:-8px">national debt ↗</div>
       ${row("Receipts (taxes)", T(f.receipts), "blue")}
       ${row("Outlays (spending)", T(f.outlays))}
       ${row("Deficit", T(f.deficit), "neg")}
       ${row("Interest so far", T(f.interestFytd), "neg")}
       <div class="note">Borrowing $${(f.deficit/f.outlays).toFixed(2)} of every $1 spent.</div>
-    </div>
+    </div>`); } else cards.push(errCard("Government", d.fiscal.error));
+
+  if(d.trade.ok){ const t=d.trade.data; cards.push(`
     <div class="card">
+      ${spark(t.niipHistory, "#f85149")}
       <h2>Trade & World</h2>
       <div class="big neg">${T(t.niip)}</div>
-      <div class="note" style="margin-top:-8px">net int'l investment position</div>
+      <div class="note" style="margin-top:-8px">net int'l investment position ↘</div>
       ${row("Current account /qtr", T(t.currentAccount), "neg")}
       ${row("% of GDP", P(t.caPctGdp/100), "neg")}
       ${row("Trade balance /mo", T(t.tradeBalance), "neg")}
       <div class="note">The world owns ${T(-t.niip)} more of the US than vice-versa.</div>
-    </div>
+    </div>`); } else cards.push(errCard("Trade & World", d.trade.error));
+
+  if(d.money.ok){ const m=d.money.data; cards.push(`
     <div class="card">
+      ${spark(m.m2History, "#58a6ff")}
       <h2>Money</h2>
       <div class="big blue">${T(m.m2)}</div>
-      <div class="note" style="margin-top:-8px">M2 money supply</div>
+      <div class="note" style="margin-top:-8px">M2 money supply ↗</div>
       ${row("Cash in circulation", T(m.cash))}
       ${row("Printed 2020–21", T(m.printed2020_21), "neg")}
       ${row("…growth", "+"+m.printedPct.toFixed(0)+"%", "neg")}
       <div class="note">~40% of all dollars were created in two years.</div>
-    </div>
+    </div>`); } else cards.push(errCard("Money", d.money.error));
+
+  if(d.banking.ok){ const b=d.banking.data; cards.push(`
     <div class="card">
+      ${spark(b.assetsHistory, "#3fb950")}
       <h2>Banks — ${b.quarter}</h2>
       <div class="big">${T(b.assets)}</div>
       <div class="note" style="margin-top:-8px">${b.banks.toLocaleString()} banks · total assets</div>
@@ -116,7 +151,9 @@ async function loadDash(){
       ${row("Securities held", T(b.securities), "blue")}
       ${row("Equity cushion", T(b.equity)+" ("+P(b.equity/b.assets)+")")}
       <div class="note">Securities are mostly gov't debt — the 2023 SVB risk.</div>
-    </div>`;
+    </div>`); } else cards.push(errCard("Banks", d.banking.error));
+
+  document.getElementById("cards").innerHTML = cards.join("");
 }
 
 async function loadStock(){
@@ -132,25 +169,34 @@ async function loadStock(){
       <td class="${y.revGrowth>=0?'pos':'neg'}">${P(y.revGrowth)}</td>
       <td>${P(y.grossMargin)}</td>
       <td class="${(y.netIncome??0)>=0?'pos':'neg'}">${T(y.netIncome)}</td>
-      <td class="${(y.netMargin??0)>=0?'pos':'neg'}">${P(y.netMargin)}</td></tr>`).join("");
+      <td class="${(y.netMargin??0)>=0?'pos':'neg'}">${P(y.netMargin)}</td>
+      <td>${T(y.ocf)}</td>
+      <td class="${(y.fcf??0)>=0?'pos':'neg'}">${T(y.fcf)}</td></tr>`).join("");
     el.innerHTML = `
       <div class="card">
         <h2>${s.name} (${s.ticker})</h2>
-        <table>
-          <tr><th>Year</th><th>Revenue</th><th>Growth</th><th>GrossMgn</th><th>NetIncome</th><th>NetMgn</th></tr>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;margin-bottom:6px">
+          <div><div class="note" style="margin:0">Revenue (4yr)</div>${bars(s.series.map(y=>y.revenue), "#58a6ff", 180, 40)}</div>
+          <div><div class="note" style="margin:0">Price (1yr)</div>${spark(s.priceHistory, "#3fb950", 180, 40)}</div>
+        </div>
+        <div class="scroll"><table>
+          <tr><th>Year</th><th>Revenue</th><th>Growth</th><th>GrossMgn</th><th>NetIncome</th><th>NetMgn</th><th>OpCashFlow</th><th>FreeCashFlow</th></tr>
           ${rows}
           <tr style="font-weight:700"><td>TTM</td><td>${T(s.ttm.revenue)}</td><td>–</td><td>–</td>
             <td class="${(s.ttm.netIncome??0)>=0?'pos':'neg'}">${T(s.ttm.netIncome)}</td>
-            <td class="${(s.ttm.netMargin??0)>=0?'pos':'neg'}">${P(s.ttm.netMargin)}</td></tr>
-        </table>
+            <td class="${(s.ttm.netMargin??0)>=0?'pos':'neg'}">${P(s.ttm.netMargin)}</td>
+            <td>${T(s.ttm.ocf)}</td>
+            <td class="${(s.ttm.fcf??0)>=0?'pos':'neg'}">${T(s.ttm.fcf)}</td></tr>
+        </table></div>
         <div class="val-grid">
           <div class="val"><div class="l">Price</div><div class="n">$${s.price?.toFixed(2)??"–"}</div></div>
           <div class="val"><div class="l">Market cap</div><div class="n">${T(s.marketCap)}</div></div>
           <div class="val"><div class="l">P / Sales</div><div class="n">${X(s.ps)}</div></div>
           <div class="val"><div class="l">P / Earnings</div><div class="n">${s.pe?X(s.pe):"n/a"}</div></div>
           <div class="val"><div class="l">P / Cash Flow</div><div class="n">${X(s.pcf)}</div></div>
+          <div class="val"><div class="l">P / Free CF</div><div class="n">${s.pfcf?X(s.pfcf):"n/a"}</div></div>
         </div>
-        <div class="note">High P/S, P/E, P/CF = good news already priced in. Read margins + valuation together.</div>
+        <div class="note">Free Cash Flow = operating cash − capex. Negative FCF (Oracle-style) = burning cash on buildout despite "profits". High P/S, P/E, P/CF = priced for perfection.</div>
       </div>`;
   }catch(e){ el.innerHTML=`<div class="err">⚠ ${e.message}</div>`; }
   btn.disabled=false; btn.textContent="Look up";

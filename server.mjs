@@ -19,6 +19,24 @@ const sendJSON = (res, code, obj) => {
   res.end(JSON.stringify(obj));
 };
 
+// Simple in-memory cache so we don't re-hit the APIs (esp. FDIC's 4,352 banks)
+// on every page load. Macro data updates daily/quarterly, so 10 min is plenty.
+const cache = new Map();
+async function cached(key, ttlMs, fn) {
+  const hit = cache.get(key);
+  if (hit && hit.exp > Date.now()) return hit.val;
+  const val = await fn();
+  cache.set(key, { val, exp: Date.now() + ttlMs });
+  return val;
+}
+const TEN_MIN = 10 * 60 * 1000;
+
+// Settle each domain independently so one failing API doesn't blank the page.
+async function settled(label, fn) {
+  try { return { ok: true, data: await fn() }; }
+  catch (e) { return { ok: false, error: e.message, label }; }
+}
+
 const server = http.createServer(async (req, res) => {
   const u = new URL(req.url, `http://localhost:${PORT}`);
   try {
@@ -28,13 +46,19 @@ const server = http.createServer(async (req, res) => {
       return res.end(html);
     }
     if (u.pathname === "/api/dashboard") {
-      const [f, t, m, b] = await Promise.all([fiscal(), trade(), money(), banking()]);
+      // Each domain cached + settled independently → fast and fault-tolerant.
+      const [f, t, m, b] = await Promise.all([
+        settled("fiscal", () => cached("fiscal", TEN_MIN, fiscal)),
+        settled("trade", () => cached("trade", TEN_MIN, trade)),
+        settled("money", () => cached("money", TEN_MIN, money)),
+        settled("banking", () => cached("banking", TEN_MIN, banking)),
+      ]);
       return sendJSON(res, 200, { fiscal: f, trade: t, money: m, banking: b });
     }
     if (u.pathname === "/api/stock") {
-      const ticker = (u.searchParams.get("ticker") || "").trim();
+      const ticker = (u.searchParams.get("ticker") || "").trim().toUpperCase();
       if (!ticker) return sendJSON(res, 400, { error: "missing ?ticker=" });
-      return sendJSON(res, 200, await stock(ticker));
+      return sendJSON(res, 200, await cached(`stock:${ticker}`, TEN_MIN, () => stock(ticker)));
     }
     res.writeHead(404).end("Not found");
   } catch (err) {
