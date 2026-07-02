@@ -28,28 +28,37 @@ async function cikFor(ticker) {
 }
 
 const days = (a, b) => (Date.parse(b) - Date.parse(a)) / 86_400_000;
+const PERIODIC_FORMS = new Set(["10-K", "10-Q", "20-F", "6-K"]);
 
-// Raw 10-K + 10-Q data points -> [{ end, month, val, dur }]. dur=null for
+// Raw filing data points -> [{ end, month, val, dur }]. dur=null for
 // balance-sheet (instant) items; ~365 = full year; ~90 = a single quarter.
-async function raw(cik, tag) {
+// ns = "us-gaap" for domestic filers, "ifrs-full" for foreign private issuers.
+async function raw(cik, tag, ns = "us-gaap") {
   let d;
   try {
-    d = await getJSON(`https://data.sec.gov/api/xbrl/companyconcept/CIK${cik}/us-gaap/${tag}.json`);
+    d = await getJSON(`https://data.sec.gov/api/xbrl/companyconcept/CIK${cik}/${ns}/${tag}.json`);
   } catch {
     return [];
   }
   const out = [];
   for (const u of d.units?.USD || []) {
-    if ((u.form !== "10-K" && u.form !== "10-Q") || !u.end) continue;
+    if (!PERIODIC_FORMS.has(u.form) || !u.end) continue;
     out.push({ end: u.end, month: u.end.slice(5, 7), val: u.val, dur: u.start ? days(u.start, u.end) : null });
   }
   return out;
 }
 
 // Merge all candidate tags' rows (companies switch XBRL tags over the years).
-async function combine(cik, tags) {
-  const all = await Promise.all(tags.map((t) => raw(cik, t)));
+async function combine(cik, tags, ns = "us-gaap") {
+  const all = await Promise.all(tags.map((t) => raw(cik, t, ns)));
   return all.flat();
+}
+
+// Try US GAAP tags first; if empty, fall back to IFRS equivalents.
+// Handles foreign private issuers (20-F filers like TSM, ASML, etc.).
+async function gaapOrIfrs(cik, gaapTags, ifrsTags) {
+  const rows = await combine(cik, gaapTags);
+  return rows.length ? rows : combine(cik, ifrsTags, "ifrs-full");
 }
 
 // Fiscal year-end month, taken from the most recent full-year revenue period (for display only).
@@ -75,17 +84,7 @@ function annualMapMax(rows) {
   }
   return m;
 }
-// Balance-sheet snapshots (10-K instants are all fiscal year-ends): key by end-year,
-// keeping the latest date per year — robust across any fiscal calendar / 52-53wk drift.
-function instantMap(rows) {
-  const m = {}, seen = {};
-  for (const r of rows) {
-    if (r.dur !== null) continue;
-    const y = +r.end.slice(0, 4);
-    if (!seen[y] || r.end > seen[y]) { seen[y] = r.end; m[y] = r.val; }
-  }
-  return m;
-}
+
 
 // Distinct single quarters (~90-day periods), deduped by end date, ascending.
 function quarters(rows) {
@@ -165,6 +164,24 @@ async function sharesOutstanding(cik) {
   );
 }
 
+// Check EDGAR submissions for annual filings (10-K or 20-F) newer than latestDataYear.
+// Returns the most recent filing date + form if one exists, else null.
+async function newerAnnualFiling(cik, latestDataYear) {
+  try {
+    const d = await getJSON(`https://data.sec.gov/submissions/CIK${cik}.json`);
+    const f = d.filings?.recent;
+    if (!f) return null;
+    let best = null;
+    for (let i = 0; i < f.form.length; i++) {
+      if (f.form[i] !== "10-K" && f.form[i] !== "20-F") continue;
+      const fy = +f.filingDate[i].slice(0, 4);
+      if (fy > latestDataYear && (!best || f.filingDate[i] > best.date))
+        best = { form: f.form[i], date: f.filingDate[i], doc: f.primaryDocument[i] };
+    }
+    return best;
+  } catch { return null; }
+}
+
 const B = (n) => (n == null ? "-" : `$${(n / 1e9).toFixed(1)}B`);
 const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
 
@@ -172,24 +189,29 @@ const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
   try {
     const { cik, name } = await cikFor(TICKER);
     const [revR, gpR, niR, rndR, ocfR, cashR, dbtCR, dbtNCR, eqR] = await Promise.all([
-      combine(cik, ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueNet"]),
-      raw(cik, "GrossProfit"),
-      raw(cik, "NetIncomeLoss"),
-      raw(cik, "ResearchAndDevelopmentExpense"),
-      combine(cik, ["NetCashProvidedByUsedInOperatingActivities", "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"]),
-      combine(cik, ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"]),
-      raw(cik, "LongTermDebtCurrent"),
-      combine(cik, ["LongTermDebtNoncurrent", "LongTermDebt"]),
-      combine(cik, ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"]),
+      gaapOrIfrs(cik, ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueNet"], ["Revenue", "RevenueFromContractsWithCustomers"]),
+      gaapOrIfrs(cik, ["GrossProfit"], ["GrossProfit"]),
+      gaapOrIfrs(cik, ["NetIncomeLoss"], ["ProfitLoss", "ProfitLossAttributableToOwnersOfParent"]),
+      gaapOrIfrs(cik, ["ResearchAndDevelopmentExpense"], ["ResearchAndDevelopmentExpense"]),
+      gaapOrIfrs(cik, ["NetCashProvidedByUsedInOperatingActivities", "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"], ["CashFlowsFromUsedInOperatingActivities"]),
+      gaapOrIfrs(cik, ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"], ["CashAndCashEquivalents"]),
+      gaapOrIfrs(cik, ["LongTermDebtCurrent"], ["CurrentPortionOfLongtermBorrowings"]),
+      gaapOrIfrs(cik, ["LongTermDebtNoncurrent", "LongTermDebt"], ["NoncurrentPortionOfLongtermBorrowings", "LongtermBorrowings"]),
+      gaapOrIfrs(cik, ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"], ["Equity", "EquityAttributableToOwnersOfParent"]),
     ]);
 
     const fyMonth = annualMapMonth(revR);
     const rev = annualMapMax(revR), gp = annualMap(gpR), ni = annualMap(niR);
     const rnd = annualMap(rndR), ocf = annualMap(ocfR);
-    const cash = instantMap(cashR), dbtC = instantMap(dbtCR);
-    const dbtNC = instantMap(dbtNCR), eq = instantMap(eqR);
 
-    const px = await prices(TICKER);          // Yahoo monthly closes (free, keyless)
+    const [px, lagCheck] = await Promise.all([
+      prices(TICKER),
+      (async () => {
+        const years = [...new Set([...Object.keys(rev), ...Object.keys(ni)])].map(Number).sort();
+        const latestDataYear = years[years.length - 1] ?? 0;
+        return newerAnnualFiling(cik, latestDataYear);
+      })(),
+    ]);
     const ends = annualEnds(revR);            // fiscal-year-end dates, for price lookup
 
     const years = [...new Set([...Object.keys(rev), ...Object.keys(ni)])].map(Number).sort().slice(-4);
@@ -229,6 +251,11 @@ const P = (n) => (n == null ? "-" : `${(n * 100).toFixed(1)}%`);
         `  TTM*  ${B(tRev.val).padEnd(9)}  ${g.padStart(8)}   ${gm.padStart(7)}  ${B(tNi?.val).padEnd(10)}  ${nm.padStart(6)}   ${B(tRnd?.val).padEnd(7)}   ${B(tOcf?.val).padEnd(10)}   ${D(nowPx).padStart(7)}  (now)`
       );
       console.log(`  * TTM = trailing 12 months through ${tRev.through} (10-Q filings; FY not yet closed). StockPx* = price near each fiscal year-end.`);
+    }
+
+    if (lagCheck) {
+      console.log(`\n  ⚠  ${lagCheck.form} for a newer fiscal year was filed ${lagCheck.date} but EDGAR hasn't`);
+      console.log(`     indexed its XBRL yet — financials above stop at ${Math.max(...years)}. Check back in a few weeks.`);
     }
 
     // Current balance sheet — latest available quarter, not just the last fiscal year-end.

@@ -16,6 +16,7 @@ Built as a learning toolkit for understanding how the US economy actually works 
 | `node scripts/banking-snapshot.mjs` | All ~4,350 US banks: assets, deposits, securities, capital | [FDIC](https://banks.data.fdic.gov/docs/) |
 | `node scripts/money-supply.mjs` | M2, cash in circulation, the 2020–21 "money printing" | [FRED](https://fred.stlouisfed.org/) (St. Louis Fed) |
 | `node scripts/trade-balance.mjs` | Current-account deficit, trade balance, net international investment position | [FRED](https://fred.stlouisfed.org/) / BEA |
+| `node scripts/spending-by-category.mjs [FY]` | Federal spending by budget function (Medicare, Social Security, Defense…), ranked biggest-first | [USAspending.gov](https://www.usaspending.gov/) |
 | `node scripts/stock-fundamentals.mjs TICKER` | Revenue, margins, profit, R&D, cash flow, balance sheet, **stock price**, a current trailing-12-month (TTM) row, and **valuation** (market cap, P/S, P/E, P/CF) | [SEC EDGAR](https://www.sec.gov/edgar/search/) + [Yahoo Finance](https://finance.yahoo.com/) |
 | `node scripts/revenue-growth.mjs [TICKERS...]` | Screen a watchlist by revenue growth + margin trend; flags 20%+ growers | [SEC EDGAR](https://www.sec.gov/edgar/search/) |
 

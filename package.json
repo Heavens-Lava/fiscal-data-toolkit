@@ -11,6 +11,7 @@
     "stock": "node scripts/stock-fundamentals.mjs",
     "screen": "node scripts/revenue-growth.mjs",
     "trade": "node scripts/trade-balance.mjs",
+    "spending": "node scripts/spending-by-category.mjs",
     "dashboard": "node scripts/dashboard.mjs",
     "web": "node server.mjs"
   },
