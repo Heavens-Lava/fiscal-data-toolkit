@@ -11,8 +11,11 @@ const USASPEND = "https://api.usaspending.gov/api/v2";
 const UA_H = { "User-Agent": "fiscal-data-toolkit/1.0" };
 
 // US fiscal year ends Sep 30. Default = most recently completed FY.
+// Pass a 4-digit year to pick the FY; pass --contractors for the top-companies view.
 const now = new Date();
-const FY = parseInt(process.argv[2] || (now.getMonth() >= 9 ? now.getFullYear() : now.getFullYear() - 1));
+const ARGS = process.argv.slice(2);
+const WANT_CONTRACTORS = ARGS.includes("--contractors");
+const FY = parseInt(ARGS.find((a) => /^\d{4}$/.test(a)) || (now.getMonth() >= 9 ? now.getFullYear() : now.getFullYear() - 1));
 
 async function getJSON(url) {
   const res = await fetch(url, { headers: UA_H });
@@ -111,9 +114,71 @@ function getPopulation() {
   };
 }
 
+// Roll subsidiaries up to their parent conglomerate for a cleaner ranking.
+function parentOf(name) {
+  const n = (name || "").toUpperCase();
+  const map = [
+    [/LOCKHEED|SIKORSKY/, "Lockheed Martin"],
+    [/GENERAL DYNAMICS|ELECTRIC BOAT|BATH IRON/, "General Dynamics"],
+    [/RAYTHEON|\bRTX\b|COLLINS AEROSPACE|PRATT & WHITNEY/, "RTX (Raytheon)"],
+    [/BOEING/, "Boeing"],
+    [/NORTHROP/, "Northrop Grumman"],
+    [/L3HARRIS|L-3|HARRIS CORP/, "L3Harris"],
+    [/HUNTINGTON INGALLS/, "Huntington Ingalls"],
+    [/BAE SYSTEMS/, "BAE Systems"],
+    [/GENERAL ELECTRIC|GE AEROSPACE/, "GE Aerospace"],
+    [/OPTUM|UNITEDHEALTH/, "Optum (UnitedHealth)"],
+    [/HUMANA/, "Humana"],
+    [/MCKESSON/, "McKesson"],
+    [/AMERISOURCE|CENCORA/, "Cencora (AmerisourceBergen)"],
+    [/TRIWEST/, "TriWest Healthcare"],
+    [/BOOZ ALLEN/, "Booz Allen Hamilton"],
+    [/SCIENCE APPLICATIONS|\bSAIC\b/, "SAIC"],
+    [/LEIDOS/, "Leidos"],
+    [/NATIONAL TECHNOLOGY & ENGINEERING|SANDIA/, "Sandia National Labs"],
+    [/TRIAD NATIONAL|LOS ALAMOS/, "Los Alamos National Lab"],
+  ];
+  for (const [re, label] of map) if (re.test(n)) return label;
+  return (name || "?").replace(/,/g, "").replace(/\b(CORPORATION|CORP|INCORPORATED|INC|COMPANY|LLC|LTD)\b\.?/gi, "").replace(/\s+/g, " ").trim();
+}
+
+// Top federal contractors (procurement award types A/B/C/D), rolled up by parent.
+async function getContractors() {
+  const data = await post(`${USASPEND}/search/spending_by_category/recipient/`, {
+    filters: { time_period: [{ start_date: `${FY - 1}-10-01`, end_date: `${FY}-09-30` }], award_type_codes: ["A", "B", "C", "D"] },
+    limit: 60,
+  });
+  const agg = {};
+  for (const r of data.results || []) {
+    const amt = Number(r.amount) || 0;
+    if (amt <= 0) continue;
+    const p = parentOf(r.name);
+    agg[p] = (agg[p] || 0) + amt;
+  }
+  return Object.entries(agg).sort((a, b) => b[1] - a[1]);
+}
+
 (async () => {
   console.log(`\n  U.S. Federal Spending — FY${FY}  (Oct ${FY - 1} → Sep ${FY})`);
   console.log("  Source: Treasury Fiscal Data API + USASpending.gov\n");
+
+  // ── Contractors view (--contractors): who the government buys from ─────────
+  if (WANT_CONTRACTORS) {
+    try {
+      const rows = await getContractors();
+      console.log("  ── Top Federal Contractors  (procurement, rolled up by parent) ─────────");
+      console.log("  #   Company                                Amount");
+      console.log("  ──  ─────────────────────────────────────  ─────────");
+      rows.slice(0, 20).forEach(([name, amt], i) => {
+        console.log(`  ${String(i + 1).padStart(2)}  ${name.slice(0, 38).padEnd(38)}  ${money(amt).padStart(9)}`);
+      });
+      console.log("\n  Procurement contracts only (the government buying goods/services) — separate");
+      console.log("  from grants & direct payments (Social Security, Medicaid) to people/states.\n");
+    } catch (err) {
+      console.log(`  [contractor data unavailable: ${err.message}]\n`);
+    }
+    return;
+  }
 
   // ── Section 1: By Budget Function/Agency ───────────────────────────────────
   // MTS Table 9 = Outlays by Agency and Bureau (FYTD through Sep = full year)
