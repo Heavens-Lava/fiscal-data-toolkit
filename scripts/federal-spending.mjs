@@ -64,13 +64,11 @@ async function fetchMTS(table) {
   return { date, rows: all.data || [] };
 }
 
-// Pick an outlay dollar field from the first row.
+// Pick the FYTD dollar field and description field from a sample row.
 function pickAmtField(sample) {
-  // Prefer FYTD net outlay fields; fall back to gross; last resort any outlay field.
   return (
-    Object.keys(sample).find(k => /fytd.*net.*outly|net.*outly.*fytd/i.test(k)) ||
-    Object.keys(sample).find(k => /fytd.*outly|outly.*fytd/i.test(k)) ||
-    Object.keys(sample).find(k => /gross.*outly|outly.*gross/i.test(k)) ||
+    Object.keys(sample).find(k => /current_fytd_rcpt_outly_amt/i.test(k)) ||
+    Object.keys(sample).find(k => /fytd.*rcpt.*outly|fytd.*outly/i.test(k)) ||
     Object.keys(sample).find(k => /outly/i.test(k) && k.includes("amt"))
   );
 }
@@ -94,16 +92,23 @@ async function getStateSpending() {
   });
 }
 
-// Census state populations for per-capita math.
-async function getPopulation() {
-  try {
-    const rows = await getJSON(
-      `https://api.census.gov/data/2023/pep/population?get=NAME,POP_2023&for=state:*`
-    );
-    const pop = {};
-    for (const [name, p] of rows.slice(1)) pop[name] = parseInt(p);
-    return pop;
-  } catch { return {}; }
+// 2023 Census Bureau population estimates (hardcoded — avoids Census API key requirement).
+function getPopulation() {
+  return {
+    "Alabama": 5108468, "Alaska": 733583, "Arizona": 7431344, "Arkansas": 3067732,
+    "California": 38965193, "Colorado": 5877610, "Connecticut": 3617176, "Delaware": 1031890,
+    "Florida": 22610726, "Georgia": 11029227, "Hawaii": 1435138, "Idaho": 1964726,
+    "Illinois": 12549689, "Indiana": 6862199, "Iowa": 3207004, "Kansas": 2940865,
+    "Kentucky": 4526154, "Louisiana": 4573749, "Maine": 1395722, "Maryland": 6180253,
+    "Massachusetts": 7001399, "Michigan": 10037261, "Minnesota": 5737915, "Mississippi": 2939690,
+    "Missouri": 6196156, "Montana": 1132812, "Nebraska": 1978379, "Nevada": 3194176,
+    "New Hampshire": 1402054, "New Jersey": 9290841, "New Mexico": 2114371, "New York": 19571216,
+    "North Carolina": 10835491, "North Dakota": 783926, "Ohio": 11785935, "Oklahoma": 4053824,
+    "Oregon": 4233358, "Pennsylvania": 12961683, "Rhode Island": 1095962, "South Carolina": 5373555,
+    "South Dakota": 919318, "Tennessee": 7126489, "Texas": 30503301, "Utah": 3417734,
+    "Vermont": 647464, "Virginia": 8715698, "Washington": 7812880, "West Virginia": 1770071,
+    "Wisconsin": 5892539, "Wyoming": 584057, "District Of Columbia": 678972, "Puerto Rico": 3205691,
+  };
 }
 
 (async () => {
@@ -126,30 +131,53 @@ async function getPopulation() {
       const descField = pickDescField(sample);
       if (!amtField || !descField) continue;
 
-      // Keep only positive outlay rows; skip grand-total / memo / offsetting lines.
-      const skip = /^(total|subtotal|memo:|offsetting|undistrib|net interest|allowance)/i;
-      const meaningful = rows
-        .filter(r => {
-          const desc = (r[descField] || "").trim();
-          const amt  = Number(r[amtField]);
-          return desc && amt >= 100_000_000 && !skip.test(desc);
-        })
-        .sort((a, b) => Number(b[amtField]) - Number(a[amtField]));
+      // record_type_cd "F" = budget function (outlays), "RSG" = receipts, "SL" = subtotals.
+      // Keep only function/outlay rows with a non-null amount.
+      const validAmt = (r) => { const v = Number(r[amtField]); return isFinite(v) && v !== 0; };
+      const outlayRows  = rows.filter(r => r.record_type_cd === "F"   && validAmt(r));
+      const receiptRows = rows.filter(r => r.record_type_cd === "RSG" && validAmt(r));
 
-      if (!meaningful.length) continue;
+      // If record_type_cd isn't available (different table), fall back to keyword filter.
+      const useRows = outlayRows.length ? outlayRows : rows.filter(r => {
+        const desc = (r[descField] || "").trim();
+        const amt  = Number(r[amtField]);
+        const skip = /^(total|subtotal|memo:|income tax|excise|estate|customs|miscellaneous receipt)/i;
+        return desc && amt >= 100_000_000 && !skip.test(desc);
+      });
 
-      const total = meaningful.reduce((s, r) => s + Number(r[amtField]), 0);
+      if (!useRows.length) continue;
 
-      console.log(`  ── Spending by Budget Function / Agency  (through ${date}) ──────────────`);
-      console.log("  Category                                          Amount       Share");
-      console.log("  ────────────────────────────────────────────────  ──────────── ──────");
-      for (const r of meaningful.slice(0, 35)) {
+      // Sort by amount descending; negative items (offsetting receipts) go to bottom.
+      const sorted = [...useRows].sort((a, b) => Number(b[amtField]) - Number(a[amtField]));
+      const grossTotal = sorted.filter(r => Number(r[amtField]) > 0).reduce((s, r) => s + Number(r[amtField]), 0);
+      const netTotal   = sorted.reduce((s, r) => s + Number(r[amtField]), 0);
+
+      console.log(`  ── Federal Spending by Budget Function  (FY${FY}, through ${date}) ────────`);
+      console.log("  Function                                          Amount       Share of gross");
+      console.log("  ────────────────────────────────────────────────  ──────────── ─────────────");
+      for (const r of sorted) {
         const name  = (r[descField] || "").slice(0, 48);
         const amt   = Number(r[amtField]);
-        const share = `${(amt / total * 100).toFixed(1)}%`;
-        console.log(`  ${name.padEnd(48)}  ${money(amt).padStart(12)}  ${share.padStart(5)}`);
+        const share = grossTotal && amt > 0 ? `${(amt / grossTotal * 100).toFixed(1)}%` : (amt < 0 ? "(offset)" : "-");
+        console.log(`  ${name.padEnd(48)}  ${money(amt).padStart(12)}  ${share.padStart(13)}`);
       }
-      console.log(`  ${"  TOTAL".padEnd(48)}  ${money(total).padStart(12)}`);
+      console.log(`  ${"  Gross outlays".padEnd(48)}  ${money(grossTotal).padStart(12)}`);
+      console.log(`  ${"  Net outlays (after offsets)".padEnd(48)}  ${money(netTotal).padStart(12)}`);
+
+      // Show where the money comes from (receipts) in a compact block.
+      if (receiptRows.length) {
+        const recSorted = [...receiptRows].sort((a, b) => Number(b[amtField]) - Number(a[amtField]));
+        const recTotal  = recSorted.reduce((s, r) => s + Number(r[amtField]), 0);
+        console.log(`\n  ── Funded by (FY${FY} tax receipts) ─────────────────────────────────────`);
+        for (const r of recSorted) {
+          const name = (r[descField] || "").slice(0, 48);
+          const amt  = Number(r[amtField]);
+          console.log(`  ${name.padEnd(48)}  ${money(amt).padStart(12)}`);
+        }
+        console.log(`  ${"  Total receipts".padEnd(48)}  ${money(recTotal).padStart(12)}`);
+        console.log(`  ${"  Deficit (borrowed)".padEnd(48)}  ${money(netTotal - recTotal).padStart(12)}`);
+      }
+
       funcPrinted = true;
     } catch (err) {
       // try next table
@@ -161,7 +189,8 @@ async function getPopulation() {
 
   // ── Section 2: By State ────────────────────────────────────────────────────
   try {
-    const [stateData, pop] = await Promise.all([getStateSpending(), getPopulation()]);
+    const [stateData] = await Promise.all([getStateSpending()]);
+    const pop = getPopulation();
     const states = (stateData?.results || [])
       .filter(s => s.display_name && s.aggregated_amount > 0)
       .sort((a, b) => b.aggregated_amount - a.aggregated_amount);
