@@ -59,23 +59,50 @@ async function treasuryDebt() {
   return { debt: Number(row.tot_pub_debt_out_amt), date: row.record_date };
 }
 
+// US gold reserves: Treasury reports fine troy ounces per storage facility
+// (Fort Knox, Denver, West Point, Federal Reserve Bank vaults, etc.) — sum
+// every facility's row for the latest reporting date to get the true total,
+// not just the Fort Knox figure most people have heard of.
+async function goldReserveOz() {
+  const latestRow = await fiscal("/v2/accounting/od/gold_reserve?sort=-record_date&page[size]=1");
+  const latestDate = latestRow.data[0].record_date;
+  const data = await fiscal(`/v2/accounting/od/gold_reserve?filter=record_date:eq:${latestDate}&page[size]=100`);
+  const totalOz = data.data.reduce((sum, row) => sum + Number(row.fine_troy_ounce_qty || 0), 0);
+  return { totalOz, date: latestDate };
+}
+
+async function goldSpotPriceUSD() {
+  const res = await fetch("https://api.gold-api.com/price/XAU");
+  if (!res.ok) throw new Error(`gold-api.com ${res.status}`);
+  const j = await res.json();
+  return { pricePerOz: Number(j.price), asOf: j.updatedAt };
+}
+
 const noImage = arg("--no-image");
 const stamp = new Date().toISOString().slice(0, 10);
 const outBase = path.join(SOCIAL, `money-debt-cash-${stamp}`);
 
 mkdirSync(SOCIAL, { recursive: true });
 
-const [m2Rows, cashRows, householdRows, federal, bank] = await Promise.all([
+const [m2Rows, cashRows, householdRows, federal, bank, gold, goldPrice] = await Promise.all([
   fred("M2SL"),
   fred("CURRCIR"),
   fred("CMDEBT"),
   treasuryDebt(),
   fdicDeposits(),
+  goldReserveOz(),
+  goldSpotPriceUSD(),
 ]);
 
 const m2 = last(m2Rows);
 const cash = last(cashRows);
 const household = last(householdRows);
+const m2Dollars = m2.v * 1e9;
+const cashDollars = cash.v * 1e9;
+// "Digital money" = M2 minus the physical-cash slice of it — i.e. money that
+// exists only as bank-ledger entries (checking/savings/money-market balances).
+const digitalDollars = m2Dollars - cashDollars;
+const goldValue = gold.totalOz * goldPrice.pricePerOz;
 
 const points = [
   {
@@ -84,13 +111,6 @@ const points = [
     date: federal.date,
     source: "Treasury FiscalData",
     color: C.neg,
-  },
-  {
-    label: "M2 money supply",
-    value: m2.v * 1e9,
-    date: m2.d,
-    source: "FRED M2SL",
-    color: C.s2,
   },
   {
     label: "Household/nonprofit debt",
@@ -107,17 +127,31 @@ const points = [
     color: "#6f6b63",
   },
   {
+    label: "Digital money (M2 minus cash)",
+    value: digitalDollars,
+    date: m2.d,
+    source: "FRED M2SL, CURRCIR",
+    color: C.s2,
+  },
+  {
     label: "Physical cash",
-    value: cash.v * 1e9,
+    value: cashDollars,
     date: cash.d,
     source: "FRED CURRCIR",
     color: "#9c6b2f",
   },
+  {
+    label: "US gold reserves (value)",
+    value: goldValue,
+    date: gold.date,
+    source: "Treasury FiscalData gold_reserve + gold-api.com spot price",
+    color: "#c9a227",
+  },
 ];
 
 const cashShare = (cash.v / m2.v) * 100;
-const depositsShare = (bank.deposits / (m2.v * 1e9)) * 100;
-const debtToM2 = federal.debt / (m2.v * 1e9);
+const depositsShare = (bank.deposits / m2Dollars) * 100;
+const debtToM2 = federal.debt / m2Dollars;
 const totalDebt = federal.debt + household.v * 1e6;
 
 const chartSVG = horizontalBarChart(
@@ -131,34 +165,38 @@ const html = cardHTML({
   hero: `${debtToM2.toFixed(1)}x`,
   heroLabel: "federal debt vs. M2 money supply",
   chartSVG,
-  source: "FRED, Treasury FiscalData, FDIC",
+  source: "FRED, Treasury FiscalData, FDIC, gold-api.com",
   vintage: stamp,
 });
 
 const facebook = [
   "Money check:",
   "",
-  `The U.S. M2 money supply is about ${money(m2.v * 1e9)} (${m2.d}). That is the broad bucket people usually mean by \"money in circulation\": cash, checking deposits, savings deposits, money-market funds, and similar liquid money.`,
+  `The U.S. M2 money supply is about ${money(m2Dollars)} (${m2.d}). That is the broad bucket people usually mean by \"money in circulation\": cash, checking deposits, savings deposits, money-market funds, and similar liquid money.`,
   "",
-  `But actual physical cash is only ${money(cash.v * 1e9)} (${cash.d}) - about ${cashShare.toFixed(1)}% of M2. Most money is digital bank balances, not paper bills.`,
+  `But actual physical cash is only ${money(cashDollars)} (${cash.d}) - about ${cashShare.toFixed(1)}% of M2. The other ${money(digitalDollars)} exists only as digital bank-ledger balances, not paper bills.`,
   "",
   `For scale: federal public debt is ${money(federal.debt)} (${federal.date}), and household/nonprofit debt is ${money(household.v * 1e6)} (${household.d}). Combined, those two are about ${money(totalDebt)}.`,
   "",
   `FDIC-insured banks held ${money(bank.deposits)} in deposits in ${bank.quarter} across ${bank.banks.toLocaleString("en-US")} institutions, equal to about ${depositsShare.toFixed(0)}% of M2.`,
   "",
-  "Important caveat: M2 is not total wealth, and debt is not the same thing as money. This is a scale check: how much liquid money exists, how much is physical cash, and how that compares with major debt buckets.",
+  `The U.S. government's entire gold reserve - ${Math.round(gold.totalOz).toLocaleString("en-US")} troy ounces across Fort Knox, Denver, West Point, and Federal Reserve Bank vaults (${gold.date}) - is worth about ${money(goldValue)} at today's spot price (~$${goldPrice.pricePerOz.toFixed(0)}/oz). That's smaller than physical cash in circulation, and a rounding error next to the money supply or the debt.`,
   "",
-  "Sources: FRED/Federal Reserve (M2SL, CURRCIR, CMDEBT), Treasury FiscalData, FDIC BankFind financials.",
+  "Important caveat: M2 is not total wealth, and debt is not the same thing as money. This is a scale check: how much liquid money exists, how much is physical cash vs. digital, how much gold backs none of it directly anymore, and how all of that compares with major debt buckets.",
+  "",
+  "Sources: FRED/Federal Reserve (M2SL, CURRCIR, CMDEBT), Treasury FiscalData (debt_to_penny, gold_reserve), FDIC BankFind financials, gold-api.com spot price.",
 ];
 
 const lines = [
   `Money, debt, and cash check (${stamp})`,
   "",
-  `M2 money supply: ${money(m2.v * 1e9)} (${m2.d})`,
-  `Physical cash in circulation: ${money(cash.v * 1e9)} (${cash.d})`,
+  `M2 money supply: ${money(m2Dollars)} (${m2.d})`,
+  `Digital money (M2 minus cash): ${money(digitalDollars)} (${m2.d})`,
+  `Physical cash in circulation: ${money(cashDollars)} (${cash.d})`,
   `Federal public debt: ${money(federal.debt)} (${federal.date})`,
   `Household/nonprofit debt: ${money(household.v * 1e6)} (${household.d})`,
   `FDIC bank deposits: ${money(bank.deposits)} (${bank.quarter})`,
+  `US gold reserves: ${Math.round(gold.totalOz).toLocaleString("en-US")} troy oz = ${money(goldValue)} (${gold.date}, spot ~$${goldPrice.pricePerOz.toFixed(0)}/oz)`,
   "",
   `Physical cash is ${cashShare.toFixed(1)}% of M2.`,
   `Federal debt is ${debtToM2.toFixed(1)}x M2.`,

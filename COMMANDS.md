@@ -177,6 +177,7 @@ node scripts/census-population-housing.mjs --state AZ --base 2020
 node scripts/census-population-housing.mjs --state CA --base 2020
 npm run census
 node scripts/census-topic-snapshot.mjs --topic migration --base 2020
+node scripts/census-topic-snapshot.mjs --topic migration --base 2020 --direction loss
 node scripts/census-topic-snapshot.mjs --topic housing --state AZ
 node scripts/census-topic-snapshot.mjs --topic income --state AZ
 node scripts/census-topic-snapshot.mjs --topic education --state AZ

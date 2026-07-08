@@ -68,11 +68,18 @@ for (const s of SERIES) {
 const jobs = rows.find((r) => r.id === "AZNA");
 const unemp = rows.find((r) => r.id === "AZUR");
 const gas = rows.find((r) => r.id === "APUS48A74714");
+const gdp = rows.find((r) => r.id === "AZNGSP");
 
+// Gas is left out of the comparison chart on purpose: it's a volatile,
+// largely national/oil-market-driven price, not a structural economic
+// indicator, and its swings (±30-40%/yr) dwarf jobs/income/GDP/housing on
+// a shared axis, burying the more meaningful signal. It still appears in
+// the text table below, and gets its own dedicated card via the
+// weekly-digest "gas-az" topic.
 const chartSVG = horizontalBarChart(
   rows
-    .filter((r) => r.unit !== "percent")
-    .map((r) => ({ label: r.label, v: r.chgRaw, color: r.id === "APUS48A74714" ? C.neg : C.s1 }))
+    .filter((r) => r.unit !== "percent" && r.id !== "APUS48A74714")
+    .map((r) => ({ label: r.label, v: r.chgRaw, color: C.s1 }))
     .sort((a, b) => b.v - a.v),
   {
     fmtTick: (t) => `${Math.round(t)}%`,
@@ -82,12 +89,12 @@ const chartSVG = horizontalBarChart(
 
 const html = cardHTML({
   kicker: "Arizona economy check",
-  title: "One-year change across Arizona jobs, income, housing, and gas",
-  hero: gas.chg,
-  heroLabel: `Phoenix regular gas through ${gas.latest.d}`,
+  title: "One-year change across Arizona jobs, income, and housing",
+  hero: gdp.chg,
+  heroLabel: `Arizona nominal GDP through ${gdp.latest.d}`,
   chartSVG,
   source: "FRED",
-  vintage: gas.latest.d,
+  vintage: gdp.latest.d,
 });
 
 const lines = [

@@ -30,11 +30,11 @@ const TOPICS = {
     title: "Housing",
     kicker: "Census housing check",
     vars: {
-      "DP04_0003PE": ["Vacancy rate", "pct"],
-      "DP02_0016E": ["Average household size", "num1"],
       "DP04_0046PE": ["Homeownership rate", "pct"],
-      "DP04_0134E": ["Median gross rent", "money"],
       "DP04_0089E": ["Median home value", "money"],
+      "DP04_0134E": ["Median gross rent", "money"],
+      "DP04_0003PE": ["Vacancy rate", "pct"],
+      "DP02_0016E": ["Average household size", "num1", "people"],
       "DP04_0017PE": ["Housing built 2020 or later", "pct"],
       "DP04_0018PE": ["Housing built 2010-2019", "pct"],
       "DP04_0019PE": ["Housing built 2000-2009", "pct"],
@@ -59,6 +59,8 @@ const TOPICS = {
       "DP02_0066PE": ["Graduate or professional degree", "pct"],
       "DP02_0068PE": ["Bachelor's degree or higher", "pct"],
       "DP02_0058PE": ["Enrolled in college or graduate school", "pct"],
+      "DP02_0061PE": ["No diploma (9th-12th grade)", "pct"],
+      "DP02_0060PE": ["Less than 9th grade", "pct"],
     },
   },
   family: {
@@ -81,7 +83,7 @@ const TOPICS = {
       "DP03_0019PE": ["Drove alone to work", "pct"],
       "DP03_0021PE": ["Used public transportation", "pct"],
       "DP03_0024PE": ["Worked from home", "pct"],
-      "DP03_0025PE": ["Mean travel time to work", "num1"],
+      "DP03_0025E": ["Mean travel time to work", "num1", "min"],
       "DP03_0027PE": ["Management/business/science/arts occupations", "pct"],
     },
   },
@@ -89,26 +91,27 @@ const TOPICS = {
     title: "Demographics",
     kicker: "Census demographics check",
     vars: {
-      "DP05_0005PE": ["Under age 5", "pct"],
+      "DP05_0018E": ["Median age", "num1", "years"],
+      "DP05_0001E": ["Total population", "count"],
+      "DP05_0090PE": ["Hispanic or Latino", "pct"],
       "DP05_0019PE": ["Under age 18", "pct"],
-      "DP05_0018PE": ["Median age", "num1"],
+      "DP05_0005PE": ["Under age 5", "pct"],
       "DP05_0024PE": ["Age 65+", "pct"],
       "DP02_0094PE": ["Foreign-born population", "pct"],
       "DP05_0037PE": ["White alone", "pct"],
       "DP05_0045PE": ["Black or African American alone", "pct"],
       "DP05_0061PE": ["Asian alone", "pct"],
-      "DP05_0090PE": ["Hispanic or Latino", "pct"],
     },
   },
   "health-social": {
     title: "Health-adjacent and social",
     kicker: "Census health/social check",
     vars: {
-      "DP02_0072PE": ["With a disability", "pct"],
       "DP03_0096PE": ["With health insurance", "pct"],
+      "DP02_0154PE": ["Households with broadband", "pct"],
+      "DP02_0072PE": ["With a disability", "pct"],
       "DP03_0099PE": ["No health insurance", "pct"],
       "DP02_0153PE": ["Households with a computer", "pct"],
-      "DP02_0154PE": ["Households with broadband", "pct"],
       "DP04_0058PE": ["Occupied households with no vehicle", "pct"],
     },
   },
@@ -157,11 +160,11 @@ function parseValue(v) {
   return Number.isFinite(n) && n > -100000 ? n : null;
 }
 
-function fmt(v, type) {
+function fmt(v, type, unit) {
   if (v == null) return "n/a";
   if (type === "money") return `$${Math.round(v).toLocaleString("en-US")}`;
   if (type === "pct") return `${v.toFixed(1)}%`;
-  if (type === "num1") return v.toFixed(1);
+  if (type === "num1") return unit ? `${v.toFixed(1)} ${unit}` : v.toFixed(1);
   if (type === "payroll") return money(v);
   return Math.round(v).toLocaleString("en-US");
 }
@@ -195,32 +198,35 @@ async function getJSON(url) {
   }
 }
 
-async function acs(year, variables, forClause, key) {
+async function acs(year, variables, forClause, key, dataset = "acs5") {
   const qs = new URLSearchParams({ get: ["NAME", ...variables].join(","), for: forClause, key });
-  const json = await getJSON(`https://api.census.gov/data/${year}/acs/acs5/profile?${qs}`);
+  const json = await getJSON(`https://api.census.gov/data/${year}/acs/${dataset}/profile?${qs}`);
   const [header, ...rows] = json;
   return rows.map((row) => Object.fromEntries(header.map((h, i) => [h, row[i]])));
 }
 
-async function latestAcsYear(key) {
+async function latestAcsYear(key, dataset = "acs5") {
   for (const year of [2025, 2024, 2023, 2022, 2021, 2020]) {
     try {
-      await acs(year, ["DP05_0001E"], "state:04", key);
+      await acs(year, ["DP05_0001E"], "state:04", key, dataset);
       return year;
     } catch (err) {
       if (/key/i.test(err.message)) throw err;
     }
   }
-  throw new Error("No ACS 5-year profile vintage available");
+  throw new Error(`No ACS ${dataset} profile vintage available`);
 }
 
+// Single-snapshot topics use the ACS 1-year product: a true single-calendar-year
+// estimate (noisier margins of error, but not a 5-year rolling blend), so the
+// "2024" on the card means calendar year 2024, not "some time in 2020-2024."
 async function topicSnapshot(topicKey, state, key, year) {
   const topic = TOPICS[topicKey];
   const variables = Object.keys(topic.vars);
-  const [row] = await acs(year, variables, `state:${state.code}`, key);
+  const [row] = await acs(year, variables, `state:${state.code}`, key, "acs1");
   const rows = variables.map((v) => {
-    const [label, type] = topic.vars[v];
-    return { metric: label, value: parseValue(row[v]), formatted: fmt(parseValue(row[v]), type), type, variable: v };
+    const [label, type, unit] = topic.vars[v];
+    return { metric: label, value: parseValue(row[v]), formatted: fmt(parseValue(row[v]), type, unit), type, variable: v };
   });
   const preferredType = rows.filter((r) => r.type === "pct").length >= 3
     ? "pct"
@@ -235,15 +241,15 @@ async function topicSnapshot(topicKey, state, key, year) {
     kicker: topic.kicker,
     hero: rows[0]?.formatted || "n/a",
     heroLabel: rows[0]?.metric || "latest",
-    source: "U.S. Census Bureau ACS 5-year profile",
-    vintage: String(year),
+    source: "U.S. Census Bureau ACS 1-year profile",
+    vintage: `${year} (1-yr est.)`,
     rows,
     chartRows,
     chartType: preferredType,
   };
 }
 
-async function migrationSnapshot(key, year, baseYear) {
+async function migrationSnapshot(key, year, baseYear, direction = "gain") {
   const vars = ["DP05_0001E"];
   const [latestRows, baseRows] = await Promise.all([
     acs(year, vars, "state:*", key),
@@ -264,13 +270,19 @@ async function migrationSnapshot(key, year, baseYear) {
       basePop,
       type: "count",
     };
-  }).filter((r) => Number.isFinite(r.value)).sort((a, b) => b.value - a.value);
-  const chartRows = rows.slice(0, 10).map((r) => ({ ...r, chart: r.value }));
+  }).filter((r) => Number.isFinite(r.value));
+  const filteredRows = direction === "loss"
+    ? rows.filter((r) => r.value < 0)
+    : rows.filter((r) => r.value > 0);
+  rows.splice(0, rows.length, ...(filteredRows.length ? filteredRows : rows));
+  rows.sort(direction === "loss" ? (a, b) => a.value - b.value : (a, b) => b.value - a.value);
+  const chartRows = rows.slice(0, 10).map((r) => ({ ...r, chart: Math.abs(r.value) }));
+  const label = direction === "loss" ? "lost" : "gained";
   return {
-    title: `Which states gained the most population?`,
+    title: `Which states ${label} the most population?`,
     kicker: "Census migration/growth check",
     hero: rows[0].formatted,
-    heroLabel: `${rows[0].metric} people added, ${baseYear}-${year}`,
+    heroLabel: `${rows[0].metric} people ${direction === "loss" ? "lost" : "added"}, ${baseYear}-${year}`,
     source: "U.S. Census Bureau ACS 5-year profile",
     vintage: `${baseYear}-${year}`,
     rows,
@@ -292,7 +304,11 @@ async function businessSnapshot(state, key) {
       const json = await getJSON(`https://api.census.gov/data/${year}/cbp?${qs}`);
       const [header, ...rawRows] = json;
       const rows = rawRows.map((row) => Object.fromEntries(header.map((h, i) => [h, row[i]])))
-        .filter((r) => /^\d{2}$/.test(r.NAICS2017) && r.NAICS2017 !== "00")
+        // Top-level NAICS sectors are 2 digits, EXCEPT Census reports Manufacturing,
+        // Retail Trade, and Transportation/Warehousing under combined codes
+        // (31-33, 44-45, 48-49) since those sectors span multiple 2-digit prefixes.
+        // A plain /^\d{2}$/ match silently drops all three from this ranking.
+        .filter((r) => /^\d{2}(-\d{2})?$/.test(r.NAICS2017) && r.NAICS2017 !== "00")
         .map((r) => ({
           metric: r.NAICS2017_LABEL,
           value: Number(r.EMP),
@@ -330,16 +346,20 @@ if (!key) {
 const topicKey = argValue("--topic", "migration");
 const state = stateCode(argValue("--state", "AZ"));
 const baseYear = Number(argValue("--base", "2020"));
+const direction = argValue("--direction", "gain");
 const noImage = process.argv.includes("--no-image");
 const stamp = localDateStamp();
 
-const year = await latestAcsYear(key);
+// migration compares against a 2020 base year, and the Census Bureau never
+// published standard 1-year estimates for 2020 (COVID disrupted collection
+// that year) — so migration stays on the 5-year product. Single-snapshot
+// topics use the 1-year product for a truer single-calendar-year read.
 const snapshot = topicKey === "migration"
-  ? await migrationSnapshot(key, year, baseYear)
+  ? await migrationSnapshot(key, await latestAcsYear(key, "acs5"), baseYear, direction)
   : topicKey === "business"
     ? await businessSnapshot(state, key)
     : TOPICS[topicKey]
-      ? await topicSnapshot(topicKey, state, key, year)
+      ? await topicSnapshot(topicKey, state, key, await latestAcsYear(key, "acs1"))
       : null;
 
 if (!snapshot) {
@@ -347,7 +367,8 @@ if (!snapshot) {
   process.exit(1);
 }
 
-const outBase = path.join(SOCIAL, `census-${slug(topicKey)}-${state.abbr.toLowerCase()}-${stamp}`);
+const outputTopic = topicKey === "migration" ? `migration-${direction}` : topicKey;
+const outBase = path.join(SOCIAL, `census-${slug(outputTopic)}-${state.abbr.toLowerCase()}-${stamp}`);
 mkdirSync(SOCIAL, { recursive: true });
 
 const chartSVG = horizontalBarChart(
