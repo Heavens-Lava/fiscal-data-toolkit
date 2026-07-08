@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // occupation-wages.mjs — Top paying jobs, fastest growing, and tech job boards.
-// Wages: BLS Occupational Employment and Wage Statistics (OES), May 2023 release.
-// Growth: BLS Employment Projections 2022-2032.
+// Wages: fetched LIVE from the BLS OEWS API at startup (latest May release).
+//        The literals below are a May 2023 fallback used only with --offline
+//        or if the API is unreachable — stale rows are marked with †.
+// Growth: BLS Employment Projections 2022-2032 (static — not available via API).
 // Job boards: direct ATS/careers URLs for top tech companies.
 //
 // node scripts/occupation-wages.mjs                  — Top pay + fastest growing
@@ -10,8 +12,9 @@
 // node scripts/occupation-wages.mjs --tech           — Tech sector deep-dive
 // node scripts/occupation-wages.mjs --jobs           — Job board URLs (tech + gov)
 // node scripts/occupation-wages.mjs --search "nurse" — Match occupations by keyword
+// node scripts/occupation-wages.mjs --offline        — Skip API, use baked values
 
-// ── BLS OES May 2023 + Employment Projections 2022-2032 ──────────────────────
+// ── BLS OEWS (live) + Employment Projections 2022-2032 (static) ──────────────
 // Source: bls.gov/oes  and  bls.gov/emp
 // All wages = median annual salary ($/yr), nationally across all industries.
 // Growth = 10-year projected change in employment (2022-2032).
@@ -40,12 +43,12 @@ const OCCUPATIONS = [
   { code:"29-1023", title:"Orthodontists",                           sector:"Healthcare",   median:237990, p10:148000, p90:null,   growth:  4, openings:   600, edu:"Doctorate" },
   { code:"29-1215", title:"Family Medicine Physicians",              sector:"Healthcare",   median:220890, p10:130000, p90:null,   growth:  3, openings: 23400, edu:"Doctorate" },
   { code:"29-1216", title:"Internal Medicine Physicians",            sector:"Healthcare",   median:222450, p10:130000, p90:null,   growth:  3, openings: 23400, edu:"Doctorate" },
-  { code:"29-1221", title:"Dentists, General",                       sector:"Healthcare",   median:162690, p10: 88000, p90:208000, growth:  4, openings:  5900, edu:"Doctorate" },
+  { code:"29-1021", title:"Dentists, General",                       sector:"Healthcare",   median:162690, p10: 88000, p90:208000, growth:  4, openings:  5900, edu:"Doctorate" },
   { code:"29-1131", title:"Veterinarians",                           sector:"Healthcare",   median:125240, p10: 72810, p90:181460, growth:19, openings:  4800, edu:"Doctorate" },
   { code:"29-1171", title:"Nurse Practitioners",                     sector:"Healthcare",   median:124680, p10: 91040, p90:164620, growth:45, openings: 29200, edu:"Master's" },
   { code:"29-1071", title:"Physician Assistants",                    sector:"Healthcare",   median:126010, p10: 89220, p90:157450, growth:28, openings: 13300, edu:"Master's" },
   { code:"29-1141", title:"Registered Nurses",                       sector:"Healthcare",   median: 81220, p10: 59450, p90:120560, growth: 6, openings:193100, edu:"Associate's" },
-  { code:"29-1131", title:"Physical Therapists",                     sector:"Healthcare",   median: 97720, p10: 67180, p90:131640, growth:15, openings: 29800, edu:"Doctorate" },
+  { code:"29-1123", title:"Physical Therapists",                     sector:"Healthcare",   median: 97720, p10: 67180, p90:131640, growth:15, openings: 29800, edu:"Doctorate" },
   { code:"29-2052", title:"Pharmacy Technicians",                    sector:"Healthcare",   median: 39090, p10: 30220, p90: 56420, growth: 5, openings: 51000, edu:"HS diploma" },
   // ── Finance ──────────────────────────────────────────────────────────────────
   { code:"11-3031", title:"Financial Managers",                      sector:"Finance",      median:156100, p10: 82000, p90:208000, growth:16, openings: 72200, edu:"Bachelor's" },
@@ -59,7 +62,7 @@ const OCCUPATIONS = [
   { code:"17-2051", title:"Civil Engineers",                         sector:"Engineering",  median: 95890, p10: 60030, p90:152530, growth: 5, openings: 24200, edu:"Bachelor's" },
   { code:"17-2112", title:"Industrial Engineers",                    sector:"Engineering",  median: 99380, p10: 63310, p90:151200, growth:12, openings: 25000, edu:"Bachelor's" },
   { code:"17-2131", title:"Materials Engineers",                     sector:"Engineering",  median: 99490, p10: 62550, p90:157160, growth: 8, openings:  3500, edu:"Bachelor's" },
-  { code:"17-2199", title:"Aerospace Engineers",                     sector:"Engineering",  median:122270, p10: 77360, p90:184720, growth: 6, openings: 15600, edu:"Bachelor's" },
+  { code:"17-2011", title:"Aerospace Engineers",                     sector:"Engineering",  median:122270, p10: 77360, p90:184720, growth: 6, openings: 15600, edu:"Bachelor's" },
   { code:"17-1011", title:"Architects",                              sector:"Engineering",  median: 93310, p10: 55540, p90:151290, growth: 3, openings: 11200, edu:"Bachelor's" },
   // ── Legal ─────────────────────────────────────────────────────────────────────
   { code:"23-1011", title:"Lawyers",                                 sector:"Legal",        median:145760, p10: 61400, p90:208000, growth:10, openings: 46000, edu:"Doctorate" },
@@ -82,8 +85,51 @@ const TOP_PAY = argv.includes("--top-pay");
 const GROWTH  = argv.includes("--growth");
 const TECH    = argv.includes("--tech");
 const JOBS    = argv.includes("--jobs");
+const OFFLINE = argv.includes("--offline");
 const SRCH    = argv.indexOf("--search");
 const KEYWORD = SRCH >= 0 ? argv[SRCH + 1]?.toLowerCase() : null;
+
+// ── live wage refresh (BLS OEWS API, no key) ─────────────────────────────────
+// Overwrites p10/median/p90 in OCCUPATIONS with the latest May release.
+// Series ID: OEU + N (national) + 0000000 (area) + 000000 (cross-industry)
+//            + 6-digit SOC + datatype (11=annual p10, 13=median, 15=p90).
+// ~150 series in batches of 25 = 6 API calls (unregistered limit: 25/day).
+let WAGE_VINTAGE = "May 2023 · STATIC FALLBACK — may be stale";
+const STALE = new Set(OCCUPATIONS.map((o) => o.code)); // cleared as rows update
+
+async function refreshWages() {
+  const dts = { 11: "p10", 13: "median", 15: "p90" };
+  const byCode = new Map(OCCUPATIONS.map((o) => [o.code.replace("-", ""), o]));
+  const ids = [...byCode.keys()].flatMap((c) =>
+    Object.keys(dts).map((dt) => `OEUN0000000000000${c}${dt}`));
+
+  let year = null;
+  for (let i = 0; i < ids.length; i += 25) {
+    const res = await fetch("https://api.bls.gov/publicAPI/v2/timeseries/data/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ seriesid: ids.slice(i, i + 25), latest: true }),
+    });
+    if (!res.ok) throw new Error(`BLS API HTTP ${res.status}`);
+    const j = await res.json();
+    if (j.status !== "REQUEST_SUCCEEDED") throw new Error((j.message || [j.status]).join("; "));
+    for (const s of j.Results.series) {
+      if (!s.data?.length) continue;
+      const occ = s.seriesID.slice(17, 23), dt = s.seriesID.slice(23);
+      const o = byCode.get(occ), v = Number(s.data[0].value);
+      if (!o || !Number.isFinite(v) || v <= 0) continue;
+      o[dts[dt]] = v;
+      STALE.delete(o.code);
+      year = s.data[0].year;
+    }
+  }
+  if (!year) throw new Error("BLS API returned no wage data");
+  WAGE_VINTAGE = `May ${year} · fetched live from BLS API`;
+}
+
+// Appends † to titles still carrying fallback wages (only meaningful after a
+// successful refresh — in offline mode everything is equally stale).
+const daggered = (r) => r.title + (STALE.has(r.code) && !OFFLINE && STALE.size < OCCUPATIONS.length ? " †" : "");
 
 const money = n => n ? `$${Math.round(n/1000)}k`.padStart(7) : "     —";
 const rpad  = (s, n) => String(s || "").slice(0, n).padEnd(n);
@@ -96,18 +142,18 @@ function showTopPay(limit = 30) {
     .sort((a, b) => b.median - a.median)
     .slice(0, limit);
 
-  console.log(`\n  ── TOP ${limit} OCCUPATIONS BY MEDIAN ANNUAL WAGE (BLS OES May 2023) ──────\n`);
+  console.log(`\n  ── TOP ${limit} OCCUPATIONS BY MEDIAN ANNUAL WAGE (BLS OEWS) ───────────────\n`);
   console.log(`  ${"#".padStart(3)}  ${"Occupation".padEnd(44)}  ${"Sector".padEnd(12)}  Median    10th    90th  Education`);
   console.log(`  ${"─".repeat(3)}  ${"─".repeat(44)}  ${"─".repeat(12)}  ${"─".repeat(6)}  ${"─".repeat(6)}  ${"─".repeat(6)}  ${"─".repeat(16)}`);
   for (const [i, r] of rows.entries()) {
     const star = r.growth >= 20 ? " ★" : "  ";
     console.log(
-      `  ${String(i+1).padStart(3)}  ${rpad(r.title + star, 44)}  ${rpad(r.sector, 12)}` +
+      `  ${String(i+1).padStart(3)}  ${rpad(daggered(r) + star, 44)}  ${rpad(r.sector, 12)}` +
       `  ${money(r.median)}  ${money(r.p10)}  ${r.p90 ? money(r.p90) : "  100k+"}  ${r.edu}`
     );
   }
   console.log(`\n  ★ = projected growth ≥20% over 2022-2032 (BLS Employment Projections)`);
-  console.log(`  90th %ile "100k+" = BLS top-codes wages at $208,000 for highest earners`);
+  console.log(`  90th %ile "100k+" = percentile not published for this occupation`);
 }
 
 // ── Fastest growing ───────────────────────────────────────────────────────────
@@ -145,7 +191,7 @@ function showTech() {
     const grw  = (r.growth !== undefined ? `${r.growth > 0 ? "+" : ""}${r.growth}%` : "  —").padStart(6);
     const opens = r.openings ? r.openings.toLocaleString().padStart(12) : "           —";
     console.log(
-      `  ${String(i+1).padStart(3)}  ${rpad(r.title + star, 44)}  ${money(r.median)}` +
+      `  ${String(i+1).padStart(3)}  ${rpad(daggered(r) + star, 44)}  ${money(r.median)}` +
       `  ${grw}   ${opens}  ${r.edu}`
     );
   }
@@ -291,9 +337,21 @@ function showJobBoards() {
 }
 
 // ── MAIN ─────────────────────────────────────────────────────────────────────
-(() => {
+(async () => {
+  if (!OFFLINE) {
+    try {
+      await refreshWages();
+    } catch (e) {
+      console.error(`\n  ! Live wage fetch failed (${e.message}) — using May 2023 fallback values.`);
+    }
+  }
+
   console.log(`\n  OCCUPATION WAGES & CAREER OUTLOOK`);
-  console.log(`  Source: BLS OES May 2023 wages · BLS Employment Projections 2022-2032\n`);
+  console.log(`  Wages: BLS OEWS, ${WAGE_VINTAGE}`);
+  console.log(`  Growth/openings: BLS Employment Projections 2022-2032 (static)`);
+  if (!OFFLINE && STALE.size && STALE.size < OCCUPATIONS.length)
+    console.log(`  † = no live data returned for this occupation; wage shown is the May 2023 fallback`);
+  console.log("");
 
   if (KEYWORD)      searchOccupations(KEYWORD);
   else if (TECH)    { showTech(); showSectors(); }
