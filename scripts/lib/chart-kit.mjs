@@ -4,7 +4,7 @@
 // social card looks and behaves the same way, from one source of truth.
 
 import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, renameSync, statSync, unlinkSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
 
@@ -177,7 +177,8 @@ export function lineChart(seriesList, { fmtTick, fmtVal, refLine, labelStep = 3,
     s += `<text x="${GUT + 6}" y="${y - 8}" font-size="14" fill="${C.muted}">${esc(refLine.label)}</text>`;
   }
   seriesList[0].points.forEach((p, i) => {
-    if (i % labelStep === 0 || i === n - 1)
+    const nearFinalLabel = i !== n - 1 && n - 1 - i < Math.max(2, Math.ceil(labelStep / 2));
+    if (i === n - 1 || (i % labelStep === 0 && !nearFinalLabel))
       s += `<text x="${xOf(i)}" y="${PH - 8}" text-anchor="middle" font-size="14" fill="${C.muted}">${esc(p.label)}</text>`;
   });
   for (const sr of seriesList) {
@@ -192,7 +193,23 @@ export function lineChart(seriesList, { fmtTick, fmtVal, refLine, labelStep = 3,
 }
 
 export function horizontalBarChart(points, { fmtTick, fmtVal }) {
-  const labelW = 300, rightW = 118, top = 18, rowH = 38, barH = 20;
+  const labelW = 300, rightW = 118, top = 18;
+  // The card's .plot area is a fixed ~430px regardless of point count (the
+  // card itself is a fixed 1200x675 PNG) — the SVG has no explicit
+  // width/height, so it's stretched to fill that box by CSS. Past ~10 points
+  // the old fixed 38px row height produced a viewBox taller than that box,
+  // which doesn't scale down (width/height:100% stretches the viewport
+  // rather than preserving aspect ratio) — it silently clips. Cap the target
+  // height and shrink row/bar/font size together so any point count still
+  // fits and stays legible, rather than clipping past ~10 bars.
+  const MAX_H = 420;
+  const idealRowH = 38;
+  const rowH = Math.min(idealRowH, Math.max(16, (MAX_H - top - 34) / points.length));
+  const scale = rowH / idealRowH;
+  const barH = Math.max(8, Math.round(20 * scale));
+  const labelSize = Math.max(11, Math.round(17 * scale));
+  const valueSize = Math.max(10, Math.round(16 * scale));
+  const tickSize = Math.max(10, Math.round(14 * scale));
   const w = PW, h = top + points.length * rowH + 34;
   const max = Math.max(...points.map((p) => p.v));
   const ticks = niceTicks(0, max, 4).filter((t) => t >= 0);
@@ -202,16 +219,76 @@ export function horizontalBarChart(points, { fmtTick, fmtVal }) {
   for (const t of ticks) {
     const x = xOf(t);
     s += `<line x1="${x}" y1="${top - 6}" x2="${x}" y2="${h - 30}" stroke="${C.grid}" stroke-width="1"/>`;
-    s += `<text x="${x}" y="${h - 8}" text-anchor="middle" font-size="14" fill="${C.muted}">${esc(fmtTick(t))}</text>`;
+    s += `<text x="${x}" y="${h - 8}" text-anchor="middle" font-size="${tickSize}" fill="${C.muted}">${esc(fmtTick(t))}</text>`;
   }
   points.forEach((p, i) => {
     const y = top + i * rowH;
     const bw = Math.max(xOf(p.v) - x0, 2);
-    s += `<text x="0" y="${y + 20}" font-size="17" font-weight="600" fill="${C.ink2}">${esc(p.label)}</text>`;
+    s += `<text x="0" y="${y + barH + 2}" font-size="${labelSize}" font-weight="600" fill="${C.ink2}">${esc(p.label)}</text>`;
     s += `<rect x="${x0}" y="${y + 2}" width="${bw}" height="${barH}" rx="4" fill="${p.color || C.s1}"/>`;
-    s += `<text x="${x0 + bw + 10}" y="${y + 18}" font-size="16" font-weight="650" fill="${C.ink}">${esc(fmtVal(p.v))}</text>`;
+    s += `<text x="${x0 + bw + 10}" y="${y + barH}" font-size="${valueSize}" font-weight="650" fill="${C.ink}">${esc(fmtVal(p.v))}</text>`;
   });
   return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+}
+
+const STATE_TILE_POSITIONS = {
+  WA:[0,0],ID:[1,0],MT:[2,0],ND:[3,0],MN:[4,0],WI:[5,0],MI:[6,0],NY:[9,0],VT:[10,0],NH:[11,0],ME:[12,0],
+  OR:[0,1],NV:[1,1],WY:[2,1],SD:[3,1],IA:[4,1],IL:[5,1],IN:[6,1],OH:[7,1],PA:[8,1],NJ:[9,1],CT:[10,1],RI:[11,1],MA:[12,1],
+  CA:[0,2],UT:[1,2],CO:[2,2],NE:[3,2],MO:[4,2],KY:[5,2],WV:[6,2],VA:[7,2],MD:[8,2],DE:[9,2],DC:[10,2],
+  AZ:[1,3],NM:[2,3],KS:[3,3],AR:[4,3],TN:[5,3],NC:[7,3],SC:[8,3],
+  TX:[2,4],OK:[3,4],LA:[4,4],MS:[5,4],AL:[6,4],GA:[7,4],FL:[8,4],AK:[0,5],HI:[1,5],
+};
+
+function colorBetween(a, b, amount) {
+  const parse = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const start = parse(a), end = parse(b);
+  return `#${start.map((value, i) => Math.round(value + (end[i] - value) * amount).toString(16).padStart(2, "0")).join("")}`;
+}
+
+export function stateTileMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "#1769c2" }) {
+  const usable = rows.filter((row) => STATE_TILE_POSITIONS[row.abbr] && Number.isFinite(row.v));
+  const values = usable.map((row) => row.v), lo = Math.min(...values), hi = Math.max(...values);
+  const tileW = 76, tileH = 52, gap = 5, x0 = 24, y0 = 20;
+  let s = `<defs><linearGradient id="mapScale"><stop offset="0" stop-color="${lowColor}"/><stop offset="1" stop-color="${highColor}"/></linearGradient></defs>`;
+  for (const row of usable) {
+    const [col, line] = STATE_TILE_POSITIONS[row.abbr];
+    const x = x0 + col * (tileW + gap), y = y0 + line * (tileH + gap);
+    const t = hi === lo ? 0.5 : (row.v - lo) / (hi - lo);
+    const fill = colorBetween(lowColor, highColor, Math.sqrt(Math.max(0, t)));
+    const ink = t > 0.48 ? "#ffffff" : C.ink;
+    s += `<rect x="${x}" y="${y}" width="${tileW}" height="${tileH}" rx="4" fill="${fill}" stroke="${C.surface}" stroke-width="2"/>`;
+    s += `<text x="${x + tileW / 2}" y="${y + 21}" text-anchor="middle" font-size="15" font-weight="700" fill="${ink}">${esc(row.abbr)}</text>`;
+    s += `<text x="${x + tileW / 2}" y="${y + 39}" text-anchor="middle" font-size="11" font-weight="600" fill="${ink}">${esc(fmtVal(row.v))}</text>`;
+  }
+  const legendX = 730, legendY = 352;
+  s += `<rect x="${legendX}" y="${legendY}" width="300" height="12" rx="6" fill="url(#mapScale)"/>`;
+  s += `<text x="${legendX}" y="${legendY + 31}" font-size="13" fill="${C.muted}">${esc(fmtVal(lo))}</text>`;
+  s += `<text x="${legendX + 300}" y="${legendY + 31}" text-anchor="end" font-size="13" fill="${C.muted}">${esc(fmtVal(hi))}</text>`;
+  s += `<text x="24" y="383" font-size="13" fill="${C.muted}">Equal-size state tiles; color represents value, not land area.</text>`;
+  return `<svg viewBox="0 0 ${PW} ${PH}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+}
+
+export function donutChart(rows, { fmtVal, centerTop = "", centerBottom = "" }) {
+  const palette = ["#2a78d6", "#1baf7a", "#e34948", "#e0a429", "#6d62c7", "#2f9da8", "#d66b9a", "#8a8a84"];
+  const usable = rows.filter((row) => Number.isFinite(row.v) && row.v > 0);
+  const total = usable.reduce((sum, row) => sum + row.v, 0);
+  const cx = 225, cy = 194, radius = 126, circumference = 2 * Math.PI * radius;
+  let offset = 0, s = "";
+  usable.forEach((row, index) => {
+    const share = row.v / total, length = share * circumference, color = row.color || palette[index % palette.length];
+    s += `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="${color}" stroke-width="54" stroke-dasharray="${length} ${circumference - length}" stroke-dashoffset="${-offset}" transform="rotate(-90 ${cx} ${cy})"/>`;
+    offset += length;
+  });
+  s += `<circle cx="${cx}" cy="${cy}" r="88" fill="${C.surface}"/>`;
+  s += `<text x="${cx}" y="${cy - 2}" text-anchor="middle" font-size="25" font-weight="700" fill="${C.ink}">${esc(centerTop)}</text>`;
+  s += `<text x="${cx}" y="${cy + 24}" text-anchor="middle" font-size="14" fill="${C.muted}">${esc(centerBottom)}</text>`;
+  usable.forEach((row, index) => {
+    const y = 42 + index * 43, color = row.color || palette[index % palette.length], share = row.v / total * 100;
+    s += `<rect x="455" y="${y - 14}" width="14" height="14" rx="3" fill="${color}"/>`;
+    s += `<text x="480" y="${y}" font-size="16" font-weight="600" fill="${C.ink2}">${esc(row.label)}</text>`;
+    s += `<text x="1010" y="${y}" text-anchor="end" font-size="16" font-weight="650" fill="${C.ink}">${esc(`${fmtVal(row.v)} · ${share.toFixed(1)}%`)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${PW} ${PH}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
 }
 
 export const legend = (items) => `<div class="legend">${items.map((it) =>
@@ -227,6 +304,44 @@ export function csvEscape(v) {
 }
 export function toCSV(columns, rows) {
   return [columns, ...rows].map((r) => r.map(csvEscape).join(",")).join("\n") + "\n";
+}
+
+// ── engagement close (comment + share prompts) ───────────────────────────
+// A closing line every caption should end with — Facebook's algorithm and
+// basic word-of-mouth both reward comments/shares, and a post that just ends
+// on a source link asks the reader for nothing. Pick by "kind" so the prompt
+// actually fits the content (a ranking invites "where do you rank"; a
+// cost/trend post invites "does this match your own bill"). Deterministic
+// rotation (by a caller-supplied seed, e.g. the post's date or slug) rather
+// than Math.random() — scripts must stay reproducible/resumable.
+const ENGAGEMENT_PROMPTS = {
+  ranking: [
+    "Surprised by who's at the top (or bottom) of this list? Say so in the comments.",
+    "Does this ranking match what you expected? Comment below.",
+    "Tag someone who'd be surprised by where they land on this list.",
+  ],
+  cost: [
+    "Does this match what you're actually paying? Tell me in the comments.",
+    "How does your own number compare to this? Comment below.",
+    "If this number surprised you, share it with someone it'll surprise too.",
+  ],
+  trend: [
+    "What do you think is driving this trend? Comment your take.",
+    "Does this match what you've noticed personally? Let me know below.",
+    "Share this if the trend surprised you.",
+  ],
+  generic: [
+    "What's your take? Comment below.",
+    "Know someone who'd find this surprising? Share it with them.",
+    "Questions about the data or the source? Ask in the comments.",
+  ],
+};
+
+export function engagementCTA(kind = "generic", seed = "") {
+  const prompts = ENGAGEMENT_PROMPTS[kind] || ENGAGEMENT_PROMPTS.generic;
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  return prompts[h % prompts.length];
 }
 
 // Terminal preview: right-aligns numeric-looking cells. Pass unlimited=true
@@ -300,15 +415,25 @@ export function screenshot(htmlPath, pngPath) {
     console.log("  ! No Edge/Chrome found for PNG rendering (set BROWSER_PATH). HTML card was still written.");
     return false;
   }
-  const profile = path.join(os.tmpdir(), "digest-shot-profile");
+  const profile = path.join(os.tmpdir(), `digest-shot-profile-${process.pid}-${Date.now()}`);
+  const renderPath = `${pngPath}.render-${process.pid}-${Date.now()}.png`;
   for (const headless of ["--headless=new", "--headless"]) {
     try {
       execFileSync(browser, [
         headless, "--disable-gpu", "--hide-scrollbars", `--user-data-dir=${profile}`,
-        "--window-size=1200,675", `--screenshot=${pngPath}`, `file:///${htmlPath.replace(/\\/g, "/")}`,
+        "--window-size=1200,675", `--screenshot=${renderPath}`, `file:///${htmlPath.replace(/\\/g, "/")}`,
       ], { stdio: "ignore", timeout: 60000 });
-      if (existsSync(pngPath)) return true;
     } catch { /* try older headless flag */ }
+    // Edge can hand rendering to a child process and return before the PNG is
+    // flushed. Wait briefly for a new file instead of reporting a false failure.
+    for (let attempt = 0; attempt < 50; attempt++) {
+      if (existsSync(renderPath) && statSync(renderPath).size > 0) {
+        if (existsSync(pngPath)) unlinkSync(pngPath);
+        renameSync(renderPath, pngPath);
+        return true;
+      }
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100);
+    }
   }
   console.log("  ! PNG render failed; the HTML card was still written.");
   return false;

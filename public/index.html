@@ -18,6 +18,8 @@
       <a href="#lookup">Company Lookup</a>
       <a href="#screener">Screener</a>
       <a href="#charts">Charts</a>
+      <a href="#approvals">Approvals</a>
+      <a href="#publishing">Publishing</a>
     </div>
     <div class="ts" id="ts">Loading…</div>
   </div>
@@ -106,6 +108,78 @@
     </div>
     <div class="gallery-grid" id="gallery-grid"><div class="card skel">Loading charts…</div></div>
     <div class="gallery-empty hidden" id="gallery-empty">No charts match that filter yet.</div>
+  </div>
+</section>
+
+<section class="alt" id="approvals">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Facebook posting queue</div>
+        <h2>Approvals</h2>
+        <div class="desc">Review the image and caption here. Telegram only confirms successful Facebook posts.</div>
+      </div>
+      <button class="btn ghost hidden" id="approval-logout">Log out</button>
+    </div>
+    <div class="card approval-login" id="approval-login">
+      <h3>Approval login</h3>
+      <p class="caption">A password is required before posts or captions can be reviewed remotely.</p>
+      <form id="approval-login-form">
+        <input class="gallery-search" id="approval-password" type="password" autocomplete="current-password" placeholder="Approval password" required />
+        <button class="btn primary" type="submit">Log in</button>
+      </form>
+      <div class="approval-status" id="approval-login-status"></div>
+    </div>
+    <div class="hidden" id="approval-manager">
+      <div class="approval-connections" id="approval-connections"></div>
+      <div class="scheduled-wrap">
+        <div class="section-heading-row">
+          <h3>Upcoming schedule</h3>
+          <span class="caption" id="schedule-policy">Times shown in your local timezone</span>
+        </div>
+        <div id="scheduled-posts"></div>
+      </div>
+      <div class="section-heading-row approval-pending-heading"><h3>Awaiting approval</h3></div>
+      <div class="approvals-grid" id="approvals-grid"></div>
+      <div class="gallery-empty hidden" id="approvals-empty">Nothing pending. Every staged post has been published or skipped.</div>
+      <div class="approval-history-wrap">
+        <h3>Recent decisions</h3>
+        <div id="approval-history"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publishing">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Facebook status</div>
+        <h2>Publishing</h2>
+        <div class="desc">See what is scheduled next and what has already been posted.</div>
+      </div>
+    </div>
+    <div class="publishing-locked" id="publishing-locked">
+      <a href="#approvals">Log in through Approvals</a> to view the publishing queue and post history.
+    </div>
+    <div class="hidden" id="publishing-manager">
+      <div class="publishing-summary" id="publishing-summary"></div>
+      <div class="publishing-group">
+        <div class="section-heading-row">
+          <h3>Scheduled queue</h3>
+          <span class="caption" id="publishing-policy"></span>
+        </div>
+        <div id="publishing-scheduled-list"></div>
+      </div>
+      <div class="publishing-group">
+        <div class="section-heading-row"><h3>Posted to Facebook</h3></div>
+        <div id="publishing-posted-list"></div>
+      </div>
+      <div class="publishing-group">
+        <div class="section-heading-row"><h3>Recent failures</h3></div>
+        <div id="publishing-failed-list"></div>
+      </div>
+    </div>
   </div>
 </section>
 

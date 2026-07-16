@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Salary buying power",
+    "topic": "salary-buying-power-70000",
+    "command": ["node", "scripts/salary-buying-power-by-state.mjs", "--salary", "70000"]
+  },
+  {
+    "name": "Public-service teacher pay",
+    "topic": "public-service-pay-teacher",
+    "command": ["node", "scripts/public-service-pay-watch.mjs", "--job", "teacher"]
+  },
+  {
+    "name": "Young-adult migration",
+    "topic": "young-adult-migration",
+    "command": ["node", "scripts/young-adult-migration-watch.mjs"]
+  },
+  {
+    "name": "Cost of raising a family",
+    "topic": "family-cost-watch",
+    "command": ["node", "scripts/family-cost-watch.mjs"]
+  },
+  {
+    "name": "Retirement readiness",
+    "topic": "retirement-readiness",
+    "command": ["node", "scripts/retirement-readiness-watch.mjs"]
+  },
+  {
+    "name": "Rental housing ownership",
+    "topic": "housing-ownership-watch",
+    "command": ["node", "scripts/housing-ownership-watch.mjs"]
+  }
+]

@@ -6,7 +6,9 @@ node_modules/
 Thumbs.db
 *.tmp
 scratch/
+.cache/
 social/
+.claude/settings.local.json
 
 # stray files that don't belong in this repo
 weppy-project-sync/

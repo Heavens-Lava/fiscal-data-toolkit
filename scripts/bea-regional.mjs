@@ -6,12 +6,18 @@
 // Run:  node scripts/bea-regional.mjs
 // Key:  free registration at apps.bea.gov/API/signup/ → store in .env as BEA_API_KEY
 
-import { readFileSync } from "fs";
-import { join, dirname } from "path";
+import { readFileSync, mkdirSync, writeFileSync } from "fs";
+import { join, dirname, relative } from "path";
 import { fileURLToPath } from "url";
+import { C, cardHTML, engagementCTA, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 
 // Load .env from project root
 const __dir = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dir, "..");
+const SOCIAL = join(ROOT, "social");
+const rel = (f) => relative(ROOT, f).replace(/\\/g, "/");
+const stamp = () => new Date().toISOString().slice(0, 10);
+const noImage = process.argv.includes("--no-image");
 try {
   for (const line of readFileSync(join(__dir, "../.env"), "utf8").split("\n")) {
     const eq = line.indexOf("=");
@@ -162,4 +168,91 @@ const G  = (n) => (!isFinite(n) ? "    -" : `${n >= 0 ? "+" : ""}${n.toFixed(1)}
 
   console.log(`\n  CostLiv = Regional Price Parity index. 105 = 5% more expensive than US avg.`);
   console.log(`  Adj Income removes cost-of-living differences to show real purchasing power.\n`);
+
+  // ── social post: purchasing-power-adjusted income ("nominal income lies") ──
+  // Nominal per-capita income makes California/DC/NY look like the winners.
+  // Adjust for cost of living and the ranking reshuffles — that reshuffle,
+  // not any single state, is the actual story here.
+  const byNominalPc = [...states].filter((s) => isFinite(s.pcInc)).sort((a, b) => b.pcInc - a.pcInc);
+  const nominalRank = new Map(byNominalPc.map((s, i) => [s.fips, i + 1]));
+  const adjRank = new Map(byAdj.map((s, i) => [s.fips, i + 1]));
+
+  // The state with the biggest rank DROP going from nominal -> adjusted is
+  // the sharpest illustration of "high paycheck, high cost of living" —
+  // pick it dynamically rather than assuming it's always California.
+  const biggestDrop = states
+    .filter((s) => nominalRank.has(s.fips) && adjRank.has(s.fips))
+    .map((s) => ({ ...s, nominalRank: nominalRank.get(s.fips), adjRank: adjRank.get(s.fips) }))
+    .reduce((a, b) => (b.adjRank - b.nominalRank > a.adjRank - a.nominalRank ? b : a));
+
+  const top10Adj = byAdj.slice(0, 10);
+  const chartStates = top10Adj.some((s) => s.fips === biggestDrop.fips)
+    ? top10Adj
+    : [...top10Adj, biggestDrop];
+
+  const chartSVG = horizontalBarChart(
+    chartStates.map((s) => ({
+      label: s.name,
+      v: s.adjInc,
+      color: s.fips === biggestDrop.fips ? C.neg : C.s1,
+    })),
+    { fmtTick: (v) => `$${Math.round(v / 1000)}k`, fmtVal: D }
+  );
+
+  const html = cardHTML({
+    kicker: "State economics · purchasing power",
+    title: "Nominal income vs. what your paycheck actually buys",
+    hero: `#${biggestDrop.nominalRank} → #${biggestDrop.adjRank}`,
+    heroLabel: `${biggestDrop.name}: nominal income rank → cost-of-living-adjusted rank`,
+    chartSVG,
+    source: "BEA Regional (SASUMMARY): per capita income + Regional Price Parity",
+    vintage: yr,
+  });
+
+  const facebook = [
+    `${biggestDrop.name} ranks #${biggestDrop.nominalRank} in the country for nominal per-capita income (${D(biggestDrop.pcInc)}) — but its cost of living is ${biggestDrop.prPar.toFixed(1)} (100 = U.S. average). Adjust for that, and its real purchasing power ranks just #${biggestDrop.adjRank}.`,
+    "",
+    `Once you adjust every state for its own cost of living, the top of the list isn't the states with the biggest paychecks — it's ${byAdj.slice(0, 3).map((s) => s.name).join(", ")}, states where a merely-good income goes a lot further.`,
+    "",
+    `Adjusted income leaders: ${top10Adj.map((s) => `${s.name} ${D(s.adjInc)}`).join(", ")}.`,
+    "",
+    "Source: Bureau of Economic Analysis, Regional Economic Accounts (SASUMMARY: per capita income, Regional Price Parity).",
+    "",
+    engagementCTA("ranking", `bea-purchasing-power-${stamp()}`),
+  ];
+
+  const lines = [
+    `State purchasing power check (${stamp()})`,
+    "",
+    "Facebook post",
+    "-------------",
+    facebook.join("\n"),
+    "",
+    "Data table",
+    "----------",
+    "State | Nominal per capita | Nominal rank | Cost of living (RPP) | Adjusted income | Adjusted rank",
+    "---|---:|---:|---:|---:|---:",
+    ...states
+      .filter((s) => nominalRank.has(s.fips) && adjRank.has(s.fips))
+      .sort((a, b) => adjRank.get(a.fips) - adjRank.get(b.fips))
+      .map((s) => `${s.name} | ${D(s.pcInc)} | ${nominalRank.get(s.fips)} | ${s.prPar.toFixed(1)} | ${D(s.adjInc)} | ${adjRank.get(s.fips)}`),
+    "",
+    "Source: BEA Regional (SASUMMARY).",
+  ];
+
+  mkdirSync(SOCIAL, { recursive: true });
+  const outBase = join(SOCIAL, `purchasing-power-income-${stamp()}`);
+  writeFileSync(`${outBase}.txt`, lines.join("\n"));
+  writeFileSync(`${outBase}.csv`, toCSV(
+    ["state", "nominal_per_capita", "nominal_rank", "cost_of_living_rpp", "adjusted_income", "adjusted_rank"],
+    states
+      .filter((s) => nominalRank.has(s.fips) && adjRank.has(s.fips))
+      .map((s) => [s.name, s.pcInc, nominalRank.get(s.fips), s.prPar, s.adjInc, adjRank.get(s.fips)])
+  ));
+  writeFileSync(`${outBase}.html`, html);
+  if (!noImage) screenshot(`${outBase}.html`, `${outBase}.png`);
+
+  console.log("\n" + lines.join("\n"));
+  const files = ["txt", "csv", "html", !noImage && "png"].filter(Boolean).map((ext) => rel(`${outBase}.${ext}`));
+  console.log(`\nFiles: ${files.join(" / ")}`);
 })();

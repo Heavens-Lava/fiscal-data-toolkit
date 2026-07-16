@@ -47,7 +47,7 @@ import {
   monthlyResample, closest, oneYearBefore, monthlyPayment, parseUSDate, isoFromUSDate, niceTicks,
   C, PW, PH, GUT, PT, PB, plotW, plotH, frame, yAxisTitle, columnChart, lineChart,
   horizontalBarChart, legend, rpad, lpad, csvEscape, toCSV, printTable, cardHTML,
-  findBrowser, screenshot,
+  findBrowser, screenshot, engagementCTA,
 } from "./lib/chart-kit.mjs";
 
 const ROOT   = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -763,6 +763,18 @@ const EVERGREEN = ["tax-dollar", "household-debt", "debt-holders", "debt-holders
   mkdirSync(OUTDIR, { recursive: true });
   const stamp = new Date().toISOString().slice(0, 10);
 
+  // Picks which flavor of comment/share prompt fits each topic — a ranking
+  // ("who holds the most X") invites "where do you rank"; a trend invites
+  // "what do you think is driving this". Falls back to a generic prompt for
+  // any topic not listed here, so adding a new topic never silently loses
+  // the CTA.
+  const CTA_KIND = {
+    jobs: "trend", inflation: "trend", debt: "trend", hires: "trend", banks: "trend", border: "trend",
+    mortgage: "cost", "household-debt": "cost", gas: "cost", "gas-az": "cost",
+    "tax-dollar": "ranking", "debt-holders": "ranking", "debt-holders-consumer": "ranking",
+    "debt-holders-real-estate": "ranking", trade: "ranking",
+  };
+
   for (const name of picks) {
     if (!TOPICS[name]) {
       console.error(`Unknown topic "${name}". Topics: ${Object.keys(TOPICS).join(", ")}`);
@@ -778,6 +790,7 @@ const EVERGREEN = ["tax-dollar", "household-debt", "debt-holders", "debt-holders
       process.exitCode = 1;
       continue;
     }
+    t.caption = `${t.caption}\n\n${engagementCTA(CTA_KIND[name] || "generic", `${t.slug}-${stamp}`)}`;
     const html = cardHTML(t);
     const base = path.join(OUTDIR, `${t.slug}-${stamp}`);
     writeFileSync(`${base}.html`, html);

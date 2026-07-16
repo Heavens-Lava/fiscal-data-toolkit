@@ -257,7 +257,7 @@ function galleryCard(t) {
     </div>
   </div>`;
 }
-function escapeHtml(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function escapeHtml(s) { return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
 
 function renderGallery() {
   const q = gallerySearch.trim().toLowerCase();
@@ -279,6 +279,7 @@ function renderGallery() {
 
 function openLightbox(t) {
   const lb = document.getElementById("lightbox");
+  lb.querySelector(".box").classList.remove("image-preview");
   document.getElementById("lb-content").innerHTML = `
     <div class="lb-head">
       <div>
@@ -299,7 +300,32 @@ function openLightbox(t) {
   lb.classList.remove("hidden");
   document.getElementById("lb-close-btn").onclick = closeLightbox;
 }
-function closeLightbox() { document.getElementById("lightbox").classList.add("hidden"); }
+
+function openApprovalImage(p) {
+  const lb = document.getElementById("lightbox");
+  lb.querySelector(".box").classList.add("image-preview");
+  document.getElementById("lb-content").innerHTML = `
+    <div class="lb-body">
+      <div class="lb-head">
+        <div>
+          <div class="eyebrow">Facebook approval preview</div>
+          <h3>${escapeHtml(p.topic)}</h3>
+          <div class="lb-date">${escapeHtml(p.date)}</div>
+        </div>
+        <button class="lb-close" id="lb-close-btn" aria-label="Close image preview">X</button>
+      </div>
+    </div>
+    <img src="/social/${encodeURIComponent(p.files.png)}" alt="Full-size chart for ${escapeHtml(p.topic)}">`;
+  lb.classList.remove("hidden");
+  document.getElementById("lb-close-btn").onclick = closeLightbox;
+  document.getElementById("lb-close-btn").focus();
+}
+
+function closeLightbox() {
+  const lb = document.getElementById("lightbox");
+  lb.classList.add("hidden");
+  lb.querySelector(".box").classList.remove("image-preview");
+}
 
 async function loadGallery() {
   try {
@@ -318,6 +344,342 @@ async function loadGallery() {
   }
 }
 
+// ── approvals queue ───────────────────────────────────────────────────────────
+let approvalSession = null;
+
+async function approvalRequest(url, options) {
+  const response = await fetch(url, options);
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const error = new Error(body.error || `Request failed (${response.status})`);
+    error.status = response.status;
+    throw error;
+  }
+  return body;
+}
+
+function localInputValue(date) {
+  const pad = (value) => String(value).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+}
+
+function defaultScheduleValue() {
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  date.setHours(9, 0, 0, 0);
+  return localInputValue(date);
+}
+
+function approvalCard(p) {
+  const statusCls = p.status === "ready" ? "pos" : p.status === "ready with notes" ? "accent" : "neg";
+  const notes = [...p.problems, ...p.warnings];
+  const defaultMedia = p.hasImage ? "image" : p.hasVideo ? "video" : "text";
+  const options = [
+    p.hasImage ? `<option value="image">Chart image + caption</option>` : "",
+    p.hasVideo ? `<option value="video">Video + caption</option>` : "",
+    `<option value="text">Caption only</option>`,
+  ].join("");
+  return `<div class="card approval-card" data-topic="${escapeHtml(p.topic)}" data-date="${escapeHtml(p.date)}">
+    <div class="thumb">
+      ${p.hasImage ? `<img class="approval-preview-image" loading="lazy" src="/social/${encodeURIComponent(p.files.png)}" alt="${escapeHtml(p.topic)}" role="button" tabindex="0" aria-label="Open full-size chart for ${escapeHtml(p.topic)}">`
+        : p.hasVideo ? `<video src="/social/${encodeURIComponent(p.files.mp4)}" controls preload="metadata"></video>`
+        : `<div class="footnote" style="padding:24px">Caption-only post</div>`}
+    </div>
+    <h3>${escapeHtml(p.topic)} <span class="v ${statusCls}" style="text-transform:none;font-weight:700">${escapeHtml(p.status)} · ${p.score}</span></h3>
+    <div class="date">${escapeHtml(p.date)}</div>
+    <div class="caption" style="white-space:pre-wrap;max-height:220px;overflow:auto">${escapeHtml(p.caption)}</div>
+    ${notes.length ? `<div class="footnote">${escapeHtml(notes.join("; "))}</div>` : ""}
+    <div class="media-choice"><label>Facebook attachment</label><select class="media-select">${options}</select></div>
+    <div class="schedule-choice">
+      <input class="schedule-at" type="datetime-local" value="${defaultScheduleValue()}" aria-label="Scheduled publish time">
+      <button class="btn ghost schedule-btn" ${approvalSession?.facebookConfigured ? "" : "disabled"}>Schedule</button>
+    </div>
+    <div class="approval-actions">
+      <button class="btn primary auto-schedule-btn" ${approvalSession?.facebookConfigured ? "" : "disabled"}>Approve next slot</button>
+      <button class="btn ghost approve-btn" ${approvalSession?.facebookConfigured ? "" : "disabled"}>Publish now</button>
+      <button class="btn ghost skip-btn">Skip</button>
+    </div>
+    <div class="approval-status"></div>
+    <input type="hidden" class="default-media" value="${defaultMedia}">
+  </div>`;
+}
+
+function renderScheduledPosts(scheduled) {
+  const target = document.getElementById("scheduled-posts");
+  if (!scheduled.length) {
+    target.innerHTML = `<div class="scheduled-empty">No posts scheduled yet.</div>`;
+    return;
+  }
+  target.innerHTML = scheduled.map((entry) => {
+    const processing = entry.status === "processing";
+    const stateLabel = processing
+      ? " · publishing"
+      : entry.status === "review"
+        ? " · needs review"
+        : entry.facebookPostId
+          ? " · scheduled on Facebook"
+          : " · local schedule";
+    return `<div class="scheduled-row" data-topic="${escapeHtml(entry.topic)}" data-date="${escapeHtml(entry.date)}" data-media="${escapeHtml(entry.media)}">
+      <div class="scheduled-title"><strong>${escapeHtml(entry.topic)}</strong><span>${escapeHtml(entry.media)}${stateLabel}</span></div>
+      <input class="scheduled-at" type="datetime-local" value="${localInputValue(new Date(entry.scheduledAt))}" aria-label="Scheduled publish time" ${processing ? "disabled" : ""}>
+      <button class="btn ghost reschedule-btn" ${processing ? "disabled" : ""}>Reschedule</button>
+      <button class="btn ghost cancel-schedule-btn" ${processing ? "disabled" : ""}>Cancel</button>
+    </div>`;
+  }).join("");
+
+  target.querySelectorAll(".scheduled-row").forEach((row) => {
+    const { topic, date, media } = row.dataset;
+    const input = row.querySelector(".scheduled-at");
+    row.querySelector(".reschedule-btn").onclick = async () => {
+      const when = new Date(input.value);
+      if (!input.value || Number.isNaN(when.getTime())) return window.alert("Choose a valid date and time.");
+      try {
+        await approvalRequest("/api/approvals/schedule", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ topic, date, media, scheduledAt: when.toISOString() }),
+        });
+        await loadApprovals();
+      } catch (error) {
+        window.alert(error.message);
+      }
+    };
+    row.querySelector(".cancel-schedule-btn").onclick = async () => {
+      if (!window.confirm(`Cancel the scheduled post for ${topic}?`)) return;
+      try {
+        await approvalRequest("/api/approvals/schedule/cancel", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ topic, date }),
+        });
+        await loadApprovals();
+      } catch (error) {
+        window.alert(error.message);
+      }
+    };
+  });
+}
+
+function renderApprovalHistory(history) {
+  const target = document.getElementById("approval-history");
+  if (!history.length) {
+    target.innerHTML = `<div class="gallery-empty">No decisions recorded yet.</div>`;
+    return;
+  }
+  target.innerHTML = history.map((entry) => `<div class="approval-history-row">
+    <strong>${escapeHtml(entry.topic)}</strong>
+    <span class="${entry.status === "published" ? "pos" : entry.status === "publish_uncertain" || entry.status === "failed" ? "neg" : ""}">${escapeHtml(entry.status.replaceAll("_", " "))}</span>
+    ${entry.error ? `<span class="caption">${escapeHtml(entry.error)}</span>` : ""}
+    <span class="when">${escapeHtml(new Date(entry.at).toLocaleString())}</span>
+  </div>`).join("");
+}
+
+function renderPublishing(scheduled, published, policy, failed = []) {
+  const scheduledTarget = document.getElementById("publishing-scheduled-list");
+  const postedTarget = document.getElementById("publishing-posted-list");
+  const failedTarget = document.getElementById("publishing-failed-list");
+  const dayFormatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: policy.timeZone, year: "numeric", month: "2-digit", day: "2-digit",
+  });
+  const today = dayFormatter.format(new Date());
+  const postedToday = published.filter((entry) => dayFormatter.format(new Date(entry.at)) === today).length;
+  document.getElementById("publishing-policy").textContent = `${policy.slots.join(" and ")} | ${policy.timeZone}`;
+  document.getElementById("publishing-summary").innerHTML = `
+    <div><strong>${scheduled.length}</strong><span>scheduled</span></div>
+    <div><strong>${postedToday}</strong><span>posted today</span></div>
+    <div><strong>${published.length}</strong><span>recently posted</span></div>`;
+
+  scheduledTarget.innerHTML = scheduled.length ? scheduled.map((entry, index) => {
+    const status = entry.status === "processing" ? "Publishing" : entry.status === "review" ? "Needs review" : "Scheduled";
+    return `<div class="publishing-row">
+      <span class="publishing-rank">${index + 1}</span>
+      <div><strong>${escapeHtml(entry.topic)}</strong><span>${escapeHtml(entry.media)} | ${escapeHtml(status)}</span></div>
+      <time datetime="${escapeHtml(entry.scheduledAt)}">${escapeHtml(new Date(entry.scheduledAt).toLocaleString())}</time>
+    </div>`;
+  }).join("") : `<div class="scheduled-empty">No posts are currently scheduled.</div>`;
+
+  postedTarget.innerHTML = published.length ? published.map((entry) => {
+    const uncertain = entry.status === "publish_uncertain";
+    const link = entry.permalinkUrl
+      ? `<a href="${escapeHtml(entry.permalinkUrl)}" target="_blank" rel="noopener">Open post</a>`
+      : `<span class="caption">No link recorded</span>`;
+    return `<div class="publishing-row posted">
+      <span class="publishing-state ${uncertain ? "uncertain" : "published"}">${uncertain ? "Check" : "Posted"}</span>
+      <div><strong>${escapeHtml(entry.topic)}</strong><span>${escapeHtml(entry.media || "post")}</span></div>
+      <time datetime="${escapeHtml(entry.at)}">${escapeHtml(new Date(entry.at).toLocaleString())}</time>
+      ${link}
+    </div>`;
+  }).join("") : `<div class="scheduled-empty">No Facebook posts have been recorded yet.</div>`;
+
+  if (failedTarget) {
+    failedTarget.innerHTML = failed.length ? failed.map((entry) => `<div class="publishing-row failed">
+      <span class="publishing-state failed">Failed</span>
+      <div><strong>${escapeHtml(entry.topic)}</strong><span>${escapeHtml(entry.media || "post")} — ${escapeHtml(entry.error || "unknown error")}</span></div>
+      <time datetime="${escapeHtml(entry.at)}">${escapeHtml(new Date(entry.at).toLocaleString())}</time>
+    </div>`).join("") : `<div class="scheduled-empty">No failed publish attempts recorded.</div>`;
+  }
+}
+
+async function verifyApprovalConnections() {
+  const target = document.getElementById("approval-connections");
+  const telegram = approvalSession.telegramConfigured
+    ? `<span class="connection-state ok">Telegram confirmation configured</span>`
+    : `<span class="connection-state bad">Telegram confirmation not configured</span>`;
+  if (!approvalSession.facebookConfigured) {
+    target.innerHTML = `<span class="connection-state bad">New Facebook Page not connected</span>${telegram}`;
+    return false;
+  }
+  try {
+    const result = await approvalRequest("/api/approvals/facebook");
+    target.innerHTML = `<span class="connection-state ok">Facebook: ${escapeHtml(result.page.name)}</span>${telegram}`;
+    return true;
+  } catch (error) {
+    target.innerHTML = `<span class="connection-state bad">Facebook: ${escapeHtml(error.message)}</span>${telegram}`;
+    document.querySelectorAll(".approve-btn").forEach((button) => (button.disabled = true));
+    return false;
+  }
+}
+
+async function loadApprovals() {
+  const grid = document.getElementById("approvals-grid");
+  const empty = document.getElementById("approvals-empty");
+  grid.innerHTML = `<div class="card skel">Loading queue…</div>`;
+  try {
+    const data = await approvalRequest("/api/approvals");
+    const posts = data.posts || [];
+    const policy = data.schedulePolicy || { timeZone: "America/Phoenix", slots: ["08:00", "12:00"] };
+    document.getElementById("schedule-policy").textContent = `Auto: up to ${policy.slots.length} daily at ${policy.slots.join(" and ")} | ${policy.timeZone}; today fills first`;
+    grid.innerHTML = posts.map(approvalCard).join("");
+    empty.classList.toggle("hidden", posts.length > 0);
+    renderScheduledPosts(data.scheduled || []);
+    renderApprovalHistory(data.history || []);
+    renderPublishing(data.scheduled || [], data.published || [], policy, data.failed || []);
+    const facebookReady = await verifyApprovalConnections();
+
+    grid.querySelectorAll(".approval-card").forEach((card) => {
+      const { topic, date } = card.dataset;
+      const statusEl = card.querySelector(".approval-status");
+      const approveBtn = card.querySelector(".approve-btn");
+      const autoScheduleBtn = card.querySelector(".auto-schedule-btn");
+      const scheduleBtn = card.querySelector(".schedule-btn");
+      const scheduleAt = card.querySelector(".schedule-at");
+      const skipBtn = card.querySelector(".skip-btn");
+      const mediaSelect = card.querySelector(".media-select");
+      mediaSelect.value = card.querySelector(".default-media").value;
+      approveBtn.disabled = !facebookReady;
+      autoScheduleBtn.disabled = !facebookReady;
+      scheduleBtn.disabled = !facebookReady;
+
+      const previewImage = card.querySelector(".approval-preview-image");
+      if (previewImage) {
+        const post = posts.find((item) => item.topic === topic && item.date === date);
+        previewImage.onclick = () => openApprovalImage(post);
+        previewImage.onkeydown = (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          openApprovalImage(post);
+        };
+      }
+
+      autoScheduleBtn.onclick = async () => {
+        const media = mediaSelect.value;
+        if (!window.confirm(`Approve ${topic} and place it in the next open ${policy.slots.join(" / ")} ${policy.timeZone} slot?`)) return;
+        approveBtn.disabled = true; autoScheduleBtn.disabled = true; scheduleBtn.disabled = true; skipBtn.disabled = true; mediaSelect.disabled = true; scheduleAt.disabled = true;
+        statusEl.textContent = "Finding the next open publishing slot…";
+        try {
+          const result = await approvalRequest("/api/approvals/schedule-next", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic, date, media }),
+          });
+          statusEl.textContent = `Scheduled for ${new Date(result.scheduled.scheduledAt).toLocaleString()}.`;
+          setTimeout(loadApprovals, 700);
+        } catch (error) {
+          statusEl.innerHTML = `<span class="err-card">${escapeHtml(error.message)}</span>`;
+          approveBtn.disabled = !facebookReady; autoScheduleBtn.disabled = !facebookReady; scheduleBtn.disabled = !facebookReady; skipBtn.disabled = false; mediaSelect.disabled = false; scheduleAt.disabled = false;
+        }
+      };
+
+      scheduleBtn.onclick = async () => {
+        const media = mediaSelect.value;
+        const when = new Date(scheduleAt.value);
+        if (!scheduleAt.value || Number.isNaN(when.getTime())) return window.alert("Choose a valid date and time.");
+        if (!window.confirm(`Schedule ${topic} for ${when.toLocaleString()}?`)) return;
+        approveBtn.disabled = true; autoScheduleBtn.disabled = true; scheduleBtn.disabled = true; skipBtn.disabled = true; mediaSelect.disabled = true; scheduleAt.disabled = true;
+        statusEl.textContent = "Adding to schedule…";
+        try {
+          await approvalRequest("/api/approvals/schedule", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic, date, media, scheduledAt: when.toISOString() }),
+          });
+          await loadApprovals();
+        } catch (error) {
+          statusEl.innerHTML = `<span class="err-card">${escapeHtml(error.message)}</span>`;
+          approveBtn.disabled = !facebookReady; autoScheduleBtn.disabled = !facebookReady; scheduleBtn.disabled = !facebookReady; skipBtn.disabled = false; mediaSelect.disabled = false; scheduleAt.disabled = false;
+        }
+      };
+
+      approveBtn.onclick = async () => {
+        const media = mediaSelect.value;
+        const page = approvalSession.expectedPage || "the connected Facebook Page";
+        if (!window.confirm(`Publish ${topic} with ${media} to ${page}?`)) return;
+        approveBtn.disabled = true; autoScheduleBtn.disabled = true; scheduleBtn.disabled = true; skipBtn.disabled = true; mediaSelect.disabled = true; scheduleAt.disabled = true;
+        statusEl.textContent = "Publishing to Facebook…";
+        try {
+          const result = await approvalRequest("/api/approvals/publish", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic, date, media }),
+          });
+          const link = result.permalinkUrl ? ` <a href="${escapeHtml(result.permalinkUrl)}" target="_blank" rel="noopener">Open post</a>` : "";
+          const telegramNote = result.telegram?.sent ? " Telegram confirmation sent." : ` Telegram was not sent: ${escapeHtml(result.telegram?.reason || "not configured")}`;
+          statusEl.innerHTML = `<span class="pos">Published.</span>${link}${telegramNote}`;
+          setTimeout(loadApprovals, 1600);
+        } catch (error) {
+          statusEl.innerHTML = `<span class="err-card">${escapeHtml(error.message)}</span>`;
+          approveBtn.disabled = false; autoScheduleBtn.disabled = false; scheduleBtn.disabled = false; skipBtn.disabled = false; mediaSelect.disabled = false; scheduleAt.disabled = false;
+        }
+      };
+
+      skipBtn.onclick = async () => {
+        if (!window.confirm(`Skip ${topic}? It will leave the approval queue without being posted.`)) return;
+        approveBtn.disabled = true; autoScheduleBtn.disabled = true; scheduleBtn.disabled = true; skipBtn.disabled = true;
+        try {
+          await approvalRequest("/api/approvals/skip", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic, date }),
+          });
+          await loadApprovals();
+        } catch (error) {
+          statusEl.innerHTML = `<span class="err-card">${escapeHtml(error.message)}</span>`;
+          approveBtn.disabled = !facebookReady; autoScheduleBtn.disabled = !facebookReady; scheduleBtn.disabled = !facebookReady; skipBtn.disabled = false;
+        }
+      };
+    });
+  } catch (error) {
+    if (error.status === 401) return loadApprovalSession();
+    grid.innerHTML = `<div class="err-card">${escapeHtml(error.message)}</div>`;
+  }
+}
+
+async function loadApprovalSession() {
+  approvalSession = await approvalRequest("/api/approvals/session");
+  const login = document.getElementById("approval-login");
+  const manager = document.getElementById("approval-manager");
+  const logout = document.getElementById("approval-logout");
+  const publishingManager = document.getElementById("publishing-manager");
+  const publishingLocked = document.getElementById("publishing-locked");
+  const status = document.getElementById("approval-login-status");
+  login.classList.toggle("hidden", approvalSession.authenticated);
+  manager.classList.toggle("hidden", !approvalSession.authenticated);
+  logout.classList.toggle("hidden", !approvalSession.authenticated);
+  publishingManager.classList.toggle("hidden", !approvalSession.authenticated);
+  publishingLocked.classList.toggle("hidden", approvalSession.authenticated);
+  if (!approvalSession.configured) {
+    status.textContent = "Server setup required: add APPROVAL_PASSWORD and APPROVAL_SESSION_SECRET to .env.";
+    document.querySelector("#approval-login-form button").disabled = true;
+    document.getElementById("approval-password").disabled = true;
+    return;
+  }
+  if (approvalSession.authenticated) await loadApprovals();
+}
+
 // ── wire up ───────────────────────────────────────────────────────────────────
 document.getElementById("go").onclick = loadStock;
 document.getElementById("ticker").addEventListener("keydown", (e) => { if (e.key === "Enter") loadStock(); });
@@ -330,8 +692,36 @@ document.getElementById("rates-toggle").addEventListener("click", () => {
 });
 document.getElementById("lightbox").addEventListener("click", (e) => { if (e.target.id === "lightbox") closeLightbox(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+document.getElementById("approval-login-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const password = document.getElementById("approval-password");
+  const status = document.getElementById("approval-login-status");
+  const button = event.currentTarget.querySelector("button");
+  button.disabled = true;
+  status.textContent = "Logging in…";
+  try {
+    await approvalRequest("/api/approvals/login", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: password.value }),
+    });
+    password.value = "";
+    status.textContent = "";
+    await loadApprovalSession();
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+});
+document.getElementById("approval-logout").addEventListener("click", async () => {
+  await approvalRequest("/api/approvals/logout", { method: "POST" });
+  await loadApprovalSession();
+});
 
 loadDash().catch((e) => document.getElementById("cards").innerHTML = `<div class="err-card">⚠ ${e.message}</div>`);
 loadStock();
 loadScreen();
 loadGallery();
+loadApprovalSession().catch((error) => {
+  document.getElementById("approval-login-status").textContent = error.message;
+});
