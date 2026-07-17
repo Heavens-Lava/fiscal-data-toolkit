@@ -16,7 +16,12 @@ import path from "node:path";
 import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 import { SOCIAL, STAMP, STATES, argValue, envValue, rel } from "./lib/data-common.mjs";
 
-const OFFENSES = { "violent-crime": "Violent crime", "property-crime": "Property crime" };
+const OFFENSES = {
+  "violent-crime": "Violent crime", "property-crime": "Property crime",
+  "homicide": "Homicide", "robbery": "Robbery", "burglary": "Burglary",
+  "motor-vehicle-theft": "Motor vehicle theft", "arson": "Arson",
+  "aggravated-assault": "Aggravated assault", "larceny": "Larceny",
+};
 
 function key() {
   return envValue("FEC_API_KEY") || envValue("FBI_CDE_API_KEY");

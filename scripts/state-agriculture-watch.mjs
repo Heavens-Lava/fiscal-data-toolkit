@@ -19,21 +19,31 @@ import { SOCIAL, STAMP, argValue, envValue, num, rel } from "./lib/data-common.m
 // forecasts plus one final "YEAR" figure; livestock INVENTORY commodities
 // are point-in-time snapshots on their own schedule (verified against real
 // query results — see repo history for the investigation).
+// dollarShortDesc: a verified-matching "..., MEASURED IN $" short_desc at
+// STATE level for the same statisticcat_desc/reference period as the base
+// unit series (checked against live 2024 data before adding — several
+// candidates that look plausible turned out to be discontinued or scoped
+// differently: COTTON's $ series stops in the 1990s, GRAPES has none at
+// STATE level, CORN and CHICKENS only have a SALES $ series that doesn't
+// share PRODUCTION's scope, and every INVENTORY (head-count) commodity has
+// no true "$ value of the herd" equivalent — "SALES, MEASURED IN $" for
+// those is annual marketings revenue, a different concept from a livestock
+// census count, so it's deliberately left off rather than mislabeled).
 const COMMODITIES = {
   corn: { commodity_desc: "CORN", statisticcat_desc: "PRODUCTION", short_desc: "CORN, GRAIN - PRODUCTION, MEASURED IN BU", referencePeriod: "YEAR", unit: "bushels", label: "Corn" },
-  wheat: { commodity_desc: "WHEAT", statisticcat_desc: "PRODUCTION", short_desc: "WHEAT - PRODUCTION, MEASURED IN BU", referencePeriod: "YEAR", unit: "bushels", label: "Wheat" },
-  soybeans: { commodity_desc: "SOYBEANS", statisticcat_desc: "PRODUCTION", short_desc: "SOYBEANS - PRODUCTION, MEASURED IN BU", referencePeriod: "YEAR", unit: "bushels", label: "Soybeans" },
+  wheat: { commodity_desc: "WHEAT", statisticcat_desc: "PRODUCTION", short_desc: "WHEAT - PRODUCTION, MEASURED IN BU", referencePeriod: "YEAR", unit: "bushels", label: "Wheat", dollarShortDesc: "WHEAT - PRODUCTION, MEASURED IN $" },
+  soybeans: { commodity_desc: "SOYBEANS", statisticcat_desc: "PRODUCTION", short_desc: "SOYBEANS - PRODUCTION, MEASURED IN BU", referencePeriod: "YEAR", unit: "bushels", label: "Soybeans", dollarShortDesc: "SOYBEANS - PRODUCTION, MEASURED IN $" },
   cotton: { commodity_desc: "COTTON", statisticcat_desc: "PRODUCTION", short_desc: "COTTON - PRODUCTION, MEASURED IN 480 LB BALES", referencePeriod: "YEAR", unit: "480-lb bales", label: "Cotton" },
   cattle: { commodity_desc: "CATTLE", statisticcat_desc: "INVENTORY", short_desc: "CATTLE, INCL CALVES - INVENTORY", referencePeriod: "FIRST OF JAN", unit: "head", label: "Cattle" },
   hogs: { commodity_desc: "HOGS", statisticcat_desc: "INVENTORY", short_desc: "HOGS - INVENTORY", referencePeriod: "FIRST OF DEC", unit: "head", label: "Hogs" },
-  milk: { commodity_desc: "MILK", statisticcat_desc: "PRODUCTION", short_desc: "MILK - PRODUCTION, MEASURED IN LB", referencePeriod: "YEAR", unit: "lb", label: "Milk" },
+  milk: { commodity_desc: "MILK", statisticcat_desc: "PRODUCTION", short_desc: "MILK - PRODUCTION, MEASURED IN LB", referencePeriod: "YEAR", unit: "lb", label: "Milk", dollarShortDesc: "MILK - PRODUCTION, MEASURED IN $" },
   chickens: { commodity_desc: "CHICKENS", statisticcat_desc: "PRODUCTION", short_desc: "CHICKENS, BROILERS - PRODUCTION, MEASURED IN HEAD", referencePeriod: "YEAR", unit: "head", label: "Broiler chickens" },
   almonds: { commodity_desc: "ALMONDS", statisticcat_desc: "PRODUCTION", short_desc: "ALMONDS, IN SHELL - PRODUCTION, MEASURED IN LB", referencePeriod: "YEAR", unit: "lb", label: "Almonds" },
   grapes: { commodity_desc: "GRAPES", statisticcat_desc: "PRODUCTION", short_desc: "GRAPES - PRODUCTION, MEASURED IN TONS", referencePeriod: "YEAR", unit: "tons", label: "Grapes" },
-  eggs: { commodity_desc: "EGGS", statisticcat_desc: "PRODUCTION", short_desc: "EGGS, TABLE - PRODUCTION, MEASURED IN DOZEN", referencePeriod: "MARKETING YEAR", unit: "dozen", label: "Eggs" },
+  eggs: { commodity_desc: "EGGS", statisticcat_desc: "PRODUCTION", short_desc: "EGGS, TABLE - PRODUCTION, MEASURED IN DOZEN", referencePeriod: "MARKETING YEAR", unit: "dozen", label: "Eggs", dollarShortDesc: "EGGS - PRODUCTION, MEASURED IN $" },
   sheep: { commodity_desc: "SHEEP", statisticcat_desc: "INVENTORY", short_desc: "SHEEP, INCL LAMBS - INVENTORY", referencePeriod: "FIRST OF JAN", unit: "head", label: "Sheep" },
-  turkeys: { commodity_desc: "TURKEYS", statisticcat_desc: "PRODUCTION", short_desc: "TURKEYS - PRODUCTION, MEASURED IN HEAD", referencePeriod: "YEAR", unit: "head", label: "Turkeys" },
-  honey: { commodity_desc: "HONEY", statisticcat_desc: "PRODUCTION", short_desc: "HONEY - PRODUCTION, MEASURED IN LB", referencePeriod: "MARKETING YEAR", unit: "lb", label: "Honey" },
+  turkeys: { commodity_desc: "TURKEYS", statisticcat_desc: "PRODUCTION", short_desc: "TURKEYS - PRODUCTION, MEASURED IN HEAD", referencePeriod: "YEAR", unit: "head", label: "Turkeys", dollarShortDesc: "TURKEYS - PRODUCTION, MEASURED IN $" },
+  honey: { commodity_desc: "HONEY", statisticcat_desc: "PRODUCTION", short_desc: "HONEY - PRODUCTION, MEASURED IN LB", referencePeriod: "MARKETING YEAR", unit: "lb", label: "Honey", dollarShortDesc: "HONEY - PRODUCTION, MEASURED IN $" },
   "dairy-cows": { commodity_desc: "CATTLE", statisticcat_desc: "INVENTORY", short_desc: "CATTLE, COWS, MILK - INVENTORY", referencePeriod: "FIRST OF JAN", unit: "head", label: "Dairy cows" },
   // Census of Agriculture years only (2022, 2017, ...) — not annual.
   goats: { commodity_desc: "GOATS", statisticcat_desc: "INVENTORY", short_desc: "GOATS - INVENTORY", referencePeriod: "END OF DEC", domain_desc: "TOTAL", unit: "head", label: "Goats", censusYearsOnly: true },
@@ -72,9 +82,27 @@ for (const candidate of candidateYears) {
 }
 if (!year) throw new Error(`No USDA NASS state-level data found for ${c.label}.`);
 
+let dollarByState = new Map();
+if (c.dollarShortDesc) {
+  const dollarRows = await quickStats({
+    commodity_desc: c.commodity_desc, statisticcat_desc: "PRODUCTION",
+    short_desc: c.dollarShortDesc, agg_level_desc: "STATE", year: String(year),
+    reference_period_desc: c.referencePeriod,
+  });
+  dollarByState = new Map(
+    dollarRows
+      .map((r) => [r.state_name, Number(String(r.Value || "").replace(/,/g, ""))])
+      .filter(([state, v]) => state && state !== "OTHER STATES" && Number.isFinite(v) && v > 0)
+  );
+}
+
+// NASS returns state names in ALL CAPS ("NORTH DAKOTA"); title-case for display,
+// but join against dollarByState using the raw r.state_name key it was built with.
+const titleCase = (s) => s.toLowerCase().replace(/\b\w/g, (ch) => ch.toUpperCase());
+
 const rows = data
-  .map((r) => ({ state: r.state_name, value: Number(String(r.Value || "").replace(/,/g, "")) }))
-  .filter((r) => r.state && r.state !== "OTHER STATES" && Number.isFinite(r.value) && r.value > 0)
+  .map((r) => ({ state: r.state_name && titleCase(r.state_name), value: Number(String(r.Value || "").replace(/,/g, "")), dollarValue: dollarByState.get(r.state_name) }))
+  .filter((r) => r.state && r.state !== "Other States" && Number.isFinite(r.value) && r.value > 0)
   .sort((a, b) => b.value - a.value)
   .map((r, i) => ({ ...r, rank: i + 1 }));
 if (!rows.length) throw new Error(`No usable ${c.label} rows for ${year}.`);
@@ -82,43 +110,75 @@ if (!rows.length) throw new Error(`No usable ${c.label} rows for ${year}.`);
 const az = rows.find((r) => r.state === "Arizona");
 const top = rows.slice(0, 10);
 const nationalTotal = rows.reduce((s, r) => s + r.value, 0);
+const hasDollar = rows.some((r) => Number.isFinite(r.dollarValue));
+const nationalDollarTotal = hasDollar ? rows.reduce((s, r) => s + (r.dollarValue || 0), 0) : null;
+const impliedPricePerUnit = hasDollar ? nationalDollarTotal / nationalTotal : null;
+const money = (n) => {
+  const a = Math.abs(n), s = n < 0 ? "-" : "";
+  if (a >= 1e9) return `${s}$${(a / 1e9).toFixed(2)}B`;
+  if (a >= 1e6) return `${s}$${(a / 1e6).toFixed(1)}M`;
+  return `${s}$${Math.round(a).toLocaleString("en-US")}`;
+};
 
+// Bar-end labels have limited width, especially on the #1 bar (near-full-length);
+// the axis ticks already establish the unit scale, so keep this to the $ value
+// alone when available (new information) rather than repeating "N bushels" too —
+// the full "N bushels ($X)" detail still appears in the text caption/table below.
+const dollarByValue = new Map(top.map((r) => [r.value, r.dollarValue]));
 const chartSVG = horizontalBarChart(
   top.map((r) => ({ label: `#${r.rank} ${r.state}`, v: r.value, color: r.state === "Arizona" ? C.s2 : C.s1 })),
-  { fmtTick: (v) => num(v), fmtVal: (v) => `${num(v)} ${c.unit}` }
+  {
+    fmtTick: (v) => num(v),
+    fmtVal: (v) => {
+      const dv = dollarByValue.get(v);
+      return Number.isFinite(dv) ? money(dv) : `${num(v)} ${c.unit}`;
+    },
+  }
 );
 
 const html = cardHTML({
   kicker: "Agriculture check",
   title: `Which states produce the most ${c.label.toLowerCase()}?`,
-  hero: num(top[0].value),
-  heroLabel: `${top[0].state}; ${c.label.toLowerCase()}, ${year} (${c.unit})`,
+  hero: hasDollar ? money(top[0].dollarValue) : num(top[0].value),
+  heroLabel: hasDollar
+    ? `${top[0].state}; value of ${c.label.toLowerCase()} produced, ${year}`
+    : `${top[0].state}; ${c.label.toLowerCase()}, ${year} (${c.unit})`,
   chartSVG, source: "USDA NASS QuickStats", vintage: String(year),
 });
 
 const facebook = [
-  `Which states produce the most ${c.label.toLowerCase()}?`,
+  hasDollar
+    ? `${top[0].state}'s ${c.label.toLowerCase()} production was worth ${money(top[0].dollarValue)} in ${year} — more than any other state.`
+    : `Which states produce the most ${c.label.toLowerCase()}?`,
   "",
-  `USDA ${year} data — ${c.label.toLowerCase()} by state (${c.unit}).`,
+  hasDollar
+    ? `That's ${num(top[0].value)} ${c.unit} of ${c.label.toLowerCase()}, at a national average price of about ${(impliedPricePerUnit >= 1 ? `$${impliedPricePerUnit.toFixed(2)}` : `${(impliedPricePerUnit * 100).toFixed(0)}¢`)} per ${c.unit.replace(/s$/, "")}.`
+    : `USDA ${year} data — ${c.label.toLowerCase()} by state (${c.unit}).`,
   "",
-  "Top 10:", ...top.map((r) => `#${r.rank} ${r.state}: ${num(r.value)} ${c.unit}`), "",
-  az && az.rank > 10 ? `Arizona: #${az.rank} of ${rows.length}, ${num(az.value)} ${c.unit}.` : "",
+  "Top 10:",
+  ...top.map((r) => `#${r.rank} ${r.state}: ${num(r.value)} ${c.unit}${Number.isFinite(r.dollarValue) ? ` (${money(r.dollarValue)})` : ""}`),
+  "",
+  az && az.rank > 10 ? `Arizona: #${az.rank} of ${rows.length}, ${num(az.value)} ${c.unit}${Number.isFinite(az.dollarValue) ? ` (${money(az.dollarValue)})` : ""}.` : "",
   "",
   `Top state's share of these ${rows.length} states' total: ${((top[0].value / nationalTotal) * 100).toFixed(1)}%.`,
+  hasDollar ? `Combined value across these ${rows.length} states: ${money(nationalDollarTotal)}.` : "",
   "",
   "Source: U.S. Department of Agriculture, National Agricultural Statistics Service (NASS QuickStats).",
 ].filter(Boolean);
 
 const lines = [
   `State ${c.label.toLowerCase()} watch (${STAMP})`, "", `USDA NASS QuickStats, ${year} ${c.label.toLowerCase()} (${c.unit}).`, "",
-  `Rank | State | ${c.label} (${c.unit})`,
-  "---:|---|---:",
-  ...rows.map((r) => `${r.rank} | ${r.state} | ${num(r.value)}`), "",
+  `Rank | State | ${c.label} (${c.unit})${hasDollar ? " | Value ($)" : ""}`,
+  hasDollar ? "---:|---|---:|---:" : "---:|---|---:",
+  ...rows.map((r) => `${r.rank} | ${r.state} | ${num(r.value)}${hasDollar ? ` | ${Number.isFinite(r.dollarValue) ? money(r.dollarValue) : "—"}` : ""}`), "",
   "Facebook post", "-------------", facebook.join("\n"),
 ];
 
 writeFileSync(`${outBase}.txt`, lines.join("\n"));
-writeFileSync(`${outBase}.csv`, toCSV(["rank", "state", `${commodityKey}_${c.unit.replace(/[^a-z0-9]+/gi, "_")}`], rows.map((r) => [r.rank, r.state, r.value])));
+writeFileSync(`${outBase}.csv`, toCSV(
+  ["rank", "state", `${commodityKey}_${c.unit.replace(/[^a-z0-9]+/gi, "_")}`, ...(hasDollar ? [`${commodityKey}_value_usd`] : [])],
+  rows.map((r) => [r.rank, r.state, r.value, ...(hasDollar ? [Number.isFinite(r.dollarValue) ? r.dollarValue : ""] : [])])
+));
 writeFileSync(`${outBase}.html`, html);
 const wroteImage = !noImage && screenshot(`${outBase}.html`, `${outBase}.png`);
 console.log(lines.join("\n"));

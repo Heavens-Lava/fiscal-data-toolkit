@@ -57,6 +57,12 @@ export function nextAvailableScheduleSlot({
   startDaysAhead = 1,
   dailyLimit = slots.length,
   searchDays = 366,
+  // Facebook rejects scheduled_publish_time values too far out (confirmed by
+  // testing: ~28 days ahead succeeds, ~29 fails) even though its docs cite a
+  // looser 75-day figure. Stay a day under the observed boundary so callers
+  // get a clear error here instead of a silent, hard-to-diagnose (#100) from
+  // the Graph API later.
+  maxDaysAhead = 27,
 }) {
   // Validate the timezone before searching.
   formatter(timeZone).format(now);
@@ -74,7 +80,7 @@ export function nextAvailableScheduleSlot({
   const today = zonedParts(now, timeZone);
   const firstDate = addDays(today, Math.max(0, startDaysAhead));
 
-  for (let dayOffset = 0; dayOffset < searchDays; dayOffset++) {
+  for (let dayOffset = 0; dayOffset < Math.min(searchDays, maxDaysAhead); dayOffset++) {
     const date = addDays(firstDate, dayOffset);
     const key = `${date.year}-${String(date.month).padStart(2, "0")}-${String(date.day).padStart(2, "0")}`;
     if ((dailyCounts.get(key) || 0) >= dailyLimit) continue;
@@ -86,4 +92,32 @@ export function nextAvailableScheduleSlot({
     }
   }
   throw new Error("No open publishing slot was found in the scheduling window.");
+}
+
+export function videoCadenceSchedulePlan({ scheduled = [], nextSlot, maxGapDays = 7 }) {
+  if (!nextSlot?.scheduledAt) throw new Error("A normal next slot is required for video cadence planning.");
+  const active = scheduled.filter((entry) =>
+    (!entry.status || ["scheduled", "processing"].includes(entry.status)) &&
+    !Number.isNaN(new Date(entry.scheduledAt).getTime())
+  );
+  const videos = active
+    .filter((entry) => entry.media === "video")
+    .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
+  if (!videos.length) return { ...nextSlot, cadenceAdjusted: false, displaced: null };
+
+  const latestVideo = videos[videos.length - 1];
+  const normalTime = new Date(nextSlot.scheduledAt).getTime();
+  const cadenceTime = new Date(latestVideo.scheduledAt).getTime() + maxGapDays * 24 * 60 * 60 * 1000;
+  if (normalTime <= cadenceTime) return { ...nextSlot, cadenceAdjusted: false, displaced: null };
+
+  const displaced = active.find((entry) => new Date(entry.scheduledAt).getTime() === cadenceTime) || null;
+  return {
+    ...nextSlot,
+    scheduledAt: new Date(cadenceTime).toISOString(),
+    cadenceAdjusted: true,
+    displaced,
+    displacedAt: displaced ? nextSlot.scheduledAt : null,
+    previousVideoAt: latestVideo.scheduledAt,
+    maxGapDays,
+  };
 }

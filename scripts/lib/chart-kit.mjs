@@ -4,9 +4,10 @@
 // social card looks and behaves the same way, from one source of truth.
 
 import { execFileSync } from "node:child_process";
-import { existsSync, renameSync, statSync, unlinkSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
+import { STATE_PATHS, STATE_PATHS_BBOX, STATE_CENTROIDS, STATE_LABEL_ABBRS, DC_POINT } from "./us-state-paths.mjs";
 
 // ── data sources ──────────────────────────────────────────────────────────────
 export async function fred(id) {
@@ -268,6 +269,69 @@ export function stateTileMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "
   return `<svg viewBox="0 0 ${PW} ${PH}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
 }
 
+// Real geographic US state outline map (actual state border shapes, Albers
+// USA composite layout — continental US + Alaska/Hawaii insets) as a
+// drop-in alternative to stateTileMap() above: same input shape
+// (rows[].abbr/.v), same color-scale approach (colorBetween), same bottom
+// gradient legend bar, same PW/PH viewBox. DC is rendered as a small circle
+// marker near its real location since its shape is too tiny to render at
+// this scale. Shape data is static (baked into us-state-paths.mjs) — no
+// runtime network fetch.
+export function stateOutlineMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "#1769c2" }) {
+  const byAbbr = new Map(rows.filter((row) => Number.isFinite(row.v)).map((row) => [row.abbr, row.v]));
+  const values = [...byAbbr.values()];
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const noDataFill = "#dedcd4";
+
+  // Fit the native 960x600 Albers projection space into a plot area within
+  // our 1104x400 viewBox, leaving room below for the legend bar/caption
+  // (mirrors stateTileMap's legendY=352 / caption y=383 footer band).
+  const [bx0, by0, bx1, by1] = STATE_PATHS_BBOX;
+  const bboxW = bx1 - bx0, bboxH = by1 - by0;
+  const targetX0 = 20, targetY0 = 14, targetX1 = PW - 20, targetY1 = 336;
+  const targetW = targetX1 - targetX0, targetH = targetY1 - targetY0;
+  const scale = Math.min(targetW / bboxW, targetH / bboxH);
+  const tx = targetX0 + (targetW - bboxW * scale) / 2 - bx0 * scale;
+  const ty = targetY0 + (targetH - bboxH * scale) / 2 - by0 * scale;
+
+  const fillFor = (abbr) => {
+    const v = byAbbr.get(abbr);
+    if (!Number.isFinite(v)) return noDataFill;
+    const t = hi === lo ? 0.5 : (v - lo) / (hi - lo);
+    return colorBetween(lowColor, highColor, Math.sqrt(Math.max(0, t)));
+  };
+
+  let s = `<defs><linearGradient id="mapScaleOutline"><stop offset="0" stop-color="${lowColor}"/><stop offset="1" stop-color="${highColor}"/></linearGradient></defs>`;
+  s += `<g transform="translate(${tx.toFixed(2)},${ty.toFixed(2)}) scale(${scale.toFixed(4)})">`;
+  for (const abbr of Object.keys(STATE_PATHS)) {
+    const fill = fillFor(abbr);
+    const name = esc(abbr);
+    s += `<path d="${STATE_PATHS[abbr]}" fill="${fill}" stroke="${C.surface}" stroke-width="1" vector-effect="non-scaling-stroke"><title>${name}${byAbbr.has(abbr) ? `: ${esc(fmtVal(byAbbr.get(abbr)))}` : ""}</title></path>`;
+  }
+  // Abbreviation labels for states whose on-screen shape is big enough.
+  for (const abbr of STATE_LABEL_ABBRS) {
+    const [cx, cy] = STATE_CENTROIDS[abbr];
+    const v = byAbbr.get(abbr);
+    const t = Number.isFinite(v) ? (hi === lo ? 0.5 : (v - lo) / (hi - lo)) : 0;
+    const ink = byAbbr.has(abbr) && Math.sqrt(Math.max(0, t)) > 0.48 ? "#ffffff" : C.ink;
+    s += `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="${(11 / scale).toFixed(1)}" font-weight="700" fill="${ink}">${esc(abbr)}</text>`;
+  }
+  // DC marker — too small to show as a filled shape at this scale.
+  {
+    const [dx, dy] = DC_POINT;
+    const fill = fillFor("DC");
+    s += `<circle cx="${dx}" cy="${dy}" r="${(4 / scale).toFixed(1)}" fill="${fill}" stroke="${C.surface}" stroke-width="1" vector-effect="non-scaling-stroke"><title>DC${byAbbr.has("DC") ? `: ${esc(fmtVal(byAbbr.get("DC")))}` : ""}</title></circle>`;
+  }
+  s += `</g>`;
+
+  const legendX = 730, legendY = 352;
+  s += `<rect x="${legendX}" y="${legendY}" width="300" height="12" rx="6" fill="url(#mapScaleOutline)"/>`;
+  s += `<text x="${legendX}" y="${legendY + 31}" font-size="13" fill="${C.muted}">${esc(fmtVal(lo))}</text>`;
+  s += `<text x="${legendX + 300}" y="${legendY + 31}" text-anchor="end" font-size="13" fill="${C.muted}">${esc(fmtVal(hi))}</text>`;
+  s += `<text x="24" y="383" font-size="13" fill="${C.muted}">DC shown as a marker near its real location (too small to render at this scale).</text>`;
+  return `<svg viewBox="0 0 ${PW} ${PH}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+}
+
 export function donutChart(rows, { fmtVal, centerTop = "", centerBottom = "" }) {
   const palette = ["#2a78d6", "#1baf7a", "#e34948", "#e0a429", "#6d62c7", "#2f9da8", "#d66b9a", "#8a8a84"];
   const usable = rows.filter((row) => Number.isFinite(row.v) && row.v > 0);
@@ -397,6 +461,104 @@ export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", char
   </div></body></html>`;
 }
 
+// ISO 3166-1 alpha-2 code → Unicode regional-indicator flag emoji (e.g. "US" → 🇺🇸).
+// Kept for callers that render in an environment with real flag-emoji font
+// support; headless Chromium on Windows does NOT reliably have it (renders
+// bare "US" letter tiles instead), so screenshot-rendered cards should use
+// flagDataUri() below instead.
+export function flagEmoji(iso2) {
+  if (!iso2 || iso2.length !== 2) return "🏳️";
+  return String.fromCodePoint(...[...iso2.toUpperCase()].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65));
+}
+
+// Fetch a small flag PNG (flagcdn.com, free/keyless) ONCE per code, cached to
+// disk forever after. Screenshot rendering must not depend on live network
+// fetches mid-render (40 concurrent external image loads racing the render
+// timeout is exactly the kind of flakiness this avoids) — so callers should
+// resolve every flag to a data: URI up front, then hand cardHTML/template
+// functions the already-embedded string, not a remote src.
+const FLAG_CACHE_DIR = path.join(os.tmpdir(), "fiscal-toolkit-flag-cache");
+export async function flagDataUri(iso2) {
+  if (!iso2 || iso2.length !== 2) return "";
+  const code = iso2.toLowerCase();
+  mkdirSync(FLAG_CACHE_DIR, { recursive: true });
+  const cachePath = path.join(FLAG_CACHE_DIR, `${code}.png`);
+  if (!existsSync(cachePath)) {
+    const res = await fetch(`https://flagcdn.com/24x18/${code}.png`);
+    if (!res.ok) return "";
+    writeFileSync(cachePath, Buffer.from(await res.arrayBuffer()));
+  }
+  return `data:image/png;base64,${readFileSync(cachePath).toString("base64")}`;
+}
+
+// Resolve flagDataUri() for every row in one batch (dedup + parallel fetch),
+// returning a Map<iso2, dataUri> for callers to attach before building HTML.
+export async function flagDataUriMap(iso2Codes) {
+  const unique = [...new Set(iso2Codes.filter(Boolean).map((c) => c.toLowerCase()))];
+  const entries = await Promise.all(unique.map(async (code) => [code, await flagDataUri(code)]));
+  return new Map(entries);
+}
+
+// A tall "best vs. worst" ranked infographic — full-length lists side by
+// side (Visual-Capitalist-style), not a top-10 cutoff. Each row: flag, rank,
+// name, proportional bar, value. Bar length is scaled from a shared [domainMin,
+// domainMax] across BOTH columns so left/right stay honestly comparable —
+// not independently rescaled per column, which would exaggerate small gaps.
+export function rankedTwoColumnHTML({
+  kicker, title, leftLabel, rightLabel, leftRows, rightRows,
+  domainMin, domainMax, fmtVal, source, vintage, accent = C.s1, accent2 = C.neg, showFlags = true,
+}) {
+  const rowH = 34;
+  const rows = Math.max(leftRows.length, rightRows.length);
+  const bodyH = rows * rowH + 40;
+  const height = 210 + bodyH + 60;
+
+  const barPct = (v) => `${Math.max(2, Math.min(100, ((v - domainMin) / (domainMax - domainMin)) * 100))}%`;
+
+  // Flag emoji font support is unreliable in headless Chromium on Windows
+  // (renders as bare "US" letter codes instead of a flag glyph), so rows use
+  // a pre-resolved data: URI (see flagDataUri/flagDataUriMap) instead of a
+  // font glyph OR a live network src — screenshot rendering must not depend
+  // on network fetches mid-render. showFlags:false skips the image entirely
+  // (e.g. US-state rankings, where there's no equivalent flag convention).
+  const column = (rows, color) => rows.map((r, i) => `
+    <div class="row">
+      <span class="rank">${i + 1}</span>
+      ${showFlags ? `<img class="flag" src="${r.flagSrc || ""}" width="24" height="18" alt="" />` : ""}
+      <span class="name" style="${showFlags ? "" : "width:182px"}">${esc(r.name)}</span>
+      <span class="bar-track"><span class="bar" style="width:${barPct(r.value)};background:${r.color || color}"></span></span>
+      <span class="val">${esc(fmtVal(r.value))}</span>
+    </div>`).join("");
+
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:${height}px; background:${C.surface};
+         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .card { width:100%; height:100%; padding:44px 48px 36px; display:flex; flex-direction:column; }
+  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+  h1 { font-size:32px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1080px; line-height:1.2; }
+  .cols { display:flex; gap:32px; margin-top:26px; }
+  .col { flex:1; min-width:0; }
+  .col-head { font-size:17px; font-weight:700; color:${C.ink}; padding-bottom:8px; border-bottom:2px solid ${C.grid}; margin-bottom:6px; }
+  .row { display:flex; align-items:center; height:${rowH}px; gap:8px; font-size:14px; }
+  .rank { width:20px; color:${C.muted}; font-weight:600; text-align:right; flex-shrink:0; }
+  .flag { flex-shrink:0; width:24px; height:18px; object-fit:cover; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,0.08); }
+  .name { width:150px; flex-shrink:0; color:${C.ink2}; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-track { flex:1; height:14px; background:${C.grid}; border-radius:7px; overflow:hidden; }
+  .bar { display:block; height:100%; border-radius:7px; }
+  .val { width:52px; flex-shrink:0; text-align:right; font-weight:700; color:${C.ink}; font-variant-numeric:tabular-nums; }
+  .foot { display:flex; justify-content:space-between; font-size:15px; color:${C.muted}; margin-top:20px; }
+  </style></head><body><div class="card">
+    <div class="kicker">${esc(kicker)}</div>
+    <h1>${esc(title)}</h1>
+    <div class="cols">
+      <div class="col"><div class="col-head">${esc(leftLabel)}</div>${column(leftRows, accent)}</div>
+      <div class="col"><div class="col-head">${esc(rightLabel)}</div>${column(rightRows, accent2)}</div>
+    </div>
+    <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
+  </div></body></html>`;
+}
+
 // ── PNG via headless Edge/Chrome ──────────────────────────────────────────────
 export function findBrowser() {
   const candidates = [
@@ -409,7 +571,7 @@ export function findBrowser() {
   return candidates.find((p) => existsSync(p));
 }
 
-export function screenshot(htmlPath, pngPath) {
+export function screenshot(htmlPath, pngPath, { width = 1200, height = 675 } = {}) {
   const browser = findBrowser();
   if (!browser) {
     console.log("  ! No Edge/Chrome found for PNG rendering (set BROWSER_PATH). HTML card was still written.");
@@ -421,7 +583,7 @@ export function screenshot(htmlPath, pngPath) {
     try {
       execFileSync(browser, [
         headless, "--disable-gpu", "--hide-scrollbars", `--user-data-dir=${profile}`,
-        "--window-size=1200,675", `--screenshot=${renderPath}`, `file:///${htmlPath.replace(/\\/g, "/")}`,
+        `--window-size=${width},${height}`, `--screenshot=${renderPath}`, `file:///${htmlPath.replace(/\\/g, "/")}`,
       ], { stdio: "ignore", timeout: 60000 });
     } catch { /* try older headless flag */ }
     // Edge can hand rendering to a child process and return before the PNG is

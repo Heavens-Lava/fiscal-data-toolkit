@@ -25,6 +25,8 @@ const SOURCES = [
   { name: "Wealth concentration", pattern: /^wealth-concentration-watch-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "quarterly", source: "Fed DFA/FRED", staleDays: 120 },
   { name: "Credit card cost", pattern: /^credit-card-cost-watch-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "monthly", source: "FRED", staleDays: 45 },
   { name: "GDP per capita gap (US-China)", pattern: /^gdp-per-capita-gap-watch-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "annual", source: "World Bank", staleDays: 400 },
+  { name: "Life expectancy ranked", pattern: /^world-life-expectancy-ranked-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "annual", source: "World Bank (WHO)", staleDays: 400 },
+  { name: "Religion adherence by state", pattern: /^religion-adherence-watch-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "decadal", source: "U.S. Religion Census (ASARB/ARDA)", staleDays: 3000 },
   { name: "Electricity prices", pattern: /^electricity-price-watch-.+-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "monthly", source: "EIA", staleDays: 60 },
   { name: "State unemployment", pattern: /^state-unemployment-watch-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "monthly", source: "BLS", staleDays: 45 },
   { name: "Census topic snapshots", pattern: /^census-.+-\d{4}-\d{2}-\d{2}\.csv$/, cadence: "annual", source: "Census", staleDays: 400 },

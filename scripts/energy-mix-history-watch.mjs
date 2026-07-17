@@ -61,7 +61,7 @@ const chartSVG = lineChart(chartSeries, {
   labelStep: Math.max(2, Math.round(rows.length / 10)), yLabel: "Share of electricity generation",
 });
 const legendHTML = legend([
-  { color: C.s1, label: "Coal" }, { color: C.s2, label: "Natural gas" }, { color: C.neg, label: "Renewables" },
+  { color: C.s1, name: "Coal" }, { color: C.s2, name: "Natural gas" }, { color: C.neg, name: "Renewables" },
 ]);
 
 const html = cardHTML({
@@ -87,7 +87,12 @@ const facebook = [
   "",
   "Note: \"Renewables\" combines several EIA categories (conventional hydro, wind, solar, geothermal, wood, and waste) into one line for readability — it is not a single official EIA series.",
   "",
+  "Which change surprises you most? Comment below and follow America by the Numbers for more data stories.",
+  "",
   "Source: U.S. Energy Information Administration, Total Energy historical statistics (Monthly/Annual Energy Review series).",
+  "Source website: https://www.eia.gov/totalenergy/data/monthly/",
+  "Information retrieved programmatically through the EIA API.",
+  "Graph and video made by Jeffrey Macy.",
 ].filter(Boolean);
 
 const lines = [

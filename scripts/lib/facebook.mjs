@@ -90,6 +90,7 @@ function postAssets({ social, topic, date }) {
   const txtFile = `${base}.txt`;
   const pngFile = `${base}.png`;
   const mp4File = `${base}.mp4`;
+  const videoCreditFile = `${base}-video-credit.txt`;
   if (!existsSync(txtFile)) throw new Error(`Missing caption file: ${topic}-${date}.txt`);
   return {
     caption: prepareFacebookCaption(readFileSync(txtFile, "utf8")),
@@ -97,7 +98,14 @@ function postAssets({ social, topic, date }) {
     mp4File,
     imageExists: existsSync(pngFile),
     videoExists: existsSync(mp4File),
+    videoCredit: existsSync(videoCreditFile) ? readFileSync(videoCreditFile, "utf8").trim() : "",
   };
+}
+
+function captionForMedia(assets, mediaKind) {
+  return mediaKind === "video" && assets.videoCredit
+    ? `${assets.caption}\n\n${assets.videoCredit}`
+    : assets.caption;
 }
 
 function selectedMedia({ mediaPreference, imageExists, videoExists }) {
@@ -132,6 +140,16 @@ export async function facebookPostDetails({ root, postId }) {
   return jsonResponse(await fetch(url, { signal: AbortSignal.timeout(20_000) }));
 }
 
+export async function facebookVideoDetails({ root, videoId }) {
+  const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");
+  if (!videoId || !token) throw new FacebookPublishError("Facebook video credentials are incomplete.");
+  const { graph } = graphUrls(root);
+  const url = new URL(`${graph}/${encodeURIComponent(videoId)}`);
+  url.searchParams.set("fields", "id,created_time,published,scheduled_publish_time,status,permalink_url");
+  url.searchParams.set("access_token", token);
+  return jsonResponse(await fetch(url, { signal: AbortSignal.timeout(20_000) }));
+}
+
 export async function scheduleFacebookPost({ root, social, topic, date, mediaPreference = "image", scheduledAt }) {
   const when = new Date(scheduledAt);
   if (Number.isNaN(when.getTime())) throw new FacebookPublishError("Invalid scheduled date and time.");
@@ -140,6 +158,7 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
   }
   const assets = postAssets({ social, topic, date });
   const mediaKind = selectedMedia({ mediaPreference, ...assets });
+  const caption = captionForMedia(assets, mediaKind);
   const pageId = envVar(root, "FB_PAGE_ID");
   const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");
   if (!pageId || !token) throw new FacebookPublishError("The new Facebook Page is not connected yet.");
@@ -149,7 +168,7 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
 
   if (mediaKind === "video") {
     const form = new FormData();
-    form.append("description", assets.caption);
+    form.append("description", caption);
     form.append("published", "false");
     form.append("scheduled_publish_time", publishTime);
     form.append("access_token", token);
@@ -157,7 +176,7 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
     const body = await jsonResponse(await fetch(`${video}/${pageId}/videos`, {
       method: "POST", body: form, signal: AbortSignal.timeout(180_000),
     }));
-    return { caption: assets.caption, mediaKind, objectId: body.id, mediaId: body.id, response: body };
+    return { caption, mediaKind, objectId: body.id, mediaId: body.id, response: body };
   }
 
   let mediaId = null;
@@ -173,7 +192,7 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
   }
 
   const form = new URLSearchParams({
-    message: assets.caption,
+    message: caption,
     published: "false",
     scheduled_publish_time: publishTime,
     access_token: token,
@@ -182,7 +201,7 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
   const body = await jsonResponse(await fetch(`${graph}/${pageId}/feed`, {
     method: "POST", body: form, signal: AbortSignal.timeout(60_000),
   }));
-  return { caption: assets.caption, mediaKind, objectId: body.id, mediaId, response: body };
+  return { caption, mediaKind, objectId: body.id, mediaId, response: body };
 }
 
 export async function rescheduleFacebookPost({ root, postId, scheduledAt }) {
@@ -203,6 +222,17 @@ export async function rescheduleFacebookPost({ root, postId, scheduledAt }) {
   }));
 }
 
+export async function updateFacebookScheduledPostCaption({ root, postId, message }) {
+  const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");
+  if (!postId || !token) throw new FacebookPublishError("Facebook scheduled-post credentials are incomplete.");
+  if (!String(message || "").trim()) throw new FacebookPublishError("The scheduled post caption cannot be empty.");
+  const { graph } = graphUrls(root);
+  const form = new URLSearchParams({ message: String(message).trim(), access_token: token });
+  return jsonResponse(await fetch(`${graph}/${encodeURIComponent(postId)}`, {
+    method: "POST", body: form, signal: AbortSignal.timeout(30_000),
+  }));
+}
+
 export async function cancelFacebookScheduledPost({ root, postId }) {
   const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");
   if (!postId || !token) throw new FacebookPublishError("Facebook scheduled-post credentials are incomplete.");
@@ -217,8 +247,9 @@ export async function cancelFacebookScheduledPost({ root, postId }) {
 // non-OK Graph API response.
 export async function publishPost({ root, social, topic, date, mediaPreference = "image" }) {
   const assets = postAssets({ social, topic, date });
-  const { caption, pngFile, mp4File } = assets;
+  const { pngFile, mp4File } = assets;
   const mediaKind = selectedMedia({ mediaPreference, ...assets });
+  const caption = captionForMedia(assets, mediaKind);
 
   const pageId = envVar(root, "FB_PAGE_ID");
   const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");

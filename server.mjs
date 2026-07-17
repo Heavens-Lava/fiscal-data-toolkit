@@ -32,7 +32,7 @@ import {
   removeScheduledPost,
   schedulePost,
 } from "./scripts/lib/scheduled-posts.mjs";
-import { nextAvailableScheduleSlot, parseScheduleSlots } from "./scripts/lib/schedule-slots.mjs";
+import { nextAvailableScheduleSlot, parseScheduleSlots, videoCadenceSchedulePlan } from "./scripts/lib/schedule-slots.mjs";
 import {
   approvalAuthReady,
   approvalSessionCookie,
@@ -396,17 +396,47 @@ const server = http.createServer(async (req, res) => {
       if (media === "image" && !post.hasImage) return sendJSON(res, 400, { error: "This post has no image." });
       if (media === "video" && !post.hasVideo) return sendJSON(res, 400, { error: "This post has no video." });
       try {
+        const scheduledPosts = loadScheduledPosts(ROOT);
         const next = nextAvailableScheduleSlot({
-          scheduled: loadScheduledPosts(ROOT),
+          scheduled: scheduledPosts,
           published: loadPostLog(ROOT).filter((entry) => ["published", "publish_uncertain"].includes(entry.status)),
           timeZone: SOCIAL_SCHEDULE_TIMEZONE,
           slots: SOCIAL_SCHEDULE_SLOTS,
           startDaysAhead: 0,
         });
-        const scheduled = await scheduleApprovedPost({
-          topic, date, media, scheduledAt: next.scheduledAt,
-        });
-        return sendJSON(res, 200, { ok: true, scheduled, policy: next });
+        const plan = media === "video"
+          ? videoCadenceSchedulePlan({ scheduled: scheduledPosts, nextSlot: next })
+          : next;
+        let displacedMoved = false;
+        try {
+          if (plan.displaced) {
+            if (plan.displaced.facebookPostId) {
+              await rescheduleFacebookPost({
+                root: ROOT, postId: plan.displaced.facebookPostId, scheduledAt: plan.displacedAt,
+              });
+            }
+            schedulePost(ROOT, { ...plan.displaced, scheduledAt: plan.displacedAt });
+            displacedMoved = true;
+          }
+          const scheduled = await scheduleApprovedPost({
+            topic, date, media, scheduledAt: plan.scheduledAt,
+          });
+          return sendJSON(res, 200, { ok: true, scheduled, policy: plan });
+        } catch (error) {
+          if (displacedMoved) {
+            try {
+              if (plan.displaced.facebookPostId) {
+                await rescheduleFacebookPost({
+                  root: ROOT, postId: plan.displaced.facebookPostId, scheduledAt: plan.displaced.scheduledAt,
+                });
+              }
+              schedulePost(ROOT, plan.displaced);
+            } catch (rollbackError) {
+              console.error(`Could not roll back displaced schedule ${plan.displaced.topic}: ${rollbackError.message}`);
+            }
+          }
+          throw error;
+        }
       } catch (error) {
         return sendJSON(res, 409, { error: error.message });
       }

@@ -113,7 +113,7 @@ function textToBeats(raw, { keepCaveats = false } = {}) {
 
 const topic = process.argv[2];
 if (!topic || topic.startsWith("--")) {
-  console.error("Usage: node scripts/make-video.mjs <topic> [--date YYYY-MM-DD] [--keep-script] [--rate 1.15] [--accent #2a78d6] [--music <mood|file>] [--voice <name>]");
+  console.error("Usage: node scripts/make-video.mjs <topic> [--date YYYY-MM-DD] [--keep-script] [--rate 1.15] [--accent #2a78d6] [--music <mood|file>] [--no-music] [--voice <name>] [--brand <name>]");
   process.exit(1);
 }
 const date = argValue("--date", localDateStamp());
@@ -121,8 +121,9 @@ const keepScript = process.argv.includes("--keep-script");
 const keepCaveats = process.argv.includes("--keep-caveats");
 const rate = argValue("--rate");
 const accent = argValue("--accent");
-const music = argValue("--music");
+const music = process.argv.includes("--no-music") ? null : argValue("--music", process.env.VIDEO_MUSIC || "suspense");
 const voice = argValue("--voice");
+const brand = argValue("--brand", process.env.VIDEO_BRAND || "AMERICA BY THE NUMBERS");
 const customScriptArg = argValue("--script");
 const customScriptPath = customScriptArg
   ? (path.isAbsolute(customScriptArg) ? customScriptArg : path.resolve(ROOT, customScriptArg))
@@ -169,6 +170,7 @@ if (rate) assembleArgs.push("--rate", rate);
 if (accent) assembleArgs.push("--accent", accent);
 if (music) assembleArgs.push("--music", music);
 if (voice) assembleArgs.push("--voice", voice);
+if (brand) assembleArgs.push("--brand", brand);
 execFileSync("node", assembleArgs, {
   cwd: VIDEO_MAKER,
   stdio: "inherit",
@@ -200,6 +202,24 @@ try {
   rmSync(fastStartFile, { force: true });
   console.warn("Video rendered, but the playback-compatibility pass was skipped.");
 }
+const thumbnailFile = path.join(SOCIAL, `${topic}-${date}-thumbnail.png`);
+try {
+  execFileSync("ffmpeg", [
+    "-y", "-v", "error", "-ss", "0.8", "-i", outFile,
+    "-frames:v", "1", "-vf", "scale=1080:1920", thumbnailFile,
+  ], { stdio: "inherit" });
+} catch {
+  console.warn("Video rendered, but the thumbnail could not be generated.");
+}
+const musicCreditSource = path.join(VIDEO_MAKER, "out", "music-credit.txt");
+const videoCreditFile = path.join(SOCIAL, `${topic}-${date}-video-credit.txt`);
+if (music && existsSync(musicCreditSource)) {
+  writeFileSync(videoCreditFile, `${readFileSync(musicCreditSource, "utf8").trim()}\n`);
+} else {
+  rmSync(videoCreditFile, { force: true });
+}
 if (!customScriptPath && !keepScript) rmSync(scriptPath, { force: true });
 
 console.log(`\nDone: ${path.relative(ROOT, outFile)}`);
+if (existsSync(thumbnailFile)) console.log(`Thumbnail: ${path.relative(ROOT, thumbnailFile)}`);
+if (existsSync(videoCreditFile)) console.log(`Video credit: ${path.relative(ROOT, videoCreditFile)}`);

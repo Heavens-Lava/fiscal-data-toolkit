@@ -23,6 +23,7 @@ export const TOPIC_CATEGORY = {
   "state-gdp-growth-watch": "Income & Economy",
   "gdp-per-capita-gap-watch": "Income & Economy",
   "world-gdp-growth-watch": "Income & Economy",
+  "us-ecommerce-watch": "Income & Economy",
 
   // Energy
   "natural-gas-production-watch": "Energy",
@@ -43,6 +44,16 @@ export const TOPIC_CATEGORY = {
   "state-population-growth-watch": "Population",
   "world-population-watch": "Population",
   "world-population-density-watch": "Population",
+  "state-median-age-watch": "Population",
+  "state-veterans-watch": "Population",
+  "state-college-graduates-watch": "Population",
+  "state-household-size-watch": "Population",
+  // Geography
+  "state-population-density-watch": "Geography",
+  "state-land-area-watch": "Geography",
+  "state-foreign-born-watch": "Geography",
+  "state-language-watch": "Geography",
+  "state-broadband-watch": "Geography",
 
   // Agriculture
   "state-corn-watch": "Agriculture",
@@ -68,6 +79,16 @@ export const TOPIC_CATEGORY = {
   "state-property-crime-rate-watch": "Crime & Safety",
   "state-violent-crime-clearance-watch": "Crime & Safety",
   "state-property-crime-clearance-watch": "Crime & Safety",
+  "state-cybercrime-complaints-watch": "Crime & Safety",
+  "state-cybercrime-losses-watch": "Crime & Safety",
+  "state-cybercrime-losses-per-complaint-watch": "Crime & Safety",
+  "state-homicide-rate-watch": "Crime & Safety",
+  "state-robbery-rate-watch": "Crime & Safety",
+  "state-burglary-rate-watch": "Crime & Safety",
+  "state-motor-vehicle-theft-rate-watch": "Crime & Safety",
+  "state-arson-rate-watch": "Crime & Safety",
+  "state-aggravated-assault-rate-watch": "Crime & Safety",
+  "state-larceny-rate-watch": "Crime & Safety",
 };
 
 export function categoryFor(topic) {

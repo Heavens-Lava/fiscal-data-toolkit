@@ -104,7 +104,16 @@
     "social:auto": "node scripts/autonomous-social-run.mjs",
     "approvals:setup": "node scripts/setup-approval-auth.mjs",
     "telegram:chats": "node scripts/telegram-chat-id.mjs",
-    "gdp-gap": "node scripts/gdp-per-capita-gap-watch.mjs"
+    "gdp-gap": "node scripts/gdp-per-capita-gap-watch.mjs",
+    "congress-closest": "node scripts/congress-votes.mjs timeline",
+    "reservoirs": "node scripts/reservoir-watch.mjs",
+    "patents": "node scripts/patents-by-state.mjs",
+    "life-expectancy-ranked": "node scripts/world-life-expectancy-ranked.mjs",
+    "booming-industries": "node scripts/business-formation-by-industry.mjs",
+    "state-exports": "node scripts/state-exports-watch.mjs",
+    "patents-company": "node scripts/patents-by-company.mjs",
+    "promote-queue": "node scripts/promote-queued-posts.mjs",
+    "religion": "node scripts/religion-adherence-watch.mjs"
   },
   "license": "MIT",
   "private": true
