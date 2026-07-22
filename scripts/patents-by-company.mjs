@@ -111,9 +111,13 @@ const chartSVG = horizontalBarChart(
   { fmtTick: (v) => num(v), fmtVal: (v) => num(v) }
 );
 
+const runnerUp = top10[1];
+const leadMultiple = runnerUp ? leader.patents / runnerUp.patents : null;
 const html = cardHTML({
   kicker: "Patents by company",
-  title: `Which companies patent the most? ${year}`,
+  title: leadMultiple
+    ? `${leader.name} out-patented every other major company in ${year}`
+    : `Which companies patent the most? ${year}`,
   hero: num(leader.patents),
   heroLabel: `${leader.name} — most granted patents among companies tracked`,
   chartSVG,
@@ -122,7 +126,9 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which companies hold the most U.S. patents? Granted patents in ${year}, among ${COMPANIES.length} major global filers:`,
+  leadMultiple
+    ? `${leader.name} was granted ${num(leader.patents)} U.S. patents in ${year} — ${((leadMultiple - 1) * 100).toFixed(0)}% more than #2 (${runnerUp.name}, ${num(runnerUp.patents)}). Here's how the top patent filers stack up:`
+    : `Which companies hold the most U.S. patents? Granted patents in ${year}, among ${COMPANIES.length} major global filers:`,
   "",
   ...top10.map((r, i) => `${i + 1}. ${r.name}: ${num(r.patents)} patents`),
   "",

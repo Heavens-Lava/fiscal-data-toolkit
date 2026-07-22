@@ -11,7 +11,7 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { C, cardHTML, fred, legend, lineChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { C, esc, fred, lineChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -132,21 +132,57 @@ const chartSeries = [
   { color: C.s2, points: profitShare.map((p) => ({ label: String(p.year), v: p.pct })), endLabel: (v) => v },
 ];
 const chartSVG = lineChart(chartSeries, { fmtTick: (v) => `${v.toFixed(0)}%`, fmtVal: (v) => `${v.toFixed(1)}%`, labelStep: Math.max(2, Math.round(years / 12)), yLabel: "Share of national income" });
-const legendHTML = legend([
-  { name: "Workers' compensation", color: C.s1 },
-  { name: "Corporate profits", color: C.s2 },
-]);
 
-const html = cardHTML({
-  kicker: "Corporate profits vs. wages check",
-  title: `If pay had kept its ${compFirst.year} share of the economy...`,
-  hero: `${money(gapPerWorker)}/yr`,
-  heroLabel: `more per worker in ${compLast.year} — if compensation still held its ${compFirst.year} share of national income`,
-  chartSVG,
-  legendHTML,
-  source: "BEA, National Income and Product Accounts (Table 1.12)",
-  vintage: `${compLast.year}`,
-});
+// Custom 3-panel + smaller trend-chart layout (not the shared cardHTML()
+// kicker/hero/chart template) — the before/after comparison is the story;
+// the multi-year line chart is supporting context underneath, shrunk to
+// make room, not the primary visual.
+const html = `<!doctype html><html><head><meta charset="utf-8"><style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.card { width:100%; height:100%; padding:36px 48px 28px; display:flex; flex-direction:column; }
+.kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+h1 { font-size:28px; font-weight:650; color:${C.ink}; margin-top:6px; max-width:1100px; line-height:1.2; }
+.panels { display:flex; gap:20px; margin-top:20px; }
+.panel { flex:1; background:#f2f1ea; border-radius:8px; padding:16px 20px; }
+.panel-label { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:${C.muted}; display:flex; align-items:center; gap:7px; }
+.panel-dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+.panel-comp .panel-val { color:${C.s1}; }
+.panel-profit .panel-val { color:${C.s2}; }
+.panel-row { display:flex; align-items:baseline; gap:10px; margin-top:10px; }
+.panel-year { font-size:14px; color:${C.muted}; width:44px; }
+.panel-val { font-size:26px; font-weight:700; color:${C.ink}; }
+.panel-arrow { font-size:13px; color:${C.muted}; margin:2px 0 2px 44px; }
+.panel-big .panel-val { font-size:40px; color:${C.pos}; }
+.panel-big .panel-sub { font-size:13px; color:${C.ink2}; margin-top:6px; line-height:1.3; }
+.plot-mini { flex:1; margin-top:16px; min-height:0; }
+.plot-mini svg { width:100%; height:100%; }
+.foot { display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; padding-top:8px; }
+</style></head><body><div class="card">
+  <div class="kicker">Corporate profits vs. wages check</div>
+  <h1>If pay had kept its ${esc(compFirst.year)} share of the economy...</h1>
+  <div class="panels">
+    <div class="panel panel-comp">
+      <div class="panel-label"><span class="panel-dot" style="background:${C.s1}"></span>Workers' Share</div>
+      <div class="panel-row"><span class="panel-year">${esc(compFirst.year)}</span><span class="panel-val">${compFirst.pct.toFixed(1)}%</span></div>
+      <div class="panel-arrow">↓</div>
+      <div class="panel-row"><span class="panel-year">${esc(compLast.year)}</span><span class="panel-val">${compLast.pct.toFixed(1)}%</span></div>
+    </div>
+    <div class="panel panel-profit">
+      <div class="panel-label"><span class="panel-dot" style="background:${C.s2}"></span>Corporate Profits</div>
+      <div class="panel-row"><span class="panel-year">${esc(profitFirst.year)}</span><span class="panel-val">${profitFirst.pct.toFixed(1)}%</span></div>
+      <div class="panel-arrow">↑</div>
+      <div class="panel-row"><span class="panel-year">${esc(profitLast.year)}</span><span class="panel-val">${profitLast.pct.toFixed(1)}%</span></div>
+    </div>
+    <div class="panel panel-big">
+      <div class="panel-label">Per Worker, ${esc(compLast.year)}</div>
+      <div class="panel-val">+${money(gapPerWorker)}</div>
+      <div class="panel-sub">Potential annual difference if compensation still held its ${esc(compFirst.year)} share of national income</div>
+    </div>
+  </div>
+  <div class="plot-mini">${chartSVG}</div>
+  <div class="foot"><span>Source: BEA, National Income and Product Accounts (Table 1.12) · Chart: Jeff Macy</span><span>Data through ${esc(compLast.year)}</span></div>
+</div></body></html>`;
 
 const facebook = [
   `If workers' pay had kept pace with the economy since ${compFirst.year}, the average US worker would be earning about ${money(gapPerWorker)} more per year, right now.`,

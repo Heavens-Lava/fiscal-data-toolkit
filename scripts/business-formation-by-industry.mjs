@@ -138,7 +138,7 @@ const chartSVG = horizontalBarChart(
 
 const html = cardHTML({
   kicker: "Booming industries",
-  title: `Which industries are starting the most new businesses? ${month}`,
+  title: `New business applications in ${booming[0].name} are up ${booming[0].yoyPct.toFixed(0)}% this year`,
   hero: `${booming[0].yoyPct >= 0 ? "+" : ""}${booming[0].yoyPct.toFixed(0)}%`,
   heroLabel: `${booming[0].name} — year-over-year growth in new business applications`,
   chartSVG,
@@ -147,7 +147,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which industries are booming right now? New business applications by sector, ${month} vs. ${priorYear} (seasonally adjusted):`,
+  `New business applications in ${booming[0].name} are up ${booming[0].yoyPct.toFixed(0)}% year-over-year — the fastest-growing industry in the country right now, ${month} vs. ${priorYear} (seasonally adjusted). Here's the full ranking:`,
   "",
   ...booming.map((s, i) => `${i + 1}. ${s.name}: ${s.yoyPct >= 0 ? "+" : ""}${s.yoyPct.toFixed(0)}% (${num(s.applications)} applications, up from ${num(s.priorApplications)})`),
   "",

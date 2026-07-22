@@ -85,7 +85,7 @@ const chartSVG = horizontalBarChart(
 
 const html = cardHTML({
   kicker: "Reservoir watch",
-  title: "How full are the West's major reservoirs right now?",
+  title: `${lowest.name} is down to ${lowest.pctFull.toFixed(0)}% capacity`,
   hero: `${lowest.pctFull.toFixed(0)}%`,
   heroLabel: `${lowest.name} — lowest of ${rows.length} major reservoirs tracked`,
   chartSVG,
@@ -94,7 +94,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "How full are the West's major reservoirs right now?",
+  `${lowest.name} is sitting at just ${lowest.pctFull.toFixed(0)}% of capacity right now — ${maf(lowest.storageAF)} of a possible ${maf(lowest.capacityAF)}. Here's how full every major Western reservoir actually is:`,
   "",
   ...rows.map((r) => `${r.name} (${r.state}): ${r.pctFull.toFixed(0)}% full — ${maf(r.storageAF)} of ${maf(r.capacityAF)} capacity`),
   "",

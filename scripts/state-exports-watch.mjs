@@ -101,9 +101,16 @@ const chartSVG = horizontalBarChart(
   { fmtTick: (v) => `$${v.toFixed(0)}B`, fmtVal: (v) => `$${v.toFixed(1)}B` }
 );
 
+const runnerUp = top10[1];
+const secondThird = top10[1] && top10[2] ? top10[1].exports + top10[2].exports : null;
+const leadMultiple = runnerUp ? leader.exports / runnerUp.exports : null;
 const html = cardHTML({
   kicker: "State exports",
-  title: `Which states export the most goods internationally? ${month}`,
+  title: secondThird && leader.exports >= secondThird
+    ? `${leader.name} exports more than the next two states combined`
+    : leadMultiple
+      ? `${leader.name} is America's top exporter, ${leadMultiple.toFixed(1)}x the runner-up`
+      : `Which states export the most goods internationally? ${month}`,
   hero: fmtM(leader.exports),
   heroLabel: `${leader.name} — goods exports in ${month}`,
   chartSVG,
@@ -112,7 +119,9 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which U.S. states export the most goods internationally? Total export value by state, ${month}:`,
+  leadMultiple
+    ? `${leader.name} exported ${fmtM(leader.exports)} in goods in ${month} alone — ${leadMultiple.toFixed(1)}x more than #2 (${runnerUp.name}, ${fmtM(runnerUp.exports)}). Here's the full ranking:`
+    : `Which U.S. states export the most goods internationally? Total export value by state, ${month}:`,
   "",
   ...top10.map((r, i) => `${i + 1}. ${r.name}: ${fmtM(r.exports)}`),
   "",

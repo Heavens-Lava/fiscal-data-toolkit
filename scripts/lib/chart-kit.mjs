@@ -246,7 +246,42 @@ function colorBetween(a, b, amount) {
   return `#${start.map((value, i) => Math.round(value + (end[i] - value) * amount).toString(16).padStart(2, "0")).join("")}`;
 }
 
-export function stateTileMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "#1769c2" }) {
+export const STATE_MAP_PALETTE = ["#e66b5b", "#e4ad55", "#d9dddc", "#63b7ad", "#087f83"];
+
+function mapColor(t, { palette, lowColor, highColor }) {
+  const value = Math.max(0, Math.min(1, t));
+  if (!palette) return colorBetween(lowColor, highColor, Math.sqrt(value));
+  return palette[Math.min(palette.length - 1, Math.floor(value * palette.length))];
+}
+
+function readableInk(hex) {
+  const rgb = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+    .map((value) => value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+  const luminance = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+  return luminance < 0.39 ? "#ffffff" : C.ink;
+}
+
+function segmentedLegend(palette, x, y, width, height) {
+  const band = width / palette.length;
+  return palette.map((color, index) => `<rect x="${x + index * band}" y="${y}" width="${band + 0.5}" height="${height}" fill="${color}"/>`).join("");
+}
+
+function labeledSegmentedLegend(palette, labels, x, y, width, height) {
+  const band = width / palette.length;
+  return `${segmentedLegend(palette, x, y, width, height)}${labels.map((label, index) =>
+    `<text x="${x + (index + 0.5) * band}" y="${y + height + 18}" text-anchor="middle" font-size="10" font-weight="600" fill="${C.muted}">${esc(label)}</text>`
+  ).join("")}`;
+}
+
+function thresholdColor(value, palette, thresholds) {
+  const index = thresholds.reduce((count, threshold) => count + (value >= threshold ? 1 : 0), 0);
+  return palette[Math.min(index, palette.length - 1)];
+}
+
+export function stateTileMap(rows, { fmtVal, lowColor, highColor, palette = STATE_MAP_PALETTE, thresholds = null, legendLabels = null }) {
+  if (lowColor && highColor && palette === STATE_MAP_PALETTE) palette = null;
+  lowColor ||= "#e8f1fb";
+  highColor ||= "#1769c2";
   const usable = rows.filter((row) => STATE_TILE_POSITIONS[row.abbr] && Number.isFinite(row.v));
   const values = usable.map((row) => row.v), lo = Math.min(...values), hi = Math.max(...values);
   const tileW = 76, tileH = 52, gap = 5, x0 = 24, y0 = 20;
@@ -255,16 +290,21 @@ export function stateTileMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "
     const [col, line] = STATE_TILE_POSITIONS[row.abbr];
     const x = x0 + col * (tileW + gap), y = y0 + line * (tileH + gap);
     const t = hi === lo ? 0.5 : (row.v - lo) / (hi - lo);
-    const fill = colorBetween(lowColor, highColor, Math.sqrt(Math.max(0, t)));
-    const ink = t > 0.48 ? "#ffffff" : C.ink;
+    const fill = palette && thresholds ? thresholdColor(row.v, palette, thresholds) : mapColor(t, { palette, lowColor, highColor });
+    const ink = readableInk(fill);
     s += `<rect x="${x}" y="${y}" width="${tileW}" height="${tileH}" rx="4" fill="${fill}" stroke="${C.surface}" stroke-width="2"/>`;
     s += `<text x="${x + tileW / 2}" y="${y + 21}" text-anchor="middle" font-size="15" font-weight="700" fill="${ink}">${esc(row.abbr)}</text>`;
     s += `<text x="${x + tileW / 2}" y="${y + 39}" text-anchor="middle" font-size="11" font-weight="600" fill="${ink}">${esc(fmtVal(row.v))}</text>`;
   }
-  const legendX = 730, legendY = 352;
-  s += `<rect x="${legendX}" y="${legendY}" width="300" height="12" rx="6" fill="url(#mapScale)"/>`;
-  s += `<text x="${legendX}" y="${legendY + 31}" font-size="13" fill="${C.muted}">${esc(fmtVal(lo))}</text>`;
-  s += `<text x="${legendX + 300}" y="${legendY + 31}" text-anchor="end" font-size="13" fill="${C.muted}">${esc(fmtVal(hi))}</text>`;
+  const labeled = palette && legendLabels?.length === palette.length;
+  const legendX = labeled ? 560 : 730, legendY = 352, legendWidth = labeled ? 520 : 300;
+  s += labeled
+    ? labeledSegmentedLegend(palette, legendLabels, legendX, legendY, legendWidth, 12)
+    : palette ? segmentedLegend(palette, legendX, legendY, legendWidth, 12) : `<rect x="${legendX}" y="${legendY}" width="${legendWidth}" height="12" rx="6" fill="url(#mapScale)"/>`;
+  if (!labeled) {
+    s += `<text x="${legendX}" y="${legendY + 31}" font-size="13" fill="${C.muted}">${esc(fmtVal(lo))}</text>`;
+    s += `<text x="${legendX + legendWidth}" y="${legendY + 31}" text-anchor="end" font-size="13" fill="${C.muted}">${esc(fmtVal(hi))}</text>`;
+  }
   s += `<text x="24" y="383" font-size="13" fill="${C.muted}">Equal-size state tiles; color represents value, not land area.</text>`;
   return `<svg viewBox="0 0 ${PW} ${PH}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
 }
@@ -277,7 +317,10 @@ export function stateTileMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "
 // marker near its real location since its shape is too tiny to render at
 // this scale. Shape data is static (baked into us-state-paths.mjs) — no
 // runtime network fetch.
-export function stateOutlineMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor = "#1769c2" }) {
+export function stateOutlineMap(rows, { fmtVal, lowColor, highColor, palette = STATE_MAP_PALETTE }) {
+  if (lowColor && highColor && palette === STATE_MAP_PALETTE) palette = null;
+  lowColor ||= "#e8f1fb";
+  highColor ||= "#1769c2";
   const byAbbr = new Map(rows.filter((row) => Number.isFinite(row.v)).map((row) => [row.abbr, row.v]));
   const values = [...byAbbr.values()];
   const lo = Math.min(...values), hi = Math.max(...values);
@@ -298,7 +341,7 @@ export function stateOutlineMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor 
     const v = byAbbr.get(abbr);
     if (!Number.isFinite(v)) return noDataFill;
     const t = hi === lo ? 0.5 : (v - lo) / (hi - lo);
-    return colorBetween(lowColor, highColor, Math.sqrt(Math.max(0, t)));
+    return mapColor(t, { palette, lowColor, highColor });
   };
 
   let s = `<defs><linearGradient id="mapScaleOutline"><stop offset="0" stop-color="${lowColor}"/><stop offset="1" stop-color="${highColor}"/></linearGradient></defs>`;
@@ -313,7 +356,7 @@ export function stateOutlineMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor 
     const [cx, cy] = STATE_CENTROIDS[abbr];
     const v = byAbbr.get(abbr);
     const t = Number.isFinite(v) ? (hi === lo ? 0.5 : (v - lo) / (hi - lo)) : 0;
-    const ink = byAbbr.has(abbr) && Math.sqrt(Math.max(0, t)) > 0.48 ? "#ffffff" : C.ink;
+    const ink = byAbbr.has(abbr) ? readableInk(fillFor(abbr)) : C.ink;
     s += `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="${(11 / scale).toFixed(1)}" font-weight="700" fill="${ink}">${esc(abbr)}</text>`;
   }
   // DC marker — too small to show as a filled shape at this scale.
@@ -325,7 +368,7 @@ export function stateOutlineMap(rows, { fmtVal, lowColor = "#e8f1fb", highColor 
   s += `</g>`;
 
   const legendX = 730, legendY = 352;
-  s += `<rect x="${legendX}" y="${legendY}" width="300" height="12" rx="6" fill="url(#mapScaleOutline)"/>`;
+  s += palette ? segmentedLegend(palette, legendX, legendY, 300, 12) : `<rect x="${legendX}" y="${legendY}" width="300" height="12" rx="6" fill="url(#mapScaleOutline)"/>`;
   s += `<text x="${legendX}" y="${legendY + 31}" font-size="13" fill="${C.muted}">${esc(fmtVal(lo))}</text>`;
   s += `<text x="${legendX + 300}" y="${legendY + 31}" text-anchor="end" font-size="13" fill="${C.muted}">${esc(fmtVal(hi))}</text>`;
   s += `<text x="24" y="383" font-size="13" fill="${C.muted}">DC shown as a marker near its real location (too small to render at this scale).</text>`;
@@ -457,6 +500,50 @@ export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", char
     </div>
     ${legendHTML}
     <div class="plot">${chartSVG}</div>
+    <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
+  </div></body></html>`;
+}
+
+// ── the comparison table card (1200x675) ──────────────────────────────────
+// For "many labeled rows that each carry meaning" data (dataviz skill:
+// choosing-a-form.md — a table, not a chart, once you're past ~7 classes).
+// Two value columns (e.g. two years) get fixed categorical colors in their
+// header only; every cell is a direct-labeled number, which is what the
+// skill requires as the mitigation for C.s2's sub-3:1 contrast WARN.
+export function tableCard({
+  kicker, title, subtitle = "", rows, columnLabels, columnColors = [C.s1, C.s2], source, vintage, footnote = "",
+}) {
+  const headCells = columnLabels.map((label, i) =>
+    `<th style="background:${columnColors[i]}">${esc(label)}</th>`).join("");
+  const bodyRows = rows.map((row) =>
+    `<tr><td class="item">${esc(row.label)}</td>${row.values.map((v) => `<td class="val">${esc(v)}</td>`).join("")}</tr>`
+  ).join("");
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .card { width:100%; height:100%; padding:40px 56px 30px; display:flex; flex-direction:column; }
+  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; text-align:center; }
+  h1 { font-size:34px; font-weight:700; color:${C.ink}; margin-top:8px; text-align:center; }
+  .subtitle { font-size:17px; color:${C.ink2}; margin-top:6px; text-align:center; }
+  table { width:100%; table-layout:fixed; border-collapse:collapse; margin-top:26px; flex:1; }
+  col.item-col { width:44%; }
+  th { color:#fff; font-size:17px; font-weight:700; padding:11px 16px; text-align:center; }
+  th:first-child { background:${C.surface} !important; color:${C.ink}; text-align:left; }
+  td { padding:11px 16px; font-size:16px; border-bottom:1px solid ${C.grid}; }
+  td.item { font-weight:600; color:${C.ink2}; }
+  td.val { text-align:center; font-weight:650; color:${C.ink}; font-variant-numeric:tabular-nums; }
+  .footnote { font-size:12px; color:${C.muted}; margin-top:10px; text-align:center; }
+  .foot { display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; padding-top:12px; }
+  </style></head><body><div class="card">
+    <div class="kicker">${esc(kicker)}</div>
+    <h1>${esc(title)}</h1>
+    ${subtitle ? `<div class="subtitle">${esc(subtitle)}</div>` : ""}
+    <table>
+      <colgroup><col class="item-col">${columnLabels.map(() => "<col>").join("")}</colgroup>
+      <thead><tr><th></th>${headCells}</tr></thead>
+      <tbody>${bodyRows}</tbody>
+    </table>
+    ${footnote ? `<div class="footnote">${esc(footnote)}</div>` : ""}
     <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
   </div></body></html>`;
 }

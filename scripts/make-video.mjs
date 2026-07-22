@@ -8,12 +8,19 @@
 //       node scripts/make-video.mjs debt --keep-script   (leave the generated beats JSON for inspection)
 //       node scripts/make-video.mjs debt --keep-caveats  (include Caveat:/Note: asides, dropped by default)
 //       node scripts/make-video.mjs debt --script social/_video-scripts/debt.storyboard.json
+//
+// Storyboard beats may include a Fireship-style meme cutaway:
+//   { "text": "...", "visual": { "type": "meme", "query": "this is fine fire" } }
+// `query` is optional — omit it and lib/meme-kit.mjs auto-picks a reaction
+// from the beat's own text. Requires GIPHY_API_KEY (free signup at
+// https://developers.giphy.com/, see COMMANDS.md).
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, rmSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractCaption } from "./lib/social-posts.mjs";
+import { resolveMemeForBeat } from "./lib/meme-kit.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -155,14 +162,39 @@ if (!Array.isArray(beats) || beats.some((beat) => typeof beat !== "string" && ty
   process.exit(1);
 }
 
+// Resolve any "meme" cutaway beats (storyboard-authored only) to a locally
+// cached Giphy MP4 before handing off to the renderer — the renderer only
+// knows how to play a local visual.src, not a Giphy query. A beat that
+// already has a `src` (a specific clip picked and pinned by hand, e.g. after
+// spot-checking search results) is left alone — re-resolving by query would
+// silently overwrite an intentional pick with whatever the seeded search
+// returns today.
+for (const beat of beats) {
+  if (beat?.visual?.type !== "meme" || beat.visual.src) continue;
+  const resolved = await resolveMemeForBeat(beat.text, beat.visual.query);
+  if (resolved) {
+    beat.visual.src = resolved.src;
+    beat.visual.credit = resolved.credit;
+    delete beat.visual.query;
+  } else {
+    console.warn(`  ! Could not resolve a meme clip for beat: "${beat.text}" — rendering without a cutaway.`);
+    delete beat.visual;
+  }
+}
+
 console.log(`Topic: ${topic}  Date: ${date}`);
 console.log(`Beats (${beats.length}):`);
 beats.forEach((b, i) => console.log(`  ${i + 1}. ${typeof b === "string" ? b : b.text}`));
 
 mkdirSync(SCRIPTS_DIR, { recursive: true });
-const generatedScriptPath = path.join(SCRIPTS_DIR, `${topic}-${date}.json`);
-const scriptPath = customScriptPath || generatedScriptPath;
-if (!customScriptPath) writeFileSync(scriptPath, JSON.stringify(beats, null, 2));
+// assemble.cjs runs as a separate child process and re-reads the script from
+// disk — it never sees the in-memory `beats` mutated above (meme query ->
+// resolved src/credit), so that resolution must always be written out here,
+// even when --script pointed at a hand-authored storyboard. Writing to a
+// generated path (not customScriptPath) also avoids clobbering the user's
+// authored source file with resolved-in-place meme src/credit fields.
+const scriptPath = path.join(SCRIPTS_DIR, `${topic}-${date}.json`);
+writeFileSync(scriptPath, JSON.stringify(beats, null, 2));
 
 console.log(`\nRendering via ${VIDEO_MAKER} ...`);
 const assembleArgs = ["assemble.cjs", "--script", scriptPath, "--portrait", "--motion"];
@@ -218,7 +250,7 @@ if (music && existsSync(musicCreditSource)) {
 } else {
   rmSync(videoCreditFile, { force: true });
 }
-if (!customScriptPath && !keepScript) rmSync(scriptPath, { force: true });
+if (!keepScript) rmSync(scriptPath, { force: true });
 
 console.log(`\nDone: ${path.relative(ROOT, outFile)}`);
 if (existsSync(thumbnailFile)) console.log(`Thumbnail: ${path.relative(ROOT, thumbnailFile)}`);

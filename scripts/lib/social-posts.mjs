@@ -68,7 +68,10 @@ export function prepareFacebookCaption(raw) {
   let caption = extractCaption(raw);
   const footer = [];
   if (!/Source website:\s*https?:\/\//i.test(caption)) footer.push(`Source website: ${sourceWebsiteFor(raw)}`);
-  if (!/\b(?:retrieved|processed) programmatically\b/i.test(caption)) footer.push("Information retrieved programmatically via API.");
+  if (!/\b(?:retrieved|processed) programmatically\b/i.test(caption)
+      && !/\b(?:manually transcribed|figures transcribed|data transcribed)\b/i.test(raw)) {
+    footer.push("Information retrieved programmatically via API.");
+  }
   if (!/\b(?:graphs? (?:made|created) by|charts? by) Jeffrey Macy\b/i.test(caption)) footer.push("Graphs made by Jeffrey Macy.");
   if (footer.length) caption = `${caption}\n\n${footer.join("\n")}`;
   return caption.trim();

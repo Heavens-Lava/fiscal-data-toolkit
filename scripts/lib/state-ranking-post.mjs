@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./chart-kit.mjs";
+import { cardHTML, horizontalBarChart, screenshot, toCSV } from "./chart-kit.mjs";
 import { SOCIAL, STAMP, money, rel, uniqueRows } from "./data-common.mjs";
 
 export function writeStateRankingPost({
@@ -20,7 +20,9 @@ export function writeStateRankingPost({
   const low = ranked.slice(-5).reverse();
   const chartRows = uniqueRows([...high, az, ...low.slice().reverse()], "state");
   const chartSVG = horizontalBarChart(chartRows.map((row) => ({
-    label: `#${row.rank} ${row.state}`, v: row.value, color: row.state === "Arizona" ? C.s2 : C.s1,
+    label: `#${row.rank} ${row.state}`,
+    v: row.value,
+    color: row.state === "Arizona" ? "#e4ad55" : row.rank <= 5 ? "#087f83" : "#e66b5b",
   })), { fmtTick: tickFormat, fmtVal: valueFormat });
   const html = cardHTML({
     kicker, title, hero: valueFormat(high[0].value), heroLabel: `${high[0].state}; ${metricLabel}`,

@@ -7,7 +7,7 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 import { SOCIAL, STAMP, argValue, envValue, num, rel } from "./lib/data-common.mjs";
 
 // Each entry pins an exact NASS short_desc (verified against real data) to
@@ -120,58 +120,83 @@ const money = (n) => {
   return `${s}$${Math.round(a).toLocaleString("en-US")}`;
 };
 
+const compact = (n) => {
+  const value = Math.abs(n);
+  if (value >= 1e9) return `${(n / 1e9).toFixed(value >= 10e9 ? 0 : 1)}B`;
+  if (value >= 1e6) return `${(n / 1e6).toFixed(value >= 10e6 ? 0 : 1)}M`;
+  if (value >= 1e3) return `${(n / 1e3).toFixed(value >= 10e3 ? 0 : 1)}k`;
+  return Math.round(n).toLocaleString("en-US");
+};
+
 // Bar-end labels have limited width, especially on the #1 bar (near-full-length);
 // the axis ticks already establish the unit scale, so keep this to the $ value
 // alone when available (new information) rather than repeating "N bushels" too —
 // the full "N bushels ($X)" detail still appears in the text caption/table below.
-const dollarByValue = new Map(top.map((r) => [r.value, r.dollarValue]));
+const podiumColors = ["#d69e2e", "#9aa3a8", "#b76e45"];
 const chartSVG = horizontalBarChart(
-  top.map((r) => ({ label: `#${r.rank} ${r.state}`, v: r.value, color: r.state === "Arizona" ? C.s2 : C.s1 })),
+  top.map((r, index) => ({
+    label: `#${r.rank} ${r.state}`,
+    v: r.value,
+    color: podiumColors[index] || (r.state === "Arizona" ? "#e4ad55" : "#3b9c95"),
+  })),
   {
-    fmtTick: (v) => num(v),
-    fmtVal: (v) => {
-      const dv = dollarByValue.get(v);
-      return Number.isFinite(dv) ? money(dv) : `${num(v)} ${c.unit}`;
-    },
+    fmtTick: compact,
+    fmtVal: (v) => `${compact(v)} ${c.unit}`,
   }
 );
 
+const topShare = (top[0].value / nationalTotal) * 100;
 const html = cardHTML({
   kicker: "Agriculture check",
-  title: `Which states produce the most ${c.label.toLowerCase()}?`,
-  hero: hasDollar ? money(top[0].dollarValue) : num(top[0].value),
-  heroLabel: hasDollar
-    ? `${top[0].state}; value of ${c.label.toLowerCase()} produced, ${year}`
-    : `${top[0].state}; ${c.label.toLowerCase()}, ${year} (${c.unit})`,
+  title: commodityKey === "wheat" ? "Where America's wheat comes from" : `Which states produce the most ${c.label.toLowerCase()}?`,
+  hero: `${topShare.toFixed(1)}%`,
+  heroLabel: `${top[0].state}'s share of reported U.S. production`,
   chartSVG, source: "USDA NASS QuickStats", vintage: String(year),
 });
 
 const facebook = [
-  hasDollar
+  commodityKey === "wheat"
+    ? "Where does America's bread come from?"
+    : commodityKey === "soybeans"
+    ? `${top[0].state} harvested ${compact(top[0].value)} bushels of soybeans in ${year}—${topShare.toFixed(1)}% of the production reported by these ${rows.length} states.`
+    : commodityKey === "cotton"
+    ? `${top[0].state} produced ${compact(top[0].value)} cotton bales in ${year}—more than twice as many as #2 ${top[1].state}.`
+    : hasDollar
     ? `${top[0].state}'s ${c.label.toLowerCase()} production was worth ${money(top[0].dollarValue)} in ${year} — more than any other state.`
     : `Which states produce the most ${c.label.toLowerCase()}?`,
   "",
-  hasDollar
-    ? `That's ${num(top[0].value)} ${c.unit} of ${c.label.toLowerCase()}, at a national average price of about ${(impliedPricePerUnit >= 1 ? `$${impliedPricePerUnit.toFixed(2)}` : `${(impliedPricePerUnit * 100).toFixed(0)}¢`)} per ${c.unit.replace(/s$/, "")}.`
+  commodityKey === "wheat"
+    ? `${top[0].state} produced ${num(top[0].value)} bushels in ${year}—${topShare.toFixed(1)}% of the total reported by these ${rows.length} states. USDA valued North Dakota's crop at ${money(top[0].dollarValue)}.`
+    : commodityKey === "soybeans"
+    ? `USDA valued ${top[0].state}'s soybean crop at ${money(top[0].dollarValue)} and the combined crop across these states at ${money(nationalDollarTotal)}.`
+    : commodityKey === "cotton"
+    ? `${top[0].state} accounted for ${topShare.toFixed(1)}% of the cotton reported by these ${rows.length} states.`
+    : hasDollar
+    ? `USDA reports ${num(top[0].value)} ${c.unit} from ${top[0].state}, valued at ${money(top[0].dollarValue)}. Across all ${rows.length} reporting states, the crop's average value was about ${(impliedPricePerUnit >= 1 ? `$${impliedPricePerUnit.toFixed(2)}` : `${(impliedPricePerUnit * 100).toFixed(0)} cents`)} per ${c.unit.replace(/s$/, "")}.`
     : `USDA ${year} data — ${c.label.toLowerCase()} by state (${c.unit}).`,
   "",
   "Top 10:",
   ...top.map((r) => `#${r.rank} ${r.state}: ${num(r.value)} ${c.unit}${Number.isFinite(r.dollarValue) ? ` (${money(r.dollarValue)})` : ""}`),
   "",
-  az && az.rank > 10 ? `Arizona: #${az.rank} of ${rows.length}, ${num(az.value)} ${c.unit}${Number.isFinite(az.dollarValue) ? ` (${money(az.dollarValue)})` : ""}.` : "",
+  az && az.rank > 10 ? `Arizona: #${az.rank} of ${rows.length}, ${num(az.value)} ${c.unit}${Number.isFinite(az.dollarValue) ? ` (${money(az.dollarValue)})` : ""}.` : null,
   "",
-  `Top state's share of these ${rows.length} states' total: ${((top[0].value / nationalTotal) * 100).toFixed(1)}%.`,
-  hasDollar ? `Combined value across these ${rows.length} states: ${money(nationalDollarTotal)}.` : "",
+  ["wheat", "soybeans", "cotton"].includes(commodityKey) ? null : `Top state's share of these ${rows.length} states' total: ${topShare.toFixed(1)}%.`,
+  hasDollar && !["wheat", "soybeans"].includes(commodityKey) ? `Combined value across these ${rows.length} states: ${money(nationalDollarTotal)}.` : null,
+  "",
+  "What crop should we cover next? Comment below.",
   "",
   "Source: U.S. Department of Agriculture, National Agricultural Statistics Service (NASS QuickStats).",
-].filter(Boolean);
+  "Source website: https://quickstats.nass.usda.gov/",
+  "Data retrieved programmatically via API.",
+  "Chart created by Jeffrey Macy.",
+].filter((line) => line !== null && line !== undefined && line !== false);
 
 const lines = [
   `State ${c.label.toLowerCase()} watch (${STAMP})`, "", `USDA NASS QuickStats, ${year} ${c.label.toLowerCase()} (${c.unit}).`, "",
   `Rank | State | ${c.label} (${c.unit})${hasDollar ? " | Value ($)" : ""}`,
   hasDollar ? "---:|---|---:|---:" : "---:|---|---:",
   ...rows.map((r) => `${r.rank} | ${r.state} | ${num(r.value)}${hasDollar ? ` | ${Number.isFinite(r.dollarValue) ? money(r.dollarValue) : "—"}` : ""}`), "",
-  "Facebook post", "-------------", facebook.join("\n"),
+  "Facebook post", "-------------", facebook.join("\n").replace(/\n{3,}/g, "\n\n"),
 ];
 
 writeFileSync(`${outBase}.txt`, lines.join("\n"));

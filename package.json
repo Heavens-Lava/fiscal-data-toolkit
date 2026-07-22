@@ -113,7 +113,9 @@
     "state-exports": "node scripts/state-exports-watch.mjs",
     "patents-company": "node scripts/patents-by-company.mjs",
     "promote-queue": "node scripts/promote-queued-posts.mjs",
-    "religion": "node scripts/religion-adherence-watch.mjs"
+    "religion": "node scripts/religion-adherence-watch.mjs",
+    "captions:improve-scheduled": "node scripts/improve-scheduled-captions.mjs",
+    "schedule:replace-media": "node scripts/replace-scheduled-facebook-post.mjs"
   },
   "license": "MIT",
   "private": true

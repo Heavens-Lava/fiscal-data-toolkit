@@ -218,6 +218,8 @@ node scripts/cdc-mortality-watch.mjs --cause motor-vehicle
 npm run wealth
 node scripts/wealth-concentration-watch.mjs
 
+node scripts/wealth-ownership-watch.mjs   # two charts: household net worth by asset class (donut), and net worth by economic sector — households, corporations, government (diverging bar; keyless, FRED)
+
 npm run debt-holders-foreign
 node scripts/debt-foreign-holders-watch.mjs
 
@@ -567,9 +569,20 @@ node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13
 
 # Structured data video with number cards, comparisons, charts, and source scenes
 node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13 --script social\_video-scripts\salary-buying-power-youtube-2026-07-13.storyboard.json
+
+# Illustrated explainer with animated characters, a state journey, and household icons
+node scripts\make-video.mjs salary-buying-power-explainer --date 2026-07-20 --script social\_video-scripts\salary-buying-power-explainer-2026-07-20.storyboard.json --accent "#e9ad32" --brand "AMERICA BY THE NUMBERS"
 ```
 
-Structured storyboard beats accept `visual.type` values of `number`, `comparison`, `chart`, `line-chart`, and `source`. A `chart` scene embeds a generated PNG through `visual.src`. A `line-chart` scene can set `dataSrc`, `xKey`, and series entries with `yKey` values to animate directly from a CSV.
+Structured storyboard beats accept `visual.type` values of `number`, `comparison`, `chart`, `line-chart`, `source`, `character`, `journey`, `household`, and `meme`. A `chart` scene embeds a generated PNG through `visual.src`. A `line-chart` scene can set `dataSrc`, `xKey`, and series entries with `yKey` values to animate directly from a CSV. The illustrated types use original reusable vector scenes: `character` supports `state`, `value`, and `tone`; `journey` animates through up to three labeled `items`; and `household` displays up to four expense categories around a home.
+
+A `meme` scene is a Fireship-style comedic cutaway — narration keeps playing while the screen cuts to an intentionally funny (not literally related) reaction clip:
+
+```json
+{ "text": "...narration continues here...", "visual": { "type": "meme", "query": "this is fine fire" } }
+```
+
+`query` is a Giphy search term; omit it and `lib/meme-kit.mjs` auto-picks a reaction by scanning the beat's own text against a keyword→mood table (crash/decline → "this is fine fire", record/surge → "success kid", etc.), falling back to a deterministic generic rotation. Requires `GIPHY_API_KEY` — real GIF/video content is fetched from Giphy's Search API (licensed for this kind of embedding) rather than scraped from arbitrary sites, and cached locally in `.cache/memes/` so repeat renders don't re-hit the API. If resolution fails (missing key, no results), that beat silently renders without a cutaway rather than failing the whole video. Requires the sibling `inventor-video` project to have `meme` render support in `FacelessShort.tsx` (adds a small on-screen "GIPHY" attribution badge, per Giphy's API terms).
 
 Videos include Edge TTS narration, synchronized captions, quiet background music, persistent `AMERICA BY THE NUMBERS` branding, and an automatically generated `-thumbnail.png`. Use `--no-music`, `--voice <name>`, or `--brand <name>` to override those defaults. When music has a required attribution, `make-video.mjs` writes a `-video-credit.txt` sidecar and Facebook publishing appends it to video captions automatically.
 
@@ -675,6 +688,22 @@ cloudflared tunnel --url http://127.0.0.1:3000
 
 Use a named Cloudflare Tunnel and your own hostname for a stable URL. Keep the dashboard bound to `127.0.0.1`; `cloudflared` connects to it locally.
 
+### Improve scheduled Facebook captions
+
+Preview reaction-first hooks and shorter state rankings without changing Facebook:
+
+```powershell
+npm.cmd run captions:improve-scheduled
+```
+
+Review `.cache\scheduled-caption-preview.md`, then update both the local caption files and the existing Facebook schedule:
+
+```powershell
+npm.cmd run captions:improve-scheduled -- --apply
+```
+
+The apply command preserves post times and media, verifies that source URLs remain in every caption, and writes a rollback copy under `.cache\scheduled-caption-backups\`.
+
 ## Resume / cover letter PDFs
 
 Edit the HTML source first, then print it to PDF with Edge. Close the target PDF before overwriting it, or Windows may keep the file locked.
@@ -706,3 +735,4 @@ Use the safer filename first when you want to inspect changes before replacing t
 |---|---|---|
 | `CENSUS_API_KEY` | Census, migration, family-cost, retirement, and rental-ownership scripts | https://api.census.gov/data/key_signup.html |
 | `BEA_API_KEY` | `bea-industry.mjs`, `bea-regional.mjs`, `salary-buying-power-by-state.mjs` | https://apps.bea.gov/API/signup/ |
+| `GIPHY_API_KEY` | `make-video.mjs`'s meme-cutaway beats (`lib/meme-kit.mjs`) | https://developers.giphy.com/ (free, instant) |

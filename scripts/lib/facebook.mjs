@@ -4,6 +4,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { prepareFacebookCaption } from "./social-posts.mjs";
+import { loadScheduledPosts } from "./scheduled-posts.mjs";
 
 export class FacebookPublishError extends Error {
   constructor(message, { uncertain = false } = {}) {
@@ -156,6 +157,15 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
   if (when.getTime() < Date.now() + 10 * 60_000) {
     throw new FacebookPublishError("Facebook requires scheduled posts to be at least 10 minutes in the future.");
   }
+  const duplicate = loadScheduledPosts(root).find((entry) =>
+    entry.status === "scheduled" && entry.topic === topic && entry.date !== date &&
+    new Date(entry.scheduledAt).getTime() === when.getTime()
+  );
+  if (duplicate) {
+    throw new FacebookPublishError(
+      `${topic} is already scheduled in this slot from ${duplicate.date}. Cancel or replace that version first.`
+    );
+  }
   const assets = postAssets({ social, topic, date });
   const mediaKind = selectedMedia({ mediaPreference, ...assets });
   const caption = captionForMedia(assets, mediaKind);
@@ -229,6 +239,17 @@ export async function updateFacebookScheduledPostCaption({ root, postId, message
   const { graph } = graphUrls(root);
   const form = new URLSearchParams({ message: String(message).trim(), access_token: token });
   return jsonResponse(await fetch(`${graph}/${encodeURIComponent(postId)}`, {
+    method: "POST", body: form, signal: AbortSignal.timeout(30_000),
+  }));
+}
+
+export async function updateFacebookScheduledVideoCaption({ root, videoId, description }) {
+  const token = envVar(root, "FB_PAGE_ACCESS_TOKEN");
+  if (!videoId || !token) throw new FacebookPublishError("Facebook scheduled-video credentials are incomplete.");
+  if (!String(description || "").trim()) throw new FacebookPublishError("The scheduled video caption cannot be empty.");
+  const { graph } = graphUrls(root);
+  const form = new URLSearchParams({ description: String(description).trim(), access_token: token });
+  return jsonResponse(await fetch(`${graph}/${encodeURIComponent(videoId)}`, {
     method: "POST", body: form, signal: AbortSignal.timeout(30_000),
   }));
 }

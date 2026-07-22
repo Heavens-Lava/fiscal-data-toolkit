@@ -342,6 +342,13 @@ const WHY_IT_MATTERED = {
   "New START — with Russia (2010)": "Capped deployed U.S. and Russian strategic warheads and launchers; extended in 2021 for a final five years, expiring February 2026 — check current reporting for what (if anything) has replaced it.",
 };
 
+const SINGLE_POST_HOOK = {
+  "Civil Rights Act of 1866 — first federal civil rights law": "Congress enacted the Civil Rights Act of 1866 over a presidential veto. The decisive House override vote was 122–41.",
+  "14th Amendment — citizenship & equal protection": "The amendment that guarantees citizenship and equal protection passed the House 137–37 in 1866.",
+  "Civil Rights Act of 1964": "The Civil Rights Act of 1964 passed the House 289–126, with majorities of both represented parties voting yes.",
+  "Fair Housing Act of 1968 (Civil Rights Act of 1968)": "Congress passed the Fair Housing Act 250–172, only days after Dr. Martin Luther King Jr. was assassinated.",
+};
+
 const COALITION_NOTE = "Party coalitions have shifted substantially since these dates — today's Democratic and Republican parties are not the same coalitions as in 1865, 1919, or 1968. This is a historical voting record, not a comparison to today's parties.";
 
 async function billResultsFor(bills) {
@@ -431,7 +438,22 @@ function buildLandmarkSocial(bills, topicFilter) {
     vintage: congressRange,
   });
 
-  const facebookLines = [`How did Congress actually vote on ${topicFilter.toLowerCase()}? Real roll calls, member by member — not a paraphrase:`, ""];
+  // Lead with the widest party gap in the set, if there is one — a bigger
+  // hook than a generic "how did Congress vote" opener, and it's a real
+  // number pulled from the data, not an editorial claim.
+  const gaps = bills.map((bill) => {
+    const decisive = bill.entries[bill.entries.length - 1];
+    const d = decisive.parties.find((x) => x.name === "Democrat");
+    const r = decisive.parties.find((x) => x.name === "Republican");
+    if (!d || !r || d.yea + d.nay === 0 || r.yea + r.nay === 0) return null;
+    const dPct = (d.yea / (d.yea + d.nay)) * 100, rPct = (r.yea / (r.yea + r.nay)) * 100;
+    return { bill, dPct, rPct, gap: Math.abs(dPct - rPct) };
+  }).filter(Boolean);
+  const widestGap = gaps.length ? gaps.reduce((a, b) => (b.gap > a.gap ? b : a)) : null;
+
+  const facebookLines = widestGap && widestGap.gap >= 25
+    ? [`The starkest party split among these ${topicFilter.toLowerCase()} votes: on ${BILL_NOUN[widestGap.bill.title] || widestGap.bill.title}, Democrats voted ${widestGap.dPct.toFixed(0)}% yes and Republicans voted ${widestGap.rPct.toFixed(0)}% yes — a ${widestGap.gap.toFixed(0)}-point gap. Here's every vote in this series, real roll calls, member by member:`, ""]
+    : [`How did Congress actually vote on ${topicFilter.toLowerCase()}? Real roll calls, member by member — not a paraphrase:`, ""];
   facebookLines.push("Each member of the House and Senate casts their own individual yea/nay vote on the floor — there's no state-level aggregate and no Electoral College involved (that's only for presidential elections). A House member's vote represents their own district; a Senator's represents their own vote, not a bloc for their whole state.");
   facebookLines.push("");
   for (const bill of bills) {
@@ -524,7 +546,15 @@ function buildBillSocial(bill) {
     <div class="foot"><span>Source: Voteview (UCLA/Stanford) · Chart: Jeff Macy</span><span>${ordinal(bill.congress)} Congress</span></div>
   </div></body></html>`;
 
-  const facebookLines = [`How did Congress vote on ${noun}? The actual roll call, member by member:`, ""];
+  const dParty = decisive.parties.find((x) => x.name === "Democrat");
+  const rParty = decisive.parties.find((x) => x.name === "Republican");
+  const partyGap = dParty && rParty && dParty.yea + dParty.nay > 0 && rParty.yea + rParty.nay > 0
+    ? Math.abs((dParty.yea / (dParty.yea + dParty.nay)) - (rParty.yea / (rParty.yea + rParty.nay))) * 100
+    : null;
+  const openHook = SINGLE_POST_HOOK[bill.title] || (partyGap !== null && partyGap >= 25
+    ? `Congress passed ${noun} ${decisive.yea}–${decisive.nay} — but that number hides a ${partyGap.toFixed(0)}-point party split. The actual roll call, member by member:`
+    : `Congress passed ${noun} ${decisive.yea}–${decisive.nay}. The actual roll call, member by member — not a paraphrase:`);
+  const facebookLines = [openHook, ""];
   facebookLines.push(`${decisive.chamber} · ${longDate(decisive.date)} · ${decisive.label}`);
   facebookLines.push(`Result: PASSED, ${decisive.yea}–${decisive.nay}${decisive.partyBreakdown ? ` (${decisive.partyBreakdown})` : ""}.`);
   const initial = bill.entries[0];
@@ -532,7 +562,7 @@ function buildBillSocial(bill) {
     facebookLines.push(`Earlier — ${initial.chamber}, ${longDate(initial.date)} (${initial.label}): Yea ${initial.yea} – Nay ${initial.nay}.`);
   }
   facebookLines.push("");
-  facebookLines.push("Each member of the House and Senate casts their own individual yea/nay vote on the floor — there's no state-level aggregate and no Electoral College involved (that's only for presidential elections).");
+  facebookLines.push("These are individual member votes, not state totals. The Electoral College has no role in congressional voting.");
   if (why) { facebookLines.push(""); facebookLines.push(`Why it mattered: ${why}`); }
   facebookLines.push("");
   facebookLines.push(COALITION_NOTE);
@@ -654,7 +684,7 @@ async function runLandmark() {
     if (!social) throw new Error(`--bill ${billArg} only supports --social (it has no roll-call vote to list in text mode).`);
     const { html, facebook } = buildNoVoteTreatyCard(billArg);
     mkdirSync(SOCIAL, { recursive: true });
-    const outBase = path.join(SOCIAL, `congress-votes-${billArg}-${localDateStamp()}`);
+      const outBase = path.join(SOCIAL, `congress-votes-${billArg}-${localDateStamp()}`);
     writeFileSync(`${outBase}.txt`, `Facebook post\n-------------\n${facebook}`);
     writeFileSync(`${outBase}.csv`, toCSV(["note"], [["No roll-call vote — see .txt for the timeline."]]));
     writeFileSync(`${outBase}.html`, html);
@@ -1005,7 +1035,9 @@ async function runTimeline() {
   );
   const html = cardHTML({
     kicker: "Congress vote check",
-    title: `The closest law Congress passed each year, ${start}-${end}`,
+    title: closest.vote.voteCountMargin <= 1 && tiedYears > 1
+      ? `${tiedYears} laws passed Congress by a single vote since ${start}`
+      : `The closest law Congress passed each year, ${start}-${end}`,
     hero: `${closest.vote.voteCountMargin} vote${closest.vote.voteCountMargin === 1 ? "" : "s"}`,
     heroLabel: `${tiedYears} years tied for the narrowest margin`,
     chartSVG,
@@ -1014,7 +1046,9 @@ async function runTimeline() {
   });
 
   const facebook = [
-    `How close was the closest law Congress passed each year from ${start} through ${end}?`,
+    closest.vote.voteCountMargin <= 1 && tiedYears > 1
+      ? `${tiedYears} major laws since ${start} passed Congress by literally one vote. Here's the closest recorded vote behind the enacted law in every year from ${start} through ${end}:`
+      : `How close was the closest law Congress passed each year from ${start} through ${end}?`,
     "",
     "These are enacted public laws, ranked by the smallest recorded House or Senate passage-vote margin attached to each law.",
     "",

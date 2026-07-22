@@ -82,9 +82,13 @@ const chartSVG = horizontalBarChart(
   { fmtTick: (v) => num(v), fmtVal: (v) => num(v) }
 );
 
+const perCapitaLeader = byPerCapita[0];
+const title = perCapitaLeader
+  ? `${perCapitaLeader.name} patents more per person than any other state`
+  : `Which states invent the most? Granted U.S. patents, ${year}`;
 const html = cardHTML({
   kicker: "Patents by state",
-  title: `Which states invent the most? Granted U.S. patents, ${year}`,
+  title,
   hero: num(leader.patents),
   heroLabel: `${leader.name} — most granted patents in ${year}`,
   chartSVG,
@@ -93,15 +97,13 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which U.S. states invent the most? Granted patents by inventor's home state, ${year}:`,
+  ...(perCapitaLeader ? [
+    `${perCapitaLeader.name} grants more patents per capita than anywhere else in America — ${perCapitaLeader.per100k.toFixed(1)} per 100,000 residents in ${year}. California still wins on raw count (it's just bigger), but per person, this is where America actually invents most:`,
+  ] : [`Which U.S. states invent the most? Granted patents by inventor's home state, ${year}:`]),
   "",
   ...top10.map((r, i) => `${i + 1}. ${r.name}: ${num(r.patents)} patents`),
   "",
   `Total across all states + DC: ${num(totalPatents)} granted patents in ${year}.`,
-  ...(byPerCapita.length ? [
-    "",
-    `Per 100,000 residents, the leader is different: ${byPerCapita[0].name} (${byPerCapita[0].per100k.toFixed(1)} patents per 100k) — raw counts favor big states, but this corrects for population.`,
-  ] : []),
   "",
   "Counted by the grant date and the inventor's listed home state/territory (not the assignee company's headquarters) — a patent with inventors in multiple states counts toward each.",
   "",

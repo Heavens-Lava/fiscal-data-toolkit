@@ -12,7 +12,7 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 import { SOCIAL, STAMP, money, num, rel } from "./lib/data-common.mjs";
 import { COMPLAINTS_BY_STATE, LOSSES_BY_STATE, NATIONAL_TOTAL_COMPLAINTS, NATIONAL_TOTAL_LOSSES, REPORT_YEAR, SOURCE_URL } from "./lib/ic3-2025-cybercrime.mjs";
 
@@ -26,8 +26,15 @@ if (!["complaints", "losses", "losses-per-complaint"].includes(metric)) {
   throw new Error("--metric must be complaints, losses, or losses-per-complaint");
 }
 const noImage = process.argv.includes("--no-image");
-const outBase = path.join(SOCIAL, `state-cybercrime-${metric}-watch-${STAMP}`);
+const outputStamp = argValue("--output-date", STAMP);
+const outBase = path.join(SOCIAL, `state-cybercrime-${metric}-watch-${outputStamp}`);
 mkdirSync(SOCIAL, { recursive: true });
+
+function compactMoney(value) {
+  if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(2).replace(/\.00$/, "")}B`;
+  if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(1).replace(/\.0$/, "")}M`;
+  return money(value);
+}
 
 const states = Object.keys(COMPLAINTS_BY_STATE);
 const rows = states
@@ -44,12 +51,21 @@ const rows = states
 const az = rows.find((r) => r.state === "Arizona");
 const top = rows.slice(0, 10);
 
-const fmt = metric === "complaints" ? (v) => num(v) : metric === "losses" ? (v) => money(v) : (v) => money(v);
+const fmt = metric === "complaints" ? (v) => num(v) : metric === "losses" ? compactMoney : (v) => money(v);
 const unitLabel = metric === "complaints" ? "reported complaints" : metric === "losses" ? "reported losses" : "average loss per complaint";
 
 const chartSVG = horizontalBarChart(
-  top.map((r) => ({ label: `#${r.rank} ${r.state}`, v: r.value, color: r.state === "Arizona" ? C.s2 : C.s1 })),
-  { fmtTick: metric === "complaints" ? (v) => num(v) : (v) => `$${(v / 1e6).toFixed(0)}M`, fmtVal: fmt }
+  top.map((r, index) => ({
+    label: `#${r.rank} ${r.state}`,
+    v: r.value,
+    color: r.state === "Arizona" ? "#e4ad55" : index === 0 ? "#e66b5b" : "#087f83",
+  })),
+  {
+    fmtTick: metric === "complaints" ? (v) => num(v)
+      : metric === "losses-per-complaint" ? (v) => `$${Math.round(v / 1000)}k`
+      : (v) => `$${(v / 1e6).toFixed(0)}M`,
+    fmtVal: fmt,
+  }
 );
 
 const html = cardHTML({
@@ -61,23 +77,25 @@ const html = cardHTML({
 });
 
 const facebook = [
-  metric === "losses" ? `Americans lost ${money(NATIONAL_TOTAL_LOSSES)} to internet crime last year. Here's the state breakdown.`
+  metric === "losses" ? `${compactMoney(NATIONAL_TOTAL_LOSSES)} was reported lost to internet crime in one year. ${top[0].state} alone accounted for ${compactMoney(top[0].value)}.`
     : metric === "complaints" ? `${num(NATIONAL_TOTAL_COMPLAINTS)} internet crime complaints were filed with the FBI last year. Here's the state breakdown.`
-    : "Where does internet crime cost victims the most per complaint?",
+    : "The average reported cybercrime loss topped $31,000 per complaint in four jurisdictions.",
   "",
   `FBI IC3 ${REPORT_YEAR} Annual Report — ${unitLabel} by state.`,
   "",
   "Highest:", ...top.map((r) => `#${r.rank} ${r.state}: ${fmt(r.value)}`), "",
   az ? `Arizona: #${az.rank} of ${rows.length}, ${fmt(az.value)}.` : "",
   "",
-  "Note: this counts reported complaints to IC3, not actual incidents — many cybercrimes go unreported. Bigger, more populous states naturally report more in raw terms; this is not adjusted per capita.",
+  metric === "losses-per-complaint"
+    ? "These averages divide reported losses by reported complaints. They are not the typical victim's loss, and a small number of expensive cases can raise a state's average."
+    : "These are complaints and losses reported to IC3, not every cybercrime. Many incidents go unreported, and raw state totals are not adjusted for population.",
   "",
   `Source: FBI Internet Crime Complaint Center (IC3), ${REPORT_YEAR} Annual Report.`,
   SOURCE_URL,
-].filter(Boolean);
+].filter((line) => line !== null && line !== undefined && line !== false);
 
 const lines = [
-  `State cybercrime ${metric} watch (${STAMP})`, "", `FBI IC3, ${REPORT_YEAR} Annual Report — ${unitLabel} by state.`, "",
+  `State cybercrime ${metric} watch (${outputStamp})`, "", `FBI IC3, ${REPORT_YEAR} Annual Report — ${unitLabel} by state.`, "",
   `Rank | State | ${unitLabel}`,
   "---:|---|---:",
   ...rows.map((r) => `${r.rank} | ${r.state} | ${fmt(r.value)}`), "",
