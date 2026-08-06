@@ -98,6 +98,7 @@
     "housing-owners": "node scripts/housing-ownership-watch.mjs",
     "rental-owners": "node scripts/largest-rental-owners.mjs",
     "video": "node scripts/make-video.mjs",
+    "portrait": "node scripts/make-post-portrait.mjs",
     "fb-post": "node scripts/facebook-post.mjs",
     "fb-connect": "node scripts/facebook-connect.mjs",
     "fb-stage": "node scripts/stage-facebook-post.mjs",

@@ -4,6 +4,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { scorePostQuality } from "./lib/post-quality.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -30,6 +31,11 @@ function walk(dir) {
 }
 
 function parseAsset(file) {
+  const fileName = path.basename(file);
+  const portrait = fileName.match(/^(.+)-(\d{4}-\d{2}-\d{2})\.portrait\.png$/);
+  if (portrait) {
+    return { file, ext: "portrait", topic: portrait[1], date: portrait[2], size: statSync(file).size };
+  }
   const ext = path.extname(file).slice(1).toLowerCase();
   const base = path.basename(file, `.${ext}`);
   const m = base.match(/^(.+)-(\d{4}-\d{2}-\d{2})$/);
@@ -73,9 +79,15 @@ function checkPost(post) {
   }
 
   const score = Math.max(0, 100 - problems.length * 25 - warnings.length * 8);
+  const quality = scorePostQuality({
+    caption: text,
+    files: Object.fromEntries(post.files.map((file) => [file.ext, file.file])),
+  });
   return {
     ...post,
-    score,
+    score: quality.score,
+    readinessScore: score,
+    quality,
     status: problems.length ? "needs work" : warnings.length ? "ready with notes" : "ready",
     problems,
     warnings,
@@ -113,11 +125,11 @@ const lines = [
   "",
   "## Posts",
   "",
-  "Date | Topic | Score | Status | Notes",
-  "---|---|---:|---|---",
+  "Date | Topic | Quality | Readiness | Status | Notes",
+  "---|---|---:|---:|---|---",
   ...posts.map((p) => {
-    const notes = [...p.problems, ...p.warnings].join("; ") || "ok";
-    return `${p.date || "undated"} | ${p.topic} | ${p.score} | ${p.status} | ${notes}`;
+    const notes = [...p.problems, ...p.warnings, ...p.quality.suggestions].join("; ") || "ok";
+    return `${p.date || "undated"} | ${p.topic} | ${p.score} | ${p.readinessScore} | ${p.status} | ${notes}`;
   }),
   "",
 ];

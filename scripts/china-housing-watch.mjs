@@ -11,17 +11,9 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { C, cardHTML, engagementCTA, fred, lineChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { ROOT, SOCIAL, STAMP, rel } from "./lib/data-common.mjs";
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SOCIAL = path.join(ROOT, "social");
-
-function localDateStamp() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-}
-function rel(file) { return path.relative(ROOT, file).replace(/\\/g, "/"); }
 function qLabel(iso) {
   const q = Math.floor(Number(iso.slice(5, 7)) / 3) + 1;
   return `Q${q} '${iso.slice(2, 4)}`;
@@ -29,7 +21,7 @@ function qLabel(iso) {
 function pct(v) { return `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`; }
 
 const noImage = process.argv.includes("--no-image");
-const stamp = localDateStamp();
+const stamp = STAMP;
 const outBase = path.join(SOCIAL, `china-housing-watch-${stamp}`);
 mkdirSync(SOCIAL, { recursive: true });
 

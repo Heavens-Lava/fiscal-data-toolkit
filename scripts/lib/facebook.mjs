@@ -90,14 +90,17 @@ function postAssets({ social, topic, date }) {
   const base = path.join(social, `${topic}-${date}`);
   const txtFile = `${base}.txt`;
   const pngFile = `${base}.png`;
+  const portraitFile = `${base}.portrait.png`;
   const mp4File = `${base}.mp4`;
   const videoCreditFile = `${base}-video-credit.txt`;
   if (!existsSync(txtFile)) throw new Error(`Missing caption file: ${topic}-${date}.txt`);
   return {
     caption: prepareFacebookCaption(readFileSync(txtFile, "utf8")),
     pngFile,
+    portraitFile,
     mp4File,
     imageExists: existsSync(pngFile),
+    portraitExists: existsSync(portraitFile),
     videoExists: existsSync(mp4File),
     videoCredit: existsSync(videoCreditFile) ? readFileSync(videoCreditFile, "utf8").trim() : "",
   };
@@ -109,11 +112,14 @@ function captionForMedia(assets, mediaKind) {
     : assets.caption;
 }
 
-function selectedMedia({ mediaPreference, imageExists, videoExists }) {
-  const allowedMedia = new Set(["image", "video", "text", "auto"]);
+function selectedMedia({ mediaPreference, imageExists, portraitExists, videoExists }) {
+  const allowedMedia = new Set(["image", "portrait", "video", "text", "auto"]);
   if (!allowedMedia.has(mediaPreference)) throw new FacebookPublishError(`Unsupported media preference: ${mediaPreference}`);
-  const mediaKind = mediaPreference === "auto" ? (imageExists ? "image" : videoExists ? "video" : "text") : mediaPreference;
+  const mediaKind = mediaPreference === "auto"
+    ? (portraitExists ? "portrait" : imageExists ? "image" : videoExists ? "video" : "text")
+    : mediaPreference;
   if (mediaKind === "image" && !imageExists) throw new FacebookPublishError("The selected post has no image.");
+  if (mediaKind === "portrait" && !portraitExists) throw new FacebookPublishError("The selected post has no portrait image.");
   if (mediaKind === "video" && !videoExists) throw new FacebookPublishError("The selected post has no video.");
   return mediaKind;
 }
@@ -190,11 +196,12 @@ export async function scheduleFacebookPost({ root, social, topic, date, mediaPre
   }
 
   let mediaId = null;
-  if (mediaKind === "image") {
+  if (mediaKind === "image" || mediaKind === "portrait") {
+    const imageFile = mediaKind === "portrait" ? assets.portraitFile : assets.pngFile;
     const upload = new FormData();
     upload.append("published", "false");
     upload.append("access_token", token);
-    upload.append("source", new Blob([readFileSync(assets.pngFile)]), path.basename(assets.pngFile));
+    upload.append("source", new Blob([readFileSync(imageFile)]), path.basename(imageFile));
     const photo = await jsonResponse(await fetch(`${graph}/${pageId}/photos`, {
       method: "POST", body: upload, signal: AbortSignal.timeout(120_000),
     }));
@@ -268,7 +275,7 @@ export async function cancelFacebookScheduledPost({ root, postId }) {
 // non-OK Graph API response.
 export async function publishPost({ root, social, topic, date, mediaPreference = "image" }) {
   const assets = postAssets({ social, topic, date });
-  const { pngFile, mp4File } = assets;
+  const { pngFile, portraitFile, mp4File } = assets;
   const mediaKind = selectedMedia({ mediaPreference, ...assets });
   const caption = captionForMedia(assets, mediaKind);
 
@@ -288,11 +295,12 @@ export async function publishPost({ root, social, topic, date, mediaPreference =
     form.append("access_token", token);
     form.append("source", new Blob([readFileSync(mp4File)]), path.basename(mp4File));
     res = await fetch(`${video}/${pageId}/videos`, { method: "POST", body: form, signal: AbortSignal.timeout(180_000) });
-  } else if (mediaKind === "image") {
+  } else if (mediaKind === "image" || mediaKind === "portrait") {
+    const imageFile = mediaKind === "portrait" ? portraitFile : pngFile;
     const form = new FormData();
     form.append("caption", caption);
     form.append("access_token", token);
-    form.append("source", new Blob([readFileSync(pngFile)]), path.basename(pngFile));
+    form.append("source", new Blob([readFileSync(imageFile)]), path.basename(imageFile));
     res = await fetch(`${graph}/${pageId}/photos`, { method: "POST", body: form, signal: AbortSignal.timeout(120_000) });
   } else {
     const form = new URLSearchParams({ message: caption, access_token: token });

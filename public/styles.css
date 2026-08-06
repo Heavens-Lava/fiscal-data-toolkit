@@ -141,6 +141,31 @@ th[data-k]:hover { color: var(--accent); }
 .approval-card .approval-preview-image { cursor: zoom-in; }
 .approval-card .approval-preview-image:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
 .approval-card .date { color: var(--muted); font-size: 12px; margin: 2px 0 8px; }
+.approval-title-row { display: grid; grid-template-columns: minmax(0, 1fr) 58px; gap: 12px; align-items: start; }
+.approval-title-row h3 { margin: 0; overflow-wrap: anywhere; }
+.quality-score {
+  width: 58px; height: 52px; border: 1px solid var(--grid); border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--surface-raised);
+}
+.quality-score strong { font-size: 19px; line-height: 1; }
+.quality-score span { margin-top: 3px; color: var(--muted); font-size: 9px; font-weight: 750; text-transform: uppercase; }
+.quality-score.quality-strong { border-color: #78bfa8; color: var(--green); }
+.quality-score.quality-good { border-color: #d7b56a; color: #8b6410; }
+.quality-score.quality-improve { border-color: #e8aaaa; color: var(--red); }
+.quality-panel { margin: 10px 0 12px; border-top: 1px solid var(--grid); border-bottom: 1px solid var(--grid); padding: 9px 0; }
+.quality-panel summary { cursor: pointer; color: var(--ink2); font-size: 12px; font-weight: 750; text-transform: capitalize; }
+.quality-panel summary span { float: right; color: var(--muted); font-weight: 500; }
+.quality-breakdown {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px;
+  margin-top: 10px; font-size: 11px;
+}
+.quality-breakdown div { display: contents; }
+.quality-breakdown span { color: var(--muted); text-transform: capitalize; }
+.quality-breakdown strong { text-align: right; }
+.quality-panel ul { margin: 10px 0 2px; padding-left: 18px; color: var(--ink2); font-size: 11px; line-height: 1.45; }
+.quality-panel p { margin: 10px 0 2px; color: var(--green); font-size: 11px; }
+.variant-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .approval-login { max-width: 520px; }
 .approval-login form { display: flex; gap: 8px; margin-top: 14px; }
 .approval-login .gallery-search { flex: 1 1 auto; }

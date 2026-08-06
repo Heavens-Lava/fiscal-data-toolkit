@@ -83,6 +83,25 @@ function stripDates(text) {
     .trim();
 }
 
+function splitForSpeech(line) {
+  const parts = String(line)
+    .split(/(?<=[!?])\s+|(?<=[a-z0-9%)])\.\s+(?=[A-Z])/)
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const out = [];
+  for (const part of parts) {
+    const words = part.split(/\s+/);
+    if (words.length <= 27) {
+      out.push(part);
+      continue;
+    }
+    const clauses = part.split(/;\s+|,\s+(?=(?:but|while|and|which|meaning|or)\b)/i);
+    if (clauses.length > 1) out.push(...clauses.map((value) => value.trim()).filter(Boolean));
+    else out.push(part);
+  }
+  return out;
+}
+
 // Turn a post's raw .txt caption into a beats array for the video assembler.
 // Each surviving source line becomes one beat (a beat may hold more than one
 // spoken sentence — the assembler times captions per-word regardless, so
@@ -102,32 +121,218 @@ function textToBeats(raw, { keepCaveats = false } = {}) {
     const line = rawLines[i];
     if (!line) continue;
     if (/^https?:\/\//.test(line)) continue; // bare URL line
-    if (/^Sources?:/i.test(line) && /[A-Z]{4,}/.test(line)) continue; // FRED-code-style source dumps
+    if (/^(?:Sources?|Source website|Information retrieved|Data retrieved|Graphs? (?:made|created)|Charts? (?:made|created))\b/i.test(line)) continue;
+    if (/^[#*_\-=]{3,}$/.test(line)) continue;
+    if (/^(?:why it matters|did you know|understanding the data|historical context)\s*:?\s*$/i.test(line)) continue;
+    if (/:\s*$/.test(line) && line.split(/\s+/).length <= 5) continue;
     if (!keepCaveats && /^(Caveat|Note)\b\s*[:\-]/i.test(line)) continue; // disclaimer asides
-    beats.push(stripDates(line.replace(/https?:\/\/\S+/g, "").replace(/\s{2,}/g, " ").trim()));
+    const cleaned = stripDates(line.replace(/https?:\/\/\S+/g, "").replace(/\s{2,}/g, " ").trim());
+    beats.push(...splitForSpeech(cleaned));
   }
   if (beats.length) {
     beats[0] = beats[0].replace(/\s*\(\d{4}-\d{2}-\d{2}\)\s*$/, "");
   }
 
   if (table) {
-    const tableBeats = table.rows.slice(0, 6).map((row) => stripDates(tableRowToSentence(table.headers, row)));
-    // narrative headline first, then table sentences, then remaining narrative/notes/source
-    beats.splice(1, 0, ...tableBeats);
+    const tableBeats = table.rows.slice(0, 3).map((row) => stripDates(tableRowToSentence(table.headers, row)));
+    beats.splice(2, 0, ...tableBeats);
   }
-  return beats.filter(Boolean);
+  const unique = [];
+  for (const beat of beats.filter(Boolean)) {
+    const key = beat.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (!key || unique.some((item) => item.key === key)) continue;
+    unique.push({ key, text: beat });
+  }
+  return unique.map((item) => item.text);
+}
+
+function displayNumbers(text) {
+  const matches = String(text).match(/\$[\d,.]+(?:\s*(?:trillion|billion|million|T|B|M|k))?|\b\d[\d,.]*(?:\.\d+)?\s*(?:%|percent|years?|million|billion|trillion|hours?|minutes?|dollars?|people|households?|jobs?|GW|kWh)(?=\s|[.,;:!?)]|$)/gi) || [];
+  return [...new Set(matches.map((value) => value.trim()))].slice(0, 3);
+}
+
+function numericValue(display) {
+  const base = Number(String(display).replace(/[$,%]/g, "").replace(/,/g, "").match(/-?\d+(?:\.\d+)?/)?.[0]);
+  if (!Number.isFinite(base)) return 0;
+  if (/\btrillion\b|\bT\b/i.test(display)) return base * 1e12;
+  if (/\bbillion\b|\bB\b/i.test(display)) return base * 1e9;
+  if (/\bmillion\b|\bM\b/i.test(display)) return base * 1e6;
+  if (/\bk\b/i.test(display)) return base * 1e3;
+  return base;
+}
+
+function compactTitle(text, number = "") {
+  const cleaned = String(text)
+    .replace(number, "")
+    .replace(/^[\s:,.!-]+|[\s:,.!-]+$/g, "")
+    .replace(/\s+/g, " ");
+  const words = cleaned.split(/\s+/).filter(Boolean);
+  return (words.length > 12 ? `${words.slice(0, 12).join(" ")}...` : cleaned) || "The headline number";
+}
+
+function badgeFor(text, index, total) {
+  if (index === 0) return "THE NUMBER THAT MATTERS";
+  if (/\?$/.test(text)) return "WHAT DO YOU SEE?";
+  if (/\b(?:highest|lowest|record|all-time)\b/i.test(text)) return "THE EXTREME";
+  if (/\b(?:versus|vs\.?|compared|while|but)\b/i.test(text)) return "THE COMPARISON";
+  if (displayNumbers(text).length) return "FOLLOW THE NUMBER";
+  return "WHY IT MATTERS";
+}
+
+function sourceName(raw) {
+  const line = String(raw).split(/\r?\n/).find((value) => /^Sources?:/i.test(value.trim()));
+  if (line) return line.replace(/^Sources?:\s*/i, "").split(/[;|]/)[0].trim().replace(/[.:\s]+$/, "").slice(0, 100);
+  const known = [
+    ["U.S. Census Bureau", /census bureau|american community survey|\bACS\b/i],
+    ["U.S. Bureau of Labor Statistics", /bureau of labor statistics|\bBLS\b/i],
+    ["U.S. Treasury Fiscal Data", /treasury fiscal data|fiscaldata/i],
+    ["Federal Reserve Economic Data", /\bFRED\b|federal reserve/i],
+    ["U.S. Energy Information Administration", /energy information administration|\bEIA\b/i],
+    ["USDA", /\bUSDA\b|agricultural statistics/i],
+  ];
+  return known.find(([, pattern]) => pattern.test(raw))?.[0] || "Official public data";
+}
+
+function rankedItem(text) {
+  const match = String(text).match(/^#?(\d+)\s+([^:|]+?)\s*[:|]\s*(.+)$/);
+  if (!match) return null;
+  const display = displayNumbers(match[3])[0];
+  if (!display) return null;
+  return {
+    rank: Number(match[1]),
+    label: match[2].trim(),
+    display,
+    value: numericValue(display),
+  };
+}
+
+function automaticStoryboard(lines, { raw, chartFile, maxBeats = 8 }) {
+  if (!lines.length) return [];
+  const hook = lines[0];
+  const question = [...lines].reverse().find((line) => line !== hook && /\?$/.test(line));
+  const ranking = lines.map(rankedItem).filter(Boolean).sort((a, b) => a.rank - b.rank).slice(0, 3);
+  const narrative = lines
+    .slice(1)
+    .filter((line) => line !== question && !rankedItem(line))
+    .filter((line) => !(/\bdata\b/i.test(line) && /\b(?:by state|estimates?|dataset|ranking)\b/i.test(line) && !displayNumbers(line).length))
+    .slice(0, Math.max(2, maxBeats - 4));
+  const selected = [hook, ...narrative];
+  if (question) selected.push(question);
+  const headlineNumber = lines.flatMap(displayNumbers)[0];
+
+  const beats = selected.map((text, index) => {
+    const numbers = displayNumbers(text);
+    let visual;
+    if (numbers.length >= 2 && /\b(?:versus|vs\.?|compared|while|but|from|to)\b/i.test(text)) {
+      const values = numbers.slice(0, 2).map(numericValue);
+      const max = Math.max(...values, 1);
+      visual = {
+        type: "comparison",
+        title: compactTitle(text),
+        items: numbers.slice(0, 2).map((display, itemIndex) => ({
+          label: itemIndex === 0 ? "First figure" : "Second figure",
+          value: values[itemIndex],
+          display,
+          color: itemIndex === 0 ? "#df5547" : "#1769aa",
+        })),
+        min: 0,
+        max: max * 1.08,
+      };
+    } else if (numbers.length) {
+      visual = {
+        type: "number",
+        title: compactTitle(text, numbers[0]),
+        value: numbers[0],
+        subtitle: index === 0 ? "The result, before the explanation" : undefined,
+      };
+    } else if (index === 0 && headlineNumber) {
+      visual = {
+        type: "number",
+        title: compactTitle(text),
+        value: headlineNumber,
+        subtitle: "The headline result",
+      };
+    } else {
+      visual = {
+        type: "source",
+        title: compactTitle(text),
+        subtitle: "One clear point at a time",
+      };
+    }
+    return { text, badge: index === 0 ? badgeFor(text, index, selected.length) : undefined, visual };
+  });
+
+  let insertionIndex = 1;
+  if (chartFile && beats.length > 1) {
+    beats.splice(1, 0, {
+      text: "Here is the full comparison in the underlying data.",
+      visual: {
+        type: "chart",
+        src: chartFile,
+        title: compactTitle(lines[0]),
+      },
+    });
+    insertionIndex = 2;
+  }
+
+  if (ranking.length >= 2) {
+    const spoken = ranking.map((item, index) => {
+      const lead = ranking.length > 2 && index === ranking.length - 1 ? "and " : "";
+      return `${lead}${item.label} at ${item.display}`;
+    }).join(ranking.length > 2 ? ", " : " and ");
+    beats.splice(insertionIndex, 0, {
+      text: `The top ${ranking.length} are ${spoken}.`,
+      visual: {
+        type: "comparison",
+        title: `Top ${ranking.length} in the ranking`,
+        items: ranking.map((item, index) => ({
+          label: `#${item.rank} ${item.label}`,
+          value: item.value,
+          display: item.display,
+          color: ["#df5547", "#1769aa", "#168c83"][index],
+        })),
+        min: 0,
+        max: Math.max(...ranking.map((item) => item.value)) * 1.08,
+      },
+    });
+  }
+
+  const source = sourceName(raw);
+  beats.splice(Math.max(1, beats.length - (question ? 1 : 0)), 0, {
+    text: `The source is ${source}.`,
+    visual: {
+      type: "source",
+      title: source,
+      subtitle: "Official data, with the full source listed in the post",
+    },
+  });
+
+  if (!question) {
+    beats.push({
+      text: "What does this look like where you live?",
+      visual: {
+        type: "number",
+        title: "What does the data look like where you live?",
+        value: "YOU",
+        subtitle: "Add your experience in the comments",
+      },
+    });
+  }
+
+  return beats.slice(0, maxBeats);
 }
 
 const topic = process.argv[2];
 if (!topic || topic.startsWith("--")) {
-  console.error("Usage: node scripts/make-video.mjs <topic> [--date YYYY-MM-DD] [--keep-script] [--rate 1.15] [--accent #2a78d6] [--music <mood|file>] [--no-music] [--voice <name>] [--brand <name>]");
+  console.error("Usage: node scripts/make-video.mjs <topic> [--date YYYY-MM-DD] [--storyboard-only] [--max-beats 8] [--keep-script] [--keep-caveats] [--rate 1.12] [--accent #df5547] [--music <mood|file>] [--no-music] [--voice <name>] [--brand <name>]");
   process.exit(1);
 }
 const date = argValue("--date", localDateStamp());
 const keepScript = process.argv.includes("--keep-script");
+const storyboardOnly = process.argv.includes("--storyboard-only");
 const keepCaveats = process.argv.includes("--keep-caveats");
-const rate = argValue("--rate");
-const accent = argValue("--accent");
+const rate = argValue("--rate", process.env.VIDEO_RATE || "1.12");
+const accent = argValue("--accent", process.env.VIDEO_ACCENT || "#df5547");
 const music = process.argv.includes("--no-music") ? null : argValue("--music", process.env.VIDEO_MUSIC || "suspense");
 const voice = argValue("--voice");
 const brand = argValue("--brand", process.env.VIDEO_BRAND || "AMERICA BY THE NUMBERS");
@@ -150,9 +355,19 @@ if (!existsSync(VIDEO_MAKER)) {
   process.exit(1);
 }
 
+const rawCaption = customScriptPath ? "" : extractCaption(readFileSync(txtFile, "utf8"));
 const beats = customScriptPath
   ? JSON.parse(readFileSync(customScriptPath, "utf8"))
-  : textToBeats(extractCaption(readFileSync(txtFile, "utf8")), { keepCaveats });
+  : automaticStoryboard(
+      textToBeats(rawCaption, { keepCaveats }),
+      {
+        raw: rawCaption,
+        chartFile: existsSync(path.join(SOCIAL, `${topic}-${date}.png`))
+          ? path.join(SOCIAL, `${topic}-${date}.png`)
+          : null,
+        maxBeats: Number(argValue("--max-beats", "8")),
+      },
+    );
 if (!beats.length) {
   console.error("Could not extract any speakable beats from the caption.");
   process.exit(1);
@@ -196,6 +411,11 @@ mkdirSync(SCRIPTS_DIR, { recursive: true });
 const scriptPath = path.join(SCRIPTS_DIR, `${topic}-${date}.json`);
 writeFileSync(scriptPath, JSON.stringify(beats, null, 2));
 
+if (storyboardOnly) {
+  console.log(`\nStoryboard: ${path.relative(ROOT, scriptPath)}`);
+  process.exit(0);
+}
+
 console.log(`\nRendering via ${VIDEO_MAKER} ...`);
 const assembleArgs = ["assemble.cjs", "--script", scriptPath, "--portrait", "--motion"];
 if (rate) assembleArgs.push("--rate", rate);
@@ -203,10 +423,25 @@ if (accent) assembleArgs.push("--accent", accent);
 if (music) assembleArgs.push("--music", music);
 if (voice) assembleArgs.push("--voice", voice);
 if (brand) assembleArgs.push("--brand", brand);
-execFileSync("node", assembleArgs, {
-  cwd: VIDEO_MAKER,
-  stdio: "inherit",
-});
+let renderedSuccessfully = false;
+let renderError;
+for (let attempt = 1; attempt <= 3 && !renderedSuccessfully; attempt++) {
+  try {
+    execFileSync("node", assembleArgs, {
+      cwd: VIDEO_MAKER,
+      stdio: "inherit",
+    });
+    renderedSuccessfully = true;
+  } catch (error) {
+    renderError = error;
+    if (attempt < 3) {
+      const waitMs = attempt * 4_000;
+      console.warn(`Renderer attempt ${attempt} failed. Retrying in ${waitMs / 1000} seconds...`);
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, waitMs);
+    }
+  }
+}
+if (!renderedSuccessfully) throw renderError;
 
 const rendered = path.join(VIDEO_MAKER, "out", "final.mp4");
 if (!existsSync(rendered)) {

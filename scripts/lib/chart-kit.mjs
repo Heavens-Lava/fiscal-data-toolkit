@@ -475,31 +475,48 @@ export function printTable(title, columns, rows, source, unlimited = false) {
 }
 
 // ── the card (1200x675, light mode — a social image ships in one mode) ───────
-export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", chartSVG, source, vintage }) {
+// heroTrend (optional, opt-in — omit for the exact prior look): a small
+// colored status arrow beside the hero number. { direction: "up"|"down",
+// tone: "good"|"bad" } — tone picks the color (skill's reserved status
+// green vs. the existing diverging red), not the direction, since "up" is
+// good for some metrics (wages) and bad for others (debt) — callers decide.
+const TREND_ARROW = { up: "▲", down: "▼" };
+const TREND_COLOR = { good: "#0ca30c", bad: C.neg };
+
+export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", chartSVG, source, vintage, heroTrend = null }) {
+  const deltaHTML = heroTrend
+    ? `<span class="delta" style="color:${TREND_COLOR[heroTrend.tone]}">${TREND_ARROW[heroTrend.direction]}</span>`
+    : "";
   return `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { width:1200px; height:675px; background:${C.surface};
          font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .card { width:100%; height:100%; padding:44px 48px 36px; display:flex; flex-direction:column; }
+  .accent { height:8px; display:flex; }
+  .accent i { flex:1; }
+  .card { width:100%; height:calc(100% - 8px); padding:40px 48px 34px; display:flex; flex-direction:column; }
   .head { display:flex; justify-content:space-between; align-items:flex-start; }
-  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:33px; font-weight:650; color:${C.ink}; margin-top:10px; max-width:760px; line-height:1.2; }
+  .kicker { font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+  h1 { font-size:32px; font-weight:750; color:${C.ink}; margin-top:8px; max-width:740px; line-height:1.18; }
   .hero { text-align:right; }
-  .hero .v { font-size:56px; font-weight:650; color:${C.ink}; line-height:1; }
-  .hero .l { font-size:16px; color:${C.ink2}; margin-top:6px; }
-  .legend { display:flex; gap:24px; margin-top:18px; }
+  .hero-row { display:flex; align-items:baseline; justify-content:flex-end; gap:10px; }
+  .hero .v { font-size:54px; font-weight:750; color:${C.ink}; line-height:1; }
+  .delta { font-size:20px; font-weight:700; }
+  .hero .l { font-size:15px; color:${C.ink2}; margin-top:6px; max-width:260px; }
+  .legend { display:flex; gap:24px; margin-top:16px; }
   .key { display:flex; align-items:center; gap:8px; font-size:16px; color:${C.ink2}; }
   .dot { width:12px; height:12px; border-radius:50%; display:inline-block; }
-  .plot { flex:1; margin-top:8px; }
-  .plot svg { width:100%; height:100%; }
-  .foot { display:flex; justify-content:space-between; font-size:15px; color:${C.muted}; }
-  </style></head><body><div class="card">
+  .plotbox { flex:1; margin-top:18px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:16px 18px 8px; }
+  .plotbox svg { width:100%; height:100%; }
+  .foot { display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; margin-top:14px; }
+  </style></head><body>
+  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  <div class="card">
     <div class="head">
       <div><div class="kicker">${esc(kicker)}</div><h1>${esc(title)}</h1></div>
-      <div class="hero"><div class="v">${esc(hero)}</div><div class="l">${esc(heroLabel)}</div></div>
+      <div class="hero"><div class="hero-row">${deltaHTML}<div class="v">${esc(hero)}</div></div><div class="l">${esc(heroLabel)}</div></div>
     </div>
     ${legendHTML}
-    <div class="plot">${chartSVG}</div>
+    <div class="plotbox">${chartSVG}</div>
     <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
   </div></body></html>`;
 }

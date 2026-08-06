@@ -87,7 +87,7 @@ if (json.status !== "REQUEST_SUCCEEDED") throw new Error((json.message || [json.
 
 const rows = json.Results.series
   .map((s) => {
-    const soc = s.seriesID.slice(11, 17);
+    const soc = s.seriesID.slice(17, 23);
     const value = s.data?.[0]?.value;
     return value ? { soc, label: OCCUPATIONS[soc], wage: Number(value) } : null;
   })

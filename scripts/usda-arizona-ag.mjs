@@ -8,7 +8,7 @@ import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
-const COMMODITIES = ["CATTLE", "LETTUCE", "COTTON", "HAY", "MILK", "WHEAT", "CORN", "SORGHUM", "PECANS", "WATERMELONS"];
+const COMMODITIES = ["CATTLE", "LETTUCE", "COTTON", "HAY", "MILK", "WHEAT", "CORN", "SORGHUM", "PECANS", "MELONS"];
 
 function argValue(name, fallback = null) {
   const i = process.argv.indexOf(name);

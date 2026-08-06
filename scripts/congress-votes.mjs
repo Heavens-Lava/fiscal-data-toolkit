@@ -512,27 +512,32 @@ function buildBillSocial(bill) {
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .card { width:100%; height:100%; padding:44px 48px 32px; display:flex; flex-direction:column; }
+  .accent { height:8px; display:flex; }
+  .accent i { flex:1; }
+  .card { width:100%; height:calc(100% - 8px); padding:40px 48px 30px; display:flex; flex-direction:column; }
   .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:36px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
-  .subtitle { font-size:18px; color:${C.ink2}; margin-top:8px; }
-  .banner { display:flex; align-items:center; gap:26px; margin-top:24px; }
-  .pill { background:#1baf7a; color:#fff; font-weight:700; font-size:16px; letter-spacing:0.05em; padding:9px 20px; border-radius:999px; }
-  .vote-big { font-size:60px; font-weight:750; color:${C.ink}; line-height:1; }
-  .vote-sub { font-size:16px; color:${C.ink2}; margin-top:4px; }
-  .parties { margin-top:28px; display:flex; flex-direction:column; gap:14px; }
+  h1 { font-size:34px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
+  .subtitle { font-size:17px; color:${C.ink2}; margin-top:6px; }
+  .banner { display:flex; align-items:center; gap:24px; margin-top:16px; }
+  .pill { background:#1baf7a; color:#fff; font-weight:700; font-size:15px; letter-spacing:0.05em; padding:8px 18px; border-radius:999px; }
+  .vote-big { font-size:52px; font-weight:750; color:${C.ink}; line-height:1; }
+  .vote-sub { font-size:15px; color:${C.ink2}; margin-top:3px; }
+  .statbox { margin-top:16px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:18px 22px; display:flex; flex-direction:column; gap:12px; }
+  .parties { display:flex; flex-direction:column; gap:12px; }
   .party-row { display:flex; align-items:center; gap:16px; }
-  .party-name { width:140px; font-size:17px; font-weight:600; color:${C.ink2}; }
-  .party-bar-track { flex:1; height:20px; background:${C.grid}; border-radius:6px; overflow:hidden; }
+  .party-name { width:140px; font-size:16px; font-weight:600; color:${C.ink2}; }
+  .party-bar-track { flex:1; height:18px; background:${C.grid}; border-radius:6px; overflow:hidden; }
   .party-bar-fill { height:100%; border-radius:6px; }
-  .party-pct { width:56px; text-align:right; font-size:17px; font-weight:700; color:${C.ink}; }
-  .party-count { width:90px; text-align:right; font-size:15px; color:${C.muted}; }
-  .why { margin-top:24px; background:#f2f1ea; border-left:4px solid ${C.s1}; padding:14px 18px; border-radius:4px; }
-  .why-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:${C.muted}; }
-  .why-text { font-size:16px; color:${C.ink2}; margin-top:4px; line-height:1.4; }
-  .context { font-size:12px; color:${C.muted}; margin-top:12px; max-width:1080px; line-height:1.4; }
+  .party-pct { width:52px; text-align:right; font-size:16px; font-weight:700; color:${C.ink}; }
+  .party-count { width:86px; text-align:right; font-size:14px; color:${C.muted}; }
+  .why { background:#f2f1ea; border-left:4px solid ${C.s1}; padding:12px 16px; border-radius:4px; }
+  .why-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:${C.muted}; }
+  .why-text { font-size:14px; color:${C.ink2}; margin-top:3px; line-height:1.35; }
+  .context { font-size:12px; color:${C.muted}; margin-top:10px; max-width:1080px; line-height:1.4; }
   .foot { margin-top:auto; padding-top:12px; display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; }
-  </style></head><body><div class="card">
+  </style></head><body>
+  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  <div class="card">
     <div class="kicker">Congressional Record Series</div>
     <h1>How Congress voted on ${esc(noun)}</h1>
     <div class="subtitle">${esc(decisive.chamber)} · ${esc(longDate(decisive.date))} · ${esc(decisive.label)}</div>
@@ -540,8 +545,10 @@ function buildBillSocial(bill) {
       <div class="pill">PASSED</div>
       <div><div class="vote-big">${decisive.yea}–${decisive.nay}</div><div class="vote-sub">${decisive.yea} YEAS · ${decisive.nay} NAYS</div></div>
     </div>
-    <div class="parties">${partyRows}</div>
-    ${why ? `<div class="why"><div class="why-label">Why it mattered</div><div class="why-text">${esc(why)}</div></div>` : ""}
+    <div class="statbox">
+      <div class="parties">${partyRows}</div>
+      ${why ? `<div class="why"><div class="why-label">Why it mattered</div><div class="why-text">${esc(why)}</div></div>` : ""}
+    </div>
     <div class="context">${esc(COALITION_NOTE)}</div>
     <div class="foot"><span>Source: Voteview (UCLA/Stanford) · Chart: Jeff Macy</span><span>${ordinal(bill.congress)} Congress</span></div>
   </div></body></html>`;
@@ -622,24 +629,29 @@ function buildNoVoteTreatyCard(key) {
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .card { width:100%; height:100%; padding:40px 48px 28px; display:flex; flex-direction:column; }
+  .accent { height:8px; display:flex; }
+  .accent i { flex:1; }
+  .card { width:100%; height:calc(100% - 8px); padding:36px 48px 26px; display:flex; flex-direction:column; }
   .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:32px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
-  .subtitle { font-size:17px; color:${C.ink2}; margin-top:6px; }
-  .banner { display:flex; align-items:center; gap:22px; margin-top:18px; }
-  .pill { background:#8a8a84; color:#fff; font-weight:700; font-size:15px; letter-spacing:0.05em; padding:8px 18px; border-radius:999px; }
-  .hero-stat { font-size:44px; font-weight:750; color:${C.ink}; line-height:1; }
-  .hero-sub { font-size:15px; color:${C.ink2}; margin-top:3px; max-width:640px; }
-  .timeline { margin-top:18px; display:flex; flex-direction:column; }
+  h1 { font-size:30px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
+  .subtitle { font-size:16px; color:${C.ink2}; margin-top:6px; }
+  .banner { display:flex; align-items:center; gap:20px; margin-top:14px; }
+  .pill { background:#8a8a84; color:#fff; font-weight:700; font-size:14px; letter-spacing:0.05em; padding:7px 16px; border-radius:999px; }
+  .hero-stat { font-size:40px; font-weight:750; color:${C.ink}; line-height:1; }
+  .hero-sub { font-size:14px; color:${C.ink2}; margin-top:3px; max-width:640px; }
+  .timelinebox { flex:1; margin-top:14px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:14px 20px; overflow:hidden; }
+  .timeline { display:flex; flex-direction:column; }
   .tl-row { display:flex; align-items:flex-start; gap:14px; padding:4px 0; }
   .tl-date { width:110px; flex-shrink:0; font-size:13px; font-weight:600; color:${C.muted}; padding-top:1px; }
   .tl-dot { width:8px; height:8px; border-radius:50%; background:${C.s1}; margin-top:5px; flex-shrink:0; }
   .tl-text { font-size:14px; color:${C.ink2}; line-height:1.35; }
-  .why { margin-top:14px; background:#f2f1ea; border-left:4px solid ${C.s1}; padding:12px 16px; border-radius:4px; }
+  .why { margin-top:12px; background:#f2f1ea; border-left:4px solid ${C.s1}; padding:12px 16px; border-radius:4px; }
   .why-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:${C.muted}; }
   .why-text { font-size:14px; color:${C.ink2}; margin-top:3px; line-height:1.35; }
   .foot { margin-top:auto; padding-top:10px; display:flex; justify-content:space-between; font-size:13px; color:${C.muted}; }
-  </style></head><body><div class="card">
+  </style></head><body>
+  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  <div class="card">
     <div class="kicker">Congressional Record Series</div>
     <h1>The treaty the Senate never voted on</h1>
     <div class="subtitle">${esc(t.country)} · Signed ${esc(longDate(t.signedDate))}</div>
@@ -647,7 +659,7 @@ function buildNoVoteTreatyCard(key) {
       <div class="pill">NEVER RATIFIED</div>
       <div><div class="hero-stat">${esc(t.heroStat)}</div><div class="hero-sub">${esc(t.heroLabel)}</div></div>
     </div>
-    <div class="timeline">${timelineRows}</div>
+    <div class="timelinebox"><div class="timeline">${timelineRows}</div></div>
     <div class="why"><div class="why-label">Why it mattered</div><div class="why-text">${esc(t.why)}</div></div>
     <div class="foot"><span>Source: Congress.gov Treaty actions (v3/treaty/96/25) · Chart: Jeff Macy</span><span>${ordinal(t.congress)} Congress</span></div>
   </div></body></html>`;

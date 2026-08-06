@@ -301,7 +301,7 @@ function openLightbox(t) {
   document.getElementById("lb-close-btn").onclick = closeLightbox;
 }
 
-function openApprovalImage(p) {
+function openApprovalImage(p, file = p.files.portrait || p.files.png) {
   const lb = document.getElementById("lightbox");
   lb.querySelector(".box").classList.add("image-preview");
   document.getElementById("lb-content").innerHTML = `
@@ -315,7 +315,7 @@ function openApprovalImage(p) {
         <button class="lb-close" id="lb-close-btn" aria-label="Close image preview">X</button>
       </div>
     </div>
-    <img src="/social/${encodeURIComponent(p.files.png)}" alt="Full-size chart for ${escapeHtml(p.topic)}">`;
+    <img src="/social/${encodeURIComponent(file)}" alt="Full-size chart for ${escapeHtml(p.topic)}">`;
   lb.classList.remove("hidden");
   document.getElementById("lb-close-btn").onclick = closeLightbox;
   document.getElementById("lb-close-btn").focus();
@@ -373,22 +373,42 @@ function defaultScheduleValue() {
 function approvalCard(p) {
   const statusCls = p.status === "ready" ? "pos" : p.status === "ready with notes" ? "accent" : "neg";
   const notes = [...p.problems, ...p.warnings];
-  const defaultMedia = p.hasImage ? "image" : p.hasVideo ? "video" : "text";
+  const quality = p.quality || { score: p.score || 0, label: "unscored", breakdown: {}, suggestions: [] };
+  const qualityCls = quality.score >= 85 ? "quality-strong" : quality.score >= 70 ? "quality-good" : "quality-improve";
+  const qualityRows = Object.entries(quality.breakdown || {})
+    .map(([label, value]) => `<span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}/20</strong>`)
+    .join("");
+  const suggestions = (quality.suggestions || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const defaultMedia = p.hasPortrait ? "portrait" : p.hasImage ? "image" : p.hasVideo ? "video" : "text";
+  const previewFile = p.files.portrait || p.files.png;
   const options = [
+    p.hasPortrait ? `<option value="portrait">Portrait image + caption</option>` : "",
     p.hasImage ? `<option value="image">Chart image + caption</option>` : "",
     p.hasVideo ? `<option value="video">Video + caption</option>` : "",
     `<option value="text">Caption only</option>`,
   ].join("");
   return `<div class="card approval-card" data-topic="${escapeHtml(p.topic)}" data-date="${escapeHtml(p.date)}">
     <div class="thumb">
-      ${p.hasImage ? `<img class="approval-preview-image" loading="lazy" src="/social/${encodeURIComponent(p.files.png)}" alt="${escapeHtml(p.topic)}" role="button" tabindex="0" aria-label="Open full-size chart for ${escapeHtml(p.topic)}">`
+      ${previewFile ? `<img class="approval-preview-image" data-preview-file="${escapeHtml(previewFile)}" loading="lazy" src="/social/${encodeURIComponent(previewFile)}" alt="${escapeHtml(p.topic)}" role="button" tabindex="0" aria-label="Open full-size chart for ${escapeHtml(p.topic)}">`
         : p.hasVideo ? `<video src="/social/${encodeURIComponent(p.files.mp4)}" controls preload="metadata"></video>`
         : `<div class="footnote" style="padding:24px">Caption-only post</div>`}
     </div>
-    <h3>${escapeHtml(p.topic)} <span class="v ${statusCls}" style="text-transform:none;font-weight:700">${escapeHtml(p.status)} · ${p.score}</span></h3>
+    <div class="approval-title-row">
+      <h3>${escapeHtml(p.topic)} <span class="v ${statusCls}" style="text-transform:none;font-weight:700">${escapeHtml(p.status)}</span></h3>
+      <div class="quality-score ${qualityCls}"><strong>${escapeHtml(quality.score)}</strong><span>quality</span></div>
+    </div>
     <div class="date">${escapeHtml(p.date)}</div>
+    <details class="quality-panel" ${quality.score < 70 ? "open" : ""}>
+      <summary>${escapeHtml(quality.label)} quality <span>See checks</span></summary>
+      <div class="quality-breakdown">${qualityRows}</div>
+      ${suggestions ? `<ul>${suggestions}</ul>` : `<p>Ready for review.</p>`}
+    </details>
     <div class="caption" style="white-space:pre-wrap;max-height:220px;overflow:auto">${escapeHtml(p.caption)}</div>
     ${notes.length ? `<div class="footnote">${escapeHtml(notes.join("; "))}</div>` : ""}
+    <div class="variant-actions">
+      <button class="btn ghost generate-media-btn" data-kind="portrait" ${p.hasImage ? "" : "disabled"}>${p.hasPortrait ? "Rebuild portrait" : "Create portrait"}</button>
+      <button class="btn ghost generate-media-btn" data-kind="video">${p.hasVideo ? "Rebuild video" : "Create video"}</button>
+    </div>
     <div class="media-choice"><label>Facebook attachment</label><select class="media-select">${options}</select></div>
     <div class="schedule-choice">
       <input class="schedule-at" type="datetime-local" value="${defaultScheduleValue()}" aria-label="Scheduled publish time">
@@ -571,13 +591,37 @@ async function loadApprovals() {
       const previewImage = card.querySelector(".approval-preview-image");
       if (previewImage) {
         const post = posts.find((item) => item.topic === topic && item.date === date);
-        previewImage.onclick = () => openApprovalImage(post);
+        const previewFile = previewImage.dataset.previewFile;
+        previewImage.onclick = () => openApprovalImage(post, previewFile);
         previewImage.onkeydown = (event) => {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
-          openApprovalImage(post);
+          openApprovalImage(post, previewFile);
         };
       }
+
+      card.querySelectorAll(".generate-media-btn").forEach((button) => {
+        button.onclick = async () => {
+          const kind = button.dataset.kind;
+          const label = kind === "portrait" ? "portrait image" : "vertical video";
+          if (!window.confirm(`Create a new ${label} for ${topic}?`)) return;
+          card.querySelectorAll(".generate-media-btn").forEach((item) => (item.disabled = true));
+          statusEl.textContent = kind === "video"
+            ? "Rendering the narrated vertical video. This can take several minutes..."
+            : "Rendering the 1080 x 1350 portrait image...";
+          try {
+            await approvalRequest("/api/approvals/generate-media", {
+              method: "POST", headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ topic, date, kind }),
+            });
+            statusEl.textContent = `${label} created. Refreshing the quality score...`;
+            await loadApprovals();
+          } catch (error) {
+            statusEl.innerHTML = `<span class="err-card">${escapeHtml(error.message)}</span>`;
+            card.querySelectorAll(".generate-media-btn").forEach((item) => (item.disabled = false));
+          }
+        };
+      });
 
       autoScheduleBtn.onclick = async () => {
         const media = mediaSelect.value;

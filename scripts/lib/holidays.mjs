@@ -33,6 +33,7 @@ export function usHolidays(year) {
     { name: "Columbus Day", date: iso(nthWeekdayOfMonth(year, 9, 1, 2)) },
     { name: "Veterans Day", date: iso(new Date(Date.UTC(year, 10, 11))) },
     { name: "Thanksgiving", date: iso(nthWeekdayOfMonth(year, 10, 4, 4)) },
+    { name: "Black Friday", date: iso(new Date(nthWeekdayOfMonth(year, 10, 4, 4).getTime() + 86_400_000)) },
     { name: "Christmas", date: iso(new Date(Date.UTC(year, 11, 25))) },
     { name: "New Year's Eve", date: iso(new Date(Date.UTC(year, 11, 31))) },
   ];
@@ -72,6 +73,10 @@ export const HOLIDAY_TOPICS = {
   ],
   "Thanksgiving": [
     { topic: "usda-food-prices", daysBefore: 2, note: "grocery/food-cost angle" },
+  ],
+  "Black Friday": [
+    { topic: "holiday-retail-sales-watch", daysBefore: 0, note: "Census MARTS November retail sales + online share" },
+    { topic: "us-ecommerce-watch", daysBefore: 1 },
   ],
   "Christmas": [
     { topic: "household-cost-basket", daysBefore: 3, note: "holiday-spending-adjacent household cost angle" },

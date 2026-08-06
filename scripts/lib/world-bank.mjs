@@ -21,7 +21,7 @@ export async function realCountryCodes() {
 export async function worldBankLatestByCountry(indicatorId, { maxYearsBack = 5 } = {}) {
   const [countries, res] = await Promise.all([
     realCountryCodes(),
-    fetch(`https://api.worldbank.org/v2/country/all/indicator/${indicatorId}?format=json&per_page=2000&mrnev=${maxYearsBack}`),
+    fetch(`https://api.worldbank.org/v2/country/all/indicator/${indicatorId}?format=json&per_page=2000&mrv=${maxYearsBack}`),
   ]);
   if (!res.ok) throw new Error(`World Bank HTTP ${res.status}`);
   const json = await res.json();

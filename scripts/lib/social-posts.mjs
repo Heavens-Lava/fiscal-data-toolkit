@@ -4,6 +4,7 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { scorePostQuality } from "./post-quality.mjs";
 
 // Many "watch" scripts write a raw stat-dump followed by a "Facebook post"
 // section (divided by a "-----" rule) holding the actual polished caption.
@@ -98,6 +99,13 @@ export function listSocialPosts(socialDir) {
     byKey.get(key).files[p.ext] = p.name;
   }
 
+  for (const name of names) {
+    const match = name.match(/^(.+)-(\d{4}-\d{2}-\d{2})\.portrait\.png$/);
+    if (!match) continue;
+    const key = `${match[1]}|${match[2]}`;
+    if (byKey.has(key)) byKey.get(key).files.portrait = name;
+  }
+
   return [...byKey.values()]
     .map((post) => {
       const exts = new Set(Object.keys(post.files));
@@ -114,17 +122,22 @@ export function listSocialPosts(socialDir) {
       if (!exts.has("html")) warnings.push("no .html");
       if (!exts.has("mp4")) warnings.push("no video (image-only post)");
 
-      const score = Math.max(0, 100 - problems.length * 25 - warnings.length * 8);
+      const readinessScore = Math.max(0, 100 - problems.length * 25 - warnings.length * 8);
       const status = problems.length ? "needs work" : warnings.length ? "ready with notes" : "ready";
+      const quality = scorePostQuality({ caption, files: post.files, socialDir });
 
       return {
         ...post,
         hasImage: exts.has("png"),
+        hasPortrait: Boolean(post.files.portrait),
         hasVideo: exts.has("mp4"),
         hasHtml: exts.has("html"),
         hasCsv: exts.has("csv"),
         caption,
-        score,
+        score: quality.score,
+        qualityScore: quality.score,
+        quality,
+        readinessScore,
         status,
         problems,
         warnings,

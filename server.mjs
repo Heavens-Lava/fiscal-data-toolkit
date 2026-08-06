@@ -6,10 +6,12 @@
 // Run:  npm run web   (or: node server.mjs)   then open http://localhost:3000
 
 import http from "node:http";
+import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, extname, join } from "node:path";
+import { promisify } from "node:util";
 import { fiscal, trade, money, banking, markets, housing, stock, screen } from "./lib/data.mjs";
 import { CATEGORIES, metaFor } from "./lib/topics.mjs";
 import { listPendingApprovals } from "./scripts/lib/approval-queue.mjs";
@@ -71,6 +73,7 @@ async function cached(key, ttlMs, fn) {
   return val;
 }
 const TEN_MIN = 10 * 60 * 1000;
+const execFileAsync = promisify(execFile);
 
 // Scan social/ for the latest generated chart card per topic (png/html/csv/txt
 // share a `<topic>-YYYY-MM-DD` basename). Top-level files only — the dated
@@ -115,6 +118,7 @@ function pendingApprovals() {
 }
 
 const publishing = new Set();
+const generatingMedia = new Set();
 const loginAttempts = new Map();
 
 function approvalKey(topic, date) {
@@ -344,14 +348,53 @@ const server = http.createServer(async (req, res) => {
         return sendJSON(res, 409, { ok: false, error: error.message });
       }
     }
+    if (u.pathname === "/api/approvals/generate-media" && req.method === "POST") {
+      if (!requireApprovalAuth(req, res)) return;
+      const { topic, date, kind } = await readJsonBody(req);
+      if (!new Set(["portrait", "video"]).has(kind)) {
+        return sendJSON(res, 400, { error: "Media kind must be portrait or video." });
+      }
+      const post = pendingApprovals().find((item) => item.topic === topic && item.date === date);
+      if (!post) return sendJSON(res, 404, { error: "Post is no longer awaiting approval." });
+      if (kind === "portrait" && !post.hasImage) {
+        return sendJSON(res, 400, { error: "A chart image is required before creating a portrait version." });
+      }
+      const key = `${topic}|${date}|${kind}`;
+      if (generatingMedia.has(key)) return sendJSON(res, 409, { error: `The ${kind} version is already being created.` });
+      generatingMedia.add(key);
+      try {
+        const script = kind === "portrait" ? "make-post-portrait.mjs" : "make-video.mjs";
+        const args = [join(ROOT, "scripts", script), topic, "--date", date];
+        if (kind === "portrait") args.push("--force");
+        const { stdout, stderr } = await execFileAsync(process.execPath, args, {
+          cwd: ROOT,
+          timeout: kind === "video" ? 20 * 60_000 : 2 * 60_000,
+          maxBuffer: 10 * 1024 * 1024,
+          windowsHide: true,
+        });
+        const refreshed = pendingApprovals().find((item) => item.topic === topic && item.date === date);
+        return sendJSON(res, 200, {
+          ok: true,
+          kind,
+          post: refreshed,
+          output: [stdout, stderr].filter(Boolean).join("\n").trim(),
+        });
+      } catch (error) {
+        const detail = [error.message, error.stderr].filter(Boolean).join("\n").trim();
+        return sendJSON(res, 500, { error: detail || `Could not create the ${kind} version.` });
+      } finally {
+        generatingMedia.delete(key);
+      }
+    }
     if (u.pathname === "/api/approvals/publish" && req.method === "POST") {
       if (!requireApprovalAuth(req, res)) return;
       const { topic, date, media = "image" } = await readJsonBody(req);
       if (!topic || !date) return sendJSON(res, 400, { error: "missing topic/date" });
       const post = pendingApprovals().find((item) => item.topic === topic && item.date === date);
       if (!post) return sendJSON(res, 409, { error: "This post is no longer pending approval." });
-      if (!new Set(["image", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
+      if (!new Set(["image", "portrait", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
       if (media === "image" && !post.hasImage) return sendJSON(res, 400, { error: "This post has no image." });
+      if (media === "portrait" && !post.hasPortrait) return sendJSON(res, 400, { error: "This post has no portrait image." });
       if (media === "video" && !post.hasVideo) return sendJSON(res, 400, { error: "This post has no video." });
 
       try {
@@ -367,7 +410,7 @@ const server = http.createServer(async (req, res) => {
       if (!requireApprovalAuth(req, res)) return;
       const { topic, date, media = "image", scheduledAt } = await readJsonBody(req);
       if (!topic || !date || !scheduledAt) return sendJSON(res, 400, { error: "missing topic/date/scheduledAt" });
-      if (!new Set(["image", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
+      if (!new Set(["image", "portrait", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
       const when = new Date(scheduledAt);
       if (Number.isNaN(when.getTime())) return sendJSON(res, 400, { error: "Invalid scheduled date and time." });
       if (when.getTime() <= Date.now()) return sendJSON(res, 400, { error: "Choose a future date and time." });
@@ -375,6 +418,7 @@ const server = http.createServer(async (req, res) => {
       const existing = loadScheduledPosts(ROOT).find((item) => item.topic === topic && item.date === date);
       if (!post && !existing) return sendJSON(res, 409, { error: "This post is no longer available to schedule." });
       if (post && media === "image" && !post.hasImage) return sendJSON(res, 400, { error: "This post has no image." });
+      if (post && media === "portrait" && !post.hasPortrait) return sendJSON(res, 400, { error: "This post has no portrait image." });
       if (post && media === "video" && !post.hasVideo) return sendJSON(res, 400, { error: "This post has no video." });
       if (existing && media !== existing.media) return sendJSON(res, 400, { error: "Cancel the schedule before changing its media." });
       try {
@@ -390,10 +434,11 @@ const server = http.createServer(async (req, res) => {
       if (!requireApprovalAuth(req, res)) return;
       const { topic, date, media = "image" } = await readJsonBody(req);
       if (!topic || !date) return sendJSON(res, 400, { error: "missing topic/date" });
-      if (!new Set(["image", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
+      if (!new Set(["image", "portrait", "video", "text"]).has(media)) return sendJSON(res, 400, { error: "invalid media choice" });
       const post = pendingApprovals().find((item) => item.topic === topic && item.date === date);
       if (!post) return sendJSON(res, 409, { error: "This post is no longer pending approval." });
       if (media === "image" && !post.hasImage) return sendJSON(res, 400, { error: "This post has no image." });
+      if (media === "portrait" && !post.hasPortrait) return sendJSON(res, 400, { error: "This post has no portrait image." });
       if (media === "video" && !post.hasVideo) return sendJSON(res, 400, { error: "This post has no video." });
       try {
         const scheduledPosts = loadScheduledPosts(ROOT);

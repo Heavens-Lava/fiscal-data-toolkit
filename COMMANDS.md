@@ -567,6 +567,15 @@ node scripts/market-structure-watch.mjs
 # Automatic text-to-video from a post's Facebook caption
 node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13
 
+# Preview the automatic storyboard JSON without rendering
+node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13 --storyboard-only --keep-script
+
+# Keep an automatic video especially short
+node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13 --max-beats 6
+
+# Branded 1080 x 1350 feed image from an existing chart and caption
+node scripts\make-post-portrait.mjs salary-buying-power-70000 --date 2026-07-13
+
 # Structured data video with number cards, comparisons, charts, and source scenes
 node scripts\make-video.mjs salary-buying-power-youtube --date 2026-07-13 --script social\_video-scripts\salary-buying-power-youtube-2026-07-13.storyboard.json
 
@@ -585,6 +594,8 @@ A `meme` scene is a Fireship-style comedic cutaway — narration keeps playing w
 `query` is a Giphy search term; omit it and `lib/meme-kit.mjs` auto-picks a reaction by scanning the beat's own text against a keyword→mood table (crash/decline → "this is fine fire", record/surge → "success kid", etc.), falling back to a deterministic generic rotation. Requires `GIPHY_API_KEY` — real GIF/video content is fetched from Giphy's Search API (licensed for this kind of embedding) rather than scraped from arbitrary sites, and cached locally in `.cache/memes/` so repeat renders don't re-hit the API. If resolution fails (missing key, no results), that beat silently renders without a cutaway rather than failing the whole video. Requires the sibling `inventor-video` project to have `meme` render support in `FacelessShort.tsx` (adds a small on-screen "GIPHY" attribution badge, per Giphy's API terms).
 
 Videos include Edge TTS narration, synchronized captions, quiet background music, persistent `AMERICA BY THE NUMBERS` branding, and an automatically generated `-thumbnail.png`. Use `--no-music`, `--voice <name>`, or `--brand <name>` to override those defaults. When music has a required attribution, `make-video.mjs` writes a `-video-credit.txt` sidecar and Facebook publishing appends it to video captions automatically.
+
+Automatic videos use a short visual story instead of reading the entire Facebook caption: a numeric hook, the generated chart, a compact top-three comparison, relevant Arizona context when present, the official source, and a closing question. Source links, detailed tables, and caveats remain in the post caption. Use `--keep-caveats` when a caveat must also be narrated, `--max-beats <number>` to control length, and `--storyboard-only --keep-script` to inspect the generated storyboard before rendering. Temporary Edge TTS failures are retried automatically.
 
 ## Web UI
 
@@ -621,6 +632,8 @@ npm.cmd run social:auto -- --dry-run
 npm.cmd run rental-owners
 ```
 
+Each approval card shows a 100-point quality score covering the hook, clarity, everyday relevance, visual format, and sourcing. Expand **See checks** for specific improvements. Use **Create portrait** to generate a branded 1080 x 1350 feed image or **Create video** to run the existing narrated 9:16 video renderer, then choose that variant under **Facebook attachment**.
+
 On the Approvals page, choose an attachment and either:
 
 - **Approve next slot** to place the post in the next open automatic slot. The queue first checks whether today already has two published or scheduled posts. If not, it uses an available remaining slot today; otherwise it fills tomorrow at 8:00 AM, tomorrow at 12:00 PM, then the following day in Arizona time.
@@ -634,6 +647,15 @@ The automatic slots can be changed in the gitignored `.env` file:
 SOCIAL_SCHEDULE_TIMEZONE=America/Phoenix
 SOCIAL_SCHEDULE_SLOTS=08:00,12:00
 ```
+
+After changing the slots, preview and then rebalance the existing Facebook queue:
+
+```powershell
+node scripts\rebalance-schedule.mjs --dry-run
+node scripts\rebalance-schedule.mjs
+```
+
+Posts beyond Meta's scheduling horizon are returned to the approval queue instead of being discarded. The queue promoter can schedule them later as new dates become available.
 
 The dashboard stores Facebook's scheduled-post ID so rescheduling and cancellation update Meta and the local queue together. Facebook performs the timed publish, so scheduled posts still publish while this computer is off. Keep the dashboard running only when you want remote access to approvals, or install the login startup task below.
 
