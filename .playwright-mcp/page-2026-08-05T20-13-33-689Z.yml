@@ -1,0 +1,694 @@
+- generic [ref=f145e1]:
+  - main [ref=f145e2]:
+    - generic [ref=f145e3]:
+      - img "Smartsheet Logo" [ref=f145e5]
+      - generic [ref=f145e6]:
+        - link "Back to jobs" [ref=f145e7] [cursor=pointer]:
+          - /url: https://job-boards.greenhouse.io/smartsheet
+        - generic [ref=f145e10]: New
+        - generic [ref=f145e13]:
+          - generic [ref=f145e14]:
+            - heading "Software Engineer I (Remote Eligible)" [level=1] [ref=f145e15]
+            - generic [ref=f145e16]: "-REMOTE, USA-"
+          - button "Apply" [ref=f145e20] [cursor=pointer]
+        - generic [ref=f145e21]:
+          - paragraph [ref=f145e23]: "For over 20 years, Smartsheet has empowered teams to manage work seamlessly and scale solutions smarter. Now, in our most ambitious chapter yet, we are uniting human teams with AI agents. By orchestrating the work agents do best, automating manual tasks and uncovering insights at scale, we create the space for people to focus on what truly matters: judgment, creativity, and big thinking. That is magic at work, and it’s what we show up for every day."
+          - generic [ref=f145e24]:
+            - paragraph [ref=f145e25]: We are hiring a Software Engineer I to join our Engineering team. You will get your hands on full-stack services, dig into distributed systems problems, and work right at the intersection of traditional software engineering and AI-driven development. We are not just dabbling in AI here. We use it to write better code, catch bugs faster, and troubleshoot smarter, and we want engineers who want to get good at that too and help their teammates do the same. You will ship real features, sit in on architectural conversations that actually shape the product, and grow alongside a team that cares as much about doing good work as they do about doing meaningful work.
+            - paragraph [ref=f145e26]:
+              - strong [ref=f145e27]: "You Will:"
+            - list [ref=f145e28]:
+              - listitem [ref=f145e29]: Build scalable front-end and back-end services for the next generation of applications at Smartsheet (Kotlin, Java, Typescript, React)
+              - listitem [ref=f145e30]: Solve challenging distributed systems problems and work with modern cloud infrastructure (AWS, Kubernetes)
+              - listitem [ref=f145e31]: Take part in code reviews and architectural discussions as you work with other software engineers and product managers
+              - listitem [ref=f145e32]: Forge a strong partnership with product management and other key areas of the business
+              - listitem [ref=f145e33]: Enhance existing application code with new features and strike a balance when making technical decisions (build vs refactor vs simplify)
+              - listitem [ref=f145e34]: Actively use AI tools to improve personal and team efficiency across coding, testing, design, and troubleshooting, exploring AI integration opportunities within team processes and features, and coaching others on effective AI use
+            - paragraph [ref=f145e35]:
+              - strong [ref=f145e36]: "You Have:"
+            - list [ref=f145e37]:
+              - listitem [ref=f145e38]: 1+ years software development experience building highly scalable, highly available applications
+              - listitem [ref=f145e39]: 1+ years of programming experience with full stack technologies such Java, Kotlin, Python or TypeScript
+              - listitem [ref=f145e40]: 1+ years of experience with cloud technologies (AWS, Azure, etc.)
+              - listitem [ref=f145e41]: Experience developing, documenting, and supporting REST APIs
+              - listitem [ref=f145e42]: 6+ months professional experience leveraging AI to improve personal productivity in service of building complex SaaS feature sets
+              - listitem [ref=f145e43]: A degree in Computer Science, Engineering, or a related field or equivalent practical experience
+              - listitem [ref=f145e44]: Adaptable as priorities or problems change
+              - listitem [ref=f145e45]: Ready to take ownership of your work and grow into bigger challenges
+              - listitem [ref=f145e46]: A clear written and verbal communicator, able to explain your thinking in code reviews, documentation, and team discussions
+              - listitem [ref=f145e47]: Legally eligible to work in the U.S. on an ongoing basis
+          - generic [ref=f145e49]:
+            - generic [ref=f145e52]:
+              - paragraph [ref=f145e53]:
+                - strong [ref=f145e54]: "Current US Perks & Benefits:"
+              - list [ref=f145e55]:
+                - listitem [ref=f145e56]: Employer subsidized medical/vision and dental coverage for full-time employees
+                - listitem [ref=f145e57]: 401k Match to help you save for your future (50% of your contribution up to the first 6% of your eligible pay)
+                - listitem [ref=f145e58]: Monthly stipend to support your work and productivity
+                - listitem [ref=f145e59]: Flexible Time Away Program, plus Sick Time Off
+                - listitem [ref=f145e60]: US employees are automatically covered under Smartsheet-sponsored life insurance, short-term, and long-term disability plans
+                - listitem [ref=f145e61]: US employees receive 12 paid holidays per year
+                - listitem [ref=f145e62]: Up to 24 weeks of Parental Leave
+                - listitem [ref=f145e63]: Personal paid Volunteer Day to support our community
+                - listitem [ref=f145e64]: Opportunities for professional growth and development including access to Udemy online courses
+                - listitem [ref=f145e65]: Company Funded Perks, including a counseling membership, local retail discounts, and your own personal Smartsheet account
+                - listitem [ref=f145e66]: Teleworking options from any registered location in the U.S. (role specific)
+              - paragraph [ref=f145e67]:
+                - emphasis [ref=f145e68]: Smartsheet provides a competitive base salary range for roles that may be hired in different geographic areas we are licensed to operate our business from. Actual compensation is determined by several factors including, but not limited to, level of professional, educational experience, skills, and specific candidate location. In addition, this role will be eligible for a market competitive incentive opportunity.
+            - paragraph [ref=f145e69]: US Base Salary Pay Range
+            - paragraph [ref=f145e70]: $107,500 - $147,500 USD
+          - generic [ref=f145e71]:
+            - paragraph [ref=f145e72]
+            - paragraph [ref=f145e73]:
+              - strong [ref=f145e74]: "Get to Know Us:"
+            - paragraph [ref=f145e75]: At Smartsheet, your ideas are heard, your potential is supported, and your contributions have real impact. You’ll have the freedom to explore, push boundaries, and grow beyond your role. We welcome diverse perspectives and nontraditional paths—because we know that impact comes from individuals who care deeply and challenge thoughtfully. When you’re doing work that stretches you, excites you, and connects you to something bigger, that’s magic at work. Let’s build what’s next, together.
+            - paragraph [ref=f145e76]:
+              - strong [ref=f145e77]: "Equal Opportunity Employer:"
+            - paragraph [ref=f145e78]: Smartsheet is an Equal Opportunity (EEO) employer committed to fostering an inclusive environment with the best employees. It is our policy to provide equal employment opportunities to all qualified applicants in accordance with applicable laws in the US, UK, Australia, Germany, Costa Rica, Japan, Bulgaria, India, and Singapore. All qualified applicants will receive consideration without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, protected veteran or disabled status, or genetic information.
+            - paragraph [ref=f145e79]: If there are preparations we can make to help ensure you have a comfortable and positive interview experience, please let us know.
+            - paragraph [ref=f145e80]
+            - paragraph [ref=f145e81]: "#LI-Remote"
+        - generic [ref=f145e85]:
+          - paragraph [ref=f145e86]: Create a Job Alert
+          - paragraph [ref=f145e87]: Interested in building your career at Smartsheet? Get future opportunities sent straight to your email.
+          - link "Create alert" [ref=f145e88] [cursor=pointer]:
+            - /url: https://my.greenhouse.io/users/sign_in?job_board=smartsheet&source=job_alert_post
+      - separator [ref=f145e89]
+      - generic [ref=f145e90]:
+        - generic [ref=f145e91]:
+          - generic [ref=f145e92]:
+            - heading "Apply for this job" [level=2] [ref=f145e94]
+            - generic [ref=f145e95]:
+              - paragraph [ref=f145e97]: "*"
+              - paragraph [ref=f145e98]: indicates a required field
+          - button "Quick Apply with MyGreenhouse" [ref=f145e101] [cursor=pointer]
+        - generic [ref=f145e102]:
+          - generic [ref=f145e103]:
+            - generic [ref=f145e106]:
+              - generic [ref=f145e107]: First Name*
+              - textbox "First Name" [ref=f145e108]: Jeffrey
+            - generic [ref=f145e111]:
+              - generic [ref=f145e112]: Last Name*
+              - textbox "Last Name" [ref=f145e113]: Macy
+            - generic [ref=f145e116]:
+              - generic [ref=f145e117]: Preferred First Name
+              - textbox "Preferred First Name" [ref=f145e118]
+            - generic [ref=f145e121]:
+              - generic [ref=f145e122]: Email*
+              - textbox "Email" [ref=f145e123]: macy.jeffreyj@gmail.com
+            - group "Phone" [ref=f145e125]:
+              - generic [ref=f145e129]:
+                - generic [ref=f145e130]: Country*
+                - generic [ref=f145e131]:
+                  - log [ref=f145e133]: 244 results available.Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+                  - generic [ref=f145e135]:
+                    - combobox "Country" [expanded] [active] [ref=f145e138]
+                    - button "Toggle flyout" [ref=f145e140] [cursor=pointer]
+                  - listbox [ref=f145e656]:
+                    - option "United States +1" [ref=f145e657]
+                    - option "Afghanistan +93" [ref=f145e659]
+                    - option "Åland Islands +358" [ref=f145e661]
+                    - option "Albania +355" [ref=f145e663]
+                    - option "Algeria +213" [ref=f145e665]
+                    - option "American Samoa +1" [ref=f145e667]
+                    - option "Andorra +376" [ref=f145e669]
+                    - option "Angola +244" [ref=f145e671]
+                    - option "Anguilla +1" [ref=f145e673]
+                    - option "Antigua & Barbuda +1" [ref=f145e675]
+                    - option "Argentina +54" [ref=f145e677]
+                    - option "Armenia +374" [ref=f145e679]
+                    - option "Aruba +297" [ref=f145e681]
+                    - option "Ascension Island +247" [ref=f145e683]
+                    - option "Australia +61" [ref=f145e685]
+                    - option "Austria +43" [ref=f145e687]
+                    - option "Azerbaijan +994" [ref=f145e689]
+                    - option "Bahamas +1" [ref=f145e691]
+                    - option "Bahrain +973" [ref=f145e693]
+                    - option "Bangladesh +880" [ref=f145e695]
+                    - option "Barbados +1" [ref=f145e697]
+                    - option "Belarus +375" [ref=f145e699]
+                    - option "Belgium +32" [ref=f145e701]
+                    - option "Belize +501" [ref=f145e703]
+                    - option "Benin +229" [ref=f145e705]
+                    - option "Bermuda +1" [ref=f145e707]
+                    - option "Bhutan +975" [ref=f145e709]
+                    - option "Bolivia +591" [ref=f145e711]
+                    - option "Bosnia & Herzegovina +387" [ref=f145e713]
+                    - option "Botswana +267" [ref=f145e715]
+                    - option "Brazil +55" [ref=f145e717]
+                    - option "British Indian Ocean Territory +246" [ref=f145e719]
+                    - option "British Virgin Islands +1" [ref=f145e721]
+                    - option "Brunei +673" [ref=f145e723]
+                    - option "Bulgaria +359" [ref=f145e725]
+                    - option "Burkina Faso +226" [ref=f145e727]
+                    - option "Burundi +257" [ref=f145e729]
+                    - option "Cambodia +855" [ref=f145e731]
+                    - option "Cameroon +237" [ref=f145e733]
+                    - option "Canada +1" [ref=f145e735]
+                    - option "Cape Verde +238" [ref=f145e737]
+                    - option "Caribbean Netherlands +599" [ref=f145e739]
+                    - option "Cayman Islands +1" [ref=f145e741]
+                    - option "Central African Republic +236" [ref=f145e743]
+                    - option "Chad +235" [ref=f145e745]
+                    - option "Chile +56" [ref=f145e747]
+                    - option "China +86" [ref=f145e749]
+                    - option "Christmas Island +61" [ref=f145e751]
+                    - option "Cocos (Keeling) Islands +61" [ref=f145e753]
+                    - option "Colombia +57" [ref=f145e755]
+                    - option "Comoros +269" [ref=f145e757]
+                    - option "Congo - Brazzaville +242" [ref=f145e759]
+                    - option "Congo - Kinshasa +243" [ref=f145e761]
+                    - option "Cook Islands +682" [ref=f145e763]
+                    - option "Costa Rica +506" [ref=f145e765]
+                    - option "Côte d’Ivoire +225" [ref=f145e767]
+                    - option "Croatia +385" [ref=f145e769]
+                    - option "Cuba +53" [ref=f145e771]
+                    - option "Curaçao +599" [ref=f145e773]
+                    - option "Cyprus +357" [ref=f145e775]
+                    - option "Czechia +420" [ref=f145e777]
+                    - option "Denmark +45" [ref=f145e779]
+                    - option "Djibouti +253" [ref=f145e781]
+                    - option "Dominica +1" [ref=f145e783]
+                    - option "Dominican Republic +1" [ref=f145e785]
+                    - option "Ecuador +593" [ref=f145e787]
+                    - option "Egypt +20" [ref=f145e789]
+                    - option "El Salvador +503" [ref=f145e791]
+                    - option "Equatorial Guinea +240" [ref=f145e793]
+                    - option "Eritrea +291" [ref=f145e795]
+                    - option "Estonia +372" [ref=f145e797]
+                    - option "Eswatini +268" [ref=f145e799]
+                    - option "Ethiopia +251" [ref=f145e801]
+                    - option "Falkland Islands +500" [ref=f145e803]
+                    - option "Faroe Islands +298" [ref=f145e805]
+                    - option "Fiji +679" [ref=f145e807]
+                    - option "Finland +358" [ref=f145e809]
+                    - option "France +33" [ref=f145e811]
+                    - option "French Guiana +594" [ref=f145e813]
+                    - option "French Polynesia +689" [ref=f145e815]
+                    - option "Gabon +241" [ref=f145e817]
+                    - option "Gambia +220" [ref=f145e819]
+                    - option "Georgia +995" [ref=f145e821]
+                    - option "Germany +49" [ref=f145e823]
+                    - option "Ghana +233" [ref=f145e825]
+                    - option "Gibraltar +350" [ref=f145e827]
+                    - option "Greece +30" [ref=f145e829]
+                    - option "Greenland +299" [ref=f145e831]
+                    - option "Grenada +1" [ref=f145e833]
+                    - option "Guadeloupe +590" [ref=f145e835]
+                    - option "Guam +1" [ref=f145e837]
+                    - option "Guatemala +502" [ref=f145e839]
+                    - option "Guernsey +44" [ref=f145e841]
+                    - option "Guinea +224" [ref=f145e843]
+                    - option "Guinea-Bissau +245" [ref=f145e845]
+                    - option "Guyana +592" [ref=f145e847]
+                    - option "Haiti +509" [ref=f145e849]
+                    - option "Honduras +504" [ref=f145e851]
+                    - option "Hong Kong SAR China +852" [ref=f145e853]
+                    - option "Hungary +36" [ref=f145e855]
+                    - option "Iceland +354" [ref=f145e857]
+                    - option "India +91" [ref=f145e859]
+                    - option "Indonesia +62" [ref=f145e861]
+                    - option "Iran +98" [ref=f145e863]
+                    - option "Iraq +964" [ref=f145e865]
+                    - option "Ireland +353" [ref=f145e867]
+                    - option "Isle of Man +44" [ref=f145e869]
+                    - option "Israel +972" [ref=f145e871]
+                    - option "Italy +39" [ref=f145e873]
+                    - option "Jamaica +1" [ref=f145e875]
+                    - option "Japan +81" [ref=f145e877]
+                    - option "Jersey +44" [ref=f145e879]
+                    - option "Jordan +962" [ref=f145e881]
+                    - option "Kazakhstan +7" [ref=f145e883]
+                    - option "Kenya +254" [ref=f145e885]
+                    - option "Kiribati +686" [ref=f145e887]
+                    - option "Kosovo +383" [ref=f145e889]
+                    - option "Kuwait +965" [ref=f145e891]
+                    - option "Kyrgyzstan +996" [ref=f145e893]
+                    - option "Laos +856" [ref=f145e895]
+                    - option "Latvia +371" [ref=f145e897]
+                    - option "Lebanon +961" [ref=f145e899]
+                    - option "Lesotho +266" [ref=f145e901]
+                    - option "Liberia +231" [ref=f145e903]
+                    - option "Libya +218" [ref=f145e905]
+                    - option "Liechtenstein +423" [ref=f145e907]
+                    - option "Lithuania +370" [ref=f145e909]
+                    - option "Luxembourg +352" [ref=f145e911]
+                    - option "Macao SAR China +853" [ref=f145e913]
+                    - option "Madagascar +261" [ref=f145e915]
+                    - option "Malawi +265" [ref=f145e917]
+                    - option "Malaysia +60" [ref=f145e919]
+                    - option "Maldives +960" [ref=f145e921]
+                    - option "Mali +223" [ref=f145e923]
+                    - option "Malta +356" [ref=f145e925]
+                    - option "Marshall Islands +692" [ref=f145e927]
+                    - option "Martinique +596" [ref=f145e929]
+                    - option "Mauritania +222" [ref=f145e931]
+                    - option "Mauritius +230" [ref=f145e933]
+                    - option "Mayotte +262" [ref=f145e935]
+                    - option "Mexico +52" [ref=f145e937]
+                    - option "Micronesia +691" [ref=f145e939]
+                    - option "Moldova +373" [ref=f145e941]
+                    - option "Monaco +377" [ref=f145e943]
+                    - option "Mongolia +976" [ref=f145e945]
+                    - option "Montenegro +382" [ref=f145e947]
+                    - option "Montserrat +1" [ref=f145e949]
+                    - option "Morocco +212" [ref=f145e951]
+                    - option "Mozambique +258" [ref=f145e953]
+                    - option "Myanmar (Burma) +95" [ref=f145e955]
+                    - option "Namibia +264" [ref=f145e957]
+                    - option "Nauru +674" [ref=f145e959]
+                    - option "Nepal +977" [ref=f145e961]
+                    - option "Netherlands +31" [ref=f145e963]
+                    - option "New Caledonia +687" [ref=f145e965]
+                    - option "New Zealand +64" [ref=f145e967]
+                    - option "Nicaragua +505" [ref=f145e969]
+                    - option "Niger +227" [ref=f145e971]
+                    - option "Nigeria +234" [ref=f145e973]
+                    - option "Niue +683" [ref=f145e975]
+                    - option "Norfolk Island +672" [ref=f145e977]
+                    - option "North Korea +850" [ref=f145e979]
+                    - option "North Macedonia +389" [ref=f145e981]
+                    - option "Northern Mariana Islands +1" [ref=f145e983]
+                    - option "Norway +47" [ref=f145e985]
+                    - option "Oman +968" [ref=f145e987]
+                    - option "Pakistan +92" [ref=f145e989]
+                    - option "Palau +680" [ref=f145e991]
+                    - option "Palestinian Territories +970" [ref=f145e993]
+                    - option "Panama +507" [ref=f145e995]
+                    - option "Papua New Guinea +675" [ref=f145e997]
+                    - option "Paraguay +595" [ref=f145e999]
+                    - option "Peru +51" [ref=f145e1001]
+                    - option "Philippines +63" [ref=f145e1003]
+                    - option "Poland +48" [ref=f145e1005]
+                    - option "Portugal +351" [ref=f145e1007]
+                    - option "Puerto Rico +1" [ref=f145e1009]
+                    - option "Qatar +974" [ref=f145e1011]
+                    - option "Réunion +262" [ref=f145e1013]
+                    - option "Romania +40" [ref=f145e1015]
+                    - option "Russia +7" [ref=f145e1017]
+                    - option "Rwanda +250" [ref=f145e1019]
+                    - option "Samoa +685" [ref=f145e1021]
+                    - option "San Marino +378" [ref=f145e1023]
+                    - option "São Tomé & Príncipe +239" [ref=f145e1025]
+                    - option "Saudi Arabia +966" [ref=f145e1027]
+                    - option "Senegal +221" [ref=f145e1029]
+                    - option "Serbia +381" [ref=f145e1031]
+                    - option "Seychelles +248" [ref=f145e1033]
+                    - option "Sierra Leone +232" [ref=f145e1035]
+                    - option "Singapore +65" [ref=f145e1037]
+                    - option "Sint Maarten +1" [ref=f145e1039]
+                    - option "Slovakia +421" [ref=f145e1041]
+                    - option "Slovenia +386" [ref=f145e1043]
+                    - option "Solomon Islands +677" [ref=f145e1045]
+                    - option "Somalia +252" [ref=f145e1047]
+                    - option "South Africa +27" [ref=f145e1049]
+                    - option "South Korea +82" [ref=f145e1051]
+                    - option "South Sudan +211" [ref=f145e1053]
+                    - option "Spain +34" [ref=f145e1055]
+                    - option "Sri Lanka +94" [ref=f145e1057]
+                    - option "St. Barthélemy +590" [ref=f145e1059]
+                    - option "St. Helena +290" [ref=f145e1061]
+                    - option "St. Kitts & Nevis +1" [ref=f145e1063]
+                    - option "St. Lucia +1" [ref=f145e1065]
+                    - option "St. Martin +590" [ref=f145e1067]
+                    - option "St. Pierre & Miquelon +508" [ref=f145e1069]
+                    - option "St. Vincent & Grenadines +1" [ref=f145e1071]
+                    - option "Sudan +249" [ref=f145e1073]
+                    - option "Suriname +597" [ref=f145e1075]
+                    - option "Svalbard & Jan Mayen +47" [ref=f145e1077]
+                    - option "Sweden +46" [ref=f145e1079]
+                    - option "Switzerland +41" [ref=f145e1081]
+                    - option "Syria +963" [ref=f145e1083]
+                    - option "Taiwan +886" [ref=f145e1085]
+                    - option "Tajikistan +992" [ref=f145e1087]
+                    - option "Tanzania +255" [ref=f145e1089]
+                    - option "Thailand +66" [ref=f145e1091]
+                    - option "Timor-Leste +670" [ref=f145e1093]
+                    - option "Togo +228" [ref=f145e1095]
+                    - option "Tokelau +690" [ref=f145e1097]
+                    - option "Tonga +676" [ref=f145e1099]
+                    - option "Trinidad & Tobago +1" [ref=f145e1101]
+                    - option "Tunisia +216" [ref=f145e1103]
+                    - option "Turkey +90" [ref=f145e1105]
+                    - option "Turkmenistan +993" [ref=f145e1107]
+                    - option "Turks & Caicos Islands +1" [ref=f145e1109]
+                    - option "Tuvalu +688" [ref=f145e1111]
+                    - option "U.S. Virgin Islands +1" [ref=f145e1113]
+                    - option "Uganda +256" [ref=f145e1115]
+                    - option "Ukraine +380" [ref=f145e1117]
+                    - option "United Arab Emirates +971" [ref=f145e1119]
+                    - option "United Kingdom +44" [ref=f145e1121]
+                    - option "Uruguay +598" [ref=f145e1123]
+                    - option "Uzbekistan +998" [ref=f145e1125]
+                    - option "Vanuatu +678" [ref=f145e1127]
+                    - option "Vatican City +39" [ref=f145e1129]
+                    - option "Venezuela +58" [ref=f145e1131]
+                    - option "Vietnam +84" [ref=f145e1133]
+                    - option "Wallis & Futuna +681" [ref=f145e1135]
+                    - option "Western Sahara +212" [ref=f145e1137]
+                    - option "Yemen +967" [ref=f145e1139]
+                    - option "Zambia +260" [ref=f145e1141]
+                    - option "Zimbabwe +263" [ref=f145e1143]
+                  - textbox
+              - generic [ref=f145e145]:
+                - generic [ref=f145e146]: Phone*
+                - textbox "Phone" [ref=f145e148]: 602-619-4553
+            - generic [ref=f145e149]:
+              - generic [ref=f145e151]:
+                - generic [ref=f145e152]: Location (City)*
+                - generic [ref=f145e153]:
+                  - log [ref=f145e155]
+                  - combobox "Location (City)" [ref=f145e160]
+                  - textbox
+              - button "Locate me" [ref=f145e161] [cursor=pointer]
+            - group "Resume/CV" [ref=f145e163]:
+              - generic [ref=f145e166]:
+                - generic [ref=f145e168]:
+                  - button "Attach" [ref=f145e169] [cursor=pointer]
+                  - generic [ref=f145e170]: Attach
+                  - button "Attach" [ref=f145e171]
+                - button "Dropbox" [ref=f145e173] [cursor=pointer]
+                - button "Google Drive" [ref=f145e175] [cursor=pointer]
+                - generic [ref=f145e177]:
+                  - button "Enter manually" [ref=f145e178] [cursor=pointer]
+                  - generic [ref=f145e179]: Enter manually
+                - paragraph [ref=f145e180]: "Accepted file types: pdf, doc, docx, txt, rtf"
+            - group "Cover Letter" [ref=f145e182]:
+              - generic [ref=f145e185]:
+                - generic [ref=f145e187]:
+                  - button "Attach" [ref=f145e188] [cursor=pointer]
+                  - generic [ref=f145e189]: Attach
+                  - button "Attach" [ref=f145e190]
+                - button "Dropbox" [ref=f145e192] [cursor=pointer]
+                - button "Google Drive" [ref=f145e194] [cursor=pointer]
+                - generic [ref=f145e196]:
+                  - button "Enter manually" [ref=f145e197] [cursor=pointer]
+                  - generic [ref=f145e198]: Enter manually
+                - paragraph [ref=f145e199]: "Accepted file types: pdf, doc, docx, txt, rtf"
+          - generic [ref=f145e200]:
+            - generic [ref=f145e201]:
+              - separator [ref=f145e202]
+              - paragraph [ref=f145e204]: Education
+              - generic [ref=f145e206]:
+                - generic [ref=f145e207]: School
+                - generic [ref=f145e208]:
+                  - log [ref=f145e210]
+                  - generic [ref=f145e212]:
+                    - generic [ref=f145e213]:
+                      - generic [ref=f145e214]: Select...
+                      - combobox "School" [ref=f145e216]
+                    - button "Toggle flyout" [ref=f145e218] [cursor=pointer]
+              - generic [ref=f145e222]:
+                - generic [ref=f145e223]: Degree
+                - generic [ref=f145e224]:
+                  - log [ref=f145e226]
+                  - generic [ref=f145e228]:
+                    - generic [ref=f145e229]:
+                      - generic [ref=f145e230]: Select...
+                      - combobox "Degree" [ref=f145e232]
+                    - button "Toggle flyout" [ref=f145e234] [cursor=pointer]
+              - generic [ref=f145e238]:
+                - generic [ref=f145e239]: Discipline
+                - generic [ref=f145e240]:
+                  - log [ref=f145e242]
+                  - generic [ref=f145e244]:
+                    - generic [ref=f145e245]:
+                      - generic [ref=f145e246]: Select...
+                      - combobox "Discipline" [ref=f145e248]
+                    - button "Toggle flyout" [ref=f145e250] [cursor=pointer]
+              - generic [ref=f145e253]:
+                - generic [ref=f145e254]:
+                  - generic [ref=f145e256]:
+                    - generic [ref=f145e257]: Start date month
+                    - generic [ref=f145e258]:
+                      - log [ref=f145e260]
+                      - generic [ref=f145e262]:
+                        - generic [ref=f145e263]:
+                          - generic [ref=f145e264]: Select...
+                          - combobox "Start date month" [ref=f145e266]
+                        - button "Toggle flyout" [ref=f145e268] [cursor=pointer]
+                  - generic [ref=f145e272]:
+                    - generic [ref=f145e273]: Start date year
+                    - spinbutton "Start date year" [ref=f145e274]
+                - generic [ref=f145e275]:
+                  - generic [ref=f145e277]:
+                    - generic [ref=f145e278]: End date month
+                    - generic [ref=f145e279]:
+                      - log [ref=f145e281]
+                      - generic [ref=f145e283]:
+                        - generic [ref=f145e284]:
+                          - generic [ref=f145e285]: Select...
+                          - combobox "End date month" [ref=f145e287]
+                        - button "Toggle flyout" [ref=f145e289] [cursor=pointer]
+                  - generic [ref=f145e293]:
+                    - generic [ref=f145e294]: End date year
+                    - spinbutton "End date year" [ref=f145e295]
+            - button "Add another" [ref=f145e296] [cursor=pointer]
+          - generic [ref=f145e297]:
+            - separator [ref=f145e298]
+            - generic [ref=f145e301]:
+              - generic [ref=f145e302]: LinkedIn Profile*
+              - textbox "LinkedIn Profile" [ref=f145e303]: https://www.linkedin.com/in/jeffrey-macy-176746146/
+            - generic [ref=f145e306]:
+              - generic [ref=f145e307]: Website
+              - textbox "Website" [ref=f145e308]: www.jeffreymacy.com
+            - generic [ref=f145e309]:
+              - generic [ref=f145e311]:
+                - generic [ref=f145e312]: Applicant Privacy Notice*
+                - generic [ref=f145e313]:
+                  - log [ref=f145e315]
+                  - generic [ref=f145e317]:
+                    - generic [ref=f145e318]:
+                      - generic [ref=f145e319]: Select...
+                      - combobox "Applicant Privacy Notice" [ref=f145e321]
+                    - button "Toggle flyout" [ref=f145e323] [cursor=pointer]
+                  - textbox
+              - paragraph [ref=f145e328]:
+                - text: Before you submit your application, please read and acknowledge receipt of the
+                - link "Applicant Privacy Notice." [ref=f145e329] [cursor=pointer]:
+                  - /url: https://www.smartsheet.com/legal/privacy-candidate
+            - generic [ref=f145e330]:
+              - generic [ref=f145e332]:
+                - generic [ref=f145e333]: Do you know anyone who works at Smartsheet?*
+                - textbox "Do you know anyone who works at Smartsheet?" [ref=f145e334]: "No"
+              - paragraph [ref=f145e337]: If yes, please include name(s) and the nature of the relationship(s). If no, please type no.
+            - generic [ref=f145e340]:
+              - generic [ref=f145e341]: How did you hear about us?*
+              - generic [ref=f145e342]:
+                - log [ref=f145e344]
+                - generic [ref=f145e346]:
+                  - generic [ref=f145e347]:
+                    - generic [ref=f145e348]: Select...
+                    - combobox "How did you hear about us?" [ref=f145e350]
+                  - button "Toggle flyout" [ref=f145e352] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e357]:
+              - generic [ref=f145e358]: In our pursuit of AI-driven advancements, how would you rate your overall familiarity with artificial intelligence (AI) concepts and tools?*
+              - generic [ref=f145e359]:
+                - log [ref=f145e361]
+                - generic [ref=f145e363]:
+                  - generic [ref=f145e364]:
+                    - generic [ref=f145e365]: Select...
+                    - combobox "In our pursuit of AI-driven advancements, how would you rate your overall familiarity with artificial intelligence (AI) concepts and tools?" [ref=f145e367]
+                  - button "Toggle flyout" [ref=f145e369] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e374]:
+              - generic [ref=f145e375]: Are you legally authorized to work in the United States?*
+              - generic [ref=f145e376]:
+                - log [ref=f145e378]
+                - generic [ref=f145e380]:
+                  - generic [ref=f145e381]:
+                    - generic [ref=f145e382]: Select...
+                    - combobox "Are you legally authorized to work in the United States?" [ref=f145e384]
+                  - button "Toggle flyout" [ref=f145e386] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e391]:
+              - generic [ref=f145e392]: Do you now or will you in the future require immigration sponsorship for work authorization?*
+              - generic [ref=f145e393]:
+                - log [ref=f145e395]
+                - generic [ref=f145e397]:
+                  - generic [ref=f145e398]:
+                    - generic [ref=f145e399]: Select...
+                    - combobox "Do you now or will you in the future require immigration sponsorship for work authorization?" [ref=f145e401]
+                  - button "Toggle flyout" [ref=f145e403] [cursor=pointer]
+                - textbox
+          - separator [ref=f145e406]
+          - generic [ref=f145e407]:
+            - heading "Voluntary EEOC Demographics" [level=3] [ref=f145e408]
+            - paragraph [ref=f145e411]:
+              - generic [ref=f145e412]: At Smartsheet, we strive to build an inclusive environment that encourages, supports, and celebrates the diverse voices of our team members. Individuals seeking employment at Smartsheet are considered without regards to race, ethnicity, color, age, sex, religion, national origin, ancestry, pregnancy, sexual orientation, gender, gender identity, gender expression, genetic information, physical or mental disability, registered domestic partner status, caregiver status, marital status, veteran or military status, citizenship status, or any other legally protected category in the US, UK, and Australia.
+              - text: Below is a set of
+              - strong [ref=f145e414]: voluntary
+              - text: demographic questions. If you choose to complete them, your responses will be used in aggregate to help us identify areas for improvement in our programs. Your responses, or your choice to not respond,
+              - strong [ref=f145e416]: will not
+              - generic [ref=f145e417]: be considered in the hiring process. Any information that you provide will be recorded and maintained confidentially.
+              - text: For definitions of any of the following terms or to read more about your rights, please visit the
+              - link "EEOC website here" [ref=f145e418] [cursor=pointer]:
+                - /url: https://www.eeoc.gov/employees/index.cfm
+              - text: .
+            - generic [ref=f145e420]:
+              - generic [ref=f145e421]: I identify my gender as:*
+              - generic [ref=f145e422]:
+                - log [ref=f145e424]
+                - generic [ref=f145e426]:
+                  - generic [ref=f145e427]:
+                    - generic [ref=f145e428]: Select...
+                    - combobox "I identify my gender as:" [ref=f145e430]
+                  - button "Toggle flyout" [ref=f145e432] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e436]:
+              - generic [ref=f145e437]: I identify as transgender:*
+              - generic [ref=f145e438]:
+                - log [ref=f145e440]
+                - generic [ref=f145e442]:
+                  - generic [ref=f145e443]:
+                    - generic [ref=f145e444]: Select...
+                    - combobox "I identify as transgender:" [ref=f145e446]
+                  - button "Toggle flyout" [ref=f145e448] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e452]:
+              - generic [ref=f145e453]: I identify my race / ethnicity as (select all that apply):*
+              - generic [ref=f145e454]:
+                - log [ref=f145e456]
+                - generic [ref=f145e458]:
+                  - generic [ref=f145e459]:
+                    - generic [ref=f145e460]: Select...
+                    - combobox "I identify my race / ethnicity as (select all that apply):" [ref=f145e462]
+                  - button "Toggle flyout" [ref=f145e464] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e468]:
+              - generic [ref=f145e469]: My veteran status is:*
+              - generic [ref=f145e470]:
+                - log [ref=f145e472]
+                - generic [ref=f145e474]:
+                  - generic [ref=f145e475]:
+                    - generic [ref=f145e476]: Select...
+                    - combobox "My veteran status is:" [ref=f145e478]
+                  - button "Toggle flyout" [ref=f145e480] [cursor=pointer]
+                - textbox
+            - generic [ref=f145e484]:
+              - generic [ref=f145e485]: My disability status is:*
+              - generic [ref=f145e486]:
+                - log [ref=f145e488]
+                - generic [ref=f145e490]:
+                  - generic [ref=f145e491]:
+                    - generic [ref=f145e492]: Select...
+                    - combobox "My disability status is:" [ref=f145e494]
+                  - button "Toggle flyout" [ref=f145e496] [cursor=pointer]
+                - textbox
+          - generic [ref=f145e499]:
+            - separator [ref=f145e500]
+            - generic [ref=f145e501]:
+              - heading "Voluntary Self-Identification" [level=2] [ref=f145e502]
+              - paragraph [ref=f145e503]: For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely voluntary. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file.
+              - paragraph [ref=f145e504]: As set forth in Smartsheet’s Equal Employment Opportunity policy, we do not discriminate on the basis of any protected group status under any applicable law.
+            - generic [ref=f145e507]:
+              - generic [ref=f145e508]: Gender
+              - generic [ref=f145e509]:
+                - log [ref=f145e511]
+                - generic [ref=f145e513]:
+                  - generic [ref=f145e514]:
+                    - generic [ref=f145e515]: Select...
+                    - combobox "Gender" [ref=f145e517]
+                  - button "Toggle flyout" [ref=f145e519] [cursor=pointer]
+            - generic [ref=f145e522]:
+              - generic [ref=f145e524]:
+                - generic [ref=f145e525]: Are you Hispanic/Latino?
+                - generic [ref=f145e526]:
+                  - log [ref=f145e528]
+                  - generic [ref=f145e530]:
+                    - generic [ref=f145e531]:
+                      - generic [ref=f145e532]: Select...
+                      - combobox "Are you Hispanic/Latino?" [ref=f145e534]
+                    - button "Toggle flyout" [ref=f145e536] [cursor=pointer]
+              - link "Race & Ethnicity Definitions" [ref=f145e539] [cursor=pointer]:
+                - /url: https://job-boards.cdn.greenhouse.io/docs/2023/RaceEthnicityDefinitions.pdf
+            - generic [ref=f145e540]:
+              - paragraph [ref=f145e541]: "If you believe you belong to any of the categories of protected veterans listed below, please indicate by making the appropriate selection. As a government contractor subject to the Vietnam Era Veterans Readjustment Assistance Act (VEVRAA), we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to VEVRAA. Classification of protected categories is as follows:"
+              - paragraph [ref=f145e542]: "A \"disabled veteran\" is one of the following: a veteran of the U.S. military, ground, naval or air service who is entitled to compensation (or who but for the receipt of military retired pay would be entitled to compensation) under laws administered by the Secretary of Veterans Affairs; or a person who was discharged or released from active duty because of a service-connected disability."
+              - paragraph [ref=f145e543]: A "recently separated veteran" means any veteran during the three-year period beginning on the date of such veteran's discharge or release from active duty in the U.S. military, ground, naval, or air service.
+              - paragraph [ref=f145e544]: An "active duty wartime or campaign badge veteran" means a veteran who served on active duty in the U.S. military, ground, naval or air service during a war, or in a campaign or expedition for which a campaign badge has been authorized under the laws administered by the Department of Defense.
+              - paragraph [ref=f145e545]: An "Armed forces service medal veteran" means a veteran who, while serving on active duty in the U.S. military, ground, naval or air service, participated in a United States military operation for which an Armed Forces service medal was awarded pursuant to Executive Order 12985.
+            - generic [ref=f145e548]:
+              - generic [ref=f145e549]: Veteran Status
+              - generic [ref=f145e550]:
+                - log [ref=f145e552]
+                - generic [ref=f145e554]:
+                  - generic [ref=f145e555]:
+                    - generic [ref=f145e556]: Select...
+                    - combobox "Veteran Status" [ref=f145e558]
+                  - button "Toggle flyout" [ref=f145e560] [cursor=pointer]
+            - separator [ref=f145e563]
+            - generic [ref=f145e564]:
+              - heading "Voluntary Self-Identification of Disability" [level=2] [ref=f145e565]
+              - generic [ref=f145e566]:
+                - generic [ref=f145e567]:
+                  - generic [ref=f145e568]: Form CC-305
+                  - generic [ref=f145e569]: Page 1 of 1
+                - generic [ref=f145e570]:
+                  - generic [ref=f145e571]: OMB Control Number 1250-0005
+                  - generic [ref=f145e572]: Expires 04/30/2026
+              - strong [ref=f145e573]: Why are you being asked to complete this form?
+              - paragraph [ref=f145e574]: We are a federal contractor or subcontractor. The law requires us to provide equal employment opportunity to qualified people with disabilities. We have a goal of having at least 7% of our workers as people with disabilities. The law says we must measure our progress towards this goal. To do this, we must ask applicants and employees if they have a disability or have ever had one. People can become disabled, so we need to ask this question at least every five years.
+              - paragraph [ref=f145e575]:
+                - text: Completing this form is voluntary, and we hope that you will choose to do so. Your answer is confidential. No one who makes hiring decisions will see it. Your decision to complete the form and your answer will not harm you in any way. If you want to learn more about the law or this form, visit the U.S. Department of Labor’s Office of Federal Contract Compliance Programs (OFCCP) website at
+                - link "www.dol.gov/ofccp" [ref=f145e576] [cursor=pointer]:
+                  - /url: https://www.dol.gov/ofccp
+                - text: .
+              - strong [ref=f145e577]: How do you know if you have a disability?
+              - paragraph [ref=f145e578]:
+                - text: A disability is a condition that substantially limits one or more of your “major life activities.” If you have or have ever had such a condition, you are a person with a disability.
+                - strong [ref=f145e579]: "Disabilities include, but are not limited to:"
+              - list [ref=f145e580]:
+                - listitem [ref=f145e581]: Alcohol or other substance use disorder (not currently using drugs illegally)
+                - listitem [ref=f145e582]: Autoimmune disorder, for example, lupus, fibromyalgia, rheumatoid arthritis, HIV/AIDS
+                - listitem [ref=f145e583]: Blind or low vision
+                - listitem [ref=f145e584]: Cancer (past or present)
+                - listitem [ref=f145e585]: Cardiovascular or heart disease
+                - listitem [ref=f145e586]: Celiac disease
+                - listitem [ref=f145e587]: Cerebral palsy
+                - listitem [ref=f145e588]: Deaf or serious difficulty hearing
+                - listitem [ref=f145e589]: Diabetes
+                - listitem [ref=f145e590]: Disfigurement, for example, disfigurement caused by burns, wounds, accidents, or congenital disorders
+                - listitem [ref=f145e591]: Epilepsy or other seizure disorder
+                - listitem [ref=f145e592]: Gastrointestinal disorders, for example, Crohn's Disease, irritable bowel syndrome
+                - listitem [ref=f145e593]: Intellectual or developmental disability
+                - listitem [ref=f145e594]: Mental health conditions, for example, depression, bipolar disorder, anxiety disorder, schizophrenia, PTSD
+                - listitem [ref=f145e595]: Missing limbs or partially missing limbs
+                - listitem [ref=f145e596]: Mobility impairment, benefiting from the use of a wheelchair, scooter, walker, leg brace(s) and/or other supports
+                - listitem [ref=f145e597]: Nervous system condition, for example, migraine headaches, Parkinson’s disease, multiple sclerosis (MS)
+                - listitem [ref=f145e598]: Neurodivergence, for example, attention-deficit/hyperactivity disorder (ADHD), autism spectrum disorder, dyslexia, dyspraxia, other learning disabilities
+                - listitem [ref=f145e599]: Partial or complete paralysis (any cause)
+                - listitem [ref=f145e600]: Pulmonary or respiratory conditions, for example, tuberculosis, asthma, emphysema
+                - listitem [ref=f145e601]: Short stature (dwarfism)
+                - listitem [ref=f145e602]: Traumatic brain injury
+            - generic [ref=f145e605]:
+              - generic [ref=f145e606]: Disability Status
+              - generic [ref=f145e607]:
+                - log [ref=f145e609]
+                - generic [ref=f145e611]:
+                  - generic [ref=f145e612]:
+                    - generic [ref=f145e613]: Select...
+                    - combobox "Disability Status" [ref=f145e615]
+                  - button "Toggle flyout" [ref=f145e617] [cursor=pointer]
+            - paragraph [ref=f145e621]: "PUBLIC BURDEN STATEMENT: According to the Paperwork Reduction Act of 1995 no persons are required to respond to a collection of information unless such collection displays a valid OMB control number. This survey should take about 5 minutes to complete."
+          - separator [ref=f145e622]
+          - generic [ref=f145e624]:
+            - checkbox "By checking this box, I consent to Smartsheet collecting, storing, and processing my responses to the demographic data surveys above.*" [ref=f145e626]
+            - generic [ref=f145e627]: By checking this box, I consent to Smartsheet collecting, storing, and processing my responses to the demographic data surveys above.*
+          - separator [ref=f145e628]
+          - generic [ref=f145e630]:
+            - paragraph [ref=f145e632]: We use Greenhouse’s AI-powered Talent Matching tool to compare your application against our job requirements.
+            - link "Learn more" [ref=f145e633] [cursor=pointer]:
+              - /url: http://app.greenhouse.io/ai_opt_out_request/job_post/8070067/ai_opt_out
+          - button "Submit application" [ref=f145e635] [cursor=pointer]
+  - contentinfo [ref=f145e636]:
+    - generic [ref=f145e637]:
+      - paragraph [ref=f145e638]: Powered by
+      - link [ref=f145e639] [cursor=pointer]:
+        - /url: https://www.greenhouse.com
+        - img "Greenhouse logo" [ref=f145e640]
+  - iframe [ref=f145e654]:
+    - generic [ref=f146e6]:
+      - text: protected by
+      - strong [ref=f146e7]: reCAPTCHA

@@ -1,0 +1,254 @@
+- generic [ref=f25e1]:
+  - link "Skip Branding" [ref=f25e133] [cursor=pointer]:
+    - /url: https://careers-govcio.icims.com/jobs/8541/react-redux-frontend-developer-%28remote%29/questions?global=1#icims_content_iframe
+  - navigation "link navigation":
+    - link "Skip to Main Content" [ref=f25e3] [cursor=pointer]
+  - main [ref=f25e4]:
+    - navigation [ref=f25e5]:
+      - link "GovCIO" [ref=f25e8] [cursor=pointer]:
+        - /url: https://govcio.com/
+        - img "GovCIO" [ref=f25e9]
+    - main [ref=f25e30]:
+      - main "Career Portal" [ref=f25e32]:
+        - iframe [active] [ref=f25e33]:
+          - generic [active] [ref=f30e1]:
+            - link "Skip to Main Content" [ref=f30e2] [cursor=pointer]:
+              - /url: "#iCIMS_Header"
+            - generic [ref=f30e3]:
+              - generic [ref=f30e7]:
+                - generic [ref=f30e8]: Jeffrey Macy
+                - generic [ref=f30e9]:
+                  - link "Dashboard" [ref=f30e10] [cursor=pointer]:
+                    - /url: https://careers-govcio.icims.com/jobs/dashboard?in_iframe=1&hashed=-406091505
+                  - text: "|"
+                  - link "Log Out" [ref=f30e11] [cursor=pointer]:
+                    - /url: https://careers-govcio.icims.com/jobs/logout?logout=1&in_iframe=1&hashed=-406091505
+              - generic [ref=f30e18]:
+                - heading "React/Redux Frontend Developer (Remote)" [level=1] [ref=f30e21]
+                - generic [ref=f30e22]:
+                  - generic [ref=f30e23]: Location
+                  - text: US-Remote
+                - generic [ref=f30e24]:
+                  - generic [ref=f30e25]: ID
+                  - text: 2026-8541
+              - separator [ref=f30e26]
+              - generic:
+                - list:
+                  - listitem "Candidate Profile (Completed Step)" [ref=f30e27]:
+                    - text: ✔
+                    - generic "Candidate Profile (Completed Step)" [ref=f30e28]: Step 1 of 5. Candidate Profile(Completed Step)
+                  - listitem "Candidate Questions (Current Step)" [ref=f30e29]:
+                    - generic "Candidate Questions (Current Step)" [ref=f30e30]: Step 2 of 5. Candidate Questions(Current Step)
+                  - listitem "EEO" [ref=f30e31]:
+                    - generic "EEO" [ref=f30e32]: Step 3 of 5. EEO(Incomplete Step)
+                  - listitem "Job Specific Questions" [ref=f30e33]:
+                    - generic "Job Specific Questions" [ref=f30e34]: Step 4 of 5. Job Specific Questions(Incomplete Step)
+                  - listitem "Portal Specific Forms" [ref=f30e35]:
+                    - generic "Portal Specific Forms" [ref=f30e36]: Step 5 of 5. Portal Specific Forms(Incomplete Step)
+              - generic [ref=f30e37]: Candidate Questions
+              - separator [ref=f30e38]
+              - generic [ref=f30e39]:
+                - heading "Candidate Questions" [level=2] [ref=f30e40]
+                - generic [ref=f30e41]: "Please answer the following questions:"
+                - generic [ref=f30e42]: "* Required field."
+                - generic [ref=f30e44]:
+                  - generic [ref=f30e45]:
+                    - generic [ref=f30e47]:
+                      - text: Are you a current employee of GovCIO (formerly GovernmentCIO, GCIO, SalientCRGT)?
+                      - generic [ref=f30e48]: "*"
+                    - combobox "Are you a current employee of GovCIO (formerly GovernmentCIO, GCIO, SalientCRGT)?*" [ref=f30e50]:
+                      - option "— Make a Selection —"
+                      - option "No" [selected]
+                      - option "Yes - Since you are a current employee of GovCIO, please apply using our Internal Career Site"
+                  - generic [ref=f30e51]:
+                    - generic [ref=f30e53]:
+                      - text: What are your Salary Requirements?
+                      - generic [ref=f30e54]: "*"
+                    - combobox "What are your Salary Requirements?*" [ref=f30e56]:
+                      - option "— Make a Selection —"
+                      - option "$30,000-$40,000"
+                      - option "$40,001-$50,000"
+                      - option "$50,001-$60,000"
+                      - option "$60,001-$70,000"
+                      - option "$70,001-$80,000"
+                      - option "$80,001-$90,000" [selected]
+                      - option "$90,001-$100,000"
+                      - option "$100,001-$110,000"
+                      - option "$110,001-$120,000"
+                      - option "$120,001-$130,000"
+                      - option "$130,001-$140,000"
+                      - option "$140,001-$150,000"
+                      - option "$150,001-$160,000"
+                      - option "$160,001-$170,000"
+                      - option "$170,001-$180,000"
+                      - option "$180,001-$190,000"
+                      - option "$190,001-$200,000"
+                      - option "$200,001+"
+                  - generic [ref=f30e57]:
+                    - generic [ref=f30e59]:
+                      - text: What is your highest level of completed education?
+                      - generic [ref=f30e60]: "*"
+                    - combobox "What is your highest level of completed education?*" [ref=f30e62]:
+                      - option "— Make a Selection —"
+                      - option "Less than HS Graduate"
+                      - option "HS Graduate or Equivalent"
+                      - option "Some College"
+                      - option "Technical School"
+                      - option "2 Year College Degree" [selected]
+                      - option "Bachelor's Level Degree"
+                      - option "Some Graduate School"
+                      - option "Master's Level Degree"
+                      - option "Doctorate Academic"
+                      - option "Doctorate Professional"
+                      - option "Post Doctorate"
+                      - option "Registered Nurse Degree"
+                  - generic [ref=f30e63]:
+                    - generic [ref=f30e65]:
+                      - text: How many years of relevant work experience do you have in a similar role?
+                      - generic [ref=f30e66]: "*"
+                    - combobox "How many years of relevant work experience do you have in a similar role?*" [ref=f30e68]:
+                      - option "— Make a Selection —"
+                      - option "0-2 years" [selected]
+                      - option "2-5 years"
+                      - option "5-8 years"
+                      - option "8-10 years"
+                      - option "10-12 years"
+                      - option "12-15 years"
+                      - option "15-20 years"
+                      - option "20+ years"
+                  - generic [ref=f30e69]:
+                    - generic [ref=f30e71]:
+                      - text: Do you have an active government issued clearance? Please select level.
+                      - generic [ref=f30e72]: "*"
+                    - combobox "Do you have an active government issued clearance? Please select level.*" [ref=f30e74]:
+                      - option "— Make a Selection —"
+                      - option "None" [selected]
+                      - option "Suitability/Public Trust"
+                      - option "Confidential"
+                      - option "Secret"
+                      - option "Top Secret"
+                      - option "Top Secret w/SCI"
+                      - option "TS/SCI w/CI Poly"
+                      - option "TS/SCI w/Full Scope Poly"
+                      - option "DOE Q"
+                      - option "DOE L"
+                  - generic [ref=f30e75]:
+                    - generic [ref=f30e77]:
+                      - text: Date available for employment?
+                      - generic [ref=f30e78]: "*"
+                    - textbox "Date available for employment?*" [ref=f30e80]
+                  - generic [ref=f30e81]:
+                    - generic [ref=f30e83]:
+                      - text: "Are you a current or former employee of the U.S. Government (including military service)? Please indicate which situation applies to you:"
+                      - generic [ref=f30e84]: "*"
+                    - combobox "Are you a current or former employee of the U.S. Government (including military service)? Please indicate which situation applies to you:*" [ref=f30e86]:
+                      - option "— Make a Selection —" [selected]
+                      - option "I am not a current or former employee of the U.S. Government or the Department of Defense (DoD)."
+                      - option "I am a former U.S. Government officer or employee who left Government service more than one year ago."
+                      - option "I am a former U.S. Government officer or employee who left Government service within the past year."
+                      - option "I am currently employed by the U.S. Government."
+                      - option "I am a current or former employee of the Department of Defense (DOD)."
+                  - generic [ref=f30e87]:
+                    - generic [ref=f30e89]:
+                      - text: If hired at GovCIO, will you simultaneously be employed by another entity (excluding volunteer work and military reserves/guard duty)
+                      - generic [ref=f30e90]: "*"
+                    - combobox "If hired at GovCIO, will you simultaneously be employed by another entity (excluding volunteer work and military reserves/guard duty)*" [ref=f30e92]:
+                      - option "— Make a Selection —" [selected]
+                      - option "Yes"
+                      - option "No"
+                  - generic [ref=f30e93]:
+                    - generic [ref=f30e95]:
+                      - text: "The hiring process will consist of a virtual (camera on) interview, enhanced biometrics identification (ID) verification screening, and background check to include verification of employment and education listed on the employment application in addition to 7 years criminal history. Drug screening may be included as applicable per customer requirements. Are you willing to participate in this process? PLEASE NOTE: : If you select \"No\" as an answer to this question, your application may be disqualified."
+                      - generic [ref=f30e96]: "*"
+                    - 'combobox "The hiring process will consist of a virtual (camera on) interview, enhanced biometrics identification (ID) verification screening, and background check to include verification of employment and education listed on the employment application in addition to 7 years criminal history. Drug screening may be included as applicable per customer requirements. Are you willing to participate in this process? PLEASE NOTE: : If you select \"No\" as an answer to this question, your application may be disqualified.*" [ref=f30e98]':
+                      - option "— Make a Selection —" [selected]
+                      - option "Yes"
+                      - option "No"
+                  - generic [ref=f30e100]:
+                    - button "Finish Later" [ref=f30e101] [cursor=pointer]
+                    - button "Submit" [ref=f30e102] [cursor=pointer]
+              - generic [ref=f30e103]:
+                - link "Application FAQs" [ref=f30e104] [cursor=pointer]:
+                  - /url: https://icims.help/candidate-faq
+                - paragraph [ref=f30e106]:
+                  - text: Software Powered by ICIMS
+                  - link "www.icims.com" [ref=f30e107] [cursor=pointer]:
+                    - /url: http://www.icims.com/platform_help?utm_source=platform&utm_medium=link&utm_content=page1&utm_campaign=platform%20help
+            - status [ref=f30e108]
+    - generic [ref=f25e36]:
+      - link [ref=f25e38] [cursor=pointer]:
+        - /url: https://govcio.com/
+        - img "Home" [ref=f25e39]
+      - generic [ref=f25e40]:
+        - generic [ref=f25e41]:
+          - generic [ref=f25e42]:
+            - generic [ref=f25e43]:
+              - heading "Corporate HQ" [level=2] [ref=f25e44]
+              - generic [ref=f25e45]:
+                - generic [ref=f25e46]: 4000 Legato Rd.
+                - generic [ref=f25e47]: Suite 600
+                - generic [ref=f25e48]: Fairfax, VA 22033
+            - generic [ref=f25e49]:
+              - link "Twitter" [ref=f25e53] [cursor=pointer]:
+                - /url: https://twitter.com/GovernmentCIO
+              - link "Instagram" [ref=f25e59] [cursor=pointer]:
+                - /url: https://www.instagram.com/govcio/
+              - link "Facebook" [ref=f25e65] [cursor=pointer]:
+                - /url: https://www.facebook.com/GovCIO
+              - link "LinkedIn" [ref=f25e71] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/govcio
+          - generic [ref=f25e73]:
+            - generic [ref=f25e74]:
+              - heading "Services" [level=2] [ref=f25e75]
+              - link "Cyber Security" [ref=f25e76] [cursor=pointer]:
+                - /url: https://govcio.com/services/cyber-security/
+              - link "Data Services" [ref=f25e78] [cursor=pointer]:
+                - /url: https://govcio.com/services/data-services/
+              - link "Digital Services" [ref=f25e80] [cursor=pointer]:
+                - /url: https://govcio.com/services/digital-services/
+              - link "IT Modernization" [ref=f25e82] [cursor=pointer]:
+                - /url: https://govcio.com/services/it-modernization/
+              - link "Mgmt. & Mission Services" [ref=f25e84] [cursor=pointer]:
+                - /url: https://govcio.com/services/management-advisory-mission-support/
+            - generic [ref=f25e86]:
+              - heading "Careers" [level=2] [ref=f25e87]
+              - link "Careers" [ref=f25e88] [cursor=pointer]:
+                - /url: https://govcio.com/careers/
+              - link "Life at GovCIO" [ref=f25e90] [cursor=pointer]:
+                - /url: https://govcio.com/life-at-gcio/
+              - link "Remote Work" [ref=f25e92] [cursor=pointer]:
+                - /url: https://govcio.com/careers/remote-work/
+              - link "Job Search" [ref=f25e94] [cursor=pointer]:
+                - /url: https://govcio.com/jobs/
+              - link "Frequently Asked Questions" [ref=f25e96] [cursor=pointer]:
+                - /url: https://govcio.com/careers/application-faqs/
+          - generic [ref=f25e98]:
+            - generic [ref=f25e99]:
+              - heading "Sectors" [level=2] [ref=f25e100]
+              - link "Health & Civilian" [ref=f25e101] [cursor=pointer]:
+                - /url: https://govcio.com/federal-health-civilian-sector/
+              - link "National Security" [ref=f25e103] [cursor=pointer]:
+                - /url: https://govcio.com/national-security-sector/
+              - link "Veteran & Enterprise Technology" [ref=f25e105] [cursor=pointer]:
+                - /url: https://govcio.com/veteran-enterprise-technology-sector/
+            - generic [ref=f25e107]:
+              - heading "About" [level=2] [ref=f25e108]
+              - link "Our Company" [ref=f25e109] [cursor=pointer]:
+                - /url: https://govcio.com/our-company/
+              - link "Our Work" [ref=f25e111] [cursor=pointer]:
+                - /url: https://govcio.com/our-work/
+              - link "Our People" [ref=f25e113] [cursor=pointer]:
+                - /url: https://govcio.com/our-people/
+              - link "Contract Vehicles" [ref=f25e115] [cursor=pointer]:
+                - /url: https://govcio.com/contract-vehicles/
+              - link "Press & Awards" [ref=f25e117] [cursor=pointer]:
+                - /url: https://govcio.com/news/
+              - link "Social Responsibility" [ref=f25e119] [cursor=pointer]:
+                - /url: mhttps://govcio.com/social-responsibility/
+        - generic [ref=f25e121]:
+          - link "GovCIO Supplier Registration Portal" [ref=f25e122] [cursor=pointer]:
+            - /url: https://apps.govcio.com/Public/Contracts/SB
+          - generic [ref=f25e124]: "|"
+          - link "Privacy Policy" [ref=f25e125] [cursor=pointer]:
+            - /url: https://govcio.com/privacy-policy/
+  - button "Chat Widget Button" [ref=f25e128] [cursor=pointer]

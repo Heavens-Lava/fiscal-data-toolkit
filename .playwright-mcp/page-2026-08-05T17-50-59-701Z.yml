@@ -1,0 +1,1567 @@
+- generic [ref=f25e1]:
+  - link "Skip Branding" [ref=f25e131] [cursor=pointer]:
+    - /url: https://careers-govcio.icims.com/jobs/8541/react-redux-frontend-developer-%28remote%29/candidate?from=login&csrf=6D78186428CB0678&hashed=-625916499&uploadResume=1&uploadResume=1#icims_content_iframe
+  - navigation "link navigation":
+    - link "Skip to Main Content" [ref=f25e3] [cursor=pointer]
+  - main [ref=f25e4]:
+    - navigation [ref=f25e5]:
+      - link "GovCIO" [ref=f25e8] [cursor=pointer]:
+        - /url: https://govcio.com/
+        - img "GovCIO" [ref=f25e9]
+    - main [ref=f25e30]:
+      - main "Career Portal" [ref=f25e32]:
+        - iframe [active] [ref=f25e33]:
+          - generic [ref=f30e1]:
+            - link "Skip to Main Content" [ref=f30e2] [cursor=pointer]:
+              - /url: "#iCIMS_Header"
+            - text: 
+            - generic [ref=f30e4]:
+              - generic [ref=f30e8]:
+                - generic [ref=f30e9]: Returning Candidate?
+                - link "Log back in!" [ref=f30e11] [cursor=pointer]:
+                  - /url: https://careers-govcio.icims.com/jobs/8541/react-redux-frontend-developer-%28remote%29/login?loginOnly=1&redirect=candidate&in_iframe=1&hashed=-625916499
+              - generic [ref=f30e13]:
+                - heading "React/Redux Frontend Developer (Remote)" [level=1] [ref=f30e16]
+                - generic [ref=f30e17]:
+                  - generic [ref=f30e18]: Location
+                  - text: US-Remote
+                - generic [ref=f30e19]:
+                  - generic [ref=f30e20]: ID
+                  - text: 2026-8541
+              - status
+              - separator [ref=f30e21]
+              - generic:
+                - list:
+                  - listitem "Candidate Profile (Current Step)" [ref=f30e22]:
+                    - generic "Candidate Profile (Current Step)" [ref=f30e23]: Step 1 of 4. Candidate Profile(Current Step)
+                  - listitem "Candidate Questions" [ref=f30e24]:
+                    - generic "Candidate Questions" [ref=f30e25]: Step 2 of 4. Candidate Questions(Incomplete Step)
+                  - listitem "EEO" [ref=f30e26]:
+                    - generic "EEO" [ref=f30e27]: Step 3 of 4. EEO(Incomplete Step)
+                  - listitem "Portal Specific Forms" [ref=f30e28]:
+                    - generic "Portal Specific Forms" [ref=f30e29]: Step 4 of 4. Portal Specific Forms(Incomplete Step)
+              - generic [ref=f30e30]: Candidate Profile
+              - separator [ref=f30e31]
+              - generic [ref=f30e32]:
+                - heading "Candidate Profile" [level=2] [ref=f30e33]
+                - generic [ref=f30e34]:
+                  - generic [ref=f30e35]:
+                    - paragraph [ref=f30e36]: Please be sure to fill out all required fields
+                    - paragraph [ref=f30e37]:
+                      - strong [ref=f30e38]:
+                        - text: Are you a Current GovCIO Employee?
+                        - link "Click Here to Apply" [ref=f30e39] [cursor=pointer]:
+                          - /url: https://internal-govcio.icims.com/jobs
+                    - paragraph [ref=f30e40]
+                  - text: "* indicates a required field."
+                - generic [ref=f30e42]:
+                  - generic [ref=f30e43]: Connect your account
+                  - generic [ref=f30e46]:
+                    - button "Connect your account apple" [ref=f30e47] [cursor=pointer]:
+                      - img "apple" [ref=f30e48]
+                    - button "Connect your account facebook" [ref=f30e49] [cursor=pointer]:
+                      - img "facebook" [ref=f30e50]
+                    - button "Connect your account google-plus" [ref=f30e51] [cursor=pointer]:
+                      - img "google-plus" [ref=f30e52]
+                    - button "Connect your account indeed" [ref=f30e53] [cursor=pointer]:
+                      - img "indeed" [ref=f30e54]
+                    - button "Connect your account linked-in" [ref=f30e55] [cursor=pointer]:
+                      - img "linked-in" [ref=f30e56]
+                    - button "Connect your account windows" [ref=f30e57] [cursor=pointer]:
+                      - img "windows" [ref=f30e58]
+                    - tooltip "Social Account Information Icon Allows you to log in to your candidate profile using your social account (using single sign on)." [ref=f30e59] [cursor=pointer]:
+                      - generic [ref=f30e60]: 
+                - group [ref=f30e62]:
+                  - heading "Resume" [level=2] [ref=f30e63]
+                  - list [ref=f30e65]:
+                    - listitem [ref=f30e66]: "Provide your resume below to pre-fill your profile. Existing data in the form will be replaced:"
+                  - generic [ref=f30e67]:
+                    - generic [ref=f30e68]:
+                      - generic [ref=f30e69]:
+                        - text: "Please upload your resume (Max size: 5 MB)"
+                        - generic [ref=f30e70]: "*"
+                      - generic [ref=f30e72]:
+                        - generic [ref=f30e73]:
+                          - generic [ref=f30e74]: Jeffrey Macy - Resume2.pdf
+                          - button "Replace Resume" [active] [ref=f30e76] [cursor=pointer]
+                        - text:        
+                    - group "Additional Documents (Cover Letter, Certifications, etc.)" [ref=f30e77]:
+                      - generic [ref=f30e80]:
+                        - generic [ref=f30e82] [cursor=pointer]:
+                          - generic [ref=f30e83]: My Computer (Opens new window)
+                          - button "My Computer (Opens new window) Additional Documents (Cover Letter, Certifications, etc.)" [ref=f30e84]
+                          - generic [ref=f30e85]:
+                            - generic [ref=f30e86]: 
+                            - text: 
+                          - text: My Computer
+                        - generic [ref=f30e87]:
+                          - generic [ref=f30e88]: Google Drive (Opens new window)
+                          - button "Google Drive (Opens new window) Additional Documents (Cover Letter, Certifications, etc.)" [ref=f30e89] [cursor=pointer]:
+                            - generic [ref=f30e90]: 
+                            - text: Google Drive 
+                        - generic [ref=f30e92]:
+                          - generic [ref=f30e93]: Dropbox (Opens new window)
+                          - button "Dropbox (Opens new window) Additional Documents (Cover Letter, Certifications, etc.)" [ref=f30e94] [cursor=pointer]:
+                            - generic [ref=f30e95]: 
+                            - text: Dropbox 
+                - group [ref=f30e97]:
+                  - heading "Enter your information" [level=2] [ref=f30e98]
+                  - generic [ref=f30e99]:
+                    - generic [ref=f30e100]:
+                      - generic [ref=f30e101]:
+                        - text: First Name
+                        - generic [ref=f30e102]: "*"
+                      - textbox "First Name" [ref=f30e104]: Jeffrey
+                    - generic [ref=f30e105]:
+                      - generic [ref=f30e106]: Middle Name
+                      - textbox "Middle Name" [ref=f30e108]
+                    - generic [ref=f30e109]:
+                      - generic [ref=f30e110]:
+                        - text: Last Name
+                        - generic [ref=f30e111]: "*"
+                      - textbox "Last Name" [ref=f30e113]: Macy
+                    - generic [ref=f30e114]:
+                      - generic [ref=f30e115]:
+                        - text: Email
+                        - generic [ref=f30e116]: "*"
+                      - textbox "Email" [ref=f30e118]: macy.jeffreyj@gmail.com
+                    - generic [ref=f30e119]:
+                      - group "Phones (1)* required." [ref=f30e120]:
+                        - generic [ref=f30e122]:
+                          - text: Phones (1)
+                          - generic [ref=f30e123]:
+                            - text: "*"
+                            - generic [ref=f30e124]: required.
+                        - generic [ref=f30e125]:
+                          - generic [ref=f30e126]:
+                            - generic [ref=f30e127]: Type
+                            - generic [ref=f30e128]:
+                              - text: "*"
+                              - generic [ref=f30e129]: required.
+                          - combobox "Type" [ref=f30e131]:
+                            - option
+                            - option "Mobile" [selected]
+                            - option "Home"
+                        - generic [ref=f30e132]:
+                          - generic [ref=f30e133]:
+                            - generic [ref=f30e134]: Number
+                            - generic [ref=f30e135]:
+                              - text: "*"
+                              - generic [ref=f30e136]: required.
+                          - textbox "Number" [ref=f30e138]: +1 602 619-4553
+                      - button "Add More (Phones)" [ref=f30e142] [cursor=pointer]
+                    - generic [ref=f30e143]:
+                      - generic [ref=f30e144]:
+                        - text: Do you consent to receive text messages from GovCIO?
+                        - generic [ref=f30e145]: "*"
+                      - generic [ref=f30e146]:
+                        - generic [ref=f30e147]: Do you consent to receive text messages from GovCIO?
+                        - option [selected]
+                        - combobox "Do you consent to receive text messages from GovCIO?" [ref=f30e148] [cursor=pointer]:
+                          - generic [ref=f30e149]: — Make a Selection —
+                    - generic [ref=f30e152]:
+                      - group "License/Certification (1)" [ref=f30e153]:
+                        - generic [ref=f30e155]:
+                          - generic [ref=f30e156]: License/Cert Type
+                          - generic [ref=f30e158]:
+                            - generic [ref=f30e159]: License/Cert Type
+                            - option [selected]
+                            - combobox "License/Cert Type" [ref=f30e160] [cursor=pointer]:
+                              - generic [ref=f30e161]: — Make a Selection —
+                        - generic [ref=f30e164]:
+                          - generic [ref=f30e165]: Other (Please list)
+                          - textbox "Other (Please list)" [ref=f30e168]
+                        - generic [ref=f30e169]:
+                          - generic [ref=f30e170]: License/Cert Status
+                          - generic [ref=f30e172]:
+                            - generic [ref=f30e173]: License/Cert Status
+                            - option [selected]
+                            - combobox "License/Cert Status" [ref=f30e174] [cursor=pointer]:
+                              - generic [ref=f30e175]: — Make a Selection —
+                        - group [ref=f30e178]:
+                          - generic [ref=f30e179]:
+                            - generic [ref=f30e180]: Expiration Date
+                            - generic [ref=f30e181]: (Month / Day / Year)
+                          - generic [ref=f30e184]:
+                            - generic [ref=f30e185]:
+                              - generic [ref=f30e186]: Month
+                              - combobox "Expiration Date Month" [ref=f30e187]:
+                                - option [selected]
+                                - option "Jan"
+                                - option "Feb"
+                                - option "Mar"
+                                - option "Apr"
+                                - option "May"
+                                - option "Jun"
+                                - option "Jul"
+                                - option "Aug"
+                                - option "Sep"
+                                - option "Oct"
+                                - option "Nov"
+                                - option "Dec"
+                            - generic [ref=f30e188]:
+                              - generic [ref=f30e189]: Day
+                              - combobox "Expiration Date Day" [ref=f30e190]:
+                                - option [selected]
+                                - option "1"
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                                - option "7"
+                                - option "8"
+                                - option "9"
+                                - option "10"
+                                - option "11"
+                                - option "12"
+                                - option "13"
+                                - option "14"
+                                - option "15"
+                                - option "16"
+                                - option "17"
+                                - option "18"
+                                - option "19"
+                                - option "20"
+                                - option "21"
+                                - option "22"
+                                - option "23"
+                                - option "24"
+                                - option "25"
+                                - option "26"
+                                - option "27"
+                                - option "28"
+                                - option "29"
+                                - option "30"
+                                - option "31"
+                            - generic [ref=f30e191]:
+                              - generic [ref=f30e192]: Year
+                              - textbox "Expiration Date Year" [ref=f30e193]
+                      - button "Add More (License/Certification)" [ref=f30e197] [cursor=pointer]
+                    - group "Education (1)* required." [ref=f30e199]:
+                      - generic [ref=f30e201]:
+                        - text: Education (1)
+                        - generic [ref=f30e202]:
+                          - text: "*"
+                          - generic [ref=f30e203]: required.
+                      - generic [ref=f30e204]:
+                        - generic [ref=f30e205]: School Name
+                        - generic [ref=f30e207]:
+                          - generic [ref=f30e208]: School Name
+                          - option "Glendale Community College" [selected]
+                          - combobox "School Name" [ref=f30e209] [cursor=pointer]:
+                            - generic [ref=f30e210]: Glendale Community College
+                      - generic [ref=f30e213]:
+                        - generic [ref=f30e214]: Other (if School Name wasn't found on the list)
+                        - textbox "Other (if School Name wasn't found on the list)" [ref=f30e217]
+                      - generic [ref=f30e218]:
+                        - generic [ref=f30e219]:
+                          - generic [ref=f30e220]: Degree Type
+                          - generic [ref=f30e221]:
+                            - text: "*"
+                            - generic [ref=f30e222]: required.
+                        - generic [ref=f30e223]:
+                          - generic [ref=f30e224]: Degree Type
+                          - option "Associates" [selected]
+                          - combobox "Degree Type" [ref=f30e225] [cursor=pointer]:
+                            - generic [ref=f30e226]: Associates
+                      - generic [ref=f30e229]:
+                        - generic [ref=f30e230]: Major/Field of Study
+                        - generic [ref=f30e232]:
+                          - generic [ref=f30e233]: Major/Field of Study
+                          - option "Web Design & Development" [selected]
+                          - combobox "Major/Field of Study" [ref=f30e234] [cursor=pointer]:
+                            - generic [ref=f30e235]: Web Design & Development
+                      - generic [ref=f30e238]:
+                        - generic [ref=f30e239]:
+                          - generic [ref=f30e240]: Did You Graduate?
+                          - generic [ref=f30e241]:
+                            - text: "*"
+                            - generic [ref=f30e242]: required.
+                        - combobox "Did You Graduate?" [ref=f30e244]:
+                          - option [selected]
+                          - option "Currently Enrolled"
+                          - option "Yes"
+                          - option "No"
+                      - group [ref=f30e245]:
+                        - generic [ref=f30e246]:
+                          - generic [ref=f30e247]: Start Date
+                          - generic [ref=f30e248]: (Month / Day / Year)
+                        - generic [ref=f30e251]:
+                          - generic [ref=f30e252]:
+                            - generic [ref=f30e253]: Month
+                            - combobox "Start Date Month" [ref=f30e254]:
+                              - option [selected]
+                              - option "Jan"
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e255]:
+                            - generic [ref=f30e256]: Day
+                            - combobox "Start Date Day" [ref=f30e257]:
+                              - option [selected]
+                              - option "1"
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e258]:
+                            - generic [ref=f30e259]: Year
+                            - textbox "Start Date Year" [ref=f30e260]
+                      - group [ref=f30e261]:
+                        - generic [ref=f30e262]:
+                          - generic [ref=f30e263]: End Date
+                          - generic [ref=f30e264]: (Month / Day / Year)
+                        - generic [ref=f30e267]:
+                          - generic [ref=f30e268]:
+                            - generic [ref=f30e269]: Month
+                            - combobox "End Date Month" [ref=f30e270]:
+                              - option [selected]
+                              - option "Jan"
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e271]:
+                            - generic [ref=f30e272]: Day
+                            - combobox "End Date Day" [ref=f30e273]:
+                              - option [selected]
+                              - option "1"
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e274]:
+                            - generic [ref=f30e275]: Year
+                            - textbox "End Date Year" [ref=f30e276]
+                      - generic [ref=f30e277]:
+                        - generic [ref=f30e278]: Country
+                        - generic [ref=f30e280]:
+                          - option "United States" [selected]
+                          - combobox "Country" [ref=f30e281] [cursor=pointer]:
+                            - generic [ref=f30e282]: United States
+                      - generic [ref=f30e285]:
+                        - generic [ref=f30e286]: State
+                        - generic [ref=f30e288]:
+                          - option "Arizona" [selected]
+                          - combobox "State" [ref=f30e289] [cursor=pointer]:
+                            - generic [ref=f30e290]: Arizona
+                      - generic [ref=f30e293]:
+                        - generic [ref=f30e294]: City
+                        - textbox "City" [ref=f30e297]: Phoenix
+                    - generic [ref=f30e298]:
+                      - group "Education (2)* required." [ref=f30e299]:
+                        - generic [ref=f30e301]:
+                          - text: Education (2)
+                          - generic [ref=f30e302]:
+                            - text: "*"
+                            - generic [ref=f30e303]: required.
+                        - button "Delete Education (2)" [ref=f30e305] [cursor=pointer]:
+                          - generic [ref=f30e306]: 
+                        - generic [ref=f30e307]:
+                          - generic [ref=f30e308]: School Name
+                          - generic [ref=f30e310]:
+                            - generic [ref=f30e311]: School Name
+                            - option "Phoenix College" [selected]
+                            - combobox "School Name" [ref=f30e312] [cursor=pointer]:
+                              - generic [ref=f30e313]: Phoenix College
+                        - generic [ref=f30e316]:
+                          - generic [ref=f30e317]: Other (if School Name wasn't found on the list)
+                          - textbox "Other (if School Name wasn't found on the list)" [ref=f30e320]
+                        - generic [ref=f30e321]:
+                          - generic [ref=f30e322]:
+                            - generic [ref=f30e323]: Degree Type
+                            - generic [ref=f30e324]:
+                              - text: "*"
+                              - generic [ref=f30e325]: required.
+                          - generic [ref=f30e326]:
+                            - generic [ref=f30e327]: Degree Type
+                            - option "Bachelors" [selected]
+                            - combobox "Degree Type" [ref=f30e328] [cursor=pointer]:
+                              - generic [ref=f30e329]: Bachelors
+                        - generic [ref=f30e332]:
+                          - generic [ref=f30e333]: Major/Field of Study
+                          - generic [ref=f30e335]:
+                            - generic [ref=f30e336]: Major/Field of Study
+                            - option [selected]
+                            - combobox "Major/Field of Study" [ref=f30e337] [cursor=pointer]:
+                              - generic [ref=f30e338]: — Make a Selection —
+                        - generic [ref=f30e341]:
+                          - generic [ref=f30e342]:
+                            - generic [ref=f30e343]: Did You Graduate?
+                            - generic [ref=f30e344]:
+                              - text: "*"
+                              - generic [ref=f30e345]: required.
+                          - combobox "Did You Graduate?" [ref=f30e347]:
+                            - option [selected]
+                            - option "Currently Enrolled"
+                            - option "Yes"
+                            - option "No"
+                        - group [ref=f30e348]:
+                          - generic [ref=f30e349]:
+                            - generic [ref=f30e350]: Start Date
+                            - generic [ref=f30e351]: (Month / Day / Year)
+                          - generic [ref=f30e354]:
+                            - generic [ref=f30e355]:
+                              - generic [ref=f30e356]: Month
+                              - combobox "Start Date Month" [ref=f30e357]:
+                                - option [selected]
+                                - option "Jan"
+                                - option "Feb"
+                                - option "Mar"
+                                - option "Apr"
+                                - option "May"
+                                - option "Jun"
+                                - option "Jul"
+                                - option "Aug"
+                                - option "Sep"
+                                - option "Oct"
+                                - option "Nov"
+                                - option "Dec"
+                            - generic [ref=f30e358]:
+                              - generic [ref=f30e359]: Day
+                              - combobox "Start Date Day" [ref=f30e360]:
+                                - option [selected]
+                                - option "1"
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                                - option "7"
+                                - option "8"
+                                - option "9"
+                                - option "10"
+                                - option "11"
+                                - option "12"
+                                - option "13"
+                                - option "14"
+                                - option "15"
+                                - option "16"
+                                - option "17"
+                                - option "18"
+                                - option "19"
+                                - option "20"
+                                - option "21"
+                                - option "22"
+                                - option "23"
+                                - option "24"
+                                - option "25"
+                                - option "26"
+                                - option "27"
+                                - option "28"
+                                - option "29"
+                                - option "30"
+                                - option "31"
+                            - generic [ref=f30e361]:
+                              - generic [ref=f30e362]: Year
+                              - textbox "Start Date Year" [ref=f30e363]
+                        - group [ref=f30e364]:
+                          - generic [ref=f30e365]:
+                            - generic [ref=f30e366]: End Date
+                            - generic [ref=f30e367]: (Month / Day / Year)
+                          - generic [ref=f30e370]:
+                            - generic [ref=f30e371]:
+                              - generic [ref=f30e372]: Month
+                              - combobox "End Date Month" [ref=f30e373]:
+                                - option [selected]
+                                - option "Jan"
+                                - option "Feb"
+                                - option "Mar"
+                                - option "Apr"
+                                - option "May"
+                                - option "Jun"
+                                - option "Jul"
+                                - option "Aug"
+                                - option "Sep"
+                                - option "Oct"
+                                - option "Nov"
+                                - option "Dec"
+                            - generic [ref=f30e374]:
+                              - generic [ref=f30e375]: Day
+                              - combobox "End Date Day" [ref=f30e376]:
+                                - option [selected]
+                                - option "1"
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                                - option "7"
+                                - option "8"
+                                - option "9"
+                                - option "10"
+                                - option "11"
+                                - option "12"
+                                - option "13"
+                                - option "14"
+                                - option "15"
+                                - option "16"
+                                - option "17"
+                                - option "18"
+                                - option "19"
+                                - option "20"
+                                - option "21"
+                                - option "22"
+                                - option "23"
+                                - option "24"
+                                - option "25"
+                                - option "26"
+                                - option "27"
+                                - option "28"
+                                - option "29"
+                                - option "30"
+                                - option "31"
+                            - generic [ref=f30e377]:
+                              - generic [ref=f30e378]: Year
+                              - textbox "End Date Year" [ref=f30e379]
+                        - generic [ref=f30e380]:
+                          - generic [ref=f30e381]: Country
+                          - generic [ref=f30e383]:
+                            - option "Hidden (12781)" [selected]
+                            - option
+                            - combobox "Country" [ref=f30e384] [cursor=pointer]:
+                              - generic [ref=f30e385]: Loading...
+                        - generic [ref=f30e388]:
+                          - generic [ref=f30e389]: State
+                          - generic [ref=f30e391]:
+                            - option "Hidden (12784)" [selected]
+                            - option
+                            - combobox "State" [ref=f30e392] [cursor=pointer]:
+                              - generic [ref=f30e393]: Loading...
+                        - generic [ref=f30e396]:
+                          - generic [ref=f30e397]: City
+                          - textbox "City" [ref=f30e400]: Phoenix
+                      - button "Add More (Education)" [ref=f30e404] [cursor=pointer]
+                    - generic [ref=f30e405]:
+                      - group "Addresses (1)* required." [ref=f30e406]:
+                        - generic [ref=f30e408]:
+                          - text: Addresses (1)
+                          - generic [ref=f30e409]:
+                            - text: "*"
+                            - generic [ref=f30e410]: required.
+                        - generic [ref=f30e411]:
+                          - generic [ref=f30e412]:
+                            - generic [ref=f30e413]: Type
+                            - generic [ref=f30e414]:
+                              - text: "*"
+                              - generic [ref=f30e415]: required.
+                          - combobox "Type" [ref=f30e417]:
+                            - option
+                            - option "Home" [selected]
+                            - option "Other"
+                        - generic [ref=f30e418]:
+                          - generic [ref=f30e419]:
+                            - generic [ref=f30e420]: Address
+                            - generic [ref=f30e421]:
+                              - text: "*"
+                              - generic [ref=f30e422]: required.
+                          - textbox "Address" [ref=f30e424]
+                        - generic [ref=f30e425]:
+                          - generic [ref=f30e426]: Address 2
+                          - textbox "Address 2" [ref=f30e429]
+                        - generic [ref=f30e430]:
+                          - generic [ref=f30e431]:
+                            - generic [ref=f30e432]: City
+                            - generic [ref=f30e433]:
+                              - text: "*"
+                              - generic [ref=f30e434]: required.
+                          - textbox "City" [ref=f30e436]: Laveen
+                        - generic [ref=f30e437]:
+                          - generic [ref=f30e438]:
+                            - generic [ref=f30e439]: Zip/Postal Code
+                            - generic [ref=f30e440]:
+                              - text: "*"
+                              - generic [ref=f30e441]: required.
+                          - textbox "Zip/Postal Code" [ref=f30e443]
+                        - generic [ref=f30e444]:
+                          - generic [ref=f30e445]:
+                            - generic [ref=f30e446]: Country
+                            - generic [ref=f30e447]:
+                              - text: "*"
+                              - generic [ref=f30e448]: required.
+                          - generic [ref=f30e449]:
+                            - option "United States" [selected]
+                            - combobox "Country" [ref=f30e450] [cursor=pointer]:
+                              - generic [ref=f30e451]: United States
+                        - generic [ref=f30e454]:
+                          - generic [ref=f30e455]:
+                            - generic [ref=f30e456]: State/Province
+                            - generic [ref=f30e457]:
+                              - text: "*"
+                              - generic [ref=f30e458]: required.
+                          - generic [ref=f30e459]:
+                            - option "Arizona" [selected]
+                            - combobox "State/Province" [ref=f30e460] [cursor=pointer]:
+                              - generic [ref=f30e461]: Arizona
+                      - button "Add More (Addresses)" [ref=f30e467] [cursor=pointer]
+                - group [ref=f30e468]:
+                  - heading "Work Experience - List all employment experience for the past seven years (if applicable), starting with the most recent or present employer, including U.S. Military Service. Using a separate section for each position, describe in detail all work experience including periods of unemployment. You may include as part of your employment history any verified work performed on a volunteer basis. Resumes may not be substituted in lieu of completing the following employment information." [level=2] [ref=f30e469]
+                  - generic [ref=f30e470]:
+                    - group "Professional Experience (1)" [ref=f30e472]:
+                      - generic [ref=f30e474]:
+                        - generic [ref=f30e475]:
+                          - generic [ref=f30e476]: Name of Employer
+                          - generic [ref=f30e477]:
+                            - text: "*"
+                            - generic [ref=f30e478]: required.
+                        - textbox "Name of Employer" [ref=f30e480]: United States Postal Service
+                      - generic [ref=f30e481]:
+                        - generic [ref=f30e482]:
+                          - generic [ref=f30e483]: Country
+                          - generic [ref=f30e484]:
+                            - text: "*"
+                            - generic [ref=f30e485]: required.
+                        - generic [ref=f30e486]:
+                          - option [selected]
+                          - combobox "Country" [ref=f30e487] [cursor=pointer]:
+                            - generic [ref=f30e488]: — Make a Selection —
+                      - generic [ref=f30e491]:
+                        - generic [ref=f30e492]:
+                          - generic [ref=f30e493]: State/Province
+                          - generic [ref=f30e494]:
+                            - text: "*"
+                            - generic [ref=f30e495]: required.
+                        - generic [ref=f30e496]:
+                          - option [selected]
+                          - combobox "State/Province" [ref=f30e497] [cursor=pointer]:
+                            - generic [ref=f30e498]: Loading...
+                      - generic [ref=f30e501]:
+                        - generic [ref=f30e502]:
+                          - generic [ref=f30e503]: City
+                          - generic [ref=f30e504]:
+                            - text: "*"
+                            - generic [ref=f30e505]: required.
+                        - textbox "City" [ref=f30e507]
+                      - generic [ref=f30e508]:
+                        - generic [ref=f30e509]:
+                          - generic [ref=f30e510]: Your Job Title
+                          - generic [ref=f30e511]:
+                            - text: "*"
+                            - generic [ref=f30e512]: required.
+                        - textbox "Your Job Title" [ref=f30e514]: Mail Carrier
+                      - group [ref=f30e515]:
+                        - generic [ref=f30e516]:
+                          - generic [ref=f30e517]: Start Date
+                          - generic [ref=f30e518]: (Month / Day / Year)
+                          - generic [ref=f30e519]:
+                            - text: "*"
+                            - generic [ref=f30e520]: required.
+                        - generic [ref=f30e523]:
+                          - generic [ref=f30e524]:
+                            - generic [ref=f30e525]: Month
+                            - combobox "Start Date Month" [ref=f30e526]:
+                              - option
+                              - option "Jan" [selected]
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e527]:
+                            - generic [ref=f30e528]: Day
+                            - combobox "Start Date Day" [ref=f30e529]:
+                              - option
+                              - option "1" [selected]
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e530]:
+                            - generic [ref=f30e531]: Year
+                            - textbox "Start Date Year" [ref=f30e532]: "2017"
+                      - group [ref=f30e533]:
+                        - generic [ref=f30e534]:
+                          - generic [ref=f30e535]: End Date
+                          - generic [ref=f30e536]: (Month / Day / Year)
+                        - generic [ref=f30e539]:
+                          - generic [ref=f30e540]:
+                            - generic [ref=f30e541]: Month
+                            - combobox "End Date Month" [ref=f30e542]:
+                              - option
+                              - option "Jan" [selected]
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e543]:
+                            - generic [ref=f30e544]: Day
+                            - combobox "End Date Day" [ref=f30e545]:
+                              - option
+                              - option "1" [selected]
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e546]:
+                            - generic [ref=f30e547]: Year
+                            - textbox "End Date Year" [ref=f30e548]: "2022"
+                      - generic [ref=f30e549]:
+                        - generic [ref=f30e550]: Description
+                        - textbox "Description" [ref=f30e553]: "Route management and daily delivery to 400-500 addresses; five years of consistent, independent field work. INDEPENDENT PROJECTS Fiscal Data Toolkit github.com/Heavens-Lava/fiscal-data-toolkit → - https://github.com/Heavens-Lava/fiscal-data-toolkit A large collection of zero-dependency Node.js scripts and a web dashboard pulling live U.S. fiscal, banking, and company-financials data from government and financial REST APIs (Treasury, FDIC, FRED, SEC EDGAR, USASpending.gov), plus labor-market data - real-time job listings from company ATS platforms (Greenhouse, Lever) and BLS employment statistics - built independently to explore federal spending, banking, markets, and the job market itself. OpenFinance github.com/Heavens-Lava/openfinance → - https://github.com/Heavens-Lava/openfinance Live: jeffreymacy.com/openfinance → - https://www.jeffreymacy.com/#/openfinance My first publicly shared community app - a free, local-first personal finance dashboard anyone can download and run. Drop in bank CSV exports for spending breakdowns, cash-flow visualization, and net-worth tracking, entirely client-side with no server contact or account linking."
+                      - generic [ref=f30e554]:
+                        - generic [ref=f30e555]: Reason for Leaving
+                        - textbox "Reason for Leaving" [ref=f30e558]
+                      - generic [ref=f30e559]:
+                        - generic [ref=f30e560]:
+                          - generic [ref=f30e561]: May We Contact?
+                          - generic [ref=f30e562]:
+                            - text: "*"
+                            - generic [ref=f30e563]: required.
+                        - generic [ref=f30e564]:
+                          - generic [ref=f30e565]: May We Contact?
+                          - option [selected]
+                          - combobox "May We Contact?" [ref=f30e566] [cursor=pointer]:
+                            - generic [ref=f30e567]: — Make a Selection —
+                      - generic [ref=f30e570]:
+                        - generic [ref=f30e571]: Employer Phone Number
+                        - textbox "Employer Phone Number" [ref=f30e574]
+                    - group "Professional Experience (2)" [ref=f30e576]:
+                      - text: 
+                      - generic [ref=f30e578]:
+                        - generic [ref=f30e579]:
+                          - generic [ref=f30e580]: Name of Employer
+                          - generic [ref=f30e581]:
+                            - text: "*"
+                            - generic [ref=f30e582]: required.
+                        - textbox "Name of Employer" [ref=f30e584]: Arizona State Legislature
+                      - generic [ref=f30e585]:
+                        - generic [ref=f30e586]:
+                          - generic [ref=f30e587]: Country
+                          - generic [ref=f30e588]:
+                            - text: "*"
+                            - generic [ref=f30e589]: required.
+                        - generic [ref=f30e590]:
+                          - option "United States" [selected]
+                          - combobox "Country" [ref=f30e591] [cursor=pointer]:
+                            - generic [ref=f30e592]: United States
+                      - generic [ref=f30e595]:
+                        - generic [ref=f30e596]:
+                          - generic [ref=f30e597]: State/Province
+                          - generic [ref=f30e598]:
+                            - text: "*"
+                            - generic [ref=f30e599]: required.
+                        - generic [ref=f30e600]:
+                          - option "Arizona" [selected]
+                          - combobox "State/Province" [ref=f30e601] [cursor=pointer]:
+                            - generic [ref=f30e602]: Arizona
+                      - generic [ref=f30e605]:
+                        - generic [ref=f30e606]:
+                          - generic [ref=f30e607]: City
+                          - generic [ref=f30e608]:
+                            - text: "*"
+                            - generic [ref=f30e609]: required.
+                        - textbox "City" [ref=f30e611]: Phoenix
+                      - generic [ref=f30e612]:
+                        - generic [ref=f30e613]:
+                          - generic [ref=f30e614]: Your Job Title
+                          - generic [ref=f30e615]:
+                            - text: "*"
+                            - generic [ref=f30e616]: required.
+                        - textbox "Your Job Title" [ref=f30e618]: Web & Applications Developer
+                      - group [ref=f30e619]:
+                        - generic [ref=f30e620]:
+                          - generic [ref=f30e621]: Start Date
+                          - generic [ref=f30e622]: (Month / Day / Year)
+                          - generic [ref=f30e623]:
+                            - text: "*"
+                            - generic [ref=f30e624]: required.
+                        - generic [ref=f30e627]:
+                          - generic [ref=f30e628]:
+                            - generic [ref=f30e629]: Month
+                            - combobox "Start Date Month" [ref=f30e630]:
+                              - option
+                              - option "Jan"
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct" [selected]
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e631]:
+                            - generic [ref=f30e632]: Day
+                            - combobox "Start Date Day" [ref=f30e633]:
+                              - option
+                              - option "1" [selected]
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e634]:
+                            - generic [ref=f30e635]: Year
+                            - textbox "Start Date Year" [ref=f30e636]: "2025"
+                      - group [ref=f30e637]:
+                        - generic [ref=f30e638]:
+                          - generic [ref=f30e639]: End Date
+                          - generic [ref=f30e640]: (Month / Day / Year)
+                        - generic [ref=f30e643]:
+                          - generic [ref=f30e644]:
+                            - generic [ref=f30e645]: Month
+                            - combobox "End Date Month" [ref=f30e646]:
+                              - option [selected]
+                              - option "Jan"
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e647]:
+                            - generic [ref=f30e648]: Day
+                            - combobox "End Date Day" [ref=f30e649]:
+                              - option [selected]
+                              - option "1"
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e650]:
+                            - generic [ref=f30e651]: Year
+                            - textbox "End Date Year" [ref=f30e652]
+                      - generic [ref=f30e653]:
+                        - generic [ref=f30e654]: Description
+                        - textbox "Description" [ref=f30e657]: Hybrid (onsite & remote) ------- Support three production legislative websites (azhouse.gov, azsenate.gov, azleg.gov) - House and Senate sharing a nested theme, azleg.gov built and maintained separately - used daily by Arizona legislators and staff. Maintain structured data spanning bills, legislators, committees, votes, and calendars, piped from the Legislature's SQL Server database into reusable views shared across all three sites. Debug production issues by tracing the problem from what a user sees back to the underlying data, template, or query. Built out scenario-based regression testing across 15+ page templates, so edge cases get caught before non-technical legislative staff ever see them. Keep all three sites at WCAG AA accessibility compliance, and work directly with legislative staff to turn their workflow needs into real template and system changes. Also help maintain and build out the Legislature's broader suite of 100+ internal applications, including C# document-processing tools. Use AI-assisted workflows to move faster on implementation, testing, and debugging - but still own the code review and production quality at the end of it. ADDITIONAL EXPERIENCE
+                      - generic [ref=f30e658]:
+                        - generic [ref=f30e659]: Reason for Leaving
+                        - textbox "Reason for Leaving" [ref=f30e662]
+                      - generic [ref=f30e663]:
+                        - generic [ref=f30e664]:
+                          - generic [ref=f30e665]: May We Contact?
+                          - generic [ref=f30e666]:
+                            - text: "*"
+                            - generic [ref=f30e667]: required.
+                        - generic [ref=f30e668]:
+                          - generic [ref=f30e669]: May We Contact?
+                          - option [selected]
+                          - combobox "May We Contact?" [ref=f30e670] [cursor=pointer]:
+                            - generic [ref=f30e671]: Loading...
+                      - generic [ref=f30e674]:
+                        - generic [ref=f30e675]: Employer Phone Number
+                        - textbox "Employer Phone Number" [ref=f30e678]
+                    - group "Professional Experience (3)" [ref=f30e680]:
+                      - text: 
+                      - generic [ref=f30e682]:
+                        - generic [ref=f30e683]:
+                          - generic [ref=f30e684]: Name of Employer
+                          - generic [ref=f30e685]:
+                            - text: "*"
+                            - generic [ref=f30e686]: required.
+                        - textbox "Name of Employer" [ref=f30e688]: Touchstone Behavioral Health Services
+                      - generic [ref=f30e689]:
+                        - generic [ref=f30e690]:
+                          - generic [ref=f30e691]: Country
+                          - generic [ref=f30e692]:
+                            - text: "*"
+                            - generic [ref=f30e693]: required.
+                        - generic [ref=f30e694]:
+                          - option [selected]
+                          - combobox "Country" [ref=f30e695] [cursor=pointer]:
+                            - generic [ref=f30e696]: Loading...
+                      - generic [ref=f30e699]:
+                        - generic [ref=f30e700]:
+                          - generic [ref=f30e701]: State/Province
+                          - generic [ref=f30e702]:
+                            - text: "*"
+                            - generic [ref=f30e703]: required.
+                        - generic [ref=f30e704]:
+                          - option [selected]
+                          - combobox "State/Province" [ref=f30e705] [cursor=pointer]:
+                            - generic [ref=f30e706]: Loading...
+                      - generic [ref=f30e709]:
+                        - generic [ref=f30e710]:
+                          - generic [ref=f30e711]: City
+                          - generic [ref=f30e712]:
+                            - text: "*"
+                            - generic [ref=f30e713]: required.
+                        - textbox "City" [ref=f30e715]
+                      - generic [ref=f30e716]:
+                        - generic [ref=f30e717]:
+                          - generic [ref=f30e718]: Your Job Title
+                          - generic [ref=f30e719]:
+                            - text: "*"
+                            - generic [ref=f30e720]: required.
+                        - textbox "Your Job Title" [ref=f30e722]: Family Support Specialist
+                      - group [ref=f30e723]:
+                        - generic [ref=f30e724]:
+                          - generic [ref=f30e725]: Start Date
+                          - generic [ref=f30e726]: (Month / Day / Year)
+                          - generic [ref=f30e727]:
+                            - text: "*"
+                            - generic [ref=f30e728]: required.
+                        - generic [ref=f30e731]:
+                          - generic [ref=f30e732]:
+                            - generic [ref=f30e733]: Month
+                            - combobox "Start Date Month" [ref=f30e734]:
+                              - option
+                              - option "Jan"
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct" [selected]
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e735]:
+                            - generic [ref=f30e736]: Day
+                            - combobox "Start Date Day" [ref=f30e737]:
+                              - option
+                              - option "1" [selected]
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e738]:
+                            - generic [ref=f30e739]: Year
+                            - textbox "Start Date Year" [ref=f30e740]: "2023"
+                      - group [ref=f30e741]:
+                        - generic [ref=f30e742]:
+                          - generic [ref=f30e743]: End Date
+                          - generic [ref=f30e744]: (Month / Day / Year)
+                        - generic [ref=f30e747]:
+                          - generic [ref=f30e748]:
+                            - generic [ref=f30e749]: Month
+                            - combobox "End Date Month" [ref=f30e750]:
+                              - option
+                              - option "Jan" [selected]
+                              - option "Feb"
+                              - option "Mar"
+                              - option "Apr"
+                              - option "May"
+                              - option "Jun"
+                              - option "Jul"
+                              - option "Aug"
+                              - option "Sep"
+                              - option "Oct"
+                              - option "Nov"
+                              - option "Dec"
+                          - generic [ref=f30e751]:
+                            - generic [ref=f30e752]: Day
+                            - combobox "End Date Day" [ref=f30e753]:
+                              - option
+                              - option "1" [selected]
+                              - option "2"
+                              - option "3"
+                              - option "4"
+                              - option "5"
+                              - option "6"
+                              - option "7"
+                              - option "8"
+                              - option "9"
+                              - option "10"
+                              - option "11"
+                              - option "12"
+                              - option "13"
+                              - option "14"
+                              - option "15"
+                              - option "16"
+                              - option "17"
+                              - option "18"
+                              - option "19"
+                              - option "20"
+                              - option "21"
+                              - option "22"
+                              - option "23"
+                              - option "24"
+                              - option "25"
+                              - option "26"
+                              - option "27"
+                              - option "28"
+                              - option "29"
+                              - option "30"
+                              - option "31"
+                          - generic [ref=f30e754]:
+                            - generic [ref=f30e755]: Year
+                            - textbox "End Date Year" [ref=f30e756]: "2025"
+                      - generic [ref=f30e757]:
+                        - generic [ref=f30e758]: Description
+                        - textbox "Description" [ref=f30e761]: Touchstone Behavioral Health Services ------- Family coaching to rebuild communication and rapport between parents and children.
+                      - generic [ref=f30e762]:
+                        - generic [ref=f30e763]: Reason for Leaving
+                        - textbox "Reason for Leaving" [ref=f30e766]
+                      - generic [ref=f30e767]:
+                        - generic [ref=f30e768]:
+                          - generic [ref=f30e769]: May We Contact?
+                          - generic [ref=f30e770]:
+                            - text: "*"
+                            - generic [ref=f30e771]: required.
+                        - generic [ref=f30e772]:
+                          - generic [ref=f30e773]: May We Contact?
+                          - option [selected]
+                          - combobox "May We Contact?" [ref=f30e774] [cursor=pointer]:
+                            - generic [ref=f30e775]: Loading...
+                      - generic [ref=f30e778]:
+                        - generic [ref=f30e779]: Employer Phone Number
+                        - textbox "Employer Phone Number" [ref=f30e782]
+                    - generic [ref=f30e783]:
+                      - group "Professional Experience (4)" [ref=f30e784]:
+                        - button "Delete Professional Experience (4)" [ref=f30e787] [cursor=pointer]:
+                          - generic [ref=f30e788]: 
+                        - generic [ref=f30e789]:
+                          - generic [ref=f30e790]:
+                            - generic [ref=f30e791]: Name of Employer
+                            - generic [ref=f30e792]:
+                              - text: "*"
+                              - generic [ref=f30e793]: required.
+                          - textbox "Name of Employer" [ref=f30e795]: the App Store
+                        - generic [ref=f30e796]:
+                          - generic [ref=f30e797]:
+                            - generic [ref=f30e798]: Country
+                            - generic [ref=f30e799]:
+                              - text: "*"
+                              - generic [ref=f30e800]: required.
+                          - generic [ref=f30e801]:
+                            - option [selected]
+                            - combobox "Country" [ref=f30e802] [cursor=pointer]:
+                              - generic [ref=f30e803]: Loading...
+                        - generic [ref=f30e806]:
+                          - generic [ref=f30e807]:
+                            - generic [ref=f30e808]: State/Province
+                            - generic [ref=f30e809]:
+                              - text: "*"
+                              - generic [ref=f30e810]: required.
+                          - generic [ref=f30e811]:
+                            - option [selected]
+                            - combobox "State/Province" [ref=f30e812] [cursor=pointer]:
+                              - generic [ref=f30e813]: Loading...
+                        - generic [ref=f30e816]:
+                          - generic [ref=f30e817]:
+                            - generic [ref=f30e818]: City
+                            - generic [ref=f30e819]:
+                              - text: "*"
+                              - generic [ref=f30e820]: required.
+                          - textbox "City" [ref=f30e822]
+                        - generic [ref=f30e823]:
+                          - generic [ref=f30e824]:
+                            - generic [ref=f30e825]: Your Job Title
+                            - generic [ref=f30e826]:
+                              - text: "*"
+                              - generic [ref=f30e827]: required.
+                          - textbox "Your Job Title" [ref=f30e829]: Independent Game Developer
+                        - group [ref=f30e830]:
+                          - generic [ref=f30e831]:
+                            - generic [ref=f30e832]: Start Date
+                            - generic [ref=f30e833]: (Month / Day / Year)
+                            - generic [ref=f30e834]:
+                              - text: "*"
+                              - generic [ref=f30e835]: required.
+                          - generic [ref=f30e838]:
+                            - generic [ref=f30e839]:
+                              - generic [ref=f30e840]: Month
+                              - combobox "Start Date Month" [ref=f30e841]:
+                                - option
+                                - option "Jan" [selected]
+                                - option "Feb"
+                                - option "Mar"
+                                - option "Apr"
+                                - option "May"
+                                - option "Jun"
+                                - option "Jul"
+                                - option "Aug"
+                                - option "Sep"
+                                - option "Oct"
+                                - option "Nov"
+                                - option "Dec"
+                            - generic [ref=f30e842]:
+                              - generic [ref=f30e843]: Day
+                              - combobox "Start Date Day" [ref=f30e844]:
+                                - option
+                                - option "1" [selected]
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                                - option "7"
+                                - option "8"
+                                - option "9"
+                                - option "10"
+                                - option "11"
+                                - option "12"
+                                - option "13"
+                                - option "14"
+                                - option "15"
+                                - option "16"
+                                - option "17"
+                                - option "18"
+                                - option "19"
+                                - option "20"
+                                - option "21"
+                                - option "22"
+                                - option "23"
+                                - option "24"
+                                - option "25"
+                                - option "26"
+                                - option "27"
+                                - option "28"
+                                - option "29"
+                                - option "30"
+                                - option "31"
+                            - generic [ref=f30e845]:
+                              - generic [ref=f30e846]: Year
+                              - textbox "Start Date Year" [ref=f30e847]: "2022"
+                        - group [ref=f30e848]:
+                          - generic [ref=f30e849]:
+                            - generic [ref=f30e850]: End Date
+                            - generic [ref=f30e851]: (Month / Day / Year)
+                          - generic [ref=f30e854]:
+                            - generic [ref=f30e855]:
+                              - generic [ref=f30e856]: Month
+                              - combobox "End Date Month" [ref=f30e857]:
+                                - option
+                                - option "Jan" [selected]
+                                - option "Feb"
+                                - option "Mar"
+                                - option "Apr"
+                                - option "May"
+                                - option "Jun"
+                                - option "Jul"
+                                - option "Aug"
+                                - option "Sep"
+                                - option "Oct"
+                                - option "Nov"
+                                - option "Dec"
+                            - generic [ref=f30e858]:
+                              - generic [ref=f30e859]: Day
+                              - combobox "End Date Day" [ref=f30e860]:
+                                - option
+                                - option "1" [selected]
+                                - option "2"
+                                - option "3"
+                                - option "4"
+                                - option "5"
+                                - option "6"
+                                - option "7"
+                                - option "8"
+                                - option "9"
+                                - option "10"
+                                - option "11"
+                                - option "12"
+                                - option "13"
+                                - option "14"
+                                - option "15"
+                                - option "16"
+                                - option "17"
+                                - option "18"
+                                - option "19"
+                                - option "20"
+                                - option "21"
+                                - option "22"
+                                - option "23"
+                                - option "24"
+                                - option "25"
+                                - option "26"
+                                - option "27"
+                                - option "28"
+                                - option "29"
+                                - option "30"
+                                - option "31"
+                            - generic [ref=f30e861]:
+                              - generic [ref=f30e862]: Year
+                              - textbox "End Date Year" [ref=f30e863]: "2023"
+                        - generic [ref=f30e864]:
+                          - generic [ref=f30e865]: Description
+                          - textbox "Description" [ref=f30e868]: Designed, built, and shipped a game to the App Store while completing my Associate's degree.
+                        - generic [ref=f30e869]:
+                          - generic [ref=f30e870]: Reason for Leaving
+                          - textbox "Reason for Leaving" [ref=f30e873]
+                        - generic [ref=f30e874]:
+                          - generic [ref=f30e875]:
+                            - generic [ref=f30e876]: May We Contact?
+                            - generic [ref=f30e877]:
+                              - text: "*"
+                              - generic [ref=f30e878]: required.
+                          - generic [ref=f30e879]:
+                            - generic [ref=f30e880]: May We Contact?
+                            - option [selected]
+                            - combobox "May We Contact?" [ref=f30e881] [cursor=pointer]:
+                              - generic [ref=f30e882]: Loading...
+                        - generic [ref=f30e885]:
+                          - generic [ref=f30e886]: Employer Phone Number
+                          - textbox "Employer Phone Number" [ref=f30e889]
+                      - button "Add More (Professional Experience)" [ref=f30e893] [cursor=pointer]
+                - group [ref=f30e894]:
+                  - heading "Application Questions" [level=2] [ref=f30e895]
+                  - generic [ref=f30e896]:
+                    - generic [ref=f30e897]:
+                      - generic [ref=f30e898]:
+                        - text: Are you legally authorized to work in the United States?
+                        - generic [ref=f30e899]: "*"
+                      - generic [ref=f30e900]:
+                        - option [selected]
+                        - combobox "Are you legally authorized to work in the United States?" [ref=f30e901] [cursor=pointer]:
+                          - generic [ref=f30e902]: — Make a Selection —
+                    - generic [ref=f30e905]:
+                      - generic [ref=f30e906]:
+                        - text: Do you now, or will you in the future, require immigration sponsorship for work authorization (e.g., H-1B)? (if hired, verification will be required consistent with federal law.)
+                        - generic [ref=f30e907]: "*"
+                      - generic [ref=f30e908]:
+                        - option [selected]
+                        - combobox "Do you now, or will you in the future, require immigration sponsorship for work authorization (e.g., H-1B)? (if hired, verification will be required consistent with federal law.)" [ref=f30e909] [cursor=pointer]:
+                          - generic [ref=f30e910]: — Make a Selection —
+                    - generic [ref=f30e913]:
+                      - generic [ref=f30e914]:
+                        - text: Are you at least 18 years old? (if no, you may be required to provide authorization to work)
+                        - generic [ref=f30e915]: "*"
+                      - generic [ref=f30e916]:
+                        - option [selected]
+                        - combobox "Are you at least 18 years old? (if no, you may be required to provide authorization to work)" [ref=f30e917] [cursor=pointer]:
+                          - generic [ref=f30e918]: — Make a Selection —
+                    - generic [ref=f30e921]:
+                      - generic [ref=f30e922]:
+                        - text: Have you ever been employed by GovCIO, SalientCRGT or any of its subsidiaries/acquired companies as an employee?
+                        - generic [ref=f30e923]: "*"
+                      - generic [ref=f30e924]:
+                        - option [selected]
+                        - combobox "Have you ever been employed by GovCIO, SalientCRGT or any of its subsidiaries/acquired companies as an employee?" [ref=f30e925] [cursor=pointer]:
+                          - generic [ref=f30e926]: — Make a Selection —
+                    - generic [ref=f30e929]:
+                      - generic [ref=f30e930]:
+                        - text: Do you have any relatives employed by GovCIO?
+                        - generic [ref=f30e931]: "*"
+                      - generic [ref=f30e932]:
+                        - option [selected]
+                        - combobox "Do you have any relatives employed by GovCIO?" [ref=f30e933] [cursor=pointer]:
+                          - generic [ref=f30e934]: — Make a Selection —
+                    - generic [ref=f30e937]:
+                      - generic [ref=f30e938]: "If you have relatives employed at GovCIO, please enter their name(s) here:"
+                      - textbox "If you have relatives employed at GovCIO, please enter their name(s) here:" [ref=f30e940]
+                - group [ref=f30e941]:
+                  - heading "Create a login to access your application" [level=2] [ref=f30e942]
+                  - generic [ref=f30e943]:
+                    - generic [ref=f30e944]:
+                      - generic [ref=f30e945]:
+                        - text: Email/Login
+                        - generic [ref=f30e946]: "*"
+                      - textbox "Email/Login" [ref=f30e948]: macy.jeffreyj@gmail.com
+                    - generic [ref=f30e949]:
+                      - generic [ref=f30e950]:
+                        - text: Password
+                        - generic [ref=f30e951]: "*"
+                      - generic [ref=f30e952]:
+                        - 'textbox "Password: Minimum 8 characters, 1 alphabetic, 1 lowercase, 1 uppercase, 1 numeric, 1 special character(s)" [ref=f30e953]'
+                        - text:  
+                    - generic [ref=f30e954]:
+                      - generic [ref=f30e955]:
+                        - text: Password (Re-enter)
+                        - generic [ref=f30e956]: "*"
+                      - generic [ref=f30e957]:
+                        - 'textbox "Password (Re-enter): Minimum 8 characters, 1 alphabetic, 1 lowercase, 1 uppercase, 1 numeric, 1 special character(s)" [ref=f30e958]'
+                        - text: 
+                - button "Submit Profile" [ref=f30e962] [cursor=pointer]
+              - generic [ref=f30e963]:
+                - link "Application FAQs" [ref=f30e964] [cursor=pointer]:
+                  - /url: https://icims.help/candidate-faq
+                - paragraph [ref=f30e966]:
+                  - text: Software Powered by ICIMS
+                  - link "www.icims.com" [ref=f30e967] [cursor=pointer]:
+                    - /url: http://www.icims.com/platform_help?utm_source=platform&utm_medium=link&utm_content=page1&utm_campaign=platform%20help
+            - generic [ref=f30e968]:
+              - button "Close hCaptcha attribution notice" [ref=f30e969] [cursor=pointer]: 
+              - generic [ref=f30e970]:
+                - text: Protected by hCaptcha
+                - link "Privacy" [ref=f30e971] [cursor=pointer]:
+                  - /url: https://www.hcaptcha.com/privacy
+                - text: "|"
+                - link "Terms" [ref=f30e972] [cursor=pointer]:
+                  - /url: https://www.hcaptcha.com/terms
+    - generic [ref=f25e36]:
+      - link [ref=f25e38] [cursor=pointer]:
+        - /url: https://govcio.com/
+        - img "Home" [ref=f25e39]
+      - generic [ref=f25e40]:
+        - generic [ref=f25e41]:
+          - generic [ref=f25e42]:
+            - generic [ref=f25e43]:
+              - heading "Corporate HQ" [level=2] [ref=f25e44]
+              - generic [ref=f25e45]:
+                - generic [ref=f25e46]: 4000 Legato Rd.
+                - generic [ref=f25e47]: Suite 600
+                - generic [ref=f25e48]: Fairfax, VA 22033
+            - generic [ref=f25e49]:
+              - link "Twitter" [ref=f25e53] [cursor=pointer]:
+                - /url: https://twitter.com/GovernmentCIO
+              - link "Instagram" [ref=f25e59] [cursor=pointer]:
+                - /url: https://www.instagram.com/govcio/
+              - link "Facebook" [ref=f25e65] [cursor=pointer]:
+                - /url: https://www.facebook.com/GovCIO
+              - link "LinkedIn" [ref=f25e71] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/govcio
+          - generic [ref=f25e73]:
+            - generic [ref=f25e74]:
+              - heading "Services" [level=2] [ref=f25e75]
+              - link "Cyber Security" [ref=f25e76] [cursor=pointer]:
+                - /url: https://govcio.com/services/cyber-security/
+              - link "Data Services" [ref=f25e78] [cursor=pointer]:
+                - /url: https://govcio.com/services/data-services/
+              - link "Digital Services" [ref=f25e80] [cursor=pointer]:
+                - /url: https://govcio.com/services/digital-services/
+              - link "IT Modernization" [ref=f25e82] [cursor=pointer]:
+                - /url: https://govcio.com/services/it-modernization/
+              - link "Mgmt. & Mission Services" [ref=f25e84] [cursor=pointer]:
+                - /url: https://govcio.com/services/management-advisory-mission-support/
+            - generic [ref=f25e86]:
+              - heading "Careers" [level=2] [ref=f25e87]
+              - link "Careers" [ref=f25e88] [cursor=pointer]:
+                - /url: https://govcio.com/careers/
+              - link "Life at GovCIO" [ref=f25e90] [cursor=pointer]:
+                - /url: https://govcio.com/life-at-gcio/
+              - link "Remote Work" [ref=f25e92] [cursor=pointer]:
+                - /url: https://govcio.com/careers/remote-work/
+              - link "Job Search" [ref=f25e94] [cursor=pointer]:
+                - /url: https://govcio.com/jobs/
+              - link "Frequently Asked Questions" [ref=f25e96] [cursor=pointer]:
+                - /url: https://govcio.com/careers/application-faqs/
+          - generic [ref=f25e98]:
+            - generic [ref=f25e99]:
+              - heading "Sectors" [level=2] [ref=f25e100]
+              - link "Health & Civilian" [ref=f25e101] [cursor=pointer]:
+                - /url: https://govcio.com/federal-health-civilian-sector/
+              - link "National Security" [ref=f25e103] [cursor=pointer]:
+                - /url: https://govcio.com/national-security-sector/
+              - link "Veteran & Enterprise Technology" [ref=f25e105] [cursor=pointer]:
+                - /url: https://govcio.com/veteran-enterprise-technology-sector/
+            - generic [ref=f25e107]:
+              - heading "About" [level=2] [ref=f25e108]
+              - link "Our Company" [ref=f25e109] [cursor=pointer]:
+                - /url: https://govcio.com/our-company/
+              - link "Our Work" [ref=f25e111] [cursor=pointer]:
+                - /url: https://govcio.com/our-work/
+              - link "Our People" [ref=f25e113] [cursor=pointer]:
+                - /url: https://govcio.com/our-people/
+              - link "Contract Vehicles" [ref=f25e115] [cursor=pointer]:
+                - /url: https://govcio.com/contract-vehicles/
+              - link "Press & Awards" [ref=f25e117] [cursor=pointer]:
+                - /url: https://govcio.com/news/
+              - link "Social Responsibility" [ref=f25e119] [cursor=pointer]:
+                - /url: mhttps://govcio.com/social-responsibility/
+        - generic [ref=f25e121]:
+          - link "GovCIO Supplier Registration Portal" [ref=f25e122] [cursor=pointer]:
+            - /url: https://apps.govcio.com/Public/Contracts/SB
+          - generic [ref=f25e124]: "|"
+          - link "Privacy Policy" [ref=f25e125] [cursor=pointer]:
+            - /url: https://govcio.com/privacy-policy/
+  - button "Chat Widget Button" [ref=f25e128] [cursor=pointer]

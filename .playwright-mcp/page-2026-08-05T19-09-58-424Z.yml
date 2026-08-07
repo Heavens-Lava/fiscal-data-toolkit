@@ -1,0 +1,1107 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to main content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#gnav-header-end"
+  - main [ref=f2e3]:
+    - generic [ref=f2e5]:
+      - navigation "Primary" [ref=f2e7]:
+        - generic [ref=f2e9]:
+          - generic [ref=f2e10]:
+            - generic [ref=f2e11]:
+              - link "Indeed Home" [ref=f2e12] [cursor=pointer]:
+                - /url: /?from=gnav-jobsearch--indeedmobile
+              - list [ref=f2e16]:
+                - listitem [ref=f2e17]:
+                  - link "Home" [ref=f2e19] [cursor=pointer]:
+                    - /url: https://www.indeed.com/
+                - listitem [ref=f2e20]:
+                  - link "Company reviews" [ref=f2e22] [cursor=pointer]:
+                    - /url: https://www.indeed.com/companies
+                - listitem [ref=f2e23]:
+                  - link "Find salaries" [ref=f2e25] [cursor=pointer]:
+                    - /url: https://www.indeed.com/career/salaries
+            - generic [ref=f2e26]:
+              - list [ref=f2e27]:
+                - listitem [ref=f2e28]:
+                  - link "My jobs" [ref=f2e30] [cursor=pointer]:
+                    - /url: https://myjobs.indeed.com?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9lab1qiq7b800&tk=1jv9laak2gorq801&co=US&hl=en
+                - listitem [ref=f2e33]:
+                  - link "Messages Unread count 0" [ref=f2e35] [cursor=pointer]:
+                    - /url: https://messages.indeed.com?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9lab1qiq7b800&tk=1jv9laak2gorq801&co=US&hl=en
+                    - generic [ref=f2e41]:
+                      - text: Messages Unread count 0
+                      - generic [ref=f2e42]: .
+                - listitem [ref=f2e43]:
+                  - link "Notifications Unread count 0" [ref=f2e45] [cursor=pointer]:
+                    - /url: https://www.indeed.com/notifications?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9lab1qiq7b800&tk=1jv9laak2gorq801&hl=en
+                - listitem [ref=f2e48]:
+                  - button "Account" [ref=f2e52] [cursor=pointer]:
+                    - generic [ref=f2e56]:
+                      - text: "1"
+                      - generic [ref=f2e57]: new update
+              - link "Employers / Post Job" [ref=f2e62] [cursor=pointer]:
+                - /url: https://www.indeed.com/hire?co=US&hl=en
+          - generic [ref=f2e63]: Start of main content
+      - generic [ref=f2e65]:
+        - search [ref=f2e70]:
+          - generic [ref=f2e73]:
+            - generic [ref=f2e75]:
+              - generic [ref=f2e76]:
+                - generic [ref=f2e77]: "Keyword : all jobs"
+                - generic [ref=f2e80]:
+                  - 'combobox "search: Job title, keywords, or company" [ref=f2e84]': remote software developer
+                  - button "Clear what input" [ref=f2e86] [cursor=pointer]
+              - separator [ref=f2e89]:
+                - generic [ref=f2e90]: "&nbsp;"
+              - generic [ref=f2e91]:
+                - generic [ref=f2e92]: Edit location input box label
+                - generic [ref=f2e95]:
+                  - combobox "Edit location" [ref=f2e99]: Remote
+                  - button "Clear location input" [ref=f2e101] [cursor=pointer]
+            - button "Search" [ref=f2e105] [cursor=pointer]
+          - list [ref=f2e108]:
+            - button "Date posted filter" [ref=f2e110] [cursor=pointer]: Date posted
+            - button "Remote filter" [ref=f2e112] [cursor=pointer]: Remote
+            - button "Developer skill filter" [ref=f2e114] [cursor=pointer]: Developer skill
+            - button "Job type filter" [ref=f2e116] [cursor=pointer]: Job type
+            - button "Experience level filter" [ref=f2e118] [cursor=pointer]: Experience level
+            - button "Pay filter" [ref=f2e120] [cursor=pointer]: Pay
+            - button "Residency Requirement filter" [ref=f2e122] [cursor=pointer]: Residency Requirement
+            - button "Compensation package filter" [ref=f2e124] [cursor=pointer]: Compensation package
+        - generic [ref=f2e131]:
+          - generic [ref=f2e132]:
+            - generic [ref=f2e133]:
+              - heading "remote software developer jobs in Remote" [level=1] [ref=f2e134]
+              - button "More information about job results" [ref=f2e137] [cursor=pointer]:
+                - img "More information about job results" [ref=f2e138]
+            - generic [ref=f2e142]:
+              - generic [ref=f2e143]: "Sort by:"
+              - generic [ref=f2e144]: relevance - date
+          - list [ref=f2e148]:
+            - listitem
+            - listitem [ref=f2e149]:
+              - generic [ref=f2e156]:
+                - generic [ref=f2e158]:
+                  - heading [level=3] [ref=f2e159]:
+                    - button "full details of Frontend Developer - AI Trainer" [ref=f2e160] [cursor=pointer]: Frontend Developer - AI Trainer
+                  - generic [ref=f2e162]:
+                    - generic [ref=f2e163]: Easily apply
+                    - generic [ref=f2e166]: Urgently hiring
+                - generic [ref=f2e169]:
+                  - generic [ref=f2e171]:
+                    - generic [ref=f2e176]:
+                      - generic [ref=f2e177]: DataAnnotation
+                      - generic [ref=f2e179]: Remote in Colorado Springs, CO
+                    - list [ref=f2e181]:
+                      - listitem [ref=f2e182]:
+                        - generic [ref=f2e183]:
+                          - img "matches your preference" [ref=f2e185]
+                          - generic [ref=f2e187]: $50 - $100 an hour
+                      - listitem [ref=f2e189]:
+                        - generic [ref=f2e190]:
+                          - img "matches your preference" [ref=f2e192]
+                          - generic [ref=f2e195]:
+                            - text: Full-time
+                            - generic [ref=f2e196]: "+2"
+                      - listitem [ref=f2e197]:
+                        - generic [ref=f2e198]: On demand
+                      - listitem [ref=f2e201]:
+                        - generic [ref=f2e202]: Hourly pay
+                      - listitem [ref=f2e205]:
+                        - generic [ref=f2e206]: Flexible schedule
+                  - generic [ref=f2e209]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e215] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=2b96b1e36b1939fe&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                - generic [ref=f2e218]:
+                  - button "Save job Toggle" [ref=f2e219] [cursor=pointer]
+                  - button "Not interested" [ref=f2e222] [cursor=pointer]
+            - listitem [ref=f2e226]:
+              - generic [ref=f2e233]:
+                - generic [ref=f2e235]:
+                  - heading [level=3] [ref=f2e236]:
+                    - button "full details of Application Developer - AI Trainer" [ref=f2e237] [cursor=pointer]: Application Developer - AI Trainer
+                  - generic [ref=f2e239]:
+                    - generic [ref=f2e240]: Easily apply
+                    - generic [ref=f2e243]: Urgently hiring
+                - generic [ref=f2e246]:
+                  - generic [ref=f2e248]:
+                    - generic [ref=f2e253]:
+                      - generic [ref=f2e254]: DataAnnotation
+                      - generic [ref=f2e256]: Remote in Menlo Park, CA
+                    - list [ref=f2e258]:
+                      - listitem [ref=f2e259]:
+                        - generic [ref=f2e260]:
+                          - img "matches your preference" [ref=f2e262]
+                          - generic [ref=f2e264]: $50 - $100 an hour
+                      - listitem [ref=f2e266]:
+                        - generic [ref=f2e267]:
+                          - img "matches your preference" [ref=f2e269]
+                          - generic [ref=f2e272]:
+                            - text: Full-time
+                            - generic [ref=f2e273]: "+2"
+                      - listitem [ref=f2e274]:
+                        - generic [ref=f2e275]: On demand
+                      - listitem [ref=f2e278]:
+                        - generic [ref=f2e279]: Hourly pay
+                      - listitem [ref=f2e282]:
+                        - generic [ref=f2e283]: Flexible schedule
+                  - generic [ref=f2e286]: 269 hires made in past 30 days
+                - link "View similar jobs with this employer" [ref=f2e292] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=3174bd7f5a3869f8&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECIKCW5vcm10aXRsZRoVYXBwbGljYXRpb24gZGV2ZWxvcGVy
+                - generic [ref=f2e295]:
+                  - button "Save job Toggle" [ref=f2e296] [cursor=pointer]
+                  - button "Not interested" [ref=f2e299] [cursor=pointer]
+            - listitem [ref=f2e303]:
+              - generic [ref=f2e310]:
+                - generic [ref=f2e312]:
+                  - heading [level=3] [ref=f2e313]:
+                    - button "full details of Frontend Developer - AI Trainer" [ref=f2e314] [cursor=pointer]: Frontend Developer - AI Trainer
+                  - generic [ref=f2e316]:
+                    - generic [ref=f2e317]: Easily apply
+                    - generic [ref=f2e320]: Urgently hiring
+                - generic [ref=f2e323]:
+                  - generic [ref=f2e325]:
+                    - generic [ref=f2e330]:
+                      - generic [ref=f2e331]: DataAnnotation
+                      - generic [ref=f2e333]: Remote in Arlington, VA
+                    - list [ref=f2e335]:
+                      - listitem [ref=f2e336]:
+                        - generic [ref=f2e337]:
+                          - img "matches your preference" [ref=f2e339]
+                          - generic [ref=f2e341]: $50 - $100 an hour
+                      - listitem [ref=f2e343]:
+                        - generic [ref=f2e344]:
+                          - img "matches your preference" [ref=f2e346]
+                          - generic [ref=f2e349]:
+                            - text: Full-time
+                            - generic [ref=f2e350]: "+2"
+                      - listitem [ref=f2e351]:
+                        - generic [ref=f2e352]: On demand
+                      - listitem [ref=f2e355]:
+                        - generic [ref=f2e356]: Hourly pay
+                      - listitem [ref=f2e359]:
+                        - generic [ref=f2e360]: Flexible schedule
+                  - generic [ref=f2e363]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e369] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=d4921fcf5a022664&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                - generic [ref=f2e372]:
+                  - button "Save job Toggle" [ref=f2e373] [cursor=pointer]
+                  - button "Not interested" [ref=f2e376] [cursor=pointer]
+            - listitem [ref=f2e380]:
+              - generic [ref=f2e385]:
+                - generic [ref=f2e386]:
+                  - heading [level=3] [ref=f2e387]:
+                    - button "full details of Software Developer" [ref=f2e388] [cursor=pointer]: Software Developer
+                  - generic [ref=f2e390]:
+                    - generic [ref=f2e391]: Easily apply
+                    - generic [ref=f2e394]: Often replies in 1 day
+                - generic [ref=f2e399]:
+                  - generic [ref=f2e404]:
+                    - generic [ref=f2e405]: TherapyNotes.com
+                    - generic [ref=f2e407]: Remote in Philadelphia, PA
+                  - list [ref=f2e409]:
+                    - listitem [ref=f2e410]:
+                      - generic [ref=f2e411]:
+                        - img "matches your preference" [ref=f2e413]
+                        - generic [ref=f2e415]: $65,000 - $115,000 a year
+                    - listitem [ref=f2e417]:
+                      - generic [ref=f2e418]:
+                        - img "matches your preference" [ref=f2e420]
+                        - generic [ref=f2e422]: Full-time
+                    - listitem [ref=f2e424]:
+                      - generic [ref=f2e425]: Profit sharing
+                    - listitem [ref=f2e428]:
+                      - generic [ref=f2e429]: Retirement plan
+                    - listitem [ref=f2e432]:
+                      - generic [ref=f2e433]: Vision insurance
+                    - listitem [ref=f2e436]:
+                      - generic [ref=f2e437]: Dental insurance
+                    - listitem [ref=f2e440]:
+                      - generic [ref=f2e441]: Disability insurance
+                    - listitem [ref=f2e444]:
+                      - generic [ref=f2e445]: Profit sharing
+                - generic [ref=f2e448]:
+                  - button "Save job Toggle" [ref=f2e449] [cursor=pointer]
+                  - button "Not interested" [ref=f2e452] [cursor=pointer]
+            - listitem [ref=f2e456]:
+              - generic [ref=f2e463]:
+                - generic [ref=f2e465]:
+                  - heading [level=3] [ref=f2e466]:
+                    - button "full details of Developer - AI Trainer" [ref=f2e467] [cursor=pointer]: Developer - AI Trainer
+                  - generic [ref=f2e469]:
+                    - generic [ref=f2e470]: Easily apply
+                    - generic [ref=f2e473]: Urgently hiring
+                - generic [ref=f2e476]:
+                  - generic [ref=f2e478]:
+                    - generic [ref=f2e483]:
+                      - generic [ref=f2e484]: DataAnnotation
+                      - generic [ref=f2e486]: Remote in Hartford, CT
+                    - list [ref=f2e488]:
+                      - listitem [ref=f2e489]:
+                        - generic [ref=f2e490]:
+                          - img "matches your preference" [ref=f2e492]
+                          - generic [ref=f2e494]: $50 - $100 an hour
+                      - listitem [ref=f2e496]:
+                        - generic [ref=f2e497]:
+                          - img "matches your preference" [ref=f2e499]
+                          - generic [ref=f2e502]:
+                            - text: Full-time
+                            - generic [ref=f2e503]: "+2"
+                      - listitem [ref=f2e504]:
+                        - generic [ref=f2e505]: On demand
+                      - listitem [ref=f2e508]:
+                        - generic [ref=f2e509]: Hourly pay
+                      - listitem [ref=f2e512]:
+                        - generic [ref=f2e513]: Flexible schedule
+                  - generic [ref=f2e516]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e522] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=c83d977532b0c8f5&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEBkKCW5vcm10aXRsZRoMYWkgZGV2ZWxvcGVy
+                - generic [ref=f2e525]:
+                  - button "Save job Toggle" [ref=f2e526] [cursor=pointer]
+                  - button "Not interested" [ref=f2e529] [cursor=pointer]
+            - listitem
+            - listitem [ref=f2e533]:
+              - generic [ref=f2e540]:
+                - generic [ref=f2e542]:
+                  - heading [level=3] [ref=f2e543]:
+                    - button "full details of Software Developer - AI Trainer" [ref=f2e544] [cursor=pointer]: Software Developer - AI Trainer
+                  - generic [ref=f2e546]:
+                    - generic [ref=f2e547]: Easily apply
+                    - generic [ref=f2e550]: Urgently hiring
+                - generic [ref=f2e553]:
+                  - generic [ref=f2e555]:
+                    - generic [ref=f2e560]:
+                      - generic [ref=f2e561]: DataAnnotation
+                      - generic [ref=f2e563]: Remote in Birmingham, AL
+                    - list [ref=f2e565]:
+                      - listitem [ref=f2e566]:
+                        - generic [ref=f2e567]:
+                          - img "matches your preference" [ref=f2e569]
+                          - generic [ref=f2e571]: $50 - $100 an hour
+                      - listitem [ref=f2e573]:
+                        - generic [ref=f2e574]:
+                          - img "matches your preference" [ref=f2e576]
+                          - generic [ref=f2e579]:
+                            - text: Full-time
+                            - generic [ref=f2e580]: "+2"
+                      - listitem [ref=f2e581]:
+                        - generic [ref=f2e582]: On demand
+                      - listitem [ref=f2e585]:
+                        - generic [ref=f2e586]: Hourly pay
+                      - listitem [ref=f2e589]:
+                        - generic [ref=f2e590]: Flexible schedule
+                  - generic [ref=f2e593]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e599] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=fddfe76f40dabd97&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e602]:
+                  - button "Save job Toggle" [ref=f2e603] [cursor=pointer]
+                  - button "Not interested" [ref=f2e606] [cursor=pointer]
+            - listitem [ref=f2e610]:
+              - generic [ref=f2e617]:
+                - generic [ref=f2e619]:
+                  - heading [level=3] [ref=f2e620]:
+                    - button "full details of Full Stack Developer - AI Trainer" [ref=f2e621] [cursor=pointer]: Full Stack Developer - AI Trainer
+                  - generic [ref=f2e623]:
+                    - generic [ref=f2e624]: Easily apply
+                    - generic [ref=f2e627]: Urgently hiring
+                - generic [ref=f2e630]:
+                  - generic [ref=f2e632]:
+                    - generic [ref=f2e637]:
+                      - generic [ref=f2e638]: DataAnnotation
+                      - generic [ref=f2e640]: Remote in Lynn, MA
+                    - list [ref=f2e642]:
+                      - listitem [ref=f2e643]:
+                        - generic [ref=f2e644]:
+                          - img "matches your preference" [ref=f2e646]
+                          - generic [ref=f2e648]: $50 - $100 an hour
+                      - listitem [ref=f2e650]:
+                        - generic [ref=f2e651]:
+                          - img "matches your preference" [ref=f2e653]
+                          - generic [ref=f2e656]:
+                            - text: Full-time
+                            - generic [ref=f2e657]: "+2"
+                      - listitem [ref=f2e658]:
+                        - generic [ref=f2e659]: On demand
+                      - listitem [ref=f2e662]:
+                        - generic [ref=f2e663]: Hourly pay
+                      - listitem [ref=f2e666]:
+                        - generic [ref=f2e667]: Flexible schedule
+                  - generic [ref=f2e670]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e676] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=f0424903335061cf&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECEKCW5vcm10aXRsZRoUZnVsbCBzdGFjayBkZXZlbG9wZXI%253D
+                - generic [ref=f2e679]:
+                  - button "Save job Toggle" [ref=f2e680] [cursor=pointer]
+                  - button "Not interested" [ref=f2e683] [cursor=pointer]
+            - listitem
+            - listitem [ref=f2e687]:
+              - generic [ref=f2e694]:
+                - generic [ref=f2e696]:
+                  - heading [level=3] [ref=f2e697]:
+                    - button "full details of Software Engineer Analyst - AI Trainer" [ref=f2e698] [cursor=pointer]: Software Engineer Analyst - AI Trainer
+                  - generic [ref=f2e700]:
+                    - generic [ref=f2e701]: Easily apply
+                    - generic [ref=f2e704]: Urgently hiring
+                - generic [ref=f2e707]:
+                  - generic [ref=f2e709]:
+                    - generic [ref=f2e714]:
+                      - generic [ref=f2e715]: DataAnnotation
+                      - generic [ref=f2e717]: Remote in Tempe, AZ
+                    - list [ref=f2e719]:
+                      - listitem [ref=f2e720]:
+                        - generic [ref=f2e721]:
+                          - img "matches your preference" [ref=f2e723]
+                          - generic [ref=f2e725]: $50 - $100 an hour
+                      - listitem [ref=f2e727]:
+                        - generic [ref=f2e728]:
+                          - img "matches your preference" [ref=f2e730]
+                          - generic [ref=f2e733]:
+                            - text: Full-time
+                            - generic [ref=f2e734]: "+2"
+                      - listitem [ref=f2e735]:
+                        - generic [ref=f2e736]: On demand
+                      - listitem [ref=f2e739]:
+                        - generic [ref=f2e740]: Hourly pay
+                      - listitem [ref=f2e743]:
+                        - generic [ref=f2e744]: Flexible schedule
+                  - generic [ref=f2e747]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e753] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=68d7109cce39ca61&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e756]:
+                  - button "Save job Toggle" [ref=f2e757] [cursor=pointer]
+                  - button "Not interested" [ref=f2e760] [cursor=pointer]
+            - listitem [ref=f2e764]:
+              - generic [ref=f2e766]:
+                - heading "Opportunities in web development" [level=2] [ref=f2e769]
+                - generic [ref=f2e776]:
+                  - generic [ref=f2e778]:
+                    - heading [level=3] [ref=f2e779]:
+                      - button "full details of Back End Developer - AI Trainer" [ref=f2e780] [cursor=pointer]: Back End Developer - AI Trainer
+                    - generic [ref=f2e782]:
+                      - generic [ref=f2e783]: Easily apply
+                      - generic [ref=f2e786]: Urgently hiring
+                  - generic [ref=f2e789]:
+                    - generic [ref=f2e791]:
+                      - generic [ref=f2e796]:
+                        - generic [ref=f2e797]: DataAnnotation
+                        - generic [ref=f2e799]: Remote in Oklahoma City, OK
+                      - list [ref=f2e801]:
+                        - listitem [ref=f2e802]:
+                          - generic [ref=f2e803]:
+                            - img "matches your preference" [ref=f2e805]
+                            - generic [ref=f2e807]: $50 - $100 an hour
+                        - listitem [ref=f2e809]:
+                          - generic [ref=f2e810]:
+                            - img "matches your preference" [ref=f2e812]
+                            - generic [ref=f2e815]:
+                              - text: Full-time
+                              - generic [ref=f2e816]: "+2"
+                        - listitem [ref=f2e817]:
+                          - generic [ref=f2e818]: On demand
+                        - listitem [ref=f2e821]:
+                          - generic [ref=f2e822]: Hourly pay
+                        - listitem [ref=f2e825]:
+                          - generic [ref=f2e826]: Flexible schedule
+                    - generic [ref=f2e829]: 269 hires made in past 30 days
+                  - link "View 10+ similar jobs with this employer" [ref=f2e835] [cursor=pointer]:
+                    - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=73e969eb96127743&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB8KCW5vcm10aXRsZRoSYmFjayBlbmQgZGV2ZWxvcGVy
+                  - generic [ref=f2e838]:
+                    - button "Save job Toggle" [ref=f2e839] [cursor=pointer]
+                    - button "Not interested" [ref=f2e842] [cursor=pointer]
+            - listitem [ref=f2e846]:
+              - generic [ref=f2e853]:
+                - generic [ref=f2e855]:
+                  - heading [level=3] [ref=f2e856]:
+                    - button "full details of Software Engineer - AI Trainer" [ref=f2e857] [cursor=pointer]: Software Engineer - AI Trainer
+                  - generic [ref=f2e859]:
+                    - generic [ref=f2e860]: Easily apply
+                    - generic [ref=f2e863]: Urgently hiring
+                - generic [ref=f2e866]:
+                  - generic [ref=f2e868]:
+                    - generic [ref=f2e873]:
+                      - generic [ref=f2e874]: DataAnnotation
+                      - generic [ref=f2e876]: Remote in Bakersfield, CA
+                    - list [ref=f2e878]:
+                      - listitem [ref=f2e879]:
+                        - generic [ref=f2e880]:
+                          - img "matches your preference" [ref=f2e882]
+                          - generic [ref=f2e884]: $50 - $100 an hour
+                      - listitem [ref=f2e886]:
+                        - generic [ref=f2e887]:
+                          - img "matches your preference" [ref=f2e889]
+                          - generic [ref=f2e892]:
+                            - text: Full-time
+                            - generic [ref=f2e893]: "+2"
+                      - listitem [ref=f2e894]:
+                        - generic [ref=f2e895]: On demand
+                      - listitem [ref=f2e898]:
+                        - generic [ref=f2e899]: Hourly pay
+                      - listitem [ref=f2e902]:
+                        - generic [ref=f2e903]: Flexible schedule
+                  - generic [ref=f2e906]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e912] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=42b3190dcc881898&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e915]:
+                  - button "Save job Toggle" [ref=f2e916] [cursor=pointer]
+                  - button "Not interested" [ref=f2e919] [cursor=pointer]
+            - listitem
+            - listitem [ref=f2e923]:
+              - generic [ref=f2e930]:
+                - generic [ref=f2e932]:
+                  - heading [level=3] [ref=f2e933]:
+                    - button "full details of Software Developer - AI Trainer" [ref=f2e934] [cursor=pointer]: Software Developer - AI Trainer
+                  - generic [ref=f2e936]:
+                    - generic [ref=f2e937]: Easily apply
+                    - generic [ref=f2e940]: Urgently hiring
+                - generic [ref=f2e943]:
+                  - generic [ref=f2e945]:
+                    - generic [ref=f2e950]:
+                      - generic [ref=f2e951]: DataAnnotation
+                      - generic [ref=f2e953]: Remote in Savannah, GA
+                    - list [ref=f2e955]:
+                      - listitem [ref=f2e956]:
+                        - generic [ref=f2e957]:
+                          - img "matches your preference" [ref=f2e959]
+                          - generic [ref=f2e961]: $50 - $100 an hour
+                      - listitem [ref=f2e963]:
+                        - generic [ref=f2e964]:
+                          - img "matches your preference" [ref=f2e966]
+                          - generic [ref=f2e969]:
+                            - text: Full-time
+                            - generic [ref=f2e970]: "+2"
+                      - listitem [ref=f2e971]:
+                        - generic [ref=f2e972]: On demand
+                      - listitem [ref=f2e975]:
+                        - generic [ref=f2e976]: Hourly pay
+                      - listitem [ref=f2e979]:
+                        - generic [ref=f2e980]: Flexible schedule
+                  - generic [ref=f2e983]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e989] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=c51451ce08ac970b&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e992]:
+                  - button "Save job Toggle" [ref=f2e993] [cursor=pointer]
+                  - button "Not interested" [ref=f2e996] [cursor=pointer]
+            - listitem [ref=f2e1000]:
+              - generic [ref=f2e1002]:
+                - heading "Jobs in systems engineering" [level=2] [ref=f2e1005]
+                - generic [ref=f2e1008]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f2e1009]:
+                    - listitem [ref=f2e1010]:
+                      - generic [ref=f2e1013]:
+                        - generic [ref=f2e1014]:
+                          - heading [level=3] [ref=f2e1017]:
+                            - button "full details of Senior VMware/ Openshift Engineer (West Coast)" [ref=f2e1018] [cursor=pointer]: Senior VMware/ Openshift Engineer (West Coast)
+                          - generic [ref=f2e1020]:
+                            - generic [ref=f2e1021]: SS&C Technologies
+                            - generic [ref=f2e1024]: Remote in Arizona
+                          - list [ref=f2e1027]:
+                            - listitem [ref=f2e1028]:
+                              - generic [ref=f2e1029]:
+                                - img "matches your preference" [ref=f2e1031]
+                                - generic [ref=f2e1033]: Full-time
+                            - listitem [ref=f2e1035]:
+                              - generic [ref=f2e1036]: Professional development assistance
+                            - listitem [ref=f2e1039]:
+                              - generic [ref=f2e1040]: Parental leave
+                            - listitem [ref=f2e1043]:
+                              - generic [ref=f2e1044]: Health insurance
+                            - listitem [ref=f2e1047]:
+                              - generic [ref=f2e1048]: 401(k) matching
+                            - listitem [ref=f2e1051]:
+                              - generic [ref=f2e1052]: Paid time off
+                            - listitem [ref=f2e1055]:
+                              - generic [ref=f2e1056]: Vision insurance
+                        - generic [ref=f2e1059]:
+                          - button "Save job Toggle" [ref=f2e1060] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1063] [cursor=pointer]
+                    - listitem [ref=f2e1067]:
+                      - generic [ref=f2e1070]:
+                        - generic [ref=f2e1071]:
+                          - generic [ref=f2e1073]:
+                            - heading [level=3] [ref=f2e1074]:
+                              - button "full details of Staff Software Engineer - AI Trainer" [ref=f2e1075] [cursor=pointer]: Staff Software Engineer - AI Trainer
+                            - generic [ref=f2e1077]:
+                              - generic [ref=f2e1078]: Easily apply
+                              - generic [ref=f2e1081]: Urgently hiring
+                          - generic [ref=f2e1087]:
+                            - generic [ref=f2e1088]: DataAnnotation
+                            - generic [ref=f2e1091]: Remote in Savannah, GA
+                          - list [ref=f2e1094]:
+                            - listitem [ref=f2e1095]:
+                              - generic [ref=f2e1096]:
+                                - img "matches your preference" [ref=f2e1098]
+                                - generic [ref=f2e1100]: $50 - $100 an hour
+                            - listitem [ref=f2e1102]:
+                              - generic [ref=f2e1103]:
+                                - img "matches your preference" [ref=f2e1105]
+                                - generic [ref=f2e1108]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1109]: "+2"
+                            - listitem [ref=f2e1110]:
+                              - generic [ref=f2e1111]: On demand
+                            - listitem [ref=f2e1114]:
+                              - generic [ref=f2e1115]: Hourly pay
+                            - listitem [ref=f2e1118]:
+                              - generic [ref=f2e1119]: Flexible schedule
+                        - generic [ref=f2e1122]:
+                          - button "Save job Toggle" [ref=f2e1123] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1126] [cursor=pointer]
+                    - listitem [ref=f2e1130]:
+                      - generic [ref=f2e1133]:
+                        - generic [ref=f2e1134]:
+                          - generic [ref=f2e1136]:
+                            - heading [level=3] [ref=f2e1137]:
+                              - button "full details of Software Engineer Analyst - AI Trainer" [ref=f2e1138] [cursor=pointer]: Software Engineer Analyst - AI Trainer
+                            - generic [ref=f2e1139]: Easily apply
+                          - generic [ref=f2e1147]:
+                            - generic [ref=f2e1148]: DataAnnotation
+                            - generic [ref=f2e1151]: Remote in Lehi, UT
+                          - list [ref=f2e1154]:
+                            - listitem [ref=f2e1155]:
+                              - generic [ref=f2e1156]:
+                                - img "matches your preference" [ref=f2e1158]
+                                - generic [ref=f2e1160]: $50 - $100 an hour
+                            - listitem [ref=f2e1162]:
+                              - generic [ref=f2e1163]:
+                                - img "matches your preference" [ref=f2e1165]
+                                - generic [ref=f2e1168]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1169]: "+2"
+                            - listitem [ref=f2e1170]:
+                              - generic [ref=f2e1171]: On demand
+                            - listitem [ref=f2e1174]:
+                              - generic [ref=f2e1175]: Hourly pay
+                            - listitem [ref=f2e1178]:
+                              - generic [ref=f2e1179]: Flexible schedule
+                        - generic [ref=f2e1182]:
+                          - button "Save job Toggle" [ref=f2e1183] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1186] [cursor=pointer]
+                    - listitem [ref=f2e1190]:
+                      - generic [ref=f2e1193]:
+                        - generic [ref=f2e1194]:
+                          - generic [ref=f2e1196]:
+                            - heading [level=3] [ref=f2e1197]:
+                              - button "full details of Software Engineer Analyst - AI Trainer" [ref=f2e1198] [cursor=pointer]: Software Engineer Analyst - AI Trainer
+                            - generic [ref=f2e1199]: Easily apply
+                          - generic [ref=f2e1207]:
+                            - generic [ref=f2e1208]: DataAnnotation
+                            - generic [ref=f2e1211]: Remote in Minnetonka, MN
+                          - list [ref=f2e1214]:
+                            - listitem [ref=f2e1215]:
+                              - generic [ref=f2e1216]:
+                                - img "matches your preference" [ref=f2e1218]
+                                - generic [ref=f2e1220]: $50 - $100 an hour
+                            - listitem [ref=f2e1222]:
+                              - generic [ref=f2e1223]:
+                                - img "matches your preference" [ref=f2e1225]
+                                - generic [ref=f2e1228]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1229]: "+2"
+                            - listitem [ref=f2e1230]:
+                              - generic [ref=f2e1231]: On demand
+                            - listitem [ref=f2e1234]:
+                              - generic [ref=f2e1235]: Hourly pay
+                            - listitem [ref=f2e1238]:
+                              - generic [ref=f2e1239]: Flexible schedule
+                        - generic [ref=f2e1242]:
+                          - button "Save job Toggle" [ref=f2e1243] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1246] [cursor=pointer]
+                  - generic [ref=f2e1250]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 4" [ref=f2e1251]: 1/4
+                    - button "Next" [ref=f2e1252] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f2e1255]:
+              - generic [ref=f2e1262]:
+                - generic [ref=f2e1264]:
+                  - heading [level=3] [ref=f2e1265]:
+                    - button "full details of Backend Software Engineer - AI Trainer" [ref=f2e1266] [cursor=pointer]: Backend Software Engineer - AI Trainer
+                  - generic [ref=f2e1268]:
+                    - generic [ref=f2e1269]: Easily apply
+                    - generic [ref=f2e1272]: Urgently hiring
+                - generic [ref=f2e1275]:
+                  - generic [ref=f2e1277]:
+                    - generic [ref=f2e1282]:
+                      - generic [ref=f2e1283]: DataAnnotation
+                      - generic [ref=f2e1285]: Remote in Arlington, VA
+                    - list [ref=f2e1287]:
+                      - listitem [ref=f2e1288]:
+                        - generic [ref=f2e1289]:
+                          - img "matches your preference" [ref=f2e1291]
+                          - generic [ref=f2e1293]: $50 - $100 an hour
+                      - listitem [ref=f2e1295]:
+                        - generic [ref=f2e1296]:
+                          - img "matches your preference" [ref=f2e1298]
+                          - generic [ref=f2e1301]:
+                            - text: Full-time
+                            - generic [ref=f2e1302]: "+2"
+                      - listitem [ref=f2e1303]:
+                        - generic [ref=f2e1304]: On demand
+                      - listitem [ref=f2e1307]:
+                        - generic [ref=f2e1308]: Hourly pay
+                      - listitem [ref=f2e1311]:
+                        - generic [ref=f2e1312]: Flexible schedule
+                  - generic [ref=f2e1315]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e1321] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=6a8148443243716e&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB8KCW5vcm10aXRsZRoSYmFjayBlbmQgZGV2ZWxvcGVy
+                - generic [ref=f2e1324]:
+                  - button "Save job Toggle" [ref=f2e1325] [cursor=pointer]
+                  - button "Not interested" [ref=f2e1328] [cursor=pointer]
+            - listitem [ref=f2e1332]:
+              - generic [ref=f2e1339]:
+                - generic [ref=f2e1341]:
+                  - heading [level=3] [ref=f2e1342]:
+                    - button "full details of Contract Mobile App Developer - AI Trainer" [ref=f2e1343] [cursor=pointer]: Contract Mobile App Developer - AI Trainer
+                  - generic [ref=f2e1345]:
+                    - generic [ref=f2e1346]: Easily apply
+                    - generic [ref=f2e1349]: Urgently hiring
+                - generic [ref=f2e1352]:
+                  - generic [ref=f2e1354]:
+                    - generic [ref=f2e1359]:
+                      - generic [ref=f2e1360]: DataAnnotation
+                      - generic [ref=f2e1362]: Remote in Chandler, AZ
+                    - list [ref=f2e1364]:
+                      - listitem [ref=f2e1365]:
+                        - generic [ref=f2e1366]:
+                          - img "matches your preference" [ref=f2e1368]
+                          - generic [ref=f2e1370]: $50 - $100 an hour
+                      - listitem [ref=f2e1372]:
+                        - generic [ref=f2e1373]:
+                          - img "matches your preference" [ref=f2e1375]
+                          - generic [ref=f2e1378]:
+                            - text: Full-time
+                            - generic [ref=f2e1379]: "+2"
+                      - listitem [ref=f2e1380]:
+                        - generic [ref=f2e1381]: On demand
+                      - listitem [ref=f2e1384]:
+                        - generic [ref=f2e1385]: Hourly pay
+                      - listitem [ref=f2e1388]:
+                        - generic [ref=f2e1389]: Flexible schedule
+                  - generic [ref=f2e1392]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e1398] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=08e734b4dc563fe3&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECIKCW5vcm10aXRsZRoVYXBwbGljYXRpb24gZGV2ZWxvcGVy
+                - generic [ref=f2e1401]:
+                  - button "Save job Toggle" [ref=f2e1402] [cursor=pointer]
+                  - button "Not interested" [ref=f2e1405] [cursor=pointer]
+            - listitem [ref=f2e1409]:
+              - generic [ref=f2e1411]:
+                - heading "Career paths in DevOps" [level=2] [ref=f2e1414]
+                - generic [ref=f2e1417]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f2e1418]:
+                    - listitem [ref=f2e1419]:
+                      - generic [ref=f2e1422]:
+                        - generic [ref=f2e1423]:
+                          - generic [ref=f2e1425]:
+                            - heading [level=3] [ref=f2e1426]:
+                              - button "full details of DevOps Engineer - AI Trainer" [ref=f2e1427] [cursor=pointer]: DevOps Engineer - AI Trainer
+                            - generic [ref=f2e1429]:
+                              - generic [ref=f2e1430]: Easily apply
+                              - generic [ref=f2e1433]: Urgently hiring
+                          - generic [ref=f2e1439]:
+                            - generic [ref=f2e1440]: DataAnnotation
+                            - generic [ref=f2e1443]: Remote in Palo Alto, CA
+                          - list [ref=f2e1446]:
+                            - listitem [ref=f2e1447]:
+                              - generic [ref=f2e1448]:
+                                - img "matches your preference" [ref=f2e1450]
+                                - generic [ref=f2e1452]: $50 - $100 an hour
+                            - listitem [ref=f2e1454]:
+                              - generic [ref=f2e1455]:
+                                - img "matches your preference" [ref=f2e1457]
+                                - generic [ref=f2e1460]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1461]: "+2"
+                            - listitem [ref=f2e1462]:
+                              - generic [ref=f2e1463]: On demand
+                            - listitem [ref=f2e1466]:
+                              - generic [ref=f2e1467]: Hourly pay
+                            - listitem [ref=f2e1470]:
+                              - generic [ref=f2e1471]: Flexible schedule
+                        - generic [ref=f2e1474]:
+                          - button "Save job Toggle" [ref=f2e1475] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1478] [cursor=pointer]
+                    - listitem [ref=f2e1482]:
+                      - generic [ref=f2e1485]:
+                        - generic [ref=f2e1486]:
+                          - generic [ref=f2e1488]:
+                            - heading [level=3] [ref=f2e1489]:
+                              - button "full details of Senior Automation & Controls Engineer (I&C)" [ref=f2e1490] [cursor=pointer]: Senior Automation & Controls Engineer (I&C)
+                            - generic [ref=f2e1491]: Easily apply
+                          - generic [ref=f2e1497]:
+                            - generic [ref=f2e1498]: Engineering Resource Group
+                            - generic [ref=f2e1501]: Remote in Newtown, PA 18940
+                          - list [ref=f2e1504]:
+                            - listitem [ref=f2e1505]:
+                              - generic [ref=f2e1506]:
+                                - img "matches your preference" [ref=f2e1508]
+                                - generic [ref=f2e1510]: $110,000 - $125,000 a year
+                            - listitem [ref=f2e1512]:
+                              - generic [ref=f2e1513]:
+                                - img "matches your preference" [ref=f2e1515]
+                                - generic [ref=f2e1517]: Full-time
+                        - generic [ref=f2e1519]:
+                          - button "Save job Toggle" [ref=f2e1520] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1523] [cursor=pointer]
+                    - listitem [ref=f2e1527]:
+                      - generic [ref=f2e1530]:
+                        - generic [ref=f2e1531]:
+                          - generic [ref=f2e1533]:
+                            - heading [level=3] [ref=f2e1534]:
+                              - button "full details of DevOps & SDLC Engineer - AI Trainer" [ref=f2e1535] [cursor=pointer]: DevOps & SDLC Engineer - AI Trainer
+                            - generic [ref=f2e1537]:
+                              - generic [ref=f2e1538]: Easily apply
+                              - generic [ref=f2e1541]: Urgently hiring
+                          - generic [ref=f2e1547]:
+                            - generic [ref=f2e1548]: DataAnnotation
+                            - generic [ref=f2e1551]: Remote in Marietta, GA
+                          - list [ref=f2e1554]:
+                            - listitem [ref=f2e1555]:
+                              - generic [ref=f2e1556]:
+                                - img "matches your preference" [ref=f2e1558]
+                                - generic [ref=f2e1560]: $50 - $100 an hour
+                            - listitem [ref=f2e1562]:
+                              - generic [ref=f2e1563]:
+                                - img "matches your preference" [ref=f2e1565]
+                                - generic [ref=f2e1568]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1569]: "+2"
+                            - listitem [ref=f2e1570]:
+                              - generic [ref=f2e1571]: On demand
+                            - listitem [ref=f2e1574]:
+                              - generic [ref=f2e1575]: Hourly pay
+                            - listitem [ref=f2e1578]:
+                              - generic [ref=f2e1579]: Flexible schedule
+                        - generic [ref=f2e1582]:
+                          - button "Save job Toggle" [ref=f2e1583] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1586] [cursor=pointer]
+                    - listitem [ref=f2e1590]:
+                      - generic [ref=f2e1593]:
+                        - generic [ref=f2e1594]:
+                          - generic [ref=f2e1596]:
+                            - heading [level=3] [ref=f2e1597]:
+                              - button "full details of DevOps Engineer - AI Trainer" [ref=f2e1598] [cursor=pointer]: DevOps Engineer - AI Trainer
+                            - generic [ref=f2e1599]: Easily apply
+                          - generic [ref=f2e1607]:
+                            - generic [ref=f2e1608]: DataAnnotation
+                            - generic [ref=f2e1611]: Remote in Washington, DC
+                          - list [ref=f2e1614]:
+                            - listitem [ref=f2e1615]:
+                              - generic [ref=f2e1616]:
+                                - img "matches your preference" [ref=f2e1618]
+                                - generic [ref=f2e1620]: $50 - $100 an hour
+                            - listitem [ref=f2e1622]:
+                              - generic [ref=f2e1623]:
+                                - img "matches your preference" [ref=f2e1625]
+                                - generic [ref=f2e1628]:
+                                  - text: Full-time
+                                  - generic [ref=f2e1629]: "+2"
+                            - listitem [ref=f2e1630]:
+                              - generic [ref=f2e1631]: On demand
+                            - listitem [ref=f2e1634]:
+                              - generic [ref=f2e1635]: Hourly pay
+                            - listitem [ref=f2e1638]:
+                              - generic [ref=f2e1639]: Flexible schedule
+                        - generic [ref=f2e1642]:
+                          - button "Save job Toggle" [ref=f2e1643] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1646] [cursor=pointer]
+                    - listitem [ref=f2e1650]:
+                      - generic [ref=f2e1653]:
+                        - generic [ref=f2e1654]:
+                          - heading [level=3] [ref=f2e1657]:
+                            - button "full details of Mainframe DevOps Migration Consultant" [ref=f2e1658] [cursor=pointer]: Mainframe DevOps Migration Consultant
+                          - generic [ref=f2e1660]:
+                            - generic [ref=f2e1661]: Capgemini
+                            - generic [ref=f2e1664]: Remote in Atlanta, GA
+                          - list [ref=f2e1667]:
+                            - listitem [ref=f2e1668]:
+                              - generic [ref=f2e1669]:
+                                - img "matches your preference" [ref=f2e1671]
+                                - generic [ref=f2e1673]: $68,911 - $161,544 a year
+                            - listitem [ref=f2e1675]:
+                              - generic [ref=f2e1676]:
+                                - img "matches your preference" [ref=f2e1678]
+                                - generic [ref=f2e1680]: Full-time
+                            - listitem [ref=f2e1682]:
+                              - generic [ref=f2e1683]: 401(k)
+                            - listitem [ref=f2e1686]:
+                              - generic [ref=f2e1687]: Health insurance
+                            - listitem [ref=f2e1690]:
+                              - generic [ref=f2e1691]: Paid time off
+                            - listitem [ref=f2e1694]:
+                              - generic [ref=f2e1695]: Vision insurance
+                            - listitem [ref=f2e1698]:
+                              - generic [ref=f2e1699]: Dental insurance
+                            - listitem [ref=f2e1702]:
+                              - generic [ref=f2e1703]: Employee assistance program
+                        - generic [ref=f2e1706]:
+                          - button "Save job Toggle" [ref=f2e1707] [cursor=pointer]
+                          - button "Not interested" [ref=f2e1710] [cursor=pointer]
+                  - generic [ref=f2e1714]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 5" [ref=f2e1715]: 1/5
+                    - button "Next" [ref=f2e1716] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f2e1719]:
+              - generic [ref=f2e1726]:
+                - generic [ref=f2e1728]:
+                  - heading [level=3] [ref=f2e1729]:
+                    - button "full details of Full Stack Developer - AI Trainer" [ref=f2e1730] [cursor=pointer]: Full Stack Developer - AI Trainer
+                  - generic [ref=f2e1732]:
+                    - generic [ref=f2e1733]: Easily apply
+                    - generic [ref=f2e1736]: Urgently hiring
+                - generic [ref=f2e1739]:
+                  - generic [ref=f2e1741]:
+                    - generic [ref=f2e1746]:
+                      - generic [ref=f2e1747]: DataAnnotation
+                      - generic [ref=f2e1749]: Remote in Wilmington, NC
+                    - list [ref=f2e1751]:
+                      - listitem [ref=f2e1752]:
+                        - generic [ref=f2e1753]:
+                          - img "matches your preference" [ref=f2e1755]
+                          - generic [ref=f2e1757]: $50 - $100 an hour
+                      - listitem [ref=f2e1759]:
+                        - generic [ref=f2e1760]:
+                          - img "matches your preference" [ref=f2e1762]
+                          - generic [ref=f2e1765]:
+                            - text: Full-time
+                            - generic [ref=f2e1766]: "+2"
+                      - listitem [ref=f2e1767]:
+                        - generic [ref=f2e1768]: On demand
+                      - listitem [ref=f2e1771]:
+                        - generic [ref=f2e1772]: Hourly pay
+                      - listitem [ref=f2e1775]:
+                        - generic [ref=f2e1776]: Flexible schedule
+                  - generic [ref=f2e1779]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e1785] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=4f906631108baf78&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECEKCW5vcm10aXRsZRoUZnVsbCBzdGFjayBkZXZlbG9wZXI%253D
+                - generic [ref=f2e1788]:
+                  - button "Save job Toggle" [ref=f2e1789] [cursor=pointer]
+                  - button "Not interested" [ref=f2e1792] [cursor=pointer]
+            - listitem [ref=f2e1796]:
+              - generic [ref=f2e1803]:
+                - generic [ref=f2e1805]:
+                  - heading [level=3] [ref=f2e1806]:
+                    - button "full details of Software Designer - AI Trainer" [ref=f2e1807] [cursor=pointer]: Software Designer - AI Trainer
+                  - generic [ref=f2e1809]:
+                    - generic [ref=f2e1810]: Easily apply
+                    - generic [ref=f2e1813]: Urgently hiring
+                - generic [ref=f2e1816]:
+                  - generic [ref=f2e1818]:
+                    - generic [ref=f2e1823]:
+                      - generic [ref=f2e1824]: DataAnnotation
+                      - generic [ref=f2e1826]: Remote in Cary, NC
+                    - list [ref=f2e1828]:
+                      - listitem [ref=f2e1829]:
+                        - generic [ref=f2e1830]:
+                          - img "matches your preference" [ref=f2e1832]
+                          - generic [ref=f2e1834]: $50 - $100 an hour
+                      - listitem [ref=f2e1836]:
+                        - generic [ref=f2e1837]:
+                          - img "matches your preference" [ref=f2e1839]
+                          - generic [ref=f2e1842]:
+                            - text: Full-time
+                            - generic [ref=f2e1843]: "+2"
+                      - listitem [ref=f2e1844]:
+                        - generic [ref=f2e1845]: On demand
+                      - listitem [ref=f2e1848]:
+                        - generic [ref=f2e1849]: Hourly pay
+                      - listitem [ref=f2e1852]:
+                        - generic [ref=f2e1853]: Flexible schedule
+                  - generic [ref=f2e1856]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e1862] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=64bd918711e53d56&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e1865]:
+                  - button "Save job Toggle" [ref=f2e1866] [cursor=pointer]
+                  - button "Not interested" [ref=f2e1869] [cursor=pointer]
+            - listitem [ref=f2e1873]:
+              - generic [ref=f2e1880]:
+                - generic [ref=f2e1882]:
+                  - heading [level=3] [ref=f2e1883]:
+                    - button "full details of Software Designer - AI Trainer" [ref=f2e1884] [cursor=pointer]: Software Designer - AI Trainer
+                  - generic [ref=f2e1886]:
+                    - generic [ref=f2e1887]: Easily apply
+                    - generic [ref=f2e1890]: Urgently hiring
+                - generic [ref=f2e1893]:
+                  - generic [ref=f2e1895]:
+                    - generic [ref=f2e1900]:
+                      - generic [ref=f2e1901]: DataAnnotation
+                      - generic [ref=f2e1903]: Remote in Lubbock, TX
+                    - list [ref=f2e1905]:
+                      - listitem [ref=f2e1906]:
+                        - generic [ref=f2e1907]:
+                          - img "matches your preference" [ref=f2e1909]
+                          - generic [ref=f2e1911]: $50 - $100 an hour
+                      - listitem [ref=f2e1913]:
+                        - generic [ref=f2e1914]:
+                          - img "matches your preference" [ref=f2e1916]
+                          - generic [ref=f2e1919]:
+                            - text: Full-time
+                            - generic [ref=f2e1920]: "+2"
+                      - listitem [ref=f2e1921]:
+                        - generic [ref=f2e1922]: On demand
+                      - listitem [ref=f2e1925]:
+                        - generic [ref=f2e1926]: Hourly pay
+                      - listitem [ref=f2e1929]:
+                        - generic [ref=f2e1930]: Flexible schedule
+                  - generic [ref=f2e1933]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f2e1939] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9laak2gorq801&jk=ded73efaecbff658&dest=%2Fjobs%3Fq%3Dremote%2Bsoftware%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D50%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB0KCW5vcm10aXRsZRoQc29mdHdhcmUgdHJhaW5lcg%253D%253D
+                - generic [ref=f2e1942]:
+                  - button "Save job Toggle" [ref=f2e1943] [cursor=pointer]
+                  - button "Not interested" [ref=f2e1946] [cursor=pointer]
+          - navigation "pagination" [ref=f2e1950]:
+            - list [ref=f2e1951]:
+              - listitem [ref=f2e1952]:
+                - link "1" [ref=f2e1953] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f2e1954]:
+                - link "2" [ref=f2e1955] [cursor=pointer]:
+                  - /url: /jobs?q=remote+software+developer&l=Remote&radius=50&start=10
+              - listitem [ref=f2e1956]:
+                - link "3" [ref=f2e1957] [cursor=pointer]:
+                  - /url: /jobs?q=remote+software+developer&l=Remote&radius=50&start=20
+              - listitem [ref=f2e1958]:
+                - link "4" [ref=f2e1959] [cursor=pointer]:
+                  - /url: /jobs?q=remote+software+developer&l=Remote&radius=50&start=30
+              - listitem [ref=f2e1960]:
+                - link "5" [ref=f2e1961] [cursor=pointer]:
+                  - /url: /jobs?q=remote+software+developer&l=Remote&radius=50&start=40
+              - listitem [ref=f2e1962]:
+                - link "Next Page" [ref=f2e1963] [cursor=pointer]:
+                  - /url: /jobs?q=remote+software+developer&l=Remote&radius=50&start=10
+          - generic [ref=f2e1969]:
+            - heading "I want to receive the latest job alert for remote software developer in Remote" [level=2] [ref=f2e1971]
+            - generic [ref=f2e1974]:
+              - generic [ref=f2e1976]:
+                - generic [ref=f2e1977]: Email address *
+                - textbox "Email address" [ref=f2e1979]: yosoytujeffe@gmail.com
+              - button "Activate" [ref=f2e1981] [cursor=pointer]
+            - paragraph [ref=f2e1984]:
+              - text: By creating a job alert, you agree to our
+              - link "Terms (opens in a new tab)" [ref=f2e1985] [cursor=pointer]:
+                - /url: /legal?hl=en
+                - text: Terms
+              - text: . You can change your consent settings at any time by unsubscribing or as detailed in our terms.
+          - generic [ref=f2e1989]:
+            - heading "People also searched:" [level=3] [ref=f2e1990]
+            - list [ref=f2e1991]:
+              - listitem [ref=f2e1992]:
+                - link "software developer" [ref=f2e1993] [cursor=pointer]:
+                  - /url: /q-software-developer-l-remote-jobs.html
+              - listitem [ref=f2e1996]:
+                - link "entry level software developer remote" [ref=f2e1997] [cursor=pointer]:
+                  - /url: /q-entry-level-software-developer-remote-l-remote-jobs.html
+              - listitem [ref=f2e2000]:
+                - link "software developer entry level" [ref=f2e2001] [cursor=pointer]:
+                  - /url: /q-software-developer-entry-level-l-remote-jobs.html
+              - listitem [ref=f2e2004]:
+                - link "remote junior software developer" [ref=f2e2005] [cursor=pointer]:
+                  - /url: /q-remote-junior-software-developer-l-remote-jobs.html
+              - listitem [ref=f2e2008]:
+                - link "remote software" [ref=f2e2009] [cursor=pointer]:
+                  - /url: /q-remote-software-l-remote-jobs.html
+              - listitem [ref=f2e2012]:
+                - link "part time remote software developer" [ref=f2e2013] [cursor=pointer]:
+                  - /url: /q-part-time-remote-software-developer-l-remote-jobs.html
+              - listitem [ref=f2e2016]:
+                - link "junior software developer" [ref=f2e2017] [cursor=pointer]:
+                  - /url: /q-junior-software-developer-l-remote-jobs.html
+              - listitem [ref=f2e2020]:
+                - link "remote web developer" [ref=f2e2021] [cursor=pointer]:
+                  - /url: /q-remote-web-developer-l-remote-jobs.html
+              - listitem [ref=f2e2024]:
+                - link "software developer internship" [ref=f2e2025] [cursor=pointer]:
+                  - /url: /q-software-developer-internship-l-remote-jobs.html
+              - listitem [ref=f2e2028]:
+                - link "software development" [ref=f2e2029] [cursor=pointer]:
+                  - /url: /q-software-development-l-remote-jobs.html
+          - generic [ref=f2e2032]:
+            - heading "Resume Resources:" [level=2] [ref=f2e2033]
+            - list [ref=f2e2034]:
+              - listitem [ref=f2e2035]:
+                - link "Resume Samples" [ref=f2e2036] [cursor=pointer]:
+                  - /url: https://www.indeed.com/career-advice/resume-samples?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f2e2037]:
+                - link "Resume Templates" [ref=f2e2038] [cursor=pointer]:
+                  - /url: https://www.indeed.com/profile/resume-templates?from=jobsearch_footer
+          - generic [ref=f2e2039]:
+            - heading "Career Resources:" [level=2] [ref=f2e2040]
+            - list [ref=f2e2041]:
+              - listitem [ref=f2e2042]:
+                - link "Career Explorer" [ref=f2e2043] [cursor=pointer]:
+                  - /url: /career/salaries?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f2e2044]:
+                - link "Explore High Paying Jobs" [ref=f2e2045] [cursor=pointer]:
+                  - /url: /explorer/
+          - generic [ref=f2e2046]:
+            - heading "Employer Resources:" [level=2] [ref=f2e2047]
+            - list [ref=f2e2048]:
+              - listitem [ref=f2e2049]:
+                - link "How to Write a Job Description" [ref=f2e2050] [cursor=pointer]:
+                  - /url: /hire/how-to-write-a-job-description?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f2e2051]:
+                - link "How to Hire Employees" [ref=f2e2052] [cursor=pointer]:
+                  - /url: /hire/how-to-hire?from=jobsearch_footer
+      - contentinfo [ref=f2e2058]:
+        - generic [ref=f2e2059]:
+          - list [ref=f2e2060]:
+            - listitem [ref=f2e2061]:
+              - link "Hiring Lab" [ref=f2e2063] [cursor=pointer]:
+                - /url: https://www.hiringlab.org
+            - listitem [ref=f2e2064]:
+              - link "Career advice" [ref=f2e2066] [cursor=pointer]:
+                - /url: https://www.indeed.com/career-advice
+            - listitem [ref=f2e2067]:
+              - link "Browse jobs" [ref=f2e2069] [cursor=pointer]:
+                - /url: https://www.indeed.com/browsejobs
+            - listitem [ref=f2e2070]:
+              - link "Browse companies" [ref=f2e2072] [cursor=pointer]:
+                - /url: https://www.indeed.com/companies/browse-companies
+            - listitem [ref=f2e2073]:
+              - link "Salaries" [ref=f2e2075] [cursor=pointer]:
+                - /url: https://www.indeed.com/career/salaries
+            - listitem [ref=f2e2076]:
+              - link "Indeed Events" [ref=f2e2078] [cursor=pointer]:
+                - /url: https://www.indeedevents.com/
+            - listitem [ref=f2e2079]:
+              - link "Work at Indeed" [ref=f2e2081] [cursor=pointer]:
+                - /url: https://www.indeed.com/cmp/Indeed/about
+            - listitem [ref=f2e2082]:
+              - link "Countries" [ref=f2e2084] [cursor=pointer]:
+                - /url: https://www.indeed.com/countries
+            - listitem [ref=f2e2085]:
+              - link "About" [ref=f2e2087] [cursor=pointer]:
+                - /url: https://www.indeed.com/about
+            - listitem [ref=f2e2088]:
+              - link "Help" [ref=f2e2090] [cursor=pointer]:
+                - /url: https://www.indeed.com/help/job-seekers?hl=en&co=us
+            - listitem [ref=f2e2091]:
+              - link "ESG at Indeed" [ref=f2e2093] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg?from=gnav-jobsearch--indeedmobile
+          - list [ref=f2e2094]:
+            - listitem [ref=f2e2095]: © 2026 Indeed
+            - listitem [ref=f2e2096]:
+              - link "Your Privacy Choices" [ref=f2e2098] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal/ccpa-dns?hl=en
+            - listitem [ref=f2e2105]:
+              - link "Accessibility at Indeed" [ref=f2e2107] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg/accessibility?hl=en
+            - listitem [ref=f2e2108]:
+              - link "Privacy Center and Ad Choices" [ref=f2e2110] [cursor=pointer]:
+                - /url: https://hrtechprivacy.com/brands/indeed#privacypolicy
+            - listitem [ref=f2e2111]:
+              - link "Terms" [ref=f2e2113] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal?hl=en
+          - list:
+            - listitem
+  - generic [ref=f2e2114]:
+    - text: This site is protected by reCAPTCHA and the Google
+    - link "Privacy Policy" [ref=f2e2115] [cursor=pointer]:
+      - /url: https://policies.google.com/privacy
+    - text: and
+    - link "Terms of Service" [ref=f2e2116] [cursor=pointer]:
+      - /url: https://policies.google.com/terms
+    - text: apply.

@@ -1,0 +1,30 @@
+- generic [active] [ref=f43e1]:
+  - main [ref=f43e2]:
+    - generic [ref=f43e3]:
+      - link [ref=f43e5] [cursor=pointer]:
+        - /url: https://www.anthropic.com/jobs
+        - img "Anthropic Logo" [ref=f43e6]
+      - generic [ref=f43e7]:
+        - generic [ref=f43e8]:
+          - generic [ref=f43e10]:
+            - heading "Thank you for applying!" [level=2] [ref=f43e11]
+            - paragraph [ref=f43e12]: Your application has been received. If there is a fit, someone from our Recruiting team will notify you.
+          - generic [ref=f43e13]:
+            - link "View more jobs at Anthropic" [ref=f43e14] [cursor=pointer]:
+              - /url: https://job-boards.greenhouse.io/anthropic
+            - link "Back to job post" [ref=f43e15] [cursor=pointer]:
+              - /url: https://job-boards.greenhouse.io/anthropic/jobs/5097186008
+        - generic [ref=f43e17]:
+          - img "MyGreenhouse Application Tracking" [ref=f43e19]
+          - generic [ref=f43e20]:
+            - generic [ref=f43e21]:
+              - paragraph [ref=f43e22]
+              - paragraph [ref=f43e23]: Sign in to MyGreenhouse to keep tabs on your application, get status updates and more.
+            - link "Sign in to MyGreenhouse" [ref=f43e24] [cursor=pointer]:
+              - /url: ""
+  - contentinfo [ref=f43e25]:
+    - generic [ref=f43e26]:
+      - paragraph [ref=f43e27]: Powered by
+      - link [ref=f43e28] [cursor=pointer]:
+        - /url: https://www.greenhouse.com
+        - img "Greenhouse logo" [ref=f43e29]

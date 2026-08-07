@@ -1,0 +1,401 @@
+- generic [ref=f42e1]:
+  - banner [ref=f42e2]:
+    - generic [ref=f42e3]:
+      - generic [ref=f42e4]:
+        - button "Main menu" [ref=f42e5] [cursor=pointer]
+        - link "Careers" [ref=f42e10] [cursor=pointer]:
+          - /url: /about/careers/applications/
+      - generic [ref=f42e13]:
+        - link "Skip navigation links" [ref=f42e14]
+        - generic [ref=f42e17]:
+          - navigation "Candidate Portal Left Navigation" [ref=f42e21]:
+            - menubar [ref=f42e23]:
+              - generic [ref=f42e24]:
+                - menuitem "Home navigation link" [ref=f42e25] [cursor=pointer]:
+                  - menuitem [ref=f42e27]:
+                    - generic [ref=f42e28]:
+                      - generic [ref=f42e29]:
+                        - generic [ref=f42e31]: home
+                        - generic [ref=f42e35]: Home
+                      - generic [ref=f42e37]: Home
+                - menuitem "Jobs navigation item" [ref=f42e39] [cursor=pointer]:
+                  - menuitem [ref=f42e41]:
+                    - generic [ref=f42e42]:
+                      - generic [ref=f42e43]:
+                        - generic [ref=f42e45]: work_outline
+                        - generic [ref=f42e49]: Jobs
+                      - generic [ref=f42e51]: Jobs
+                - menuitem "Students navigation item" [ref=f42e53] [cursor=pointer]:
+                  - menuitem [ref=f42e55]:
+                    - generic [ref=f42e56]:
+                      - generic [ref=f42e57]:
+                        - generic [ref=f42e59]: noogler_hat
+                        - generic [ref=f42e63]: Students
+                      - generic [ref=f42e65]: Students
+                - menuitem "How we work navigation item" [ref=f42e67] [cursor=pointer]:
+                  - menuitem [ref=f42e69]:
+                    - generic [ref=f42e70]:
+                      - generic [ref=f42e71]:
+                        - generic [ref=f42e73]: google
+                        - generic [ref=f42e77]: How we work
+                      - generic [ref=f42e79]: How we work
+                - menuitem "How we hire navigation item" [ref=f42e81] [cursor=pointer]:
+                  - menuitem [ref=f42e83]:
+                    - generic [ref=f42e84]:
+                      - generic [ref=f42e85]:
+                        - generic [ref=f42e87]: handyman
+                        - generic [ref=f42e91]: How we hire
+                      - generic [ref=f42e93]: How we hire
+                - menuitem "Your career navigation item" [ref=f42e95] [cursor=pointer]:
+                  - menuitem [ref=f42e97]:
+                    - generic [ref=f42e98]:
+                      - generic [ref=f42e99]:
+                        - generic [ref=f42e101]: person_outline
+                        - generic [ref=f42e105]: Your career
+                      - generic [ref=f42e107]: Your career
+          - generic [ref=f42e114]:
+            - generic [ref=f42e115]:
+              - generic [ref=f42e116] [cursor=pointer]:
+                - generic [ref=f42e117]: help_outline
+                - link "Help link" [ref=f42e118]:
+                  - /url: https://support.google.com/googlecareers
+              - tooltip [ref=f42e119]: Help link
+            - generic [ref=f42e120]:
+              - button "Send feedback" [ref=f42e121] [cursor=pointer]:
+                - generic [ref=f42e122]: feedback
+              - tooltip [ref=f42e123]: Send feedback
+      - generic [ref=f42e125]:
+        - button "Google apps" [ref=f42e129] [cursor=pointer]
+        - 'button "Google Account: Jeffrey Macy (yosoytujeffe@gmail.com)" [ref=f42e135] [cursor=pointer]'
+  - generic [ref=f42e151]:
+    - heading "job details" [level=1]
+    - generic [ref=f42e153]:
+      - generic [ref=f42e154]:
+        - generic [ref=f42e156]:
+          - generic [ref=f42e157] [cursor=pointer]:
+            - generic [ref=f42e158]: arrow_back
+            - link "Back to jobs search" [ref=f42e159]:
+              - /url: jobs/results
+          - generic [ref=f42e160]: Back to jobs search
+        - generic [ref=f42e161]:
+          - heading "Jobs search results" [level=2]
+          - generic [ref=f42e163]:
+            - list [ref=f42e164]:
+              - listitem [ref=f42e165]:
+                - link "Manufacturing Structural Test Development Engineer Sunnyvale, CA, USA" [ref=f42e170] [cursor=pointer]:
+                  - /url: jobs/results/82087125486314182-manufacturing-structural-test-development-engineer
+                  - heading "Manufacturing Structural Test Development Engineer" [level=3] [ref=f42e171]
+                  - paragraph [ref=f42e172]:
+                    - generic [ref=f42e173]: Sunnyvale, CA, USA
+              - listitem [ref=f42e174]:
+                - link "Strategy Associate, YouTube San Bruno, CA, USA; New York, NY, USA" [ref=f42e179] [cursor=pointer]:
+                  - /url: jobs/results/121081200138691270-strategy-associate-youtube
+                  - heading "Strategy Associate, YouTube" [level=3] [ref=f42e180]
+                  - paragraph [ref=f42e181]:
+                    - generic [ref=f42e182]:
+                      - text: San Bruno, CA, USA
+                      - generic [ref=f42e183]: ; New York, NY, USA
+              - listitem [ref=f42e184]:
+                - link "Digital Growth Specialist, Scaled, Google Customers Solutions Sydney NSW, Australia" [ref=f42e189] [cursor=pointer]:
+                  - /url: jobs/results/136265618927035078-digital-growth-specialist-scaled-google-customers-solutions
+                  - heading "Digital Growth Specialist, Scaled, Google Customers Solutions" [level=3] [ref=f42e190]
+                  - paragraph [ref=f42e191]:
+                    - generic [ref=f42e192]: Sydney NSW, Australia
+              - listitem [ref=f42e193]:
+                - link "Controls Technician II (Meet-en Regeltechnicus/Technicus Meet &amp; Regel) (Dutch) Eemshaven, Netherlands" [ref=f42e198] [cursor=pointer]:
+                  - /url: jobs/results/115864180673651398-controls-technician-ii-meeten-regeltechnicustechnicus-meet-amp-regel-dutch
+                  - heading "Controls Technician II (Meet-en Regeltechnicus/Technicus Meet &amp; Regel) (Dutch)" [level=3] [ref=f42e199]
+                  - paragraph [ref=f42e200]:
+                    - generic [ref=f42e201]: Eemshaven, Netherlands
+              - listitem [ref=f42e202]:
+                - link "Research Data Scientist, Ads Metrics, Ads Experiences Mountain View, CA, USA" [ref=f42e207] [cursor=pointer]:
+                  - /url: jobs/results/124625707799061190-research-data-scientist-ads-metrics-ads-experiences
+                  - heading "Research Data Scientist, Ads Metrics, Ads Experiences" [level=3] [ref=f42e208]
+                  - paragraph [ref=f42e209]:
+                    - generic [ref=f42e210]: Mountain View, CA, USA
+              - listitem [ref=f42e211]:
+                - link "Senior Account Executive, Large Customer Sales San Francisco, CA, USA" [ref=f42e216] [cursor=pointer]:
+                  - /url: jobs/results/139532680290017990-senior-account-executive-large-customer-sales
+                  - heading "Senior Account Executive, Large Customer Sales" [level=3] [ref=f42e217]
+                  - paragraph [ref=f42e218]:
+                    - generic [ref=f42e219]: San Francisco, CA, USA
+              - listitem [ref=f42e220]:
+                - link "Delivery Executive, Google Cloud Consulting, Telco Toronto, ON, Canada" [ref=f42e225] [cursor=pointer]:
+                  - /url: jobs/results/113831338292716230-delivery-executive-google-cloud-consulting-telco
+                  - heading "Delivery Executive, Google Cloud Consulting, Telco" [level=3] [ref=f42e226]
+                  - paragraph [ref=f42e227]:
+                    - generic [ref=f42e228]: Toronto, ON, Canada
+              - listitem [ref=f42e229]:
+                - link "Area Environment Health Safety Program Manager, Data Center Construction Hyderabad, Telangana, India" [ref=f42e234] [cursor=pointer]:
+                  - /url: jobs/results/126531728385680070-area-environment-health-safety-program-manager-data-center-construction
+                  - heading "Area Environment Health Safety Program Manager, Data Center Construction" [level=3] [ref=f42e235]
+                  - paragraph [ref=f42e236]:
+                    - generic [ref=f42e237]: Hyderabad, Telangana, India
+              - listitem [ref=f42e238]:
+                - link "Field Sales Representative, Google Cloud Melbourne VIC, Australia; Sydney NSW, Australia" [ref=f42e243] [cursor=pointer]:
+                  - /url: jobs/results/104418556686279366-field-sales-representative-google-cloud
+                  - heading "Field Sales Representative, Google Cloud" [level=3] [ref=f42e244]
+                  - paragraph [ref=f42e245]:
+                    - generic [ref=f42e246]:
+                      - text: Melbourne VIC, Australia
+                      - generic [ref=f42e247]: ; Sydney NSW, Australia
+              - listitem [ref=f42e248]:
+                - link "Data Center Mechanical Engineer Kronstorf, Austria" [ref=f42e253] [cursor=pointer]:
+                  - /url: jobs/results/115747788670542534-data-center-mechanical-engineer
+                  - heading "Data Center Mechanical Engineer" [level=3] [ref=f42e254]
+                  - paragraph [ref=f42e255]:
+                    - generic [ref=f42e256]: Kronstorf, Austria
+              - listitem [ref=f42e257]:
+                - link "Engagement Manager, gTech Ads (English, Urdu) Singapore" [ref=f42e262] [cursor=pointer]:
+                  - /url: jobs/results/94266795891794630-engagement-manager-gtech-ads-english-urdu
+                  - heading "Engagement Manager, gTech Ads (English, Urdu)" [level=3] [ref=f42e263]
+                  - paragraph [ref=f42e264]:
+                    - generic [ref=f42e265]: Singapore
+              - listitem [ref=f42e266]:
+                - link "Staff Industrial Designer, Audio Wearables, Devices and Services Mountain View, CA, USA" [ref=f42e271] [cursor=pointer]:
+                  - /url: jobs/results/121078902331187910-staff-industrial-designer-audio-wearables-devices-and-services
+                  - heading "Staff Industrial Designer, Audio Wearables, Devices and Services" [level=3] [ref=f42e272]
+                  - paragraph [ref=f42e273]:
+                    - generic [ref=f42e274]: Mountain View, CA, USA
+              - listitem [ref=f42e275]:
+                - link "Technical Program Manager, Core ML PMO Sunnyvale, CA, USA" [ref=f42e280] [cursor=pointer]:
+                  - /url: jobs/results/73426029728670406-technical-program-manager-core-ml-pmo
+                  - heading "Technical Program Manager, Core ML PMO" [level=3] [ref=f42e281]
+                  - paragraph [ref=f42e282]:
+                    - generic [ref=f42e283]: Sunnyvale, CA, USA
+              - listitem [ref=f42e284]:
+                - link "Account Strategist, Mid-Market Sales, Google Customer Solutions (Urdu, English) Singapore" [ref=f42e289] [cursor=pointer]:
+                  - /url: jobs/results/132956685927883462-account-strategist-midmarket-sales-google-customer-solutions-urdu-english
+                  - heading "Account Strategist, Mid-Market Sales, Google Customer Solutions (Urdu, English)" [level=3] [ref=f42e290]
+                  - paragraph [ref=f42e291]:
+                    - generic [ref=f42e292]: Singapore
+              - listitem [ref=f42e293]:
+                - link "Customer Engineer, Platform, Production Google Cloud, DACH (German) Munich, Germany" [ref=f42e298] [cursor=pointer]:
+                  - /url: jobs/results/113177781709218502-customer-engineer-platform-production-google-cloud-dach-german
+                  - heading "Customer Engineer, Platform, Production Google Cloud, DACH (German)" [level=3] [ref=f42e299]
+                  - paragraph [ref=f42e300]:
+                    - generic [ref=f42e301]: Munich, Germany
+              - listitem [ref=f42e302]:
+                - link "Program Manager, Data Center Construction Amarillo, TX, USA" [ref=f42e307] [cursor=pointer]:
+                  - /url: jobs/results/134249415249404614-program-manager-data-center-construction
+                  - heading "Program Manager, Data Center Construction" [level=3] [ref=f42e308]
+                  - paragraph [ref=f42e309]:
+                    - generic [ref=f42e310]: Amarillo, TX, USA
+              - listitem [ref=f42e311]:
+                - link "Research Scientist, Gemini Data, DeepMind Paris, France; Mountain View, CA, USA" [ref=f42e316] [cursor=pointer]:
+                  - /url: jobs/results/114521455785321158-research-scientist-gemini-data-deepmind
+                  - heading "Research Scientist, Gemini Data, DeepMind" [level=3] [ref=f42e317]
+                  - paragraph [ref=f42e318]:
+                    - generic [ref=f42e319]:
+                      - text: Paris, France
+                      - generic [ref=f42e320]: ; Mountain View, CA, USA
+              - listitem [ref=f42e321]:
+                - link "Senior Software Engineer, Vertex AI, Workbench Warsaw, Poland" [ref=f42e326] [cursor=pointer]:
+                  - /url: jobs/results/114905638462464710-senior-software-engineer-vertex-ai-workbench
+                  - heading "Senior Software Engineer, Vertex AI, Workbench" [level=3] [ref=f42e327]
+                  - paragraph [ref=f42e328]:
+                    - generic [ref=f42e329]: Warsaw, Poland
+              - listitem [ref=f42e330]:
+                - link "Customer Engineer, Practice, Google Cloud São Paulo, State of São Paulo, Brazil" [ref=f42e335] [cursor=pointer]:
+                  - /url: jobs/results/114239033768321734-customer-engineer-practice-google-cloud
+                  - heading "Customer Engineer, Practice, Google Cloud" [level=3] [ref=f42e336]
+                  - paragraph [ref=f42e337]:
+                    - generic [ref=f42e338]: São Paulo, State of São Paulo, Brazil
+              - listitem [ref=f42e339]:
+                - link "Technical Program Manager III, Industrial Operations, Technical Infrastructure Phoenix, AZ, USA; Council Bluffs, IA, USA ; +5 more" [ref=f42e344] [cursor=pointer]:
+                  - /url: jobs/results/89775544295400134-technical-program-manager-iii-industrial-operations-technical-infrastructure
+                  - heading "Technical Program Manager III, Industrial Operations, Technical Infrastructure" [level=3] [ref=f42e345]
+                  - paragraph [ref=f42e346]:
+                    - generic [ref=f42e347]:
+                      - text: Phoenix, AZ, USA
+                      - generic [ref=f42e348]: ; Council Bluffs, IA, USA
+                      - text: ; +5 more
+            - generic [ref=f42e353]:
+              - status [ref=f42e354]:
+                - generic [ref=f42e355]: Showing 1 to 20 of 3664 rows
+                - generic [ref=f42e356]: 1‑20 of 3664
+              - generic [ref=f42e357] [cursor=pointer]:
+                - generic [ref=f42e358]: navigate_next
+                - link "Go to next page" [ref=f42e359]:
+                  - /url: https://www.google.com/about/careers/applications/jobs/results/94516421538521798-software-engineer-iii-full-stack?page=2
+      - generic [ref=f42e360]:
+        - main [ref=f42e361]:
+          - generic [ref=f42e368]:
+            - generic [ref=f42e369]:
+              - heading "Software Engineer III, Full Stack" [level=2] [ref=f42e370]
+              - generic [ref=f42e372]:
+                - button "Share Software Engineer III, Full Stack" [ref=f42e375] [cursor=pointer]:
+                  - generic [ref=f42e376]: share
+                - button "Bookmark Software Engineer III, Full Stack" [ref=f42e377] [cursor=pointer]:
+                  - generic [ref=f42e378]: bookmark_border
+            - generic [ref=f42e380]:
+              - generic [ref=f42e381]:
+                - generic [ref=f42e382]: corporate_fare
+                - generic [ref=f42e383]: Google
+              - generic [ref=f42e384]:
+                - generic [ref=f42e385]: place
+                - generic [ref=f42e386]: Mountain View, CA, USA
+                - generic [ref=f42e387]: ; Palo Alto, CA, USA
+                - generic [ref=f42e388]: ; +3 more
+              - img "Mid, Learn more about experience filters." [ref=f42e392]:
+                - generic [ref=f42e395]: bar_chart
+                - generic [ref=f42e397]: Mid
+            - generic [ref=f42e400]:
+              - generic [ref=f42e402]: Apply
+              - link "Apply" [ref=f42e403] [cursor=pointer]:
+                - /url: ./apply?jobId=CiUAL2FckfWzShPLq0DAtxZ8z9QMMfysBjlMmDNHPKM1s9pKVnLuEjsA1Ny_iwL5ml_cGrk73cqBIkF4raq9mOB4N6YHyvIgfQxkBT7qJtkxc4XW54IiNfOj-A7OKu4vh8kQfQ%3D%3D_V2&loc=US&title=Software+Engineer+III
+            - generic [ref=f42e404]:
+              - generic [ref=f42e405]:
+                - img "Info" [ref=f42e406]:
+                  - generic [ref=f42e407]: info_outline
+                - generic [ref=f42e408]: X
+                - generic [ref=f42e409]: "Applicants in San Francisco: Qualified applications with arrest or conviction records will be considered for employment in accordance with the San Francisco Fair Chance Ordinance for Employers and the California Fair Chance Act.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Palo Alto, CA, USA; San Bruno, CA, USA; San Francisco, CA, USA; Sunnyvale, CA, USA."
+              - heading "Minimum qualifications:" [level=3] [ref=f42e410]
+              - list [ref=f42e411]:
+                - listitem [ref=f42e412]: Bachelor's degree or equivalent practical experience.
+                - listitem [ref=f42e413]: 2 years of experience programming in C++, Python, or Java.
+                - listitem [ref=f42e414]: 2 years of experience programming in JavaScript or TypeScript.
+                - listitem [ref=f42e415]: 2 years of experience with front-end frameworks, full-stack development, or API development.
+              - heading "Preferred qualifications:" [level=3] [ref=f42e416]
+              - list [ref=f42e417]:
+                - listitem [ref=f42e418]: Master's degree or PhD in Computer Science or related technical fields.
+                - listitem [ref=f42e419]: 2 years of experience with data structures and algorithms in either an academic or industry setting.
+                - listitem [ref=f42e420]: 2 years of experience with performance, large-scale systems data analysis, visualization tools, or debugging.
+                - listitem [ref=f42e421]: Experience developing accessible technologies.
+                - listitem [ref=f42e422]: Proficiency in code and system health, diagnosis and resolution, and software test engineering.
+            - generic [ref=f42e423]:
+              - heading "About the job" [level=3] [ref=f42e424]
+              - text: Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
+              - paragraph [ref=f42e425]: With your technical expertise, you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.
+              - paragraph
+              - text: "Individual pay is determined by factors including job-related skills, experience, and relevant education or training. US: $147000 - $211000 (USD) + 15% bonus target + equity + benefitsLearn more about"
+              - link "benefits at Google" [ref=f42e426] [cursor=pointer]:
+                - /url: https://www.google.com/about/careers/applications/benefits/
+              - text: .
+            - generic [ref=f42e427]:
+              - heading "Responsibilities" [level=3] [ref=f42e428]
+              - list [ref=f42e429]:
+                - listitem [ref=f42e430]: Write product or system development code.
+                - listitem [ref=f42e431]: Participate in, or lead, design reviews with peers and stakeholders to decide amongst available technologies.
+                - listitem [ref=f42e432]: Review code developed by other developers and provide feedback to ensure best practices (e.g., style guidelines, checking code in, accuracy, testability, and efficiency).
+                - listitem [ref=f42e433]: Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback.
+                - listitem [ref=f42e434]: Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality.
+            - generic [ref=f42e436]:
+              - paragraph [ref=f42e437]:
+                - text: Information collected and processed as part of your Google Careers profile, and any job applications you choose to submit is subject to Google's
+                - link "Applicant and Candidate Privacy Policy" [ref=f42e438] [cursor=pointer]:
+                  - /url: ./privacy-policy
+                - text: .
+              - paragraph [ref=f42e439]:
+                - text: Google is proud to be an equal opportunity and affirmative action employer. We are committed to building a workforce that is representative of the users we serve, creating a culture of belonging, and providing an equal employment opportunity regardless of race, creed, color, religion, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition (including breastfeeding), expecting or parents-to-be, criminal histories consistent with legal requirements, or any other basis protected by law. See also
+                - link "Google's EEO Policy" [ref=f42e440] [cursor=pointer]:
+                  - /url: https://www.google.com/about/careers/applications/eeo/
+                - text: ","
+                - 'link "Know your rights: workplace discrimination is illegal" [ref=f42e441] [cursor=pointer]':
+                  - /url: https://careers.google.com/jobs/dist/legal/EEOC_KnowYourRights_10_20.pdf
+                - text: ","
+                - link "Belonging at Google" [ref=f42e442] [cursor=pointer]:
+                  - /url: https://about.google/belonging/
+                - text: ", and"
+                - link "How we hire" [ref=f42e443] [cursor=pointer]:
+                  - /url: https://careers.google.com/how-we-hire/
+                - text: .
+              - paragraph [ref=f42e444]:
+                - text: If you have a need that requires accommodation, please let us know by completing our
+                - link "Accommodations for Applicants form" [ref=f42e445] [cursor=pointer]:
+                  - /url: https://goo.gl/forms/aBt6Pu71i1kzpLHe2
+                - text: .
+              - paragraph [ref=f42e446]: Google is a global company and, in order to facilitate efficient collaboration and communication globally, English proficiency is a requirement for all roles unless stated otherwise in the job posting.
+              - paragraph [ref=f42e447]: "To all recruitment agencies: Google does not accept agency resumes. Please do not forward resumes to our jobs alias, Google employees, or any other organization location. Google is not responsible for any fees related to unsolicited resumes."
+              - paragraph [ref=f42e448]: Equity is granted exclusively and discretionarily by Alphabet Inc. on the basis of an agreement concluded between you and Alphabet Inc. Alphabet Inc. is your sole contractual partner with respect to equity grants. GSU grants are not guaranteed, are discretionary, are subject to approval by the Alphabet Inc. board of directors or its delegate, the terms of the relevant Alphabet Inc. stock plan, and your grant agreement. They have no impact on statutory payments. Current or past grants do not confer an acquired right.
+        - contentinfo [ref=f42e450]:
+          - generic [ref=f42e452]:
+            - generic [ref=f42e453]:
+              - heading "Follow Life at Google on" [level=2] [ref=f42e454]
+              - list [ref=f42e455]:
+                - listitem [ref=f42e456]:
+                  - link "View our Instagram feed (Opens in a new tab)" [ref=f42e457] [cursor=pointer]:
+                    - /url: https://www.instagram.com/lifeatgoogle/
+                - listitem [ref=f42e462]:
+                  - link "View our Twitter feed (Opens in a new tab)" [ref=f42e463] [cursor=pointer]:
+                    - /url: https://twitter.com/lifeatgoogle
+                - listitem [ref=f42e466]:
+                  - link "View our YouTube channel (Opens in a new tab)" [ref=f42e467] [cursor=pointer]:
+                    - /url: https://www.youtube.com/lifeatgoogle
+                - listitem [ref=f42e470]:
+                  - link "View LinkedIn (Opens in a new tab)" [ref=f42e471] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/google/jobs/
+                - listitem [ref=f42e474]:
+                  - link "View our Facebook (Opens in a new tab)" [ref=f42e475] [cursor=pointer]:
+                    - /url: https://www.facebook.com/lifeatgoogle/
+            - generic [ref=f42e480]:
+              - generic [ref=f42e481]:
+                - heading "More about us" [level=2] [ref=f42e482]
+                - generic [ref=f42e483]:
+                  - link "About us (opens in a new tab)" [ref=f42e484] [cursor=pointer]:
+                    - /url: https://about.google/
+                    - text: About us
+                    - generic [ref=f42e485]: open_in_new
+                  - link "Contact us (opens in a new tab)" [ref=f42e487] [cursor=pointer]:
+                    - /url: https://about.google/contact-google/
+                    - text: Contact us
+                    - generic [ref=f42e488]: open_in_new
+                  - link "Press (opens in a new tab)" [ref=f42e490] [cursor=pointer]:
+                    - /url: https://blog.google/press/
+                    - text: Press
+                    - generic [ref=f42e491]: open_in_new
+              - generic [ref=f42e493]:
+                - heading "Related Information" [level=2] [ref=f42e494]
+                - generic [ref=f42e495]:
+                  - link "Investor relations (opens in a new tab)" [ref=f42e496] [cursor=pointer]:
+                    - /url: https://abc.xyz/investor/
+                    - text: Investor relations
+                    - generic [ref=f42e497]: open_in_new
+                  - link "Blog (opens in a new tab)" [ref=f42e499] [cursor=pointer]:
+                    - /url: https://blog.google/
+                    - text: Blog
+                    - generic [ref=f42e500]: open_in_new
+              - generic [ref=f42e502]:
+                - heading "Equal Opportunity" [level=2] [ref=f42e503]
+                - paragraph [ref=f42e504]:
+                  - text: Google is proud to be an equal opportunity and affirmative action employer. We are committed to building a workforce that is representative of the users we serve, creating a culture of belonging, and providing an equal employment opportunity regardless of race, creed, color, religion, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition (including breastfeeding), expecting or parents-to-be, criminal histories consistent with legal requirements, or any other basis protected by law. See also
+                  - link "Google's EEO Policy" [ref=f42e505] [cursor=pointer]:
+                    - /url: https://www.google.com/about/careers/applications/eeo/
+                  - text: ","
+                  - 'link "Know your rights: workplace discrimination is illegal" [ref=f42e506] [cursor=pointer]':
+                    - /url: https://careers.google.com/jobs/dist/legal/EEOC_KnowYourRights_10_20.pdf
+                  - text: ","
+                  - link "Belonging at Google" [ref=f42e507] [cursor=pointer]:
+                    - /url: https://about.google/belonging/
+                  - text: ", and"
+                  - link "How we hire" [ref=f42e508] [cursor=pointer]:
+                    - /url: https://careers.google.com/how-we-hire/
+                  - text: .
+            - generic [ref=f42e509]:
+              - link "google.com (Opens in a new tab)" [ref=f42e511] [cursor=pointer]:
+                - /url: https://www.google.com/
+                - img "Google" [ref=f42e512]
+              - generic [ref=f42e513]:
+                - generic [ref=f42e514]:
+                  - link "Privacy (opens in a new tab)" [ref=f42e516] [cursor=pointer]:
+                    - /url: https://policies.google.com/privacy
+                    - text: Privacy
+                    - generic [ref=f42e517]: open_in_new
+                  - link "Applicant & Candidate Privacy (opens in a new tab)" [ref=f42e520] [cursor=pointer]:
+                    - /url: ./privacy-policy
+                    - text: Applicant & Candidate Privacy
+                    - generic [ref=f42e521]: open_in_new
+                  - link "Terms (opens in a new tab)" [ref=f42e524] [cursor=pointer]:
+                    - /url: https://policies.google.com/terms
+                    - text: Terms
+                    - generic [ref=f42e525]: open_in_new
+                - generic [ref=f42e527]:
+                  - link "Help (opens in a new tab)" [ref=f42e528] [cursor=pointer]:
+                    - /url: https://support.google.com/googlecareers/#topic=6095159
+                    - generic [ref=f42e529]: help
+                    - text: Help
+                    - generic [ref=f42e531]: open_in_new
+                  - combobox "Select language" [ref=f42e536] [cursor=pointer]:
+                    - generic: language
+                    - generic: English
+  - generic [ref=f42e538]: "Info Applicants in San Francisco: Qualified applications with arrest or conviction records will be considered for employment in accordance with the San Francisco Fair Chance Ordinance for Employers and the California Fair Chance Act.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Palo Alto, CA, USA; San Bruno, CA, USA; San Francisco, CA, USA; Sunnyvale, CA, USA."

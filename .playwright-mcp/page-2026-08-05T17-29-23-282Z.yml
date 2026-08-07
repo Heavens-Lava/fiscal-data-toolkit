@@ -1,0 +1,886 @@
+- generic [active] [ref=f72e1]:
+  - link "Skip to main content" [ref=f72e2] [cursor=pointer]:
+    - /url: "#gnav-header-end"
+  - main [ref=f72e3]:
+    - generic [ref=f72e5]:
+      - navigation "Primary" [ref=f72e7]:
+        - generic [ref=f72e9]:
+          - generic [ref=f72e10]:
+            - generic [ref=f72e11]:
+              - button "Skip to main content" [ref=f72e12] [cursor=pointer]
+              - link "Indeed Home" [ref=f72e14] [cursor=pointer]:
+                - /url: /?from=gnav-jobsearch--indeedmobile
+            - generic [ref=f72e18]:
+              - list [ref=f72e19]:
+                - listitem [ref=f72e20]:
+                  - link "Sign in" [ref=f72e24] [cursor=pointer]:
+                    - /url: https://secure.indeed.com/auth?hl=en_US&co=US&continue=https%3A%2F%2Fwww.indeed.com%2Fjobs%3Fq%3Dfrontend%2Bdeveloper%2BReact%26l%3DRemote&tmpl=desktop&from=gnav-util-jobsearch--indeedmobile&jsContinue=https%3A%2F%2Fonboarding.indeed.com%2Fonboarding%3Fhl%3Den_US%26co%3DUS%26from%3Dgnav-jobsearch--indeedmobile&empContinue=https%3A%2F%2Faccount.indeed.com%2Fmyaccess
+              - button "Primary navigation" [ref=f72e30] [cursor=pointer]:
+                - generic [ref=f72e34]:
+                  - text: "1"
+                  - generic [ref=f72e35]: new update
+          - generic [ref=f72e36]: Start of main content
+      - generic [ref=f72e38]:
+        - search [ref=f72e43]:
+          - generic [ref=f72e46]:
+            - generic [ref=f72e48]:
+              - generic [ref=f72e49]:
+                - generic [ref=f72e50]: "Keyword : all jobs"
+                - generic [ref=f72e53]:
+                  - 'combobox "search: Job title, keywords, or company" [ref=f72e57]': frontend developer React
+                  - button "Clear what input" [ref=f72e59] [cursor=pointer]
+              - separator [ref=f72e62]:
+                - generic [ref=f72e63]: "&nbsp;"
+              - generic [ref=f72e64]:
+                - generic [ref=f72e65]: Edit location input box label
+                - generic [ref=f72e68]:
+                  - combobox "Edit location" [ref=f72e72]: Remote
+                  - button "Clear location input" [ref=f72e74] [cursor=pointer]
+            - button "Search" [ref=f72e78] [cursor=pointer]
+          - list [ref=f72e81]:
+            - button "Pay filter" [ref=f72e83] [cursor=pointer]: Pay
+            - button "Remote filter" [ref=f72e85] [cursor=pointer]: Remote
+            - button "Job type filter" [ref=f72e87] [cursor=pointer]: Job type
+            - button "Experience level filter" [ref=f72e89] [cursor=pointer]: Experience level
+            - button "Residency Requirement filter" [ref=f72e91] [cursor=pointer]: Residency Requirement
+            - button "Education filter" [ref=f72e93] [cursor=pointer]: Education
+            - button "Encouraged to apply filter" [ref=f72e95] [cursor=pointer]: Encouraged to apply
+            - button "Date posted filter" [ref=f72e97] [cursor=pointer]: Date posted
+        - generic [ref=f72e104]:
+          - generic [ref=f72e105]:
+            - link "Upload your resume" [ref=f72e106] [cursor=pointer]:
+              - /url: /promo/resume?from=serptop3&subfrom=resprmrtop&trk.origin=jobsearch&trk.variant=resprmrtop&trk.tk=1jv9fi4angssg800
+            - text: "- Let employers find you"
+            - separator [ref=f72e107]:
+              - generic [ref=f72e108]: "&nbsp;"
+          - generic [ref=f72e109]:
+            - generic [ref=f72e110]:
+              - heading "frontend developer React jobs in Remote" [level=1] [ref=f72e111]
+              - button "More information about job results" [ref=f72e114] [cursor=pointer]:
+                - img "More information about job results" [ref=f72e115]
+            - generic [ref=f72e119]:
+              - generic [ref=f72e120]: "Sort by:"
+              - generic [ref=f72e121]:
+                - text: relevance -
+                - 'link "Sort by: date" [ref=f72e122] [cursor=pointer]':
+                  - /url: /jobs?q=frontend%20developer%20React&l=Remote&sort=date
+                  - text: date
+          - list [ref=f72e126]:
+            - listitem
+            - listitem [ref=f72e127]:
+              - generic [ref=f72e131]:
+                - generic:
+                  - generic [ref=f72e134]:
+                    - heading [level=3] [ref=f72e136]:
+                      - button "full details of Frontend Developer" [pressed] [ref=f72e137] [cursor=pointer]: Frontend Developer
+                    - generic [ref=f72e140]:
+                      - generic [ref=f72e143]:
+                        - generic [ref=f72e144]: Careerswift
+                        - generic [ref=f72e146]: Remote
+                      - list [ref=f72e149]:
+                        - listitem [ref=f72e150]:
+                          - generic [ref=f72e151]: 401(k)
+                        - listitem [ref=f72e154]:
+                          - generic [ref=f72e155]: Health insurance
+                        - listitem [ref=f72e158]:
+                          - generic [ref=f72e159]: Paid time off
+                        - listitem [ref=f72e162]:
+                          - generic [ref=f72e163]: Vision insurance
+                        - listitem [ref=f72e166]:
+                          - generic [ref=f72e167]: Dental insurance
+                    - link "View similar jobs with this employer" [ref=f72e171] [cursor=pointer]:
+                      - /url: /addlLoc/redirect?tk=1jv9fi4angssg800&jk=8c965094cc17e39f&dest=%2Fjobs%3Fq%3Dfrontend%2Bdeveloper%2BReact%26nl%3D%26l%3DRemote%26radius%3D25%26grpKey%3DoAEB8gcFdG5mZWy4D5b89D6qECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                    - button "Save job Toggle" [ref=f72e175] [cursor=pointer]
+                  - generic [ref=f72e178]:
+                    - list [ref=f72e180]:
+                      - listitem [ref=f72e181]: Familiarity with frontend performance monitoring.
+                      - listitem [ref=f72e182]: 3+ years of professional frontend development experience.
+                      - listitem [ref=f72e183]: Integrate frontend features with APIs and backend…
+                    - list [ref=f72e187]:
+                      - listitem [ref=f72e188]:
+                        - generic [ref=f72e189]:
+                          - text: View all
+                          - link "Careerswift jobs in Remote" [ref=f72e190] [cursor=pointer]:
+                            - /url: /q-careerswift-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e191] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e192] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e193]:
+                        - generic [ref=f72e194]:
+                          - text: "Salary Search:"
+                          - link "Frontend Developer salaries in Remote" [ref=f72e195] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=8c965094cc17e39f&from=serp-more
+            - listitem [ref=f72e197]:
+              - generic [ref=f72e199]:
+                - generic:
+                  - generic [ref=f72e202]:
+                    - heading [level=3] [ref=f72e204]:
+                      - button "full details of Frontend Developer (React) Junior/Mid" [ref=f72e205] [cursor=pointer]: Frontend Developer (React) Junior/Mid
+                    - generic [ref=f72e211]:
+                      - generic [ref=f72e212]: Careerswift
+                      - generic [ref=f72e214]: Remote in San Francisco, CA
+                    - button "Save job Toggle" [ref=f72e216] [cursor=pointer]
+                  - generic [ref=f72e219]:
+                    - list [ref=f72e221]:
+                      - listitem [ref=f72e222]: We are hiring a Frontend Developer to build and maintain responsive, high-performance web applications using React.
+                    - list [ref=f72e226]:
+                      - listitem [ref=f72e227]:
+                        - generic [ref=f72e228]:
+                          - text: View all
+                          - link "Careerswift jobs in San Francisco, CA" [ref=f72e229] [cursor=pointer]:
+                            - /url: /q-careerswift-l-san-francisco,-ca-jobs.html
+                          - text: "-"
+                          - link "San Francisco jobs" [ref=f72e230] [cursor=pointer]:
+                            - /url: /l-san-francisco,-ca-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in San Francisco, CA" [ref=f72e231] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-san-francisco,-ca-jobs.html
+                      - listitem [ref=f72e232]:
+                        - generic [ref=f72e233]:
+                          - text: "Salary Search:"
+                          - link "Frontend Developer (React) Junior/Mid salaries in San Francisco, CA" [ref=f72e234] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries/San-Francisco--CA?campaignid=serp-more&fromjk=250b732f9cdc669c&from=serp-more
+            - listitem [ref=f72e236]:
+              - generic [ref=f72e238]:
+                - generic:
+                  - generic [ref=f72e241]:
+                    - heading [level=3] [ref=f72e243]:
+                      - button "full details of Frontend Web Developer React/Typescript" [ref=f72e244] [cursor=pointer]: Frontend Web Developer React/Typescript
+                    - generic [ref=f72e250]:
+                      - generic [ref=f72e251]: Zensors
+                      - generic [ref=f72e253]: Remote
+                    - button "Save job Toggle" [ref=f72e256] [cursor=pointer]
+                  - generic [ref=f72e259]:
+                    - list [ref=f72e261]:
+                      - listitem [ref=f72e262]: We are looking for an experienced Software Developer who is strong in React with an eye for visual design and focus on great user experience.
+                    - list [ref=f72e266]:
+                      - listitem [ref=f72e267]:
+                        - generic [ref=f72e268]:
+                          - text: View all
+                          - link "Zensors jobs in Remote" [ref=f72e269] [cursor=pointer]:
+                            - /url: /q-zensors-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e270] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e271] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e272]:
+                        - generic [ref=f72e273]:
+                          - text: "Salary Search:"
+                          - link "Frontend Web Developer React/Typescript salaries in Remote" [ref=f72e274] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=0d5c8ef80784febd&from=serp-more
+            - listitem [ref=f72e276]:
+              - generic [ref=f72e278]:
+                - generic:
+                  - generic [ref=f72e281]:
+                    - heading [level=3] [ref=f72e283]:
+                      - button "full details of React/Redux Frontend Developer (Remote)" [ref=f72e284] [cursor=pointer]: React/Redux Frontend Developer (Remote)
+                    - generic [ref=f72e287]:
+                      - generic [ref=f72e290]:
+                        - generic [ref=f72e291]: Govcio LLC
+                        - generic [ref=f72e293]: Remote
+                      - list [ref=f72e296]:
+                        - listitem [ref=f72e297]:
+                          - generic [ref=f72e298]: $90,000 - $100,000 a year
+                        - listitem [ref=f72e301]:
+                          - generic [ref=f72e302]: Full-time
+                    - button "Save job Toggle" [ref=f72e306] [cursor=pointer]
+                  - generic [ref=f72e309]:
+                    - list [ref=f72e311]:
+                      - listitem [ref=f72e312]: Experience collaborating with a team of developers/engineers.
+                      - listitem [ref=f72e313]: Work with a team of developers towards successful project execution, ensuring high-quality…
+                    - list [ref=f72e317]:
+                      - listitem [ref=f72e318]:
+                        - generic [ref=f72e319]:
+                          - text: View all
+                          - link "Govcio LLC jobs in Remote" [ref=f72e320] [cursor=pointer]:
+                            - /url: /q-govcio-llc-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e321] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e322] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e323]:
+                        - generic [ref=f72e324]:
+                          - text: "Salary Search:"
+                          - link "React/Redux Frontend Developer (Remote) salaries in Remote" [ref=f72e325] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=36ac0e2e3aa883cb&from=serp-more
+                      - listitem [ref=f72e326]:
+                        - generic [ref=f72e327]:
+                          - text: See popular
+                          - link "questions & answers about Govcio LLC" [ref=f72e328] [cursor=pointer]:
+                            - /url: /cmp/Govcio/faq
+            - listitem [ref=f72e330]:
+              - generic [ref=f72e332]:
+                - generic:
+                  - generic [ref=f72e335]:
+                    - heading [level=3] [ref=f72e337]:
+                      - button "full details of React Developer" [ref=f72e338] [cursor=pointer]: React Developer
+                    - generic [ref=f72e341]:
+                      - generic [ref=f72e344]:
+                        - generic [ref=f72e345]: Busigence Technologies
+                        - generic [ref=f72e347]: Remote
+                      - list [ref=f72e350]:
+                        - listitem [ref=f72e351]:
+                          - generic [ref=f72e352]: Flexible schedule
+                    - button "Save job Toggle" [ref=f72e356] [cursor=pointer]
+                  - generic [ref=f72e359]:
+                    - list [ref=f72e361]:
+                      - listitem [ref=f72e362]: We are looking for developer with real passion for web applications.
+                      - listitem [ref=f72e363]: We create decision intelligence products for real people by combining data, technology,…
+                    - list [ref=f72e367]:
+                      - listitem [ref=f72e368]:
+                        - generic [ref=f72e369]:
+                          - text: View all
+                          - link "Busigence Technologies jobs in Remote" [ref=f72e370] [cursor=pointer]:
+                            - /url: /q-busigence-technologies-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e371] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Developer jobs in Remote" [ref=f72e372] [cursor=pointer]:
+                            - /url: /q-developer-l-remote-jobs.html
+                      - listitem [ref=f72e373]:
+                        - generic [ref=f72e374]:
+                          - text: "Salary Search:"
+                          - link "React Developer salaries in Remote" [ref=f72e375] [cursor=pointer]:
+                            - /url: /career/developer/salaries?campaignid=serp-more&fromjk=5d0204c8ca5dabd6&from=serp-more
+            - listitem
+            - listitem [ref=f72e377]:
+              - generic [ref=f72e379]:
+                - generic:
+                  - generic [ref=f72e382]:
+                    - heading [level=3] [ref=f72e384]:
+                      - button "full details of Frontend Developer - HTML" [ref=f72e385] [cursor=pointer]: Frontend Developer - HTML
+                    - generic [ref=f72e391]:
+                      - generic [ref=f72e392]: AppMySite
+                      - generic [ref=f72e394]: Remote
+                    - button "Save job Toggle" [ref=f72e397] [cursor=pointer]
+                  - generic [ref=f72e400]:
+                    - list [ref=f72e402]:
+                      - listitem [ref=f72e403]: AppMySite, www.appmysite.com is a no-code mobile app builder that empowers users with the ability to create premium native mobile apps, in real time.
+                    - list [ref=f72e407]:
+                      - listitem [ref=f72e408]:
+                        - generic [ref=f72e409]:
+                          - text: View all
+                          - link "AppMySite jobs in Remote" [ref=f72e410] [cursor=pointer]:
+                            - /url: /q-appmysite-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e411] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e412] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e413]:
+                        - generic [ref=f72e414]:
+                          - text: "Salary Search:"
+                          - link "Frontend Developer - HTML salaries in Remote" [ref=f72e415] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=8e2a6aa45ca3e451&from=serp-more
+            - listitem [ref=f72e417]:
+              - generic [ref=f72e419]:
+                - generic:
+                  - generic [ref=f72e422]:
+                    - heading [level=3] [ref=f72e424]:
+                      - button "full details of Frontend Developer" [ref=f72e425] [cursor=pointer]: Frontend Developer
+                    - generic [ref=f72e431]:
+                      - generic [ref=f72e432]: Cluster Protocol
+                      - generic [ref=f72e434]: Remote
+                    - button "Save job Toggle" [ref=f72e437] [cursor=pointer]
+                  - generic [ref=f72e440]:
+                    - list [ref=f72e442]:
+                      - listitem [ref=f72e443]: We move at the speed of light (or at least the speed of a really good WiFi connection).
+                    - list [ref=f72e447]:
+                      - listitem [ref=f72e448]:
+                        - generic [ref=f72e449]:
+                          - text: View all
+                          - link "Cluster Protocol jobs in Remote" [ref=f72e450] [cursor=pointer]:
+                            - /url: /q-cluster-protocol-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e451] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e452] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e453]:
+                        - generic [ref=f72e454]:
+                          - text: "Salary Search:"
+                          - link "Frontend Developer salaries in Remote" [ref=f72e455] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=6ba415d17faa6d31&from=serp-more
+            - listitem [ref=f72e457]:
+              - generic [ref=f72e459]:
+                - generic:
+                  - generic [ref=f72e462]:
+                    - heading [level=3] [ref=f72e464]:
+                      - button "full details of Frontend Shopify Developer" [ref=f72e465] [cursor=pointer]: Frontend Shopify Developer
+                    - generic [ref=f72e468]:
+                      - generic [ref=f72e471]:
+                        - generic [ref=f72e472]: IMPACT
+                        - generic [ref=f72e474]: Remote
+                      - list [ref=f72e476]:
+                        - listitem [ref=f72e477]:
+                          - generic [ref=f72e478]: Health insurance
+                    - button "Save job Toggle" [ref=f72e482] [cursor=pointer]
+                  - generic [ref=f72e485]:
+                    - list [ref=f72e487]:
+                      - listitem [ref=f72e488]: At least 3 years of professional experience in frontend web development.
+                      - listitem [ref=f72e489]: Establish and promote frontend best practices, code consistency, and reusable component…
+                    - list [ref=f72e493]:
+                      - listitem [ref=f72e494]:
+                        - generic [ref=f72e495]:
+                          - text: View all
+                          - link "IMPACT jobs in Remote" [ref=f72e496] [cursor=pointer]:
+                            - /url: /q-impact-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e497] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e498] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e499]:
+                        - generic [ref=f72e500]:
+                          - text: "Salary Search:"
+                          - link "Frontend Shopify Developer salaries in Remote" [ref=f72e501] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=fe946f5abe9e9b54&from=serp-more
+                      - listitem [ref=f72e502]:
+                        - generic [ref=f72e503]:
+                          - text: See popular
+                          - link "questions & answers about IMPACT" [ref=f72e504] [cursor=pointer]:
+                            - /url: /cmp/Impact/faq
+            - listitem
+            - listitem [ref=f72e506]:
+              - generic [ref=f72e508]:
+                - heading "Web application roles" [level=2] [ref=f72e511]
+                - generic [ref=f72e514]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f72e515]:
+                    - listitem [ref=f72e516]:
+                      - generic [ref=f72e519]:
+                        - generic [ref=f72e520]:
+                          - heading [level=3] [ref=f72e523]:
+                            - button "full details of Remote Sr or Staff Engineer ($150-$240k) Ruby, Rails, Agentic AI" [ref=f72e524] [cursor=pointer]: Remote Sr or Staff Engineer ($150-$240k) Ruby, Rails, Agentic AI
+                          - generic [ref=f72e526]:
+                            - generic [ref=f72e527]: Everforth
+                            - generic [ref=f72e530]: Remote in Jacksonville, FL 32202
+                          - list [ref=f72e533]:
+                            - listitem [ref=f72e534]:
+                              - generic [ref=f72e535]: $150,000 - $240,000 a year
+                            - listitem [ref=f72e538]:
+                              - generic [ref=f72e539]: Full-time
+                            - listitem [ref=f72e542]:
+                              - generic [ref=f72e543]: 401(k)
+                            - listitem [ref=f72e546]:
+                              - generic [ref=f72e547]: Paid time off
+                            - listitem [ref=f72e550]:
+                              - generic [ref=f72e551]: Vision insurance
+                            - listitem [ref=f72e554]:
+                              - generic [ref=f72e555]: Dental insurance
+                            - listitem [ref=f72e558]:
+                              - generic [ref=f72e559]: Paid sick time
+                        - button "Save job Toggle" [ref=f72e563] [cursor=pointer]
+                    - listitem [ref=f72e567]:
+                      - generic [ref=f72e570]:
+                        - generic [ref=f72e571]:
+                          - generic [ref=f72e573]:
+                            - heading [level=3] [ref=f72e574]:
+                              - button "full details of Senior iOS SDK Engineer" [ref=f72e575] [cursor=pointer]: Senior iOS SDK Engineer
+                            - generic [ref=f72e576]: Easily apply
+                          - generic [ref=f72e582]:
+                            - generic [ref=f72e583]: Everforth
+                            - generic [ref=f72e586]: Remote in Los Angeles, CA 90034
+                          - list [ref=f72e589]:
+                            - listitem [ref=f72e590]:
+                              - generic [ref=f72e591]: $180,000 - $275,000 a year
+                            - listitem [ref=f72e594]:
+                              - generic [ref=f72e595]: Full-time
+                            - listitem [ref=f72e598]:
+                              - generic [ref=f72e599]: Parental leave
+                            - listitem [ref=f72e602]:
+                              - generic [ref=f72e603]: Vision insurance
+                            - listitem [ref=f72e606]:
+                              - generic [ref=f72e607]: Dental insurance
+                            - listitem [ref=f72e610]:
+                              - generic [ref=f72e611]: Unlimited paid time off
+                            - listitem [ref=f72e614]:
+                              - generic [ref=f72e615]: Internet reimbursement
+                        - button "Save job Toggle" [ref=f72e619] [cursor=pointer]
+                  - generic [ref=f72e623]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 2" [ref=f72e624]: 1/2
+                    - button "Next" [ref=f72e625] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f72e628]:
+              - generic [ref=f72e630]:
+                - generic:
+                  - generic [ref=f72e633]:
+                    - heading [level=3] [ref=f72e635]:
+                      - button "full details of Fresher - Web Developer" [ref=f72e636] [cursor=pointer]: Fresher - Web Developer
+                    - generic [ref=f72e639]:
+                      - generic [ref=f72e642]:
+                        - generic [ref=f72e643]: Busigence Technologies
+                        - generic [ref=f72e645]: Remote
+                      - list [ref=f72e648]:
+                        - listitem [ref=f72e649]:
+                          - generic [ref=f72e650]: Flexible schedule
+                    - button "Save job Toggle" [ref=f72e654] [cursor=pointer]
+                  - generic [ref=f72e657]:
+                    - list [ref=f72e659]:
+                      - listitem [ref=f72e660]: We are looking for developer with real passion for javascript, microservices and software development.
+                      - listitem [ref=f72e661]: We create decision intelligence products for real people…
+                    - list [ref=f72e665]:
+                      - listitem [ref=f72e666]:
+                        - generic [ref=f72e667]:
+                          - text: View all
+                          - link "Busigence Technologies jobs in Remote" [ref=f72e668] [cursor=pointer]:
+                            - /url: /q-busigence-technologies-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e669] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Web Developer jobs in Remote" [ref=f72e670] [cursor=pointer]:
+                            - /url: /q-web-developer-l-remote-jobs.html
+                      - listitem [ref=f72e671]:
+                        - generic [ref=f72e672]:
+                          - text: "Salary Search:"
+                          - link "Fresher - Web Developer salaries in Remote" [ref=f72e673] [cursor=pointer]:
+                            - /url: /career/web-developer/salaries?campaignid=serp-more&fromjk=9ba193e431fe5df4&from=serp-more
+            - listitem
+            - listitem [ref=f72e675]:
+              - generic [ref=f72e677]:
+                - generic:
+                  - generic [ref=f72e680]:
+                    - generic [ref=f72e681]:
+                      - heading [level=3] [ref=f72e682]:
+                        - button "full details of Senior Frontend Software Engineer - Typescript | React | NextJS ( Remote)" [ref=f72e683] [cursor=pointer]: Senior Frontend Software Engineer - Typescript | React | NextJS ( Remote)
+                      - generic [ref=f72e684]: Easily apply
+                    - generic [ref=f72e694]:
+                      - generic [ref=f72e695]: Trivelta
+                      - generic [ref=f72e697]: Remote
+                    - button "Save job Toggle" [ref=f72e700] [cursor=pointer]
+                  - generic [ref=f72e703]:
+                    - list [ref=f72e705]:
+                      - listitem [ref=f72e706]: Strong proficiency with React, TypeScript, and modern frontend tooling.
+                      - listitem [ref=f72e707]: Demonstrated ability to think about scalability, maintainability, and performance in…
+                    - list [ref=f72e711]:
+                      - listitem [ref=f72e712]:
+                        - generic [ref=f72e713]:
+                          - text: View all
+                          - link "Trivelta jobs in Remote" [ref=f72e714] [cursor=pointer]:
+                            - /url: /q-trivelta-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e715] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e716] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e717]:
+                        - generic [ref=f72e718]:
+                          - text: "Salary Search:"
+                          - link "Senior Frontend Software Engineer - Typescript | React | NextJS ( Remote) salaries in Remote" [ref=f72e719] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=bd2a650f29ef3a27&from=serp-more
+            - listitem [ref=f72e721]:
+              - generic [ref=f72e723]:
+                - heading "Digital product management positions" [level=2] [ref=f72e726]
+                - generic [ref=f72e728]:
+                  - generic:
+                    - generic [ref=f72e731]:
+                      - generic [ref=f72e732]:
+                        - heading [level=3] [ref=f72e733]:
+                          - button "full details of Technical Product Manager" [ref=f72e734] [cursor=pointer]: Technical Product Manager
+                        - generic [ref=f72e735]: Easily apply
+                      - generic [ref=f72e742]:
+                        - generic [ref=f72e747]:
+                          - generic [ref=f72e748]: SupplyHouse
+                          - generic [ref=f72e750]: Remote
+                        - list [ref=f72e752]:
+                          - listitem [ref=f72e753]:
+                            - generic [ref=f72e754]: $116,984 - $146,230 a year
+                          - listitem [ref=f72e757]:
+                            - generic [ref=f72e758]: Full-time
+                          - listitem [ref=f72e761]:
+                            - generic [ref=f72e764]:
+                              - text: Monday to Friday
+                              - generic [ref=f72e765]: "+1"
+                          - listitem [ref=f72e766]:
+                            - generic [ref=f72e767]: Work from home stipend
+                          - listitem [ref=f72e770]:
+                            - generic [ref=f72e771]: 401(k) 4% Match
+                          - listitem [ref=f72e774]:
+                            - generic [ref=f72e775]: Travel reimbursement
+                          - listitem [ref=f72e778]:
+                            - generic [ref=f72e779]: Flextime
+                          - listitem [ref=f72e782]:
+                            - generic [ref=f72e783]: Pet insurance
+                          - listitem [ref=f72e786]:
+                            - generic [ref=f72e787]: Health insurance
+                      - button "Save job Toggle" [ref=f72e791] [cursor=pointer]
+                    - list [ref=f72e796]:
+                      - listitem [ref=f72e797]: Collaborate closely with developers to define technical requirements, ensuring feasibility and alignment with business objectives.
+                      - listitem [ref=f72e798]: "Role Type: Full-Time, Exempt."
+            - listitem [ref=f72e800]:
+              - generic [ref=f72e802]:
+                - generic:
+                  - generic [ref=f72e805]:
+                    - heading [level=3] [ref=f72e807]:
+                      - button "full details of React Developer (remote)" [ref=f72e808] [cursor=pointer]: React Developer (remote)
+                    - generic [ref=f72e814]:
+                      - generic [ref=f72e815]: Velvetech
+                      - generic [ref=f72e817]: Remote
+                    - button "Save job Toggle" [ref=f72e820] [cursor=pointer]
+                  - generic [ref=f72e823]:
+                    - list [ref=f72e825]:
+                      - listitem [ref=f72e826]: Working in a cross-functional team environment (e.g., with designers, UX researchers, BAs, product managers, and developers).
+                      - listitem [ref=f72e827]: DOM, HTML5 API, CSS3, and HTML5.
+                    - list [ref=f72e831]:
+                      - listitem [ref=f72e832]:
+                        - generic [ref=f72e833]:
+                          - text: View all
+                          - link "Velvetech jobs in Remote" [ref=f72e834] [cursor=pointer]:
+                            - /url: /q-velvetech-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e835] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Developer jobs in Remote" [ref=f72e836] [cursor=pointer]:
+                            - /url: /q-developer-l-remote-jobs.html
+                      - listitem [ref=f72e837]:
+                        - generic [ref=f72e838]:
+                          - text: "Salary Search:"
+                          - link "React Developer (remote) salaries in Remote" [ref=f72e839] [cursor=pointer]:
+                            - /url: /career/developer/salaries?campaignid=serp-more&fromjk=9be146f5396b96ff&from=serp-more
+            - listitem [ref=f72e841]:
+              - generic [ref=f72e843]:
+                - generic:
+                  - generic [ref=f72e846]:
+                    - heading [level=3] [ref=f72e848]:
+                      - 'button "full details of Software Engineer: Frontend" [ref=f72e849] [cursor=pointer]': "Software Engineer: Frontend"
+                    - generic [ref=f72e855]:
+                      - generic [ref=f72e856]: Swiftlane
+                      - generic [ref=f72e858]: Remote
+                    - button "Save job Toggle" [ref=f72e861] [cursor=pointer]
+                  - generic [ref=f72e864]:
+                    - list [ref=f72e866]:
+                      - listitem [ref=f72e867]: Swiftlane provides the ability to open doors using just face recognition.
+                      - listitem [ref=f72e868]: Swiftlane’s products allow visitors to start two video intercoms from a door, to a…
+                    - list [ref=f72e872]:
+                      - listitem [ref=f72e873]:
+                        - generic [ref=f72e874]:
+                          - text: View all
+                          - link "Swiftlane jobs in Remote" [ref=f72e875] [cursor=pointer]:
+                            - /url: /q-swiftlane-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e876] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Software Engineer jobs in Remote" [ref=f72e877] [cursor=pointer]:
+                            - /url: /q-software-engineer-l-remote-jobs.html
+                      - listitem [ref=f72e878]:
+                        - generic [ref=f72e879]:
+                          - text: "Salary Search:"
+                          - 'link "Software Engineer: Frontend salaries in Remote" [ref=f72e880] [cursor=pointer]':
+                            - /url: /career/software-engineer/salaries?campaignid=serp-more&fromjk=2c1323a1d4cece95&from=serp-more
+            - listitem [ref=f72e882]:
+              - generic [ref=f72e884]:
+                - generic:
+                  - generic [ref=f72e887]:
+                    - heading [level=3] [ref=f72e889]:
+                      - button "full details of Mid-Sr React/Redux FrontEnd Developer (Remote)" [ref=f72e890] [cursor=pointer]: Mid-Sr React/Redux FrontEnd Developer (Remote)
+                    - generic [ref=f72e893]:
+                      - generic [ref=f72e896]:
+                        - generic [ref=f72e897]: Govcio LLC
+                        - generic [ref=f72e899]: Remote
+                      - list [ref=f72e902]:
+                        - listitem [ref=f72e903]:
+                          - generic [ref=f72e904]: $105,000 - $115,000 a year
+                    - button "Save job Toggle" [ref=f72e908] [cursor=pointer]
+                  - generic [ref=f72e911]:
+                    - list [ref=f72e913]:
+                      - listitem [ref=f72e914]: Mentor junior-level developers, conduct in-depth code reviews, and ensure adherence to best practices.
+                      - listitem [ref=f72e915]: This is a fully remote role available anywhere in the U.S…
+                    - list [ref=f72e919]:
+                      - listitem [ref=f72e920]:
+                        - generic [ref=f72e921]:
+                          - text: View all
+                          - link "Govcio LLC jobs in Remote" [ref=f72e922] [cursor=pointer]:
+                            - /url: /q-govcio-llc-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e923] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e924] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e925]:
+                        - generic [ref=f72e926]:
+                          - text: "Salary Search:"
+                          - link "Mid-Sr React/Redux FrontEnd Developer (Remote) salaries in Remote" [ref=f72e927] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=160aaf5b9f7a1ffa&from=serp-more
+                      - listitem [ref=f72e928]:
+                        - generic [ref=f72e929]:
+                          - text: See popular
+                          - link "questions & answers about Govcio LLC" [ref=f72e930] [cursor=pointer]:
+                            - /url: /cmp/Govcio/faq
+            - listitem
+            - listitem [ref=f72e932]:
+              - generic [ref=f72e934]:
+                - generic:
+                  - generic [ref=f72e937]:
+                    - heading [level=3] [ref=f72e939]:
+                      - button "full details of Senior Frontend Engineer" [ref=f72e940] [cursor=pointer]: Senior Frontend Engineer
+                    - generic [ref=f72e943]:
+                      - generic [ref=f72e946]:
+                        - generic [ref=f72e947]: ClickUp
+                        - generic [ref=f72e949]: Remote
+                      - list [ref=f72e952]:
+                        - listitem [ref=f72e953]:
+                          - generic [ref=f72e954]: $160,000 - $210,000 a year
+                        - listitem [ref=f72e957]:
+                          - generic [ref=f72e958]: Paid parental leave
+                        - listitem [ref=f72e961]:
+                          - generic [ref=f72e962]: Parental leave
+                        - listitem [ref=f72e965]:
+                          - generic [ref=f72e966]: 401(k)
+                        - listitem [ref=f72e969]:
+                          - generic [ref=f72e970]: Paid time off
+                        - listitem [ref=f72e973]:
+                          - generic [ref=f72e974]: Vision insurance
+                        - listitem [ref=f72e977]:
+                          - generic [ref=f72e978]: Dental insurance
+                    - button "Save job Toggle" [ref=f72e982] [cursor=pointer]
+                  - generic [ref=f72e985]:
+                    - list [ref=f72e987]:
+                      - listitem [ref=f72e988]: Solid understanding of reusable component architecture and frontend performance.
+                      - listitem [ref=f72e989]: Follow established frontend architecture and state management patterns across…
+                    - list [ref=f72e993]:
+                      - listitem [ref=f72e994]:
+                        - generic [ref=f72e995]:
+                          - text: View all
+                          - link "ClickUp jobs in Remote" [ref=f72e996] [cursor=pointer]:
+                            - /url: /q-clickup-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e997] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Senior Engineer jobs in Remote" [ref=f72e998] [cursor=pointer]:
+                            - /url: /q-senior-engineer-l-remote-jobs.html
+                      - listitem [ref=f72e999]:
+                        - generic [ref=f72e1000]:
+                          - text: "Salary Search:"
+                          - link "Senior Frontend Engineer salaries in Remote" [ref=f72e1001] [cursor=pointer]:
+                            - /url: /career/senior-engineer/salaries?campaignid=serp-more&fromjk=4b225d0572ccc785&from=serp-more
+                      - listitem [ref=f72e1002]:
+                        - generic [ref=f72e1003]:
+                          - text: See popular
+                          - link "questions & answers about ClickUp" [ref=f72e1004] [cursor=pointer]:
+                            - /url: /cmp/Clickup-1/faq
+            - listitem [ref=f72e1006]:
+              - generic [ref=f72e1008]:
+                - generic:
+                  - generic [ref=f72e1011]:
+                    - heading [level=3] [ref=f72e1013]:
+                      - button "full details of Frontend Engineer" [ref=f72e1014] [cursor=pointer]: Frontend Engineer
+                    - generic [ref=f72e1017]:
+                      - generic [ref=f72e1020]:
+                        - generic [ref=f72e1021]: Allyable
+                        - generic [ref=f72e1023]: Remote
+                      - list [ref=f72e1026]:
+                        - listitem [ref=f72e1027]:
+                          - generic [ref=f72e1028]: Opportunities for advancement
+                    - button "Save job Toggle" [ref=f72e1032] [cursor=pointer]
+                  - generic [ref=f72e1035]:
+                    - list [ref=f72e1037]:
+                      - listitem [ref=f72e1038]: This role requires strong technical expertise in frontend development, attention to detail, and a collaborative mindset to deliver innovative, accessible and…
+                    - list [ref=f72e1042]:
+                      - listitem [ref=f72e1043]:
+                        - generic [ref=f72e1044]:
+                          - text: View all
+                          - link "Allyable jobs in Remote" [ref=f72e1045] [cursor=pointer]:
+                            - /url: /q-allyable-l-remote-jobs.html
+                          - text: "-"
+                          - link "Remote jobs" [ref=f72e1046] [cursor=pointer]:
+                            - /url: /l-remote-jobs.html
+                          - text: "-"
+                          - link "Front End Developer jobs in Remote" [ref=f72e1047] [cursor=pointer]:
+                            - /url: /q-front-end-developer-l-remote-jobs.html
+                      - listitem [ref=f72e1048]:
+                        - generic [ref=f72e1049]:
+                          - text: "Salary Search:"
+                          - link "Frontend Engineer salaries in Remote" [ref=f72e1050] [cursor=pointer]:
+                            - /url: /career/front-end-developer/salaries?campaignid=serp-more&fromjk=414110c5870177be&from=serp-more
+          - group "Overall, how relevant are these jobs?" [ref=f72e1060]:
+            - generic [ref=f72e1062]:
+              - generic [ref=f72e1064]:
+                - radio [ref=f72e1065] [cursor=pointer]
+                - generic [ref=f72e1071]: Not at all
+              - generic [ref=f72e1073]:
+                - radio [ref=f72e1074] [cursor=pointer]
+                - generic [ref=f72e1080]: Slightly
+              - generic [ref=f72e1082]:
+                - radio [ref=f72e1083] [cursor=pointer]
+                - generic [ref=f72e1089]: Somewhat
+              - generic [ref=f72e1091]:
+                - radio [ref=f72e1092] [cursor=pointer]
+                - generic [ref=f72e1098]: Very
+              - generic [ref=f72e1100]:
+                - radio [ref=f72e1101] [cursor=pointer]
+                - generic [ref=f72e1107]: Extremely
+          - navigation "pagination" [ref=f72e1108]:
+            - list [ref=f72e1109]:
+              - listitem [ref=f72e1110]:
+                - link "1" [ref=f72e1111] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f72e1112]:
+                - link "2" [ref=f72e1113] [cursor=pointer]:
+                  - /url: /jobs?q=frontend+developer+React&l=Remote&radius=25&start=10
+              - listitem [ref=f72e1114]:
+                - link "3" [ref=f72e1115] [cursor=pointer]:
+                  - /url: /jobs?q=frontend+developer+React&l=Remote&radius=25&start=20
+              - listitem [ref=f72e1116]:
+                - link "4" [ref=f72e1117] [cursor=pointer]:
+                  - /url: /jobs?q=frontend+developer+React&l=Remote&radius=25&start=30
+              - listitem [ref=f72e1118]:
+                - link "5" [ref=f72e1119] [cursor=pointer]:
+                  - /url: /jobs?q=frontend+developer+React&l=Remote&radius=25&start=40
+              - listitem [ref=f72e1120]:
+                - link "Next Page" [ref=f72e1121] [cursor=pointer]:
+                  - /url: /jobs?q=frontend+developer+React&l=Remote&radius=25&start=10
+          - generic [ref=f72e1128]:
+            - generic [ref=f72e1129]:
+              - generic [ref=f72e1131]:
+                - text: Get email updates for the latest
+                - strong [ref=f72e1132]: frontend developer React
+                - text: jobs in
+                - strong [ref=f72e1133]: Remote
+              - switch "Get email updates for the latest frontend developer React jobs in Remote" [ref=f72e1135]
+            - paragraph [ref=f72e1141]:
+              - text: By creating a job alert, you agree to our
+              - link "Terms (opens in a new tab)" [ref=f72e1142] [cursor=pointer]:
+                - /url: /legal?hl=en
+                - text: Terms
+              - text: . You can change your consent settings at any time by unsubscribing or as detailed in our terms.
+          - generic [ref=f72e1146]:
+            - heading "People also searched:" [level=3] [ref=f72e1147]
+            - list [ref=f72e1148]:
+              - listitem [ref=f72e1149]:
+                - link "senior web developer" [ref=f72e1150] [cursor=pointer]:
+                  - /url: /q-senior-web-developer-l-remote-jobs.html
+              - listitem [ref=f72e1153]:
+                - link "web developer" [ref=f72e1154] [cursor=pointer]:
+                  - /url: /q-web-developer-l-remote-jobs.html
+              - listitem [ref=f72e1157]:
+                - link "frontend intern" [ref=f72e1158] [cursor=pointer]:
+                  - /url: /q-frontend-intern-l-remote-jobs.html
+              - listitem [ref=f72e1161]:
+                - link "frontend remote" [ref=f72e1162] [cursor=pointer]:
+                  - /url: /q-frontend-remote-l-remote-jobs.html
+              - listitem [ref=f72e1165]:
+                - link "full stack" [ref=f72e1166] [cursor=pointer]:
+                  - /url: /q-full-stack-l-remote-jobs.html
+              - listitem [ref=f72e1169]:
+                - link "fullstack" [ref=f72e1170] [cursor=pointer]:
+                  - /url: /q-fullstack-l-remote-jobs.html
+              - listitem [ref=f72e1173]:
+                - link "java" [ref=f72e1174] [cursor=pointer]:
+                  - /url: /q-java-l-remote-jobs.html
+              - listitem [ref=f72e1177]:
+                - link "javascript" [ref=f72e1178] [cursor=pointer]:
+                  - /url: /q-javascript-l-remote-jobs.html
+              - listitem [ref=f72e1181]:
+                - link "junior developer" [ref=f72e1182] [cursor=pointer]:
+                  - /url: /q-junior-developer-l-remote-jobs.html
+              - listitem [ref=f72e1185]:
+                - link "programmer" [ref=f72e1186] [cursor=pointer]:
+                  - /url: /q-programmer-l-remote-jobs.html
+          - generic [ref=f72e1189]:
+            - heading "Resume Resources:" [level=2] [ref=f72e1190]
+            - list [ref=f72e1191]:
+              - listitem [ref=f72e1192]:
+                - link "Resume Samples" [ref=f72e1193] [cursor=pointer]:
+                  - /url: https://www.indeed.com/career-advice/resume-samples?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f72e1194]:
+                - link "Resume Templates" [ref=f72e1195] [cursor=pointer]:
+                  - /url: https://www.indeed.com/profile/resume-templates?from=jobsearch_footer
+          - generic [ref=f72e1196]:
+            - heading "Career Resources:" [level=2] [ref=f72e1197]
+            - list [ref=f72e1198]:
+              - listitem [ref=f72e1199]:
+                - link "Career Explorer" [ref=f72e1200] [cursor=pointer]:
+                  - /url: /career/salaries?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f72e1201]:
+                - link "Explore High Paying Jobs" [ref=f72e1202] [cursor=pointer]:
+                  - /url: /explorer/
+          - generic [ref=f72e1203]:
+            - heading "Employer Resources:" [level=2] [ref=f72e1204]
+            - list [ref=f72e1205]:
+              - listitem [ref=f72e1206]:
+                - link "How to Write a Job Description" [ref=f72e1207] [cursor=pointer]:
+                  - /url: /hire/how-to-write-a-job-description?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f72e1208]:
+                - link "How to Hire Employees" [ref=f72e1209] [cursor=pointer]:
+                  - /url: /hire/how-to-hire?from=jobsearch_footer
+      - contentinfo [ref=f72e1216]:
+        - generic [ref=f72e1217]:
+          - list [ref=f72e1218]:
+            - listitem [ref=f72e1219]:
+              - link "Hiring Lab" [ref=f72e1221] [cursor=pointer]:
+                - /url: https://www.hiringlab.org
+            - listitem [ref=f72e1222]:
+              - link "Career advice" [ref=f72e1224] [cursor=pointer]:
+                - /url: https://www.indeed.com/career-advice
+            - listitem [ref=f72e1225]:
+              - link "Browse jobs" [ref=f72e1227] [cursor=pointer]:
+                - /url: https://www.indeed.com/browsejobs
+            - listitem [ref=f72e1228]:
+              - link "Browse companies" [ref=f72e1230] [cursor=pointer]:
+                - /url: https://www.indeed.com/companies/browse-companies
+            - listitem [ref=f72e1231]:
+              - link "Salaries" [ref=f72e1233] [cursor=pointer]:
+                - /url: https://www.indeed.com/career/salaries
+            - listitem [ref=f72e1234]:
+              - link "Indeed Events" [ref=f72e1236] [cursor=pointer]:
+                - /url: https://www.indeedevents.com/
+            - listitem [ref=f72e1237]:
+              - link "Work at Indeed" [ref=f72e1239] [cursor=pointer]:
+                - /url: https://www.indeed.com/cmp/Indeed/about
+            - listitem [ref=f72e1240]:
+              - link "Countries" [ref=f72e1242] [cursor=pointer]:
+                - /url: https://www.indeed.com/countries
+            - listitem [ref=f72e1243]:
+              - link "About" [ref=f72e1245] [cursor=pointer]:
+                - /url: https://www.indeed.com/about
+            - listitem [ref=f72e1246]:
+              - link "Help" [ref=f72e1248] [cursor=pointer]:
+                - /url: https://www.indeed.com/help/job-seekers?hl=en&co=us
+            - listitem [ref=f72e1249]:
+              - link "ESG at Indeed" [ref=f72e1251] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg?from=gnav-jobsearch--indeedmobile
+          - list [ref=f72e1252]:
+            - listitem [ref=f72e1253]: © 2026 Indeed
+            - listitem [ref=f72e1254]:
+              - link "Your Privacy Choices" [ref=f72e1256] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal/ccpa-dns?hl=en
+            - listitem [ref=f72e1263]:
+              - link "Accessibility at Indeed" [ref=f72e1265] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg/accessibility?hl=en
+            - listitem [ref=f72e1266]:
+              - link "Privacy Center and Ad Choices" [ref=f72e1268] [cursor=pointer]:
+                - /url: https://hrtechprivacy.com/brands/indeed#privacypolicy
+            - listitem [ref=f72e1269]:
+              - link "Terms" [ref=f72e1271] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal?hl=en
+          - list:
+            - listitem
+  - generic [ref=f72e1272]:
+    - text: This site is protected by reCAPTCHA and the Google
+    - link "Privacy Policy" [ref=f72e1273] [cursor=pointer]:
+      - /url: https://policies.google.com/privacy
+    - text: and
+    - link "Terms of Service" [ref=f72e1274] [cursor=pointer]:
+      - /url: https://policies.google.com/terms
+    - text: apply.

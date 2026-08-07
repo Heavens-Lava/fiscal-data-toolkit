@@ -1,0 +1,976 @@
+- generic [ref=f53e1]:
+  - banner [ref=f53e2]:
+    - generic [ref=f53e3]:
+      - generic [ref=f53e4]:
+        - button "Main menu" [ref=f53e5] [cursor=pointer]
+        - link "Careers" [ref=f53e10] [cursor=pointer]:
+          - /url: /about/careers/applications/
+      - generic [ref=f53e13]:
+        - link "Skip navigation links" [ref=f53e14]
+        - generic [ref=f53e17]:
+          - navigation "Candidate Portal Left Navigation" [ref=f53e21]:
+            - menubar [ref=f53e23]:
+              - generic [ref=f53e24]:
+                - menuitem "Home navigation link" [ref=f53e25] [cursor=pointer]:
+                  - menuitem [ref=f53e27]:
+                    - generic [ref=f53e28]:
+                      - generic [ref=f53e29]:
+                        - generic [ref=f53e31]: home
+                        - generic [ref=f53e35]: Home
+                      - generic [ref=f53e37]: Home
+                - menuitem "Jobs navigation item" [ref=f53e39] [cursor=pointer]:
+                  - menuitem [ref=f53e41]:
+                    - generic [ref=f53e42]:
+                      - generic [ref=f53e43]:
+                        - generic [ref=f53e45]: work_outline
+                        - generic [ref=f53e49]: Jobs
+                      - generic [ref=f53e51]: Jobs
+                - menuitem "Students navigation item" [ref=f53e53] [cursor=pointer]:
+                  - menuitem [ref=f53e55]:
+                    - generic [ref=f53e56]:
+                      - generic [ref=f53e57]:
+                        - generic [ref=f53e59]: noogler_hat
+                        - generic [ref=f53e63]: Students
+                      - generic [ref=f53e65]: Students
+                - menuitem "How we work navigation item" [ref=f53e67] [cursor=pointer]:
+                  - menuitem [ref=f53e69]:
+                    - generic [ref=f53e70]:
+                      - generic [ref=f53e71]:
+                        - generic [ref=f53e73]: google
+                        - generic [ref=f53e77]: How we work
+                      - generic [ref=f53e79]: How we work
+                - menuitem "How we hire navigation item" [ref=f53e81] [cursor=pointer]:
+                  - menuitem [ref=f53e83]:
+                    - generic [ref=f53e84]:
+                      - generic [ref=f53e85]:
+                        - generic [ref=f53e87]: handyman
+                        - generic [ref=f53e91]: How we hire
+                      - generic [ref=f53e93]: How we hire
+                - menuitem "Your career navigation item" [ref=f53e95] [cursor=pointer]:
+                  - menuitem [ref=f53e97]:
+                    - generic [ref=f53e98]:
+                      - generic [ref=f53e99]:
+                        - generic [ref=f53e101]: person_outline
+                        - generic [ref=f53e105]: Your career
+                      - generic [ref=f53e107]: Your career
+          - generic [ref=f53e114]:
+            - generic [ref=f53e115]:
+              - generic [ref=f53e116] [cursor=pointer]:
+                - generic [ref=f53e117]: help_outline
+                - link "Help link" [ref=f53e118]:
+                  - /url: https://support.google.com/googlecareers
+              - tooltip [ref=f53e119]: Help link
+            - generic [ref=f53e120]:
+              - button "Send feedback" [ref=f53e121] [cursor=pointer]:
+                - generic [ref=f53e122]: feedback
+              - tooltip [ref=f53e123]: Send feedback
+      - generic [ref=f53e125]:
+        - button "Google apps" [ref=f53e129] [cursor=pointer]
+        - 'button "Google Account: Jeffrey Macy (yosoytujeffe@gmail.com)" [ref=f53e135] [cursor=pointer]'
+  - main [ref=f53e152]:
+    - generic [ref=f53e153]:
+      - img "Info" [ref=f53e154]:
+        - generic [ref=f53e155]: info_outline
+      - generic [ref=f53e156]: X
+      - generic [ref=f53e157]: You can submit up to 3 applications every 30 days.
+    - generic [ref=f53e160]:
+      - generic [ref=f53e162]: Learn more
+      - generic [ref=f53e163]: open_in_new
+      - link "Learn more about submitting applications (opens new window)" [ref=f53e164] [cursor=pointer]:
+        - /url: https://support.google.com/googlecareers/answer/6095391
+    - generic [ref=f53e165]:
+      - generic [ref=f53e166]:
+        - generic: keyboard_arrow_left
+        - tablist "Application stepper" [ref=f53e167]:
+          - tab "Step 1 - Careers profile" [selected] [ref=f53e168]:
+            - generic [ref=f53e172]:
+              - generic [ref=f53e173]: "1"
+              - generic [ref=f53e174]:
+                - generic [ref=f53e175]: Careers profile
+                - generic [ref=f53e176]: 5-10 minutes
+          - tab "Step 2 - Role Information" [ref=f53e177]:
+            - generic [ref=f53e181]:
+              - generic [ref=f53e182]: "2"
+              - generic [ref=f53e183]:
+                - generic [ref=f53e184]: Role Information
+                - generic [ref=f53e185]: less than 1 minute
+          - tab "Step 3 - Voluntary self-identification" [ref=f53e186]:
+            - generic [ref=f53e190]:
+              - generic [ref=f53e191]: "3"
+              - generic [ref=f53e192]:
+                - generic [ref=f53e193]: Voluntary self-identification
+                - generic [ref=f53e194]: less than 1 minute
+          - tab "Step 4 - Review & apply" [ref=f53e195]:
+            - generic [ref=f53e199]:
+              - generic [ref=f53e200]: "4"
+              - generic [ref=f53e201]: Review & apply
+        - generic: keyboard_arrow_right
+      - tabpanel "Step 1 - Careers profile"
+    - generic [ref=f53e203]:
+      - heading "Welcome, Jeffrey" [level=1] [ref=f53e204]
+      - generic [ref=f53e205]: Software Engineer III, Full Stack - Bay Area
+    - generic [ref=f53e207]:
+      - generic [ref=f53e209]:
+        - generic [ref=f53e210]:
+          - paragraph [ref=f53e211]: Your Careers profile
+          - paragraph [ref=f53e212]: Your Google Careers profile saves your info so you can apply to jobs quickly, receive personalized job recommendations, and get relevant content to help you in your search.
+        - button "Dismiss profile banner" [ref=f53e216] [cursor=pointer]:
+          - generic [ref=f53e217]: close
+      - generic [ref=f53e218]:
+        - generic [ref=f53e219]: Last updated today at 9:27 AM
+        - button "Submit profile & continue" [ref=f53e225]:
+          - generic [ref=f53e228]:
+            - generic [ref=f53e229]: Submitting Careers Profile
+            - progressbar [ref=f53e230]
+      - generic [ref=f53e247]: "* indicates a required field"
+      - generic [ref=f53e248]:
+        - generic [ref=f53e249]:
+          - generic [ref=f53e250]: text_snippet
+          - heading "Résumé" [level=2] [ref=f53e252]
+        - generic [ref=f53e257]:
+          - generic [ref=f53e258]: A copy of your résumé has been attached, separate from the one you uploaded. If you change your résumé, you must upload it again.
+          - generic [ref=f53e259]:
+            - generic [ref=f53e260]: description
+            - generic [ref=f53e261]: Jeffrey Macy - Resume.pdf
+            - generic [ref=f53e262]: 14 seconds ago
+            - generic [ref=f53e264]:
+              - button "Remove resume" [ref=f53e265] [cursor=pointer]:
+                - generic [ref=f53e266]: close
+              - tooltip [ref=f53e267]: Remove resume
+      - generic [ref=f53e268]:
+        - generic [ref=f53e269]:
+          - generic [ref=f53e270]: account_circle
+          - heading "Contact details" [level=2] [ref=f53e272]
+        - generic [ref=f53e274]:
+          - generic [ref=f53e275]:
+            - heading [level=3] [ref=f53e276]:
+              - text: Legal name
+              - button "See more information about legal name" [ref=f53e278] [cursor=pointer]:
+                - generic [ref=f53e279]: info_outline
+            - text: Your legal name is the name that you use for legal purposes as it appears on your official documents (passport or driver’s license). Make sure that your legal name is provided in Latin characters and to include all middle names.
+            - generic [ref=f53e280]:
+              - generic [ref=f53e282]:
+                - generic [ref=f53e283]:
+                  - generic: First name*
+                  - textbox "First name" [ref=f53e284]: Jeffrey
+                - paragraph [ref=f53e286]: Enter a valid first name.
+              - generic [ref=f53e289]:
+                - generic: Middle name
+                - textbox "Middle name" [ref=f53e290]: Joseph
+              - generic [ref=f53e293]:
+                - generic [ref=f53e294]:
+                  - generic: Last name*
+                  - textbox "Last name" [ref=f53e295]: Macy
+                - paragraph [ref=f53e297]: Enter a valid last name.
+              - combobox "Suffix" [ref=f53e301] [cursor=pointer]
+          - button "ADD PREFERRED NAME" [ref=f53e305]
+          - generic [ref=f53e310]:
+            - generic: Address
+            - textbox "Address" [ref=f53e311]
+          - generic [ref=f53e313]:
+            - generic [ref=f53e314]:
+              - combobox "Country / Region* United States" [ref=f53e316] [cursor=pointer]:
+                - generic: Country / Region*
+                - generic: United States
+              - paragraph [ref=f53e318]: Select a Country / Region.
+            - generic [ref=f53e319]:
+              - generic [ref=f53e320]:
+                - generic: City*
+                - textbox "City" [ref=f53e321]: Laveen
+              - paragraph [ref=f53e323]: Enter a valid city.
+          - generic [ref=f53e324]:
+            - generic [ref=f53e325]:
+              - combobox "State / province* Arizona" [ref=f53e327] [cursor=pointer]:
+                - generic: State / province*
+                - generic: Arizona
+              - paragraph [ref=f53e329]: Select a State / province.
+            - generic [ref=f53e331]:
+              - generic: Zip/postal code
+              - textbox "Zip/postal code" [ref=f53e332]
+          - generic [ref=f53e334]:
+            - generic [ref=f53e335]:
+              - generic:
+                - generic: Email address
+                - textbox "Email address" [disabled] [ref=f53e336]: yosoytujeffe@gmail.com
+            - generic [ref=f53e338]:
+              - text: Not you?
+              - link "Switch accounts" [ref=f53e339] [cursor=pointer]:
+                - /url: https://accounts.google.com/AccountChooser?continue=https://www.google.com/about/careers/applications/apply?jobId%3DCiUAL2FckXYFzQsAtGcQaJCmG5Nz9vG5fEfSxU-pOY7k5ZNpDXSyEjsA1Ny_ixcSuLHlqF2PDkByoqV4dOu7BhU7NR3pIqQBArP5cPobNv_Yn28-_JdyxHDKDZy0fv53txkg8A%253D%253D_V2
+          - generic [ref=f53e340]:
+            - list [ref=f53e341]:
+              - listitem [ref=f53e342]:
+                - generic [ref=f53e344]:
+                  - generic: Additional email address 1
+                  - textbox "Additional email address 1" [ref=f53e345]: macy.jeffreyj@gmail.com
+                - generic [ref=f53e347]:
+                  - button "Delete email" [ref=f53e348] [cursor=pointer]:
+                    - generic [ref=f53e349]: delete
+                  - tooltip [ref=f53e351]: Delete email
+            - button "ADD ANOTHER EMAIL" [ref=f53e353]
+          - generic [ref=f53e357]:
+            - list [ref=f53e358]:
+              - listitem [ref=f53e359]:
+                - group "Primary phone" [ref=f53e362]:
+                  - combobox "Country calling code United States (+1)" [ref=f53e367] [cursor=pointer]
+                  - generic [ref=f53e372]:
+                    - textbox "Phone number" [ref=f53e374]: +1 602-619-4553
+                    - paragraph [ref=f53e376]: "Error: Invalid phone number"
+            - button "ADD ANOTHER PHONE" [ref=f53e378]
+          - generic [ref=f53e383]:
+            - generic: Website
+            - textbox "Website" [ref=f53e384]: https://github.com/Heavens-Lava
+      - generic [ref=f53e386]:
+        - generic [ref=f53e387]:
+          - generic [ref=f53e388]: school
+          - heading "Higher education" [level=2] [ref=f53e390]
+        - generic [ref=f53e392]:
+          - generic [ref=f53e393]:
+            - generic [ref=f53e394]: Attended university degree program? *
+            - radiogroup "Attended university degree program?" [ref=f53e395]:
+              - generic [ref=f53e396]:
+                - radio "Yes" [checked] [ref=f53e398] [cursor=pointer]
+                - generic [ref=f53e402]: "Yes"
+              - generic [ref=f53e403]:
+                - radio "No" [ref=f53e405] [cursor=pointer]
+                - generic [ref=f53e408]: "No"
+          - list [ref=f53e409]:
+            - listitem [ref=f53e410]:
+              - generic [ref=f53e413]:
+                - generic [ref=f53e414]:
+                  - generic: School name*
+                  - combobox "School name" [ref=f53e415]: Phoenix College
+                - paragraph [ref=f53e417]: Enter a valid school name.
+              - generic [ref=f53e420]:
+                - combobox "Degree* Bachelor of Science" [ref=f53e422] [cursor=pointer]:
+                  - generic: Degree*
+                  - generic: Bachelor of Science
+                - paragraph [ref=f53e424]: Select your degree.
+              - generic [ref=f53e427]:
+                - combobox "Degree Status*" [ref=f53e429] [cursor=pointer]
+                - paragraph [ref=f53e431]: Select your degree status.
+              - generic [ref=f53e433]:
+                - generic [ref=f53e434]:
+                  - generic: Major / area of study*
+                  - textbox "Major / area of study" [ref=f53e435]
+                - paragraph [ref=f53e437]: Enter a valid major / area of study.
+              - generic [ref=f53e440]:
+                - combobox "Country / Region* United States" [ref=f53e442] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e444]: Select a Country / Region.
+            - listitem [ref=f53e445]:
+              - generic [ref=f53e448]:
+                - generic [ref=f53e449]:
+                  - generic: School name*
+                  - combobox "School name" [ref=f53e450]: Glendale Community College
+                - paragraph [ref=f53e452]: Enter a valid school name.
+              - generic [ref=f53e455]:
+                - combobox "Degree*" [ref=f53e457] [cursor=pointer]
+                - paragraph [ref=f53e459]: Select your degree.
+              - generic [ref=f53e462]:
+                - combobox "Degree Status*" [ref=f53e464] [cursor=pointer]
+                - paragraph [ref=f53e466]: Select your degree status.
+              - generic [ref=f53e468]:
+                - generic [ref=f53e469]:
+                  - generic: Major / area of study*
+                  - textbox "Major / area of study" [ref=f53e470]: Web Design & Development
+                - paragraph [ref=f53e472]: Enter a valid major / area of study.
+              - generic [ref=f53e475]:
+                - combobox "Country / Region* United States" [ref=f53e477] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e479]: Select a Country / Region.
+              - generic [ref=f53e480]:
+                - button "ADD ANOTHER DEGREE" [ref=f53e483]
+                - button "REMOVE THIS DEGREE" [ref=f53e489]
+      - generic [ref=f53e493]:
+        - generic [ref=f53e494]:
+          - generic [ref=f53e495]: google
+          - heading "Alphabet experience" [level=2] [ref=f53e497]
+        - generic [ref=f53e500]:
+          - generic [ref=f53e501]: Do you currently or have you previously worked for an Alphabet company (e.g., Google, Waymo, gFiber, etc.) in any capacity? This includes, but is not limited to Intern, Student Ambassador, Student Researcher, Fellow, Full-time Employee; served on a current or prior engagement supporting an Alphabet company as either Temp, Vendor or Contractor; or were part of a prior acquisition. *
+          - radiogroup "Have you worked at Alphabet before?" [ref=f53e502]:
+            - generic [ref=f53e503]:
+              - radio "Yes" [ref=f53e505] [cursor=pointer]
+              - generic [ref=f53e508]: "Yes"
+            - generic [ref=f53e509]:
+              - radio "No" [checked] [ref=f53e511] [cursor=pointer]
+              - generic [ref=f53e515]: "No"
+          - generic [ref=f53e516]: "Disclaimer: This information is used to prevent delays in the hiring process and ensure a smooth hiring experience. We recommend reviewing your resume and highlighting work you completed while employed directly or as part of an assignment with Alphabet in the past."
+      - generic [ref=f53e517]:
+        - generic [ref=f53e518]:
+          - generic [ref=f53e519]: work_outline
+          - heading "Work experience" [level=2] [ref=f53e521]
+        - generic [ref=f53e523]:
+          - generic [ref=f53e524]:
+            - generic [ref=f53e525]: Applying for your first job? *
+            - radiogroup "Applying for your first job?" [ref=f53e526]:
+              - generic [ref=f53e527]:
+                - radio "Yes" [ref=f53e529] [cursor=pointer]
+                - generic [ref=f53e532]: "Yes"
+              - generic [ref=f53e533]:
+                - radio "No" [checked] [ref=f53e535] [cursor=pointer]
+                - generic [ref=f53e539]: "No"
+          - list [ref=f53e540]:
+            - listitem [ref=f53e541]:
+              - generic [ref=f53e544]:
+                - generic [ref=f53e545]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e546]: Arizona State Legislature
+                - paragraph [ref=f53e548]: Enter a valid employer’s name.
+              - generic [ref=f53e550]:
+                - generic [ref=f53e551]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e552]: Web & Applications Developer
+                - paragraph [ref=f53e554]: Enter a valid job title.
+              - generic [ref=f53e557]:
+                - generic [ref=f53e558]: "Start Date:"
+                - generic [ref=f53e559]:
+                  - generic [ref=f53e560]:
+                    - combobox "Month* October" [ref=f53e562] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: October
+                    - paragraph [ref=f53e564]: Select a month.
+                  - generic [ref=f53e565]:
+                    - generic [ref=f53e566]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e567]: "2025"
+                    - paragraph [ref=f53e569]: Enter a valid year.
+              - generic [ref=f53e571]:
+                - checkbox "This is your current job" [checked] [ref=f53e573] [cursor=pointer]
+                - generic [ref=f53e574]: This is your current job
+              - generic [ref=f53e577]:
+                - combobox "Country / Region* United States" [ref=f53e579] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e581]: Select a Country / Region.
+              - generic [ref=f53e583]:
+                - generic [ref=f53e584]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e585]: Phoenix
+                - paragraph [ref=f53e587]: Enter a valid city.
+              - generic [ref=f53e590]:
+                - combobox "State / province* Arizona" [ref=f53e592] [cursor=pointer]:
+                  - generic: State / province*
+                  - generic: Arizona
+                - paragraph [ref=f53e594]: Select a State / province.
+            - listitem [ref=f53e595]:
+              - generic [ref=f53e598]:
+                - generic [ref=f53e599]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e600]: Touchstone Behavioral Health Services
+                - paragraph [ref=f53e602]: Enter a valid employer’s name.
+              - generic [ref=f53e604]:
+                - generic [ref=f53e605]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e606]: Family Support Specialist
+                - paragraph [ref=f53e608]: Enter a valid job title.
+              - generic [ref=f53e611]:
+                - generic [ref=f53e612]: "Start Date:"
+                - generic [ref=f53e613]:
+                  - generic [ref=f53e614]:
+                    - combobox "Month* October" [ref=f53e616] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: October
+                    - paragraph [ref=f53e618]: Select a month.
+                  - generic [ref=f53e619]:
+                    - generic [ref=f53e620]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e621]: "2023"
+                    - paragraph [ref=f53e623]: Enter a valid year.
+              - generic [ref=f53e624]:
+                - generic [ref=f53e625]:
+                  - checkbox "This is your current job" [ref=f53e627] [cursor=pointer]
+                  - generic [ref=f53e628]: This is your current job
+                - generic [ref=f53e630]:
+                  - generic [ref=f53e631]: "End Date:"
+                  - generic [ref=f53e632]:
+                    - generic [ref=f53e633]:
+                      - combobox "Month* January" [ref=f53e635] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: January
+                      - paragraph [ref=f53e637]: Select a month.
+                    - generic [ref=f53e638]:
+                      - generic [ref=f53e639]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e640]: "2025"
+                      - paragraph [ref=f53e642]: Enter a valid year.
+              - generic [ref=f53e645]:
+                - combobox "Country / Region*" [ref=f53e647] [cursor=pointer]
+                - paragraph [ref=f53e649]: Select a Country / Region.
+              - generic [ref=f53e651]:
+                - generic [ref=f53e652]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e653]
+                - paragraph [ref=f53e655]: Enter a valid city.
+              - generic [ref=f53e658]:
+                - generic: State
+                - textbox "State" [ref=f53e659]
+              - button "REMOVE THIS JOB" [ref=f53e664]
+            - listitem [ref=f53e668]:
+              - generic [ref=f53e671]:
+                - generic [ref=f53e672]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e673]: the App Store
+                - paragraph [ref=f53e675]: Enter a valid employer’s name.
+              - generic [ref=f53e677]:
+                - generic [ref=f53e678]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e679]: Independent Game Developer
+                - paragraph [ref=f53e681]: Enter a valid job title.
+              - generic [ref=f53e684]:
+                - generic [ref=f53e685]: "Start Date:"
+                - generic [ref=f53e686]:
+                  - generic [ref=f53e687]:
+                    - combobox "Month* June" [ref=f53e689] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: June
+                    - paragraph [ref=f53e691]: Select a month.
+                  - generic [ref=f53e692]:
+                    - generic [ref=f53e693]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e694]: "2022"
+                    - paragraph [ref=f53e696]: Enter a valid year.
+              - generic [ref=f53e697]:
+                - generic [ref=f53e698]:
+                  - checkbox "This is your current job" [ref=f53e700] [cursor=pointer]
+                  - generic [ref=f53e701]: This is your current job
+                - generic [ref=f53e703]:
+                  - generic [ref=f53e704]: "End Date:"
+                  - generic [ref=f53e705]:
+                    - generic [ref=f53e706]:
+                      - combobox "Month* June" [ref=f53e708] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: June
+                      - paragraph [ref=f53e710]: Select a month.
+                    - generic [ref=f53e711]:
+                      - generic [ref=f53e712]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e713]: "2023"
+                      - paragraph [ref=f53e715]: Enter a valid year.
+              - generic [ref=f53e718]:
+                - combobox "Country / Region*" [ref=f53e720] [cursor=pointer]
+                - paragraph [ref=f53e722]: Select a Country / Region.
+              - generic [ref=f53e724]:
+                - generic [ref=f53e725]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e726]
+                - paragraph [ref=f53e728]: Enter a valid city.
+              - generic [ref=f53e731]:
+                - generic: State
+                - textbox "State" [ref=f53e732]
+              - button "REMOVE THIS JOB" [ref=f53e737]
+            - listitem [ref=f53e741]:
+              - generic [ref=f53e744]:
+                - generic [ref=f53e745]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e746]: United States Postal Service
+                - paragraph [ref=f53e748]: Enter a valid employer’s name.
+              - generic [ref=f53e750]:
+                - generic [ref=f53e751]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e752]: Mail Carrier
+                - paragraph [ref=f53e754]: Enter a valid job title.
+              - generic [ref=f53e757]:
+                - generic [ref=f53e758]: "Start Date:"
+                - generic [ref=f53e759]:
+                  - generic [ref=f53e760]:
+                    - combobox "Month* June" [ref=f53e762] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: June
+                    - paragraph [ref=f53e764]: Select a month.
+                  - generic [ref=f53e765]:
+                    - generic [ref=f53e766]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e767]: "2017"
+                    - paragraph [ref=f53e769]: Enter a valid year.
+              - generic [ref=f53e770]:
+                - generic [ref=f53e771]:
+                  - checkbox "This is your current job" [ref=f53e773] [cursor=pointer]
+                  - generic [ref=f53e774]: This is your current job
+                - generic [ref=f53e776]:
+                  - generic [ref=f53e777]: "End Date:"
+                  - generic [ref=f53e778]:
+                    - generic [ref=f53e779]:
+                      - combobox "Month* June" [ref=f53e781] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: June
+                      - paragraph [ref=f53e783]: Select a month.
+                    - generic [ref=f53e784]:
+                      - generic [ref=f53e785]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e786]: "2022"
+                      - paragraph [ref=f53e788]: Enter a valid year.
+              - generic [ref=f53e791]:
+                - combobox "Country / Region*" [ref=f53e793] [cursor=pointer]
+                - paragraph [ref=f53e795]: Select a Country / Region.
+              - generic [ref=f53e797]:
+                - generic [ref=f53e798]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e799]
+                - paragraph [ref=f53e801]: Enter a valid city.
+              - generic [ref=f53e804]:
+                - generic: State
+                - textbox "State" [ref=f53e805]
+              - generic [ref=f53e807]:
+                - button "ADD ANOTHER JOB" [ref=f53e810]
+                - button "REMOVE THIS JOB" [ref=f53e816]
+      - generic [ref=f53e820]:
+        - generic [ref=f53e821]:
+          - generic [ref=f53e822]: architecture
+          - heading "Skills" [level=2] [ref=f53e824]
+        - generic [ref=f53e826]:
+          - generic [ref=f53e827]:
+            - generic [ref=f53e828]: What skills would you like to add to your profile?
+            - generic [ref=f53e831]:
+              - generic: What skills do you have?
+              - generic: work_outline
+              - combobox "What skills do you have? You can add up to 25 skills" [ref=f53e832]
+            - generic [ref=f53e834]:
+              - generic [ref=f53e835]:
+                - generic [ref=f53e836]: 0 / 25
+                - text: Highlight manually added skills
+              - switch "Highlight manually added skills" [ref=f53e837] [cursor=pointer]
+          - generic [ref=f53e848]:
+            - generic [ref=f53e849]:
+              - heading "UNCATEGORIZED" [level=3] [ref=f53e850]
+              - grid "UNCATEGORIZED" [ref=f53e851]:
+                - row [ref=f53e852]:
+                  - gridcell "Internal Applications" [ref=f53e853]
+                  - gridcell [ref=f53e855]:
+                    - generic [ref=f53e856]:
+                      - button "Remove Internal Applications" [ref=f53e857] [cursor=pointer]
+                      - tooltip [ref=f53e862]: Remove
+            - generic [ref=f53e863]:
+              - heading "CODING LANGUAGE" [level=3] [ref=f53e864]
+              - grid "CODING LANGUAGE" [ref=f53e865]:
+                - row [ref=f53e866]:
+                  - gridcell "C#" [ref=f53e867]
+                  - gridcell [ref=f53e869]:
+                    - generic [ref=f53e870]:
+                      - button "Remove C#" [ref=f53e871] [cursor=pointer]
+                      - tooltip [ref=f53e876]: Remove
+                - row [ref=f53e877]:
+                  - gridcell "JavaScript" [ref=f53e878]
+                  - gridcell [ref=f53e880]:
+                    - generic [ref=f53e881]:
+                      - button "Remove JavaScript" [ref=f53e882] [cursor=pointer]
+                      - tooltip [ref=f53e887]: Remove
+                - row [ref=f53e888]:
+                  - gridcell "PHP" [ref=f53e889]
+                  - gridcell [ref=f53e891]:
+                    - generic [ref=f53e892]:
+                      - button "Remove PHP" [ref=f53e893] [cursor=pointer]
+                      - tooltip [ref=f53e898]: Remove
+                - row [ref=f53e899]:
+                  - gridcell "Programming" [ref=f53e900]
+                  - gridcell [ref=f53e902]:
+                    - generic [ref=f53e903]:
+                      - button "Remove Programming" [ref=f53e904] [cursor=pointer]
+                      - tooltip [ref=f53e909]: Remove
+                - row [ref=f53e910]:
+                  - gridcell "Python" [ref=f53e911]
+                  - gridcell [ref=f53e913]:
+                    - generic [ref=f53e914]:
+                      - button "Remove Python" [ref=f53e915] [cursor=pointer]
+                      - tooltip [ref=f53e920]: Remove
+                - row [ref=f53e921]:
+                  - gridcell "TypeScript" [ref=f53e922]
+                  - gridcell [ref=f53e924]:
+                    - generic [ref=f53e925]:
+                      - button "Remove TypeScript" [ref=f53e926] [cursor=pointer]
+                      - tooltip [ref=f53e931]: Remove
+            - generic [ref=f53e932]:
+              - heading "GENERAL" [level=3] [ref=f53e933]
+              - grid "GENERAL" [ref=f53e934]:
+                - row [ref=f53e935]:
+                  - gridcell "Accessibility" [ref=f53e936]
+                  - gridcell [ref=f53e938]:
+                    - generic [ref=f53e939]:
+                      - button "Remove Accessibility" [ref=f53e940] [cursor=pointer]
+                      - tooltip [ref=f53e945]: Remove
+                - row [ref=f53e946]:
+                  - gridcell "Banking" [ref=f53e947]
+                  - gridcell [ref=f53e949]:
+                    - generic [ref=f53e950]:
+                      - button "Remove Banking" [ref=f53e951] [cursor=pointer]
+                      - tooltip [ref=f53e956]: Remove
+                - row [ref=f53e957]:
+                  - gridcell "Cash Flow" [ref=f53e958]
+                  - gridcell [ref=f53e960]:
+                    - generic [ref=f53e961]:
+                      - button "Remove Cash Flow" [ref=f53e962] [cursor=pointer]
+                      - tooltip [ref=f53e967]: Remove
+                - row [ref=f53e968]:
+                  - gridcell "Coaching" [ref=f53e969]
+                  - gridcell [ref=f53e971]:
+                    - generic [ref=f53e972]:
+                      - button "Remove Coaching" [ref=f53e973] [cursor=pointer]
+                      - tooltip [ref=f53e978]: Remove
+                - row [ref=f53e979]:
+                  - gridcell "Communication" [ref=f53e980]
+                  - gridcell [ref=f53e982]:
+                    - generic [ref=f53e983]:
+                      - button "Remove Communication" [ref=f53e984] [cursor=pointer]
+                      - tooltip [ref=f53e989]: Remove
+                - row [ref=f53e990]:
+                  - gridcell "Compliance" [ref=f53e991]
+                  - gridcell [ref=f53e993]:
+                    - generic [ref=f53e994]:
+                      - button "Remove Compliance" [ref=f53e995] [cursor=pointer]
+                      - tooltip [ref=f53e1000]: Remove
+                - row [ref=f53e1001]:
+                  - gridcell "Design" [ref=f53e1002]
+                  - gridcell [ref=f53e1004]:
+                    - generic [ref=f53e1005]:
+                      - button "Remove Design" [ref=f53e1006] [cursor=pointer]
+                      - tooltip [ref=f53e1011]: Remove
+                - row [ref=f53e1012]:
+                  - gridcell "Finance" [ref=f53e1013]
+                  - gridcell [ref=f53e1015]:
+                    - generic [ref=f53e1016]:
+                      - button "Remove Finance" [ref=f53e1017] [cursor=pointer]
+                      - tooltip [ref=f53e1022]: Remove
+                - row [ref=f53e1023]:
+                  - gridcell "Maintenance" [ref=f53e1024]
+                  - gridcell [ref=f53e1026]:
+                    - generic [ref=f53e1027]:
+                      - button "Remove Maintenance" [ref=f53e1028] [cursor=pointer]
+                      - tooltip [ref=f53e1033]: Remove
+                - row [ref=f53e1034]:
+                  - gridcell "Management" [ref=f53e1035]
+                  - gridcell [ref=f53e1037]:
+                    - generic [ref=f53e1038]:
+                      - button "Remove Management" [ref=f53e1039] [cursor=pointer]
+                      - tooltip [ref=f53e1044]: Remove
+            - generic [ref=f53e1045]:
+              - heading "TECHNICAL" [level=3] [ref=f53e1046]
+              - grid "TECHNICAL" [ref=f53e1047]:
+                - row [ref=f53e1048]:
+                  - gridcell "Analytics" [ref=f53e1049]
+                  - gridcell [ref=f53e1051]:
+                    - generic [ref=f53e1052]:
+                      - button "Remove Analytics" [ref=f53e1053] [cursor=pointer]
+                      - tooltip [ref=f53e1058]: Remove
+                - row [ref=f53e1059]:
+                  - gridcell "App Store" [ref=f53e1060]
+                  - gridcell [ref=f53e1062]:
+                    - generic [ref=f53e1063]:
+                      - button "Remove App Store" [ref=f53e1064] [cursor=pointer]
+                      - tooltip [ref=f53e1069]: Remove
+                - row [ref=f53e1070]:
+                  - gridcell "Backend" [ref=f53e1071]
+                  - gridcell [ref=f53e1073]:
+                    - generic [ref=f53e1074]:
+                      - button "Remove Backend" [ref=f53e1075] [cursor=pointer]
+                      - tooltip [ref=f53e1080]: Remove
+                - row [ref=f53e1081]:
+                  - gridcell "CSS" [ref=f53e1082]
+                  - gridcell [ref=f53e1084]:
+                    - generic [ref=f53e1085]:
+                      - button "Remove CSS" [ref=f53e1086] [cursor=pointer]
+                      - tooltip [ref=f53e1091]: Remove
+                - row [ref=f53e1092]:
+                  - gridcell "Client Side" [ref=f53e1093]
+                  - gridcell [ref=f53e1095]:
+                    - generic [ref=f53e1096]:
+                      - button "Remove Client Side" [ref=f53e1097] [cursor=pointer]
+                      - tooltip [ref=f53e1102]: Remove
+                - row [ref=f53e1103]:
+                  - gridcell "Dashboards" [ref=f53e1104]
+                  - gridcell [ref=f53e1106]:
+                    - generic [ref=f53e1107]:
+                      - button "Remove Dashboards" [ref=f53e1108] [cursor=pointer]
+                      - tooltip [ref=f53e1113]: Remove
+                - row [ref=f53e1114]:
+                  - gridcell "Data Analytics" [ref=f53e1115]
+                  - gridcell [ref=f53e1117]:
+                    - generic [ref=f53e1118]:
+                      - button "Remove Data Analytics" [ref=f53e1119] [cursor=pointer]
+                      - tooltip [ref=f53e1124]: Remove
+                - row [ref=f53e1125]:
+                  - gridcell "Debugging" [ref=f53e1126]
+                  - gridcell [ref=f53e1128]:
+                    - generic [ref=f53e1129]:
+                      - button "Remove Debugging" [ref=f53e1130] [cursor=pointer]
+                      - tooltip [ref=f53e1135]: Remove
+                - row [ref=f53e1136]:
+                  - gridcell "Docker" [ref=f53e1137]
+                  - gridcell [ref=f53e1139]:
+                    - generic [ref=f53e1140]:
+                      - button "Remove Docker" [ref=f53e1141] [cursor=pointer]
+                      - tooltip [ref=f53e1146]: Remove
+                - row [ref=f53e1147]:
+                  - gridcell "FRED" [ref=f53e1148]
+                  - gridcell [ref=f53e1150]:
+                    - generic [ref=f53e1151]:
+                      - button "Remove FRED" [ref=f53e1152] [cursor=pointer]
+                      - tooltip [ref=f53e1157]: Remove
+                - row [ref=f53e1158]:
+                  - gridcell "Git" [ref=f53e1159]
+                  - gridcell [ref=f53e1161]:
+                    - generic [ref=f53e1162]:
+                      - button "Remove Git" [ref=f53e1163] [cursor=pointer]
+                      - tooltip [ref=f53e1168]: Remove
+                - row [ref=f53e1169]:
+                  - gridcell "GitHub" [ref=f53e1170]
+                  - gridcell [ref=f53e1172]:
+                    - generic [ref=f53e1173]:
+                      - button "Remove GitHub" [ref=f53e1174] [cursor=pointer]
+                      - tooltip [ref=f53e1179]: Remove
+                - row [ref=f53e1180]:
+                  - gridcell "MCP" [ref=f53e1181]
+                  - gridcell [ref=f53e1183]:
+                    - generic [ref=f53e1184]:
+                      - button "Remove MCP" [ref=f53e1185] [cursor=pointer]
+                      - tooltip [ref=f53e1190]: Remove
+                - row [ref=f53e1191]:
+                  - gridcell "Model Context Protocol" [ref=f53e1192]
+                  - gridcell [ref=f53e1194]:
+                    - generic [ref=f53e1195]:
+                      - button "Remove Model Context Protocol" [ref=f53e1196] [cursor=pointer]
+                      - tooltip [ref=f53e1201]: Remove
+                - row [ref=f53e1202]:
+                  - gridcell "Node.js" [ref=f53e1203]
+                  - gridcell [ref=f53e1205]:
+                    - generic [ref=f53e1206]:
+                      - button "Remove Node.js" [ref=f53e1207] [cursor=pointer]
+                      - tooltip [ref=f53e1212]: Remove
+                - row [ref=f53e1213]:
+                  - gridcell "PostgreSQL" [ref=f53e1214]
+                  - gridcell [ref=f53e1216]:
+                    - generic [ref=f53e1217]:
+                      - button "Remove PostgreSQL" [ref=f53e1218] [cursor=pointer]
+                      - tooltip [ref=f53e1223]: Remove
+                - row [ref=f53e1224]:
+                  - gridcell "Regression Testing" [ref=f53e1225]
+                  - gridcell [ref=f53e1227]:
+                    - generic [ref=f53e1228]:
+                      - button "Remove Regression Testing" [ref=f53e1229] [cursor=pointer]
+                      - tooltip [ref=f53e1234]: Remove
+                - row [ref=f53e1235]:
+                  - gridcell "SQL" [ref=f53e1236]
+                  - gridcell [ref=f53e1238]:
+                    - generic [ref=f53e1239]:
+                      - button "Remove SQL" [ref=f53e1240] [cursor=pointer]
+                      - tooltip [ref=f53e1245]: Remove
+                - row [ref=f53e1246]:
+                  - gridcell "SQLite" [ref=f53e1247]
+                  - gridcell [ref=f53e1249]:
+                    - generic [ref=f53e1250]:
+                      - button "Remove SQLite" [ref=f53e1251] [cursor=pointer]
+                      - tooltip [ref=f53e1256]: Remove
+                - row [ref=f53e1257]:
+                  - gridcell "Sites" [ref=f53e1258]
+                  - gridcell [ref=f53e1260]:
+                    - generic [ref=f53e1261]:
+                      - button "Remove Sites" [ref=f53e1262] [cursor=pointer]
+                      - tooltip [ref=f53e1267]: Remove
+                - row [ref=f53e1268]:
+                  - gridcell "Statistics" [ref=f53e1269]
+                  - gridcell [ref=f53e1271]:
+                    - generic [ref=f53e1272]:
+                      - button "Remove Statistics" [ref=f53e1273] [cursor=pointer]
+                      - tooltip [ref=f53e1278]: Remove
+                - row [ref=f53e1279]:
+                  - gridcell "Teams" [ref=f53e1280]
+                  - gridcell [ref=f53e1282]:
+                    - generic [ref=f53e1283]:
+                      - button "Remove Teams" [ref=f53e1284] [cursor=pointer]
+                      - tooltip [ref=f53e1289]: Remove
+                - row [ref=f53e1290]:
+                  - gridcell "Test Design" [ref=f53e1291]
+                  - gridcell [ref=f53e1293]:
+                    - generic [ref=f53e1294]:
+                      - button "Remove Test Design" [ref=f53e1295] [cursor=pointer]
+                      - tooltip [ref=f53e1300]: Remove
+                - row [ref=f53e1301]:
+                  - gridcell "Testing" [ref=f53e1302]
+                  - gridcell [ref=f53e1304]:
+                    - generic [ref=f53e1305]:
+                      - button "Remove Testing" [ref=f53e1306] [cursor=pointer]
+                      - tooltip [ref=f53e1311]: Remove
+                - row [ref=f53e1312]:
+                  - gridcell "Turn" [ref=f53e1313]
+                  - gridcell [ref=f53e1315]:
+                    - generic [ref=f53e1316]:
+                      - button "Remove Turn" [ref=f53e1317] [cursor=pointer]
+                      - tooltip [ref=f53e1322]: Remove
+                - row [ref=f53e1323]:
+                  - gridcell "Web Applications" [ref=f53e1324]
+                  - gridcell [ref=f53e1326]:
+                    - generic [ref=f53e1327]:
+                      - button "Remove Web Applications" [ref=f53e1328] [cursor=pointer]
+                      - tooltip [ref=f53e1333]: Remove
+                - row [ref=f53e1334]:
+                  - gridcell "Web Design" [ref=f53e1335]
+                  - gridcell [ref=f53e1337]:
+                    - generic [ref=f53e1338]:
+                      - button "Remove Web Design" [ref=f53e1339] [cursor=pointer]
+                      - tooltip [ref=f53e1344]: Remove
+                - row [ref=f53e1345]:
+                  - gridcell "WordPress" [ref=f53e1346]
+                  - gridcell [ref=f53e1348]:
+                    - generic [ref=f53e1349]:
+                      - button "Remove WordPress" [ref=f53e1350] [cursor=pointer]
+                      - tooltip [ref=f53e1355]: Remove
+      - generic [ref=f53e1356]:
+        - generic [ref=f53e1357]:
+          - generic [ref=f53e1358]: location_on
+          - heading "Locations" [level=2] [ref=f53e1360]
+        - generic [ref=f53e1363]:
+          - generic [ref=f53e1364]: Which location(s) do you prefer working out of?
+          - generic [ref=f53e1366]:
+            - generic [ref=f53e1369]:
+              - generic: Which locations(s) do you prefer?
+              - generic: search
+              - combobox "Which locations(s) do you prefer working out of?" [ref=f53e1370]
+            - generic [ref=f53e1372]:
+              - generic [ref=f53e1373]: 0 / 5
+              - text: Locations
+            - grid
+      - generic [ref=f53e1374]:
+        - generic [ref=f53e1375]:
+          - generic [ref=f53e1376]: article
+          - heading "Cover letter (optional)" [level=2] [ref=f53e1378]
+        - generic [ref=f53e1382]:
+          - generic [ref=f53e1383]:
+            - generic: Cover letter
+            - textbox "Cover letter" [ref=f53e1385]
+          - paragraph [ref=f53e1387]: Optional
+      - generic [ref=f53e1389]:
+        - generic [ref=f53e1390]:
+          - generic [ref=f53e1391]: settings
+          - heading "Profile preferences" [level=2] [ref=f53e1393]
+        - generic [ref=f53e1395]:
+          - generic [ref=f53e1396]:
+            - img "Info" [ref=f53e1397]:
+              - generic [ref=f53e1398]: info_outline
+            - generic [ref=f53e1399]: X
+            - generic [ref=f53e1400]: Google securely stores your personal work history to give you personalized job alerts and help recruiters find the perfect job.
+          - generic [ref=f53e1401]: Personalize your Google Careers profile with job recommendations and related content? *
+          - radiogroup "Personalize your Google Careers profile with job recommendations and related content?" [ref=f53e1402]:
+            - generic [ref=f53e1403]:
+              - radio "Yes" [checked] [ref=f53e1405] [cursor=pointer]
+              - generic [ref=f53e1409]: "Yes"
+            - generic [ref=f53e1410]:
+              - radio "No" [ref=f53e1412] [cursor=pointer]
+              - generic [ref=f53e1415]: "No"
+      - generic [ref=f53e1418]:
+        - generic:
+          - checkbox "I understand that the information I provide will be used in accordance with Google's applicant and candidate privacy policy (opens in a new tab) I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks)." [checked] [disabled]
+        - generic [ref=f53e1420]:
+          - text: I understand that the information I provide will be used in accordance with
+          - link "Google's applicant and candidate privacy policy (opens in a new tab)" [ref=f53e1421] [cursor=pointer]:
+            - /url: ./privacy-policy
+            - text: Google's applicant and candidate privacy policy.
+          - generic [ref=f53e1422]: open_in_new
+          - text: I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks).
+      - generic [ref=f53e1426]:
+        - checkbox "I hereby certify that, to the best of my knowledge, the provided information is true and accurate." [ref=f53e1428] [cursor=pointer]
+        - generic [ref=f53e1429]: I hereby certify that, to the best of my knowledge, the provided information is true and accurate.
+      - button "Submit profile & continue" [ref=f53e1436]:
+        - generic [ref=f53e1439]:
+          - generic [ref=f53e1440]: Submitting Careers Profile
+          - progressbar [ref=f53e1441]
+    - generic [ref=f53e1458]:
+      - generic [ref=f53e1459]:
+        - text: No longer want to store your information on Google Careers?
+        - link "Request to delete your profile (Opens in a new tab)" [ref=f53e1460] [cursor=pointer]:
+          - /url: https://support.google.com/googlecareers/answer/12174691
+          - text: Request to delete your profile
+        - generic [ref=f53e1461]: open_in_new
+      - generic [ref=f53e1463]:
+        - text: Please refer to our
+        - link "Privacy policy (Opens in a new tab)" [ref=f53e1464] [cursor=pointer]:
+          - /url: ./privacy-policy
+          - text: privacy policy
+        - generic [ref=f53e1465]: open_in_new
+        - text: ", to learn more about how your information is used including profile updates."
+  - contentinfo [ref=f53e1468]:
+    - generic [ref=f53e1470]:
+      - generic [ref=f53e1471]:
+        - heading "Follow Life at Google on" [level=2] [ref=f53e1472]
+        - list [ref=f53e1473]:
+          - listitem [ref=f53e1474]:
+            - link "View our Instagram feed (Opens in a new tab)" [ref=f53e1475] [cursor=pointer]:
+              - /url: https://www.instagram.com/lifeatgoogle/
+          - listitem [ref=f53e1480]:
+            - link "View our Twitter feed (Opens in a new tab)" [ref=f53e1481] [cursor=pointer]:
+              - /url: https://twitter.com/lifeatgoogle
+          - listitem [ref=f53e1484]:
+            - link "View our YouTube channel (Opens in a new tab)" [ref=f53e1485] [cursor=pointer]:
+              - /url: https://www.youtube.com/lifeatgoogle
+          - listitem [ref=f53e1488]:
+            - link "View LinkedIn (Opens in a new tab)" [ref=f53e1489] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/google/jobs/
+          - listitem [ref=f53e1492]:
+            - link "View our Facebook (Opens in a new tab)" [ref=f53e1493] [cursor=pointer]:
+              - /url: https://www.facebook.com/lifeatgoogle/
+      - generic [ref=f53e1498]:
+        - generic [ref=f53e1499]:
+          - heading "More about us" [level=2] [ref=f53e1500]
+          - generic [ref=f53e1501]:
+            - link "About us (opens in a new tab)" [ref=f53e1502] [cursor=pointer]:
+              - /url: https://about.google/
+              - text: About us
+              - generic [ref=f53e1503]: open_in_new
+            - link "Contact us (opens in a new tab)" [ref=f53e1505] [cursor=pointer]:
+              - /url: https://about.google/contact-google/
+              - text: Contact us
+              - generic [ref=f53e1506]: open_in_new
+            - link "Press (opens in a new tab)" [ref=f53e1508] [cursor=pointer]:
+              - /url: https://blog.google/press/
+              - text: Press
+              - generic [ref=f53e1509]: open_in_new
+        - generic [ref=f53e1511]:
+          - heading "Related Information" [level=2] [ref=f53e1512]
+          - generic [ref=f53e1513]:
+            - link "Investor relations (opens in a new tab)" [ref=f53e1514] [cursor=pointer]:
+              - /url: https://abc.xyz/investor/
+              - text: Investor relations
+              - generic [ref=f53e1515]: open_in_new
+            - link "Blog (opens in a new tab)" [ref=f53e1517] [cursor=pointer]:
+              - /url: https://blog.google/
+              - text: Blog
+              - generic [ref=f53e1518]: open_in_new
+        - generic [ref=f53e1520]:
+          - heading "Equal Opportunity" [level=2] [ref=f53e1521]
+          - paragraph [ref=f53e1522]:
+            - text: Google is proud to be an equal opportunity and affirmative action employer. We are committed to building a workforce that is representative of the users we serve, creating a culture of belonging, and providing an equal employment opportunity regardless of race, creed, color, religion, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition (including breastfeeding), expecting or parents-to-be, criminal histories consistent with legal requirements, or any other basis protected by law. See also
+            - link "Google's EEO Policy" [ref=f53e1523] [cursor=pointer]:
+              - /url: https://www.google.com/about/careers/applications/eeo/
+            - text: ","
+            - 'link "Know your rights: workplace discrimination is illegal" [ref=f53e1524] [cursor=pointer]':
+              - /url: https://careers.google.com/jobs/dist/legal/EEOC_KnowYourRights_10_20.pdf
+            - text: ","
+            - link "Belonging at Google" [ref=f53e1525] [cursor=pointer]:
+              - /url: https://about.google/belonging/
+            - text: ", and"
+            - link "How we hire" [ref=f53e1526] [cursor=pointer]:
+              - /url: https://careers.google.com/how-we-hire/
+            - text: .
+      - generic [ref=f53e1527]:
+        - link "google.com (Opens in a new tab)" [ref=f53e1529] [cursor=pointer]:
+          - /url: https://www.google.com/
+          - img "Google" [ref=f53e1530]
+        - generic [ref=f53e1531]:
+          - generic [ref=f53e1532]:
+            - link "Privacy (opens in a new tab)" [ref=f53e1534] [cursor=pointer]:
+              - /url: https://policies.google.com/privacy
+              - text: Privacy
+              - generic [ref=f53e1535]: open_in_new
+            - link "Applicant & Candidate Privacy (opens in a new tab)" [ref=f53e1538] [cursor=pointer]:
+              - /url: ./privacy-policy
+              - text: Applicant & Candidate Privacy
+              - generic [ref=f53e1539]: open_in_new
+            - link "Terms (opens in a new tab)" [ref=f53e1542] [cursor=pointer]:
+              - /url: https://policies.google.com/terms
+              - text: Terms
+              - generic [ref=f53e1543]: open_in_new
+          - link "Help (opens in a new tab)" [ref=f53e1546] [cursor=pointer]:
+            - /url: https://support.google.com/googlecareers/#topic=6095159
+            - generic [ref=f53e1547]: help
+            - text: Help
+            - generic [ref=f53e1549]: open_in_new
+  - generic [ref=f53e1551]: Info You can submit up to 3 applications every 30 days.

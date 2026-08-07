@@ -1,0 +1,159 @@
+- generic [active] [ref=f122e1]:
+  - generic [ref=f122e4]:
+    - generic [ref=f122e5]:
+      - paragraph [ref=f122e6]: This website uses cookies
+      - paragraph [ref=f122e7]:
+        - text: We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services, including to show advertising that is more relevant to you. You have the right to withdraw or change your consent at any time by clicking on “Cookie Settings”. Please see our
+        - link "Cookie Policy" [ref=f122e8] [cursor=pointer]:
+          - /url: https://www.coloplast.com/legal-information/cookie-policy/
+        - text: and
+        - link "Privacy Notice" [ref=f122e9] [cursor=pointer]:
+          - /url: https://www.coloplast.com/legal-information/data-privacy/
+        - text: for more information.”
+      - generic [ref=f122e10]:
+        - link "Allow selection" [ref=f122e11] [cursor=pointer]:
+          - /url: "#"
+        - link "Allow all cookies" [ref=f122e12] [cursor=pointer]:
+          - /url: javascript:void(0)
+    - generic [ref=f122e13]:
+      - generic [ref=f122e14]:
+        - generic [ref=f122e15]: Necessary
+        - generic [ref=f122e17]: Preferences
+        - generic [ref=f122e19]: Statistics
+        - generic [ref=f122e21]: Marketing
+      - link "Show details" [ref=f122e24] [cursor=pointer]:
+        - /url: javascript:void(0)
+  - navigation "Navigation" [ref=f122e26]:
+    - list [ref=f122e27]:
+      - listitem [ref=f122e28]:
+        - link "Contact" [ref=f122e29] [cursor=pointer]:
+          - /url: /contact-information/
+      - listitem [ref=f122e31]:
+        - button "Corporate" [ref=f122e33] [cursor=pointer]
+  - banner [ref=f122e42]:
+    - generic [ref=f122e44]:
+      - link [ref=f122e47] [cursor=pointer]:
+        - /url: /
+        - img "Coloplast - Corporate" [ref=f122e49]
+      - navigation "Primary navigation" [ref=f122e51]:
+        - list [ref=f122e52]:
+          - listitem [ref=f122e53]:
+            - button "About us" [ref=f122e54] [cursor=pointer]
+          - listitem [ref=f122e55]:
+            - button "Care areas" [ref=f122e56] [cursor=pointer]
+          - listitem [ref=f122e57]:
+            - button "Sustainability" [ref=f122e58] [cursor=pointer]
+          - listitem [ref=f122e59]:
+            - button "Careers" [ref=f122e60] [cursor=pointer]
+          - listitem [ref=f122e61]:
+            - button "Investors" [ref=f122e62] [cursor=pointer]
+          - listitem [ref=f122e63]:
+            - button "News and media" [ref=f122e64] [cursor=pointer]
+      - button "Search the site" [ref=f122e67] [cursor=pointer]
+  - main [ref=f122e71]:
+    - generic [ref=f122e75]:
+      - heading "Whoops! Something went wrong!" [level=1] [ref=f122e76]
+      - heading [level=2]
+      - paragraph [ref=f122e77]: The page you were looking for appears to be missing.
+  - contentinfo [ref=f122e78]:
+    - generic [ref=f122e80]:
+      - link "Coloplast" [ref=f122e81] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f122e84]:
+        - generic [ref=f122e86]:
+          - generic [ref=f122e87]:
+            - heading "About us" [level=2] [ref=f122e88]
+            - list [ref=f122e90]:
+              - listitem [ref=f122e91]:
+                - link "Business areas" [ref=f122e92] [cursor=pointer]:
+                  - /url: /about-us/what-we-do/
+              - listitem [ref=f122e94]:
+                - link "Investors" [ref=f122e95] [cursor=pointer]:
+                  - /url: /investor-relations/
+              - listitem [ref=f122e97]:
+                - link "Sustainability" [ref=f122e98] [cursor=pointer]:
+                  - /url: /sustainability/
+              - listitem [ref=f122e100]:
+                - link "Careers" [ref=f122e101] [cursor=pointer]:
+                  - /url: /careers/
+              - listitem [ref=f122e103]:
+                - link "News and media" [ref=f122e104] [cursor=pointer]:
+                  - /url: /news-and-media/
+          - generic [ref=f122e106]:
+            - heading "Useful links" [level=2] [ref=f122e107]
+            - list [ref=f122e109]:
+              - listitem [ref=f122e110]:
+                - link "Coloplast Professional" [ref=f122e111] [cursor=pointer]:
+                  - /url: /coloplast-professional/
+              - listitem [ref=f122e113]:
+                - link "Coloplast Care" [ref=f122e114] [cursor=pointer]:
+                  - /url: /coloplast-care/
+              - listitem [ref=f122e116]:
+                - link "Supplier portal" [ref=f122e117] [cursor=pointer]:
+                  - /url: /legal-information/supplier-portal/
+              - listitem [ref=f122e119]:
+                - link "Distributor portal" [ref=f122e120] [cursor=pointer]:
+                  - /url: /legal-information/distributor-portal/
+              - listitem [ref=f122e122]:
+                - link "Look for products in your location" [ref=f122e123] [cursor=pointer]:
+                  - /url: /country-selector/
+          - generic [ref=f122e125]:
+            - heading "Contact us" [level=2] [ref=f122e126]
+            - list [ref=f122e128]:
+              - listitem [ref=f122e129]:
+                - link "Investor relations" [ref=f122e130] [cursor=pointer]:
+                  - /url: /investor-relations/contact-investor-relations/
+              - listitem [ref=f122e132]:
+                - link "Press contact" [ref=f122e133] [cursor=pointer]:
+                  - /url: /news-and-media/contact/
+              - listitem [ref=f122e135]:
+                - link "Coloplast headquarters" [ref=f122e136] [cursor=pointer]:
+                  - /url: /contact-information/
+          - generic [ref=f122e138]:
+            - heading "Social media" [level=2] [ref=f122e139]
+            - list [ref=f122e141]:
+              - listitem [ref=f122e142]:
+                - link "LinkedIn" [ref=f122e143] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/coloplast/posts/?feedView=all
+        - generic [ref=f122e146]:
+          - generic [ref=f122e148]:
+            - text: Coloplast Group - Holtedam 1
+            - generic [ref=f122e149]: "- DK 3050 Humlebaek"
+            - text: "- Denmark"
+          - list [ref=f122e150]:
+            - listitem [ref=f122e151]:
+              - link "Cookie Policy" [ref=f122e152] [cursor=pointer]:
+                - /url: /legal-information/cookie-policy/
+            - listitem [ref=f122e153]:
+              - text: •
+              - link "Terms of Use" [ref=f122e154] [cursor=pointer]:
+                - /url: /legal-information/terms-of-use/
+            - listitem [ref=f122e155]:
+              - text: •
+              - link "Data Privacy" [ref=f122e156] [cursor=pointer]:
+                - /url: /legal-information/data-privacy/
+            - listitem [ref=f122e157]:
+              - text: •
+              - link "EU Declarations of Conformity" [ref=f122e158] [cursor=pointer]:
+                - /url: https://docshub.coloplast.com/radeclarations/
+            - listitem [ref=f122e159]:
+              - text: •
+              - link "Coloplast products - Instructions for use" [ref=f122e160] [cursor=pointer]:
+                - /url: https://docshub.coloplast.com/ifus/
+            - listitem [ref=f122e161]:
+              - text: •
+              - link "Patient Information Leaflet" [ref=f122e162] [cursor=pointer]:
+                - /url: https://docshub.coloplast.com/patient-information-leaflets/
+            - listitem [ref=f122e163]:
+              - text: •
+              - link "Accessibility" [ref=f122e164] [cursor=pointer]:
+                - /url: /legal-information/accessibility/
+            - listitem [ref=f122e165]:
+              - text: •
+              - link "Open Source Attribution" [ref=f122e166] [cursor=pointer]:
+                - /url: /legal-information/open-source-attribution/
+            - listitem [ref=f122e167]:
+              - text: •
+              - button "Cookie Settings" [ref=f122e168] [cursor=pointer]
+  - iframe [ref=f122e169]:
+    

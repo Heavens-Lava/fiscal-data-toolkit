@@ -1,0 +1,1324 @@
+- generic [active] [ref=f56e1]:
+  - link "Skip to main content" [ref=f56e2] [cursor=pointer]:
+    - /url: "#gnav-header-end"
+  - main [ref=f56e3]:
+    - generic [ref=f56e5]:
+      - navigation "Primary" [ref=f56e7]:
+        - generic [ref=f56e8]:
+          - group [ref=f56e9]:
+            - generic [ref=f56e11]:
+              - img "Error" [ref=f56e13]
+              - generic [ref=f56e16]:
+                - heading "Indeed is experiencing issues" [level=2] [ref=f56e17]
+                - text: Some Indeed features may not be working right now, but we're fixing the problem.
+          - generic [ref=f56e18]:
+            - generic [ref=f56e19]:
+              - generic [ref=f56e20]:
+                - link "Indeed Home" [ref=f56e21] [cursor=pointer]:
+                  - /url: /?from=gnav-jobsearch--indeedmobile
+                - list [ref=f56e25]:
+                  - listitem [ref=f56e26]:
+                    - link "Home" [ref=f56e28] [cursor=pointer]:
+                      - /url: https://www.indeed.com/
+                  - listitem [ref=f56e29]:
+                    - link "Company reviews" [ref=f56e31] [cursor=pointer]:
+                      - /url: https://www.indeed.com/companies
+                  - listitem [ref=f56e32]:
+                    - link "Find salaries" [ref=f56e34] [cursor=pointer]:
+                      - /url: https://www.indeed.com/career/salaries
+              - generic [ref=f56e35]:
+                - list [ref=f56e36]:
+                  - listitem [ref=f56e37]:
+                    - link "My jobs" [ref=f56e39] [cursor=pointer]:
+                      - /url: https://myjobs.indeed.com?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9nnlv4gst2800&tk=1jv9nnllqi017800&co=US&hl=en
+                  - listitem [ref=f56e42]:
+                    - link "Messages Unread count 0" [ref=f56e44] [cursor=pointer]:
+                      - /url: https://messages.indeed.com?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9nnlv4gst2800&tk=1jv9nnllqi017800&co=US&hl=en
+                      - generic [ref=f56e50]:
+                        - text: Messages Unread count 0
+                        - generic [ref=f56e51]: .
+                  - listitem [ref=f56e52]:
+                    - link "Notifications Unread count 0" [ref=f56e54] [cursor=pointer]:
+                      - /url: https://www.indeed.com/notifications?from=gnav-util-jobsearch--indeedmobile&gnavTK=1jv9nnlv4gst2800&tk=1jv9nnllqi017800&hl=en
+                  - listitem [ref=f56e57]:
+                    - button "Account" [ref=f56e61] [cursor=pointer]:
+                      - generic [ref=f56e65]:
+                        - text: "1"
+                        - generic [ref=f56e66]: new update
+                - link "Employers / Post Job" [ref=f56e71] [cursor=pointer]:
+                  - /url: https://www.indeed.com/hire?co=US&hl=en
+            - generic [ref=f56e72]: Start of main content
+      - generic [ref=f56e74]:
+        - search [ref=f56e79]:
+          - generic [ref=f56e82]:
+            - generic [ref=f56e84]:
+              - generic [ref=f56e85]:
+                - generic [ref=f56e86]: "Keyword : all jobs"
+                - generic [ref=f56e89]:
+                  - 'combobox "search: Job title, keywords, or company" [ref=f56e93]': remote react developer
+                  - button "Clear what input" [ref=f56e95] [cursor=pointer]
+              - separator [ref=f56e98]:
+                - generic [ref=f56e99]: "&nbsp;"
+              - generic [ref=f56e100]:
+                - generic [ref=f56e101]: Edit location input box label
+                - generic [ref=f56e104]:
+                  - combobox "Edit location" [ref=f56e108]: Remote
+                  - button "Clear location input" [ref=f56e110] [cursor=pointer]
+            - button "Search" [ref=f56e114] [cursor=pointer]
+          - list [ref=f56e117]:
+            - button "Pay filter" [ref=f56e119] [cursor=pointer]: Pay
+            - button "Remote filter" [ref=f56e121] [cursor=pointer]: Remote
+            - button "Job type filter" [ref=f56e123] [cursor=pointer]: Job type
+            - button "Experience level filter" [ref=f56e125] [cursor=pointer]: Experience level
+            - button "Residency Requirement filter" [ref=f56e127] [cursor=pointer]: Residency Requirement
+            - button "Date posted filter" [ref=f56e129] [cursor=pointer]: Date posted
+        - generic [ref=f56e136]:
+          - generic [ref=f56e137]:
+            - generic [ref=f56e138]:
+              - heading "remote react developer jobs in Remote" [level=1] [ref=f56e139]
+              - button "More information about job results" [ref=f56e142] [cursor=pointer]:
+                - img "More information about job results" [ref=f56e143]
+            - generic [ref=f56e147]:
+              - generic [ref=f56e148]: "Sort by:"
+              - generic [ref=f56e149]: relevance - date
+          - list [ref=f56e153]:
+            - listitem
+            - listitem [ref=f56e154]:
+              - generic [ref=f56e161]:
+                - generic [ref=f56e163]:
+                  - heading [level=3] [ref=f56e164]:
+                    - button "full details of Android Developer - AI Trainer" [ref=f56e165] [cursor=pointer]: Android Developer - AI Trainer
+                  - generic [ref=f56e167]:
+                    - generic [ref=f56e168]: Easily apply
+                    - generic [ref=f56e171]: Urgently hiring
+                - generic [ref=f56e174]:
+                  - generic [ref=f56e176]:
+                    - generic [ref=f56e181]:
+                      - generic [ref=f56e182]: DataAnnotation
+                      - generic [ref=f56e184]: Remote in Tampa, FL
+                    - list [ref=f56e186]:
+                      - listitem [ref=f56e187]:
+                        - generic [ref=f56e188]:
+                          - img "matches your preference" [ref=f56e190]
+                          - generic [ref=f56e192]: $50 - $100 an hour
+                      - listitem [ref=f56e194]:
+                        - generic [ref=f56e195]:
+                          - img "matches your preference" [ref=f56e197]
+                          - generic [ref=f56e200]:
+                            - text: Full-time
+                            - generic [ref=f56e201]: "+2"
+                      - listitem [ref=f56e202]:
+                        - generic [ref=f56e203]: On demand
+                      - listitem [ref=f56e206]:
+                        - generic [ref=f56e207]: Flexible schedule
+                  - generic [ref=f56e210]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f56e216] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=d3727428f95ae45a&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e219]:
+                  - button "Save job Toggle" [ref=f56e220] [cursor=pointer]
+                  - button "Not interested" [ref=f56e223] [cursor=pointer]
+            - listitem [ref=f56e227]:
+              - generic [ref=f56e234]:
+                - generic [ref=f56e235]:
+                  - heading [level=3] [ref=f56e236]:
+                    - button "full details of Frontend Developer - AI Trainer" [ref=f56e237] [cursor=pointer]: Frontend Developer - AI Trainer
+                  - generic [ref=f56e238]: Easily apply
+                - generic [ref=f56e245]:
+                  - generic [ref=f56e250]:
+                    - generic [ref=f56e251]: DataAnnotation
+                    - generic [ref=f56e253]: Remote in Lititz, PA
+                  - list [ref=f56e255]:
+                    - listitem [ref=f56e256]:
+                      - generic [ref=f56e257]:
+                        - img "matches your preference" [ref=f56e259]
+                        - generic [ref=f56e261]: $50 - $100 an hour
+                    - listitem [ref=f56e263]:
+                      - generic [ref=f56e264]:
+                        - img "matches your preference" [ref=f56e266]
+                        - generic [ref=f56e269]:
+                          - text: Full-time
+                          - generic [ref=f56e270]: "+2"
+                    - listitem [ref=f56e271]:
+                      - generic [ref=f56e272]: On demand
+                    - listitem [ref=f56e275]:
+                      - generic [ref=f56e276]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e280] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=28ef61ce2485bbd4&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                - generic [ref=f56e283]:
+                  - button "Save job Toggle" [ref=f56e284] [cursor=pointer]
+                  - button "Not interested" [ref=f56e287] [cursor=pointer]
+            - listitem [ref=f56e291]:
+              - generic [ref=f56e298]:
+                - generic [ref=f56e299]:
+                  - heading [level=3] [ref=f56e300]:
+                    - button "full details of Frontend Developer - AI Trainer" [ref=f56e301] [cursor=pointer]: Frontend Developer - AI Trainer
+                  - generic [ref=f56e302]: Easily apply
+                - generic [ref=f56e309]:
+                  - generic [ref=f56e314]:
+                    - generic [ref=f56e315]: DataAnnotation
+                    - generic [ref=f56e317]: Remote in Aliso Viejo, CA
+                  - list [ref=f56e319]:
+                    - listitem [ref=f56e320]:
+                      - generic [ref=f56e321]:
+                        - img "matches your preference" [ref=f56e323]
+                        - generic [ref=f56e325]: $50 - $100 an hour
+                    - listitem [ref=f56e327]:
+                      - generic [ref=f56e328]:
+                        - img "matches your preference" [ref=f56e330]
+                        - generic [ref=f56e333]:
+                          - text: Full-time
+                          - generic [ref=f56e334]: "+2"
+                    - listitem [ref=f56e335]:
+                      - generic [ref=f56e336]: On demand
+                    - listitem [ref=f56e339]:
+                      - generic [ref=f56e340]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e344] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=a0b2798eb995ceb0&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                - generic [ref=f56e347]:
+                  - button "Save job Toggle" [ref=f56e348] [cursor=pointer]
+                  - button "Not interested" [ref=f56e351] [cursor=pointer]
+            - listitem [ref=f56e355]:
+              - generic [ref=f56e362]:
+                - generic [ref=f56e363]:
+                  - heading [level=3] [ref=f56e364]:
+                    - button "full details of Frontend Developer - AI Trainer" [ref=f56e365] [cursor=pointer]: Frontend Developer - AI Trainer
+                  - generic [ref=f56e366]: Easily apply
+                - generic [ref=f56e373]:
+                  - generic [ref=f56e378]:
+                    - generic [ref=f56e379]: DataAnnotation
+                    - generic [ref=f56e381]: Remote in Wilmington, DE
+                  - list [ref=f56e383]:
+                    - listitem [ref=f56e384]:
+                      - generic [ref=f56e385]:
+                        - img "matches your preference" [ref=f56e387]
+                        - generic [ref=f56e389]: $50 - $100 an hour
+                    - listitem [ref=f56e391]:
+                      - generic [ref=f56e392]:
+                        - img "matches your preference" [ref=f56e394]
+                        - generic [ref=f56e397]:
+                          - text: Full-time
+                          - generic [ref=f56e398]: "+2"
+                    - listitem [ref=f56e399]:
+                      - generic [ref=f56e400]: On demand
+                    - listitem [ref=f56e403]:
+                      - generic [ref=f56e404]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e408] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=654a185be05c4d7a&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqECAKCW5vcm10aXRsZRoTZnJvbnQgZW5kIGRldmVsb3Blcg%253D%253D
+                - generic [ref=f56e411]:
+                  - button "Save job Toggle" [ref=f56e412] [cursor=pointer]
+                  - button "Not interested" [ref=f56e415] [cursor=pointer]
+            - listitem [ref=f56e419]:
+              - generic [ref=f56e426]:
+                - generic [ref=f56e428]:
+                  - heading [level=3] [ref=f56e429]:
+                    - button "full details of Android Developer - AI Trainer" [ref=f56e430] [cursor=pointer]: Android Developer - AI Trainer
+                  - generic [ref=f56e432]:
+                    - generic [ref=f56e433]: Easily apply
+                    - generic [ref=f56e436]: Urgently hiring
+                - generic [ref=f56e439]:
+                  - generic [ref=f56e441]:
+                    - generic [ref=f56e446]:
+                      - generic [ref=f56e447]: DataAnnotation
+                      - generic [ref=f56e449]: Remote in Arlington Heights, IL
+                    - list [ref=f56e451]:
+                      - listitem [ref=f56e452]:
+                        - generic [ref=f56e453]:
+                          - img "matches your preference" [ref=f56e455]
+                          - generic [ref=f56e457]: $50 - $100 an hour
+                      - listitem [ref=f56e459]:
+                        - generic [ref=f56e460]:
+                          - img "matches your preference" [ref=f56e462]
+                          - generic [ref=f56e465]:
+                            - text: Full-time
+                            - generic [ref=f56e466]: "+2"
+                      - listitem [ref=f56e467]:
+                        - generic [ref=f56e468]: On demand
+                      - listitem [ref=f56e471]:
+                        - generic [ref=f56e472]: Flexible schedule
+                  - generic [ref=f56e475]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f56e481] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=09b280d5331ed0de&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e484]:
+                  - button "Save job Toggle" [ref=f56e485] [cursor=pointer]
+                  - button "Not interested" [ref=f56e488] [cursor=pointer]
+            - listitem
+            - listitem [ref=f56e492]:
+              - generic [ref=f56e499]:
+                - generic [ref=f56e501]:
+                  - heading [level=3] [ref=f56e502]:
+                    - button "full details of Android Software Engineer - AI Trainer" [ref=f56e503] [cursor=pointer]: Android Software Engineer - AI Trainer
+                  - generic [ref=f56e505]:
+                    - generic [ref=f56e506]: Easily apply
+                    - generic [ref=f56e509]: Urgently hiring
+                - generic [ref=f56e512]:
+                  - generic [ref=f56e514]:
+                    - generic [ref=f56e519]:
+                      - generic [ref=f56e520]: DataAnnotation
+                      - generic [ref=f56e522]: Remote in Brookhaven, GA
+                    - list [ref=f56e524]:
+                      - listitem [ref=f56e525]:
+                        - generic [ref=f56e526]:
+                          - img "matches your preference" [ref=f56e528]
+                          - generic [ref=f56e530]: $50 - $100 an hour
+                      - listitem [ref=f56e532]:
+                        - generic [ref=f56e533]:
+                          - img "matches your preference" [ref=f56e535]
+                          - generic [ref=f56e538]:
+                            - text: Full-time
+                            - generic [ref=f56e539]: "+2"
+                      - listitem [ref=f56e540]:
+                        - generic [ref=f56e541]: On demand
+                      - listitem [ref=f56e544]:
+                        - generic [ref=f56e545]: Flexible schedule
+                  - generic [ref=f56e548]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f56e554] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=e2cdcfea9e2457bd&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e557]:
+                  - button "Save job Toggle" [ref=f56e558] [cursor=pointer]
+                  - button "Not interested" [ref=f56e561] [cursor=pointer]
+            - listitem [ref=f56e565]:
+              - generic [ref=f56e572]:
+                - generic [ref=f56e574]:
+                  - heading [level=3] [ref=f56e575]:
+                    - button "full details of Android Software Engineer - AI Trainer" [ref=f56e576] [cursor=pointer]: Android Software Engineer - AI Trainer
+                  - generic [ref=f56e578]:
+                    - generic [ref=f56e579]: Easily apply
+                    - generic [ref=f56e582]: Urgently hiring
+                - generic [ref=f56e585]:
+                  - generic [ref=f56e587]:
+                    - generic [ref=f56e592]:
+                      - generic [ref=f56e593]: DataAnnotation
+                      - generic [ref=f56e595]: Remote in Marlette, MI
+                    - list [ref=f56e597]:
+                      - listitem [ref=f56e598]:
+                        - generic [ref=f56e599]:
+                          - img "matches your preference" [ref=f56e601]
+                          - generic [ref=f56e603]: $50 - $100 an hour
+                      - listitem [ref=f56e605]:
+                        - generic [ref=f56e606]:
+                          - img "matches your preference" [ref=f56e608]
+                          - generic [ref=f56e611]:
+                            - text: Full-time
+                            - generic [ref=f56e612]: "+2"
+                      - listitem [ref=f56e613]:
+                        - generic [ref=f56e614]: On demand
+                      - listitem [ref=f56e617]:
+                        - generic [ref=f56e618]: Flexible schedule
+                  - generic [ref=f56e621]: 269 hires made in past 30 days
+                - link "View 10+ similar jobs with this employer" [ref=f56e627] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=ce35adba9e508a54&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e630]:
+                  - button "Save job Toggle" [ref=f56e631] [cursor=pointer]
+                  - button "Not interested" [ref=f56e634] [cursor=pointer]
+            - listitem [ref=f56e638]:
+              - generic [ref=f56e645]:
+                - generic [ref=f56e646]:
+                  - heading [level=3] [ref=f56e647]:
+                    - button "full details of Android Software Engineer - AI Trainer" [ref=f56e648] [cursor=pointer]: Android Software Engineer - AI Trainer
+                  - generic [ref=f56e649]: Easily apply
+                - generic [ref=f56e656]:
+                  - generic [ref=f56e661]:
+                    - generic [ref=f56e662]: DataAnnotation
+                    - generic [ref=f56e664]: Remote in Arcadia, CA
+                  - list [ref=f56e666]:
+                    - listitem [ref=f56e667]:
+                      - generic [ref=f56e668]:
+                        - img "matches your preference" [ref=f56e670]
+                        - generic [ref=f56e672]: $50 - $100 an hour
+                    - listitem [ref=f56e674]:
+                      - generic [ref=f56e675]:
+                        - img "matches your preference" [ref=f56e677]
+                        - generic [ref=f56e680]:
+                          - text: Full-time
+                          - generic [ref=f56e681]: "+2"
+                    - listitem [ref=f56e682]:
+                      - generic [ref=f56e683]: On demand
+                    - listitem [ref=f56e686]:
+                      - generic [ref=f56e687]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e691] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=5e46b2b8bf03b8a2&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e694]:
+                  - button "Save job Toggle" [ref=f56e695] [cursor=pointer]
+                  - button "Not interested" [ref=f56e698] [cursor=pointer]
+            - listitem [ref=f56e702]:
+              - generic [ref=f56e704]:
+                - heading "Software engineering openings" [level=2] [ref=f56e707]
+                - generic [ref=f56e710]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f56e711]:
+                    - listitem [ref=f56e712]:
+                      - generic [ref=f56e715]:
+                        - generic [ref=f56e716]:
+                          - generic [ref=f56e718]:
+                            - heading [level=3] [ref=f56e719]:
+                              - button "full details of Senior Software Developer" [ref=f56e720] [cursor=pointer]: Senior Software Developer
+                            - generic [ref=f56e722]:
+                              - generic [ref=f56e723]: Easily apply
+                              - generic [ref=f56e726]: New
+                          - generic [ref=f56e732]:
+                            - generic [ref=f56e733]: TherapyNotes.com
+                            - generic [ref=f56e736]: Remote in Philadelphia, PA
+                          - list [ref=f56e739]:
+                            - listitem [ref=f56e740]:
+                              - generic [ref=f56e741]:
+                                - img "matches your preference" [ref=f56e743]
+                                - generic [ref=f56e745]: $110,000 - $135,000 a year
+                            - listitem [ref=f56e747]:
+                              - generic [ref=f56e748]:
+                                - img "matches your preference" [ref=f56e750]
+                                - generic [ref=f56e752]: Full-time
+                            - listitem [ref=f56e754]:
+                              - generic [ref=f56e755]: Retirement plan
+                            - listitem [ref=f56e758]:
+                              - generic [ref=f56e759]: Vision insurance
+                            - listitem [ref=f56e762]:
+                              - generic [ref=f56e763]: Dental insurance
+                            - listitem [ref=f56e766]:
+                              - generic [ref=f56e767]: Disability insurance
+                            - listitem [ref=f56e770]:
+                              - generic [ref=f56e771]: Profit sharing
+                        - generic [ref=f56e774]:
+                          - button "Save job Toggle" [ref=f56e775] [cursor=pointer]
+                          - button "Not interested" [ref=f56e778] [cursor=pointer]
+                    - listitem [ref=f56e782]:
+                      - generic [ref=f56e785]:
+                        - generic [ref=f56e786]:
+                          - generic [ref=f56e788]:
+                            - heading [level=3] [ref=f56e789]:
+                              - button "full details of Senior Software Developer (Agentic Development)" [ref=f56e790] [cursor=pointer]: Senior Software Developer (Agentic Development)
+                            - generic [ref=f56e792]:
+                              - generic [ref=f56e793]: Easily apply
+                              - generic [ref=f56e796]: New
+                          - generic [ref=f56e802]:
+                            - generic [ref=f56e803]: TherapyNotes.com
+                            - generic [ref=f56e806]: Remote in Philadelphia, PA
+                          - list [ref=f56e809]:
+                            - listitem [ref=f56e810]:
+                              - generic [ref=f56e811]:
+                                - img "matches your preference" [ref=f56e813]
+                                - generic [ref=f56e815]: $110,000 - $135,000 a year
+                            - listitem [ref=f56e817]:
+                              - generic [ref=f56e818]:
+                                - img "matches your preference" [ref=f56e820]
+                                - generic [ref=f56e822]: Full-time
+                            - listitem [ref=f56e824]:
+                              - generic [ref=f56e825]: Retirement plan
+                            - listitem [ref=f56e828]:
+                              - generic [ref=f56e829]: Vision insurance
+                            - listitem [ref=f56e832]:
+                              - generic [ref=f56e833]: Dental insurance
+                            - listitem [ref=f56e836]:
+                              - generic [ref=f56e837]: Disability insurance
+                            - listitem [ref=f56e840]:
+                              - generic [ref=f56e841]: Profit sharing
+                        - generic [ref=f56e844]:
+                          - button "Save job Toggle" [ref=f56e845] [cursor=pointer]
+                          - button "Not interested" [ref=f56e848] [cursor=pointer]
+                    - listitem [ref=f56e852]:
+                      - generic [ref=f56e855]:
+                        - generic [ref=f56e856]:
+                          - generic [ref=f56e858]:
+                            - heading [level=3] [ref=f56e859]:
+                              - button "full details of Senior Developer" [ref=f56e860] [cursor=pointer]: Senior Developer
+                            - generic [ref=f56e861]: Easily apply
+                          - generic [ref=f56e867]:
+                            - generic [ref=f56e868]: Professional Management Enterprises, Inc.
+                            - generic [ref=f56e871]: Remote in Indianapolis, IN 46201
+                          - list [ref=f56e874]:
+                            - listitem [ref=f56e875]:
+                              - generic [ref=f56e876]: Contract
+                            - listitem [ref=f56e879]:
+                              - generic [ref=f56e880]: 40 hours per week
+                            - listitem [ref=f56e883]:
+                              - generic [ref=f56e886]:
+                                - text: Monday to Friday
+                                - generic [ref=f56e887]: "+1"
+                        - generic [ref=f56e888]:
+                          - button "Save job Toggle" [ref=f56e889] [cursor=pointer]
+                          - button "Not interested" [ref=f56e892] [cursor=pointer]
+                    - listitem [ref=f56e896]:
+                      - generic [ref=f56e899]:
+                        - generic [ref=f56e900]:
+                          - heading [level=3] [ref=f56e903]:
+                            - button "full details of M365 Power Platform Architect" [ref=f56e904] [cursor=pointer]: M365 Power Platform Architect
+                          - generic [ref=f56e908]:
+                            - generic [ref=f56e909]: Leidos
+                            - generic [ref=f56e912]: Remote
+                          - list [ref=f56e915]:
+                            - listitem [ref=f56e916]:
+                              - generic [ref=f56e917]:
+                                - img "matches your preference" [ref=f56e919]
+                                - generic [ref=f56e921]: $131,300 - $237,350 a year
+                            - listitem [ref=f56e923]:
+                              - generic [ref=f56e924]:
+                                - img "matches your preference" [ref=f56e926]
+                                - generic [ref=f56e928]: Full-time
+                            - listitem [ref=f56e930]:
+                              - generic [ref=f56e931]: Day shift
+                            - listitem [ref=f56e934]:
+                              - generic [ref=f56e935]: Flexible schedule
+                        - generic [ref=f56e938]:
+                          - button "Save job Toggle" [ref=f56e939] [cursor=pointer]
+                          - button "Not interested" [ref=f56e942] [cursor=pointer]
+                    - listitem [ref=f56e946]:
+                      - generic [ref=f56e949]:
+                        - generic [ref=f56e950]:
+                          - generic [ref=f56e952]:
+                            - heading [level=3] [ref=f56e953]:
+                              - button "full details of Software Engineer Analyst - AI Trainer" [ref=f56e954] [cursor=pointer]: Software Engineer Analyst - AI Trainer
+                            - generic [ref=f56e955]: Easily apply
+                          - generic [ref=f56e963]:
+                            - generic [ref=f56e964]: DataAnnotation
+                            - generic [ref=f56e967]: Remote in Lehi, UT
+                          - list [ref=f56e970]:
+                            - listitem [ref=f56e971]:
+                              - generic [ref=f56e972]:
+                                - img "matches your preference" [ref=f56e974]
+                                - generic [ref=f56e976]: $50 - $100 an hour
+                            - listitem [ref=f56e978]:
+                              - generic [ref=f56e979]:
+                                - img "matches your preference" [ref=f56e981]
+                                - generic [ref=f56e984]:
+                                  - text: Full-time
+                                  - generic [ref=f56e985]: "+2"
+                            - listitem [ref=f56e986]:
+                              - generic [ref=f56e987]: On demand
+                            - listitem [ref=f56e990]:
+                              - generic [ref=f56e991]: Flexible schedule
+                        - generic [ref=f56e994]:
+                          - button "Save job Toggle" [ref=f56e995] [cursor=pointer]
+                          - button "Not interested" [ref=f56e998] [cursor=pointer]
+                    - listitem [ref=f56e1002]:
+                      - generic [ref=f56e1005]:
+                        - generic [ref=f56e1006]:
+                          - generic [ref=f56e1008]:
+                            - heading [level=3] [ref=f56e1009]:
+                              - button "full details of Software Engineer Analyst - AI Trainer" [ref=f56e1010] [cursor=pointer]: Software Engineer Analyst - AI Trainer
+                            - generic [ref=f56e1011]: Easily apply
+                          - generic [ref=f56e1019]:
+                            - generic [ref=f56e1020]: DataAnnotation
+                            - generic [ref=f56e1023]: Remote in Minnetonka, MN
+                          - list [ref=f56e1026]:
+                            - listitem [ref=f56e1027]:
+                              - generic [ref=f56e1028]:
+                                - img "matches your preference" [ref=f56e1030]
+                                - generic [ref=f56e1032]: $50 - $100 an hour
+                            - listitem [ref=f56e1034]:
+                              - generic [ref=f56e1035]:
+                                - img "matches your preference" [ref=f56e1037]
+                                - generic [ref=f56e1040]:
+                                  - text: Full-time
+                                  - generic [ref=f56e1041]: "+2"
+                            - listitem [ref=f56e1042]:
+                              - generic [ref=f56e1043]: On demand
+                            - listitem [ref=f56e1046]:
+                              - generic [ref=f56e1047]: Flexible schedule
+                        - generic [ref=f56e1050]:
+                          - button "Save job Toggle" [ref=f56e1051] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1054] [cursor=pointer]
+                    - listitem [ref=f56e1058]:
+                      - generic [ref=f56e1061]:
+                        - generic [ref=f56e1062]:
+                          - generic [ref=f56e1064]:
+                            - heading [level=3] [ref=f56e1065]:
+                              - button "full details of Embedded Systems Developer - AI Trainer" [ref=f56e1066] [cursor=pointer]: Embedded Systems Developer - AI Trainer
+                            - generic [ref=f56e1067]: Easily apply
+                          - generic [ref=f56e1075]:
+                            - generic [ref=f56e1076]: DataAnnotation
+                            - generic [ref=f56e1079]: Remote in Acton, MA
+                          - list [ref=f56e1082]:
+                            - listitem [ref=f56e1083]:
+                              - generic [ref=f56e1084]:
+                                - img "matches your preference" [ref=f56e1086]
+                                - generic [ref=f56e1088]: $50 - $100 an hour
+                            - listitem [ref=f56e1090]:
+                              - generic [ref=f56e1091]:
+                                - img "matches your preference" [ref=f56e1093]
+                                - generic [ref=f56e1096]:
+                                  - text: Full-time
+                                  - generic [ref=f56e1097]: "+2"
+                            - listitem [ref=f56e1098]:
+                              - generic [ref=f56e1099]: On demand
+                            - listitem [ref=f56e1102]:
+                              - generic [ref=f56e1103]: Flexible schedule
+                        - generic [ref=f56e1106]:
+                          - button "Save job Toggle" [ref=f56e1107] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1110] [cursor=pointer]
+                    - listitem [ref=f56e1114]:
+                      - generic [ref=f56e1117]:
+                        - generic [ref=f56e1118]:
+                          - generic [ref=f56e1120]:
+                            - heading [level=3] [ref=f56e1121]:
+                              - button "full details of Back End Developer - AI Trainer" [ref=f56e1122] [cursor=pointer]: Back End Developer - AI Trainer
+                            - generic [ref=f56e1123]: Easily apply
+                          - generic [ref=f56e1131]:
+                            - generic [ref=f56e1132]: DataAnnotation
+                            - generic [ref=f56e1135]: Remote in South San Francisco, CA
+                          - list [ref=f56e1138]:
+                            - listitem [ref=f56e1139]:
+                              - generic [ref=f56e1140]:
+                                - img "matches your preference" [ref=f56e1142]
+                                - generic [ref=f56e1144]: $50 - $100 an hour
+                            - listitem [ref=f56e1146]:
+                              - generic [ref=f56e1147]:
+                                - img "matches your preference" [ref=f56e1149]
+                                - generic [ref=f56e1152]:
+                                  - text: Full-time
+                                  - generic [ref=f56e1153]: "+2"
+                            - listitem [ref=f56e1154]:
+                              - generic [ref=f56e1155]: On demand
+                            - listitem [ref=f56e1158]:
+                              - generic [ref=f56e1159]: Flexible schedule
+                        - generic [ref=f56e1162]:
+                          - button "Save job Toggle" [ref=f56e1163] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1166] [cursor=pointer]
+                    - listitem [ref=f56e1170]:
+                      - generic [ref=f56e1173]:
+                        - generic [ref=f56e1174]:
+                          - generic [ref=f56e1176]:
+                            - heading [level=3] [ref=f56e1177]:
+                              - button "full details of C++ Engineer - AI Trainer" [ref=f56e1178] [cursor=pointer]: C++ Engineer - AI Trainer
+                            - generic [ref=f56e1179]: Easily apply
+                          - generic [ref=f56e1187]:
+                            - generic [ref=f56e1188]: DataAnnotation
+                            - generic [ref=f56e1191]: Remote in Toms River, NJ
+                          - list [ref=f56e1194]:
+                            - listitem [ref=f56e1195]:
+                              - generic [ref=f56e1196]:
+                                - img "matches your preference" [ref=f56e1198]
+                                - generic [ref=f56e1200]: $50 - $100 an hour
+                            - listitem [ref=f56e1202]:
+                              - generic [ref=f56e1203]:
+                                - img "matches your preference" [ref=f56e1205]
+                                - generic [ref=f56e1208]:
+                                  - text: Full-time
+                                  - generic [ref=f56e1209]: "+2"
+                            - listitem [ref=f56e1210]:
+                              - generic [ref=f56e1211]: On demand
+                            - listitem [ref=f56e1214]:
+                              - generic [ref=f56e1215]: Flexible schedule
+                        - generic [ref=f56e1218]:
+                          - button "Save job Toggle" [ref=f56e1219] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1222] [cursor=pointer]
+                    - listitem [ref=f56e1226]:
+                      - generic [ref=f56e1229]:
+                        - generic [ref=f56e1230]:
+                          - generic [ref=f56e1232]:
+                            - heading [level=3] [ref=f56e1233]:
+                              - button "full details of Build & Release Engineer - AI Trainer" [ref=f56e1234] [cursor=pointer]: Build & Release Engineer - AI Trainer
+                            - generic [ref=f56e1235]: Easily apply
+                          - generic [ref=f56e1243]:
+                            - generic [ref=f56e1244]: DataAnnotation
+                            - generic [ref=f56e1247]: Remote in Boston, MA
+                          - list [ref=f56e1250]:
+                            - listitem [ref=f56e1251]:
+                              - generic [ref=f56e1252]:
+                                - img "matches your preference" [ref=f56e1254]
+                                - generic [ref=f56e1256]: $50 - $100 an hour
+                            - listitem [ref=f56e1258]:
+                              - generic [ref=f56e1259]:
+                                - img "matches your preference" [ref=f56e1261]
+                                - generic [ref=f56e1264]:
+                                  - text: Full-time
+                                  - generic [ref=f56e1265]: "+2"
+                            - listitem [ref=f56e1266]:
+                              - generic [ref=f56e1267]: On demand
+                            - listitem [ref=f56e1270]:
+                              - generic [ref=f56e1271]: Flexible schedule
+                        - generic [ref=f56e1274]:
+                          - button "Save job Toggle" [ref=f56e1275] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1278] [cursor=pointer]
+                  - generic [ref=f56e1282]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 10" [ref=f56e1283]: 1/10
+                    - button "Next" [ref=f56e1284] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f56e1287]:
+              - generic [ref=f56e1294]:
+                - generic [ref=f56e1295]:
+                  - heading [level=3] [ref=f56e1296]:
+                    - button "full details of Android Software Engineer - AI Trainer" [ref=f56e1297] [cursor=pointer]: Android Software Engineer - AI Trainer
+                  - generic [ref=f56e1298]: Easily apply
+                - generic [ref=f56e1305]:
+                  - generic [ref=f56e1310]:
+                    - generic [ref=f56e1311]: DataAnnotation
+                    - generic [ref=f56e1313]: Remote in Boston, MA
+                  - list [ref=f56e1315]:
+                    - listitem [ref=f56e1316]:
+                      - generic [ref=f56e1317]:
+                        - img "matches your preference" [ref=f56e1319]
+                        - generic [ref=f56e1321]: $50 - $100 an hour
+                    - listitem [ref=f56e1323]:
+                      - generic [ref=f56e1324]:
+                        - img "matches your preference" [ref=f56e1326]
+                        - generic [ref=f56e1329]:
+                          - text: Full-time
+                          - generic [ref=f56e1330]: "+2"
+                    - listitem [ref=f56e1331]:
+                      - generic [ref=f56e1332]: On demand
+                    - listitem [ref=f56e1335]:
+                      - generic [ref=f56e1336]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e1340] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=81605c8b74b81a97&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e1343]:
+                  - button "Save job Toggle" [ref=f56e1344] [cursor=pointer]
+                  - button "Not interested" [ref=f56e1347] [cursor=pointer]
+            - listitem
+            - listitem [ref=f56e1351]:
+              - generic [ref=f56e1358]:
+                - generic [ref=f56e1359]:
+                  - heading [level=3] [ref=f56e1360]:
+                    - button "full details of Android Developer - AI Trainer" [ref=f56e1361] [cursor=pointer]: Android Developer - AI Trainer
+                  - generic [ref=f56e1362]: Easily apply
+                - generic [ref=f56e1369]:
+                  - generic [ref=f56e1374]:
+                    - generic [ref=f56e1375]: DataAnnotation
+                    - generic [ref=f56e1377]: Remote in Boston, MA
+                  - list [ref=f56e1379]:
+                    - listitem [ref=f56e1380]:
+                      - generic [ref=f56e1381]:
+                        - img "matches your preference" [ref=f56e1383]
+                        - generic [ref=f56e1385]: $50 - $100 an hour
+                    - listitem [ref=f56e1387]:
+                      - generic [ref=f56e1388]:
+                        - img "matches your preference" [ref=f56e1390]
+                        - generic [ref=f56e1393]:
+                          - text: Full-time
+                          - generic [ref=f56e1394]: "+2"
+                    - listitem [ref=f56e1395]:
+                      - generic [ref=f56e1396]: On demand
+                    - listitem [ref=f56e1399]:
+                      - generic [ref=f56e1400]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e1404] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=9de8c740e9d9e86f&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e1407]:
+                  - button "Save job Toggle" [ref=f56e1408] [cursor=pointer]
+                  - button "Not interested" [ref=f56e1411] [cursor=pointer]
+            - listitem
+            - listitem [ref=f56e1415]:
+              - generic [ref=f56e1417]:
+                - heading "Opportunities in web application development" [level=2] [ref=f56e1420]
+                - generic [ref=f56e1423]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f56e1424]:
+                    - listitem [ref=f56e1425]:
+                      - generic [ref=f56e1428]:
+                        - generic [ref=f56e1429]:
+                          - generic [ref=f56e1431]:
+                            - heading [level=3] [ref=f56e1432]:
+                              - button "full details of Lead Substation Protection and Controls Engineer" [ref=f56e1433] [cursor=pointer]: Lead Substation Protection and Controls Engineer
+                            - generic [ref=f56e1434]: New
+                          - generic [ref=f56e1442]:
+                            - generic [ref=f56e1443]: Leidos
+                            - generic [ref=f56e1446]: Hybrid work
+                          - list [ref=f56e1449]:
+                            - listitem [ref=f56e1450]:
+                              - generic [ref=f56e1451]:
+                                - img "matches your preference" [ref=f56e1453]
+                                - generic [ref=f56e1455]: $107,900 - $195,050 a year
+                            - listitem [ref=f56e1457]:
+                              - generic [ref=f56e1458]:
+                                - img "matches your preference" [ref=f56e1460]
+                                - generic [ref=f56e1462]: Full-time
+                            - listitem [ref=f56e1464]:
+                              - generic [ref=f56e1465]: Day shift
+                            - listitem [ref=f56e1468]:
+                              - generic [ref=f56e1469]: Opportunities for advancement
+                        - generic [ref=f56e1472]:
+                          - button "Save job Toggle" [ref=f56e1473] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1476] [cursor=pointer]
+                    - listitem [ref=f56e1480]:
+                      - generic [ref=f56e1483]:
+                        - generic [ref=f56e1484]:
+                          - generic [ref=f56e1486]:
+                            - heading [level=3] [ref=f56e1487]:
+                              - button "full details of Lead Substation Physical Engineer" [ref=f56e1488] [cursor=pointer]: Lead Substation Physical Engineer
+                            - generic [ref=f56e1489]: New
+                          - generic [ref=f56e1497]:
+                            - generic [ref=f56e1498]: Leidos
+                            - generic [ref=f56e1501]: Hybrid work
+                          - list [ref=f56e1504]:
+                            - listitem [ref=f56e1505]:
+                              - generic [ref=f56e1506]:
+                                - img "matches your preference" [ref=f56e1508]
+                                - generic [ref=f56e1510]: $107,900 - $195,050 a year
+                            - listitem [ref=f56e1512]:
+                              - generic [ref=f56e1513]:
+                                - img "matches your preference" [ref=f56e1515]
+                                - generic [ref=f56e1517]: Full-time
+                            - listitem [ref=f56e1519]:
+                              - generic [ref=f56e1520]: Day shift
+                            - listitem [ref=f56e1523]:
+                              - generic [ref=f56e1524]: Flexible schedule
+                        - generic [ref=f56e1527]:
+                          - button "Save job Toggle" [ref=f56e1528] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1531] [cursor=pointer]
+                    - listitem [ref=f56e1535]:
+                      - generic [ref=f56e1538]:
+                        - generic [ref=f56e1539]:
+                          - generic [ref=f56e1541]:
+                            - heading [level=3] [ref=f56e1542]:
+                              - button "full details of Lead Substation Protection and Controls Engineer" [ref=f56e1543] [cursor=pointer]: Lead Substation Protection and Controls Engineer
+                            - generic [ref=f56e1544]: New
+                          - generic [ref=f56e1552]:
+                            - generic [ref=f56e1553]: Leidos
+                            - generic [ref=f56e1556]: Hybrid work
+                          - list [ref=f56e1559]:
+                            - listitem [ref=f56e1560]:
+                              - generic [ref=f56e1561]:
+                                - img "matches your preference" [ref=f56e1563]
+                                - generic [ref=f56e1565]: $107,900 - $195,050 a year
+                            - listitem [ref=f56e1567]:
+                              - generic [ref=f56e1568]:
+                                - img "matches your preference" [ref=f56e1570]
+                                - generic [ref=f56e1572]: Full-time
+                            - listitem [ref=f56e1574]:
+                              - generic [ref=f56e1575]: Day shift
+                            - listitem [ref=f56e1578]:
+                              - generic [ref=f56e1579]: Opportunities for advancement
+                        - generic [ref=f56e1582]:
+                          - button "Save job Toggle" [ref=f56e1583] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1586] [cursor=pointer]
+                    - listitem [ref=f56e1590]:
+                      - generic [ref=f56e1593]:
+                        - generic [ref=f56e1594]:
+                          - heading [level=3] [ref=f56e1597]:
+                            - button "full details of Senior Finance Architect-SAP and OneStream" [ref=f56e1598] [cursor=pointer]: Senior Finance Architect-SAP and OneStream
+                          - generic [ref=f56e1600]:
+                            - generic [ref=f56e1601]: Rehlko
+                            - generic [ref=f56e1604]: Remote in Milwaukee, WI
+                          - list [ref=f56e1607]:
+                            - listitem [ref=f56e1608]:
+                              - generic [ref=f56e1609]:
+                                - img "matches your preference" [ref=f56e1611]
+                                - generic [ref=f56e1613]: $129,150 - $165,000 a year
+                            - listitem [ref=f56e1615]:
+                              - generic [ref=f56e1616]:
+                                - img "matches your preference" [ref=f56e1618]
+                                - generic [ref=f56e1620]: Full-time
+                            - listitem [ref=f56e1622]:
+                              - generic [ref=f56e1623]: Health insurance
+                            - listitem [ref=f56e1626]:
+                              - generic [ref=f56e1627]: 401(k) matching
+                            - listitem [ref=f56e1630]:
+                              - generic [ref=f56e1631]: Vision insurance
+                            - listitem [ref=f56e1634]:
+                              - generic [ref=f56e1635]: Dental insurance
+                        - generic [ref=f56e1638]:
+                          - button "Save job Toggle" [ref=f56e1639] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1642] [cursor=pointer]
+                    - listitem [ref=f56e1646]:
+                      - generic [ref=f56e1649]:
+                        - generic [ref=f56e1650]:
+                          - heading [level=3] [ref=f56e1653]:
+                            - button "full details of Lead Substation Protection and Controls Engineer" [ref=f56e1654] [cursor=pointer]: Lead Substation Protection and Controls Engineer
+                          - generic [ref=f56e1658]:
+                            - generic [ref=f56e1659]: Leidos
+                            - generic [ref=f56e1662]: Hybrid work
+                          - list [ref=f56e1665]:
+                            - listitem [ref=f56e1666]:
+                              - generic [ref=f56e1667]:
+                                - img "matches your preference" [ref=f56e1669]
+                                - generic [ref=f56e1671]: $107,900 - $195,050 a year
+                            - listitem [ref=f56e1673]:
+                              - generic [ref=f56e1674]:
+                                - img "matches your preference" [ref=f56e1676]
+                                - generic [ref=f56e1678]: Full-time
+                            - listitem [ref=f56e1680]:
+                              - generic [ref=f56e1681]: Day shift
+                            - listitem [ref=f56e1684]:
+                              - generic [ref=f56e1685]: Opportunities for advancement
+                        - generic [ref=f56e1688]:
+                          - button "Save job Toggle" [ref=f56e1689] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1692] [cursor=pointer]
+                    - listitem [ref=f56e1696]:
+                      - generic [ref=f56e1699]:
+                        - generic [ref=f56e1700]:
+                          - generic [ref=f56e1702]:
+                            - heading [level=3] [ref=f56e1703]:
+                              - button "full details of New Mexico Lead Organizer, Veterans Power America" [ref=f56e1704] [cursor=pointer]: New Mexico Lead Organizer, Veterans Power America
+                            - generic [ref=f56e1705]: Easily apply
+                          - generic [ref=f56e1711]:
+                            - generic [ref=f56e1712]: Common Defense
+                            - generic [ref=f56e1715]: Remote in New Mexico
+                          - list [ref=f56e1718]:
+                            - listitem [ref=f56e1719]:
+                              - generic [ref=f56e1720]:
+                                - img "matches your preference" [ref=f56e1722]
+                                - generic [ref=f56e1724]: $60,000 - $75,000 a year
+                            - listitem [ref=f56e1726]:
+                              - generic [ref=f56e1727]:
+                                - img "matches your preference" [ref=f56e1729]
+                                - generic [ref=f56e1731]: Full-time
+                            - listitem [ref=f56e1733]:
+                              - generic [ref=f56e1736]:
+                                - text: Weekends as needed
+                                - generic [ref=f56e1737]: "+1"
+                            - listitem [ref=f56e1738]:
+                              - generic [ref=f56e1739]: 403(b)
+                            - listitem [ref=f56e1742]:
+                              - generic [ref=f56e1743]: Health insurance
+                            - listitem [ref=f56e1746]:
+                              - generic [ref=f56e1747]: Paid time off
+                            - listitem [ref=f56e1750]:
+                              - generic [ref=f56e1751]: Vision insurance
+                            - listitem [ref=f56e1754]:
+                              - generic [ref=f56e1755]: Dental insurance
+                            - listitem [ref=f56e1758]:
+                              - generic [ref=f56e1759]: Unlimited paid time off
+                        - generic [ref=f56e1762]:
+                          - button "Save job Toggle" [ref=f56e1763] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1766] [cursor=pointer]
+                    - listitem [ref=f56e1770]:
+                      - generic [ref=f56e1773]:
+                        - generic [ref=f56e1774]:
+                          - heading [level=3] [ref=f56e1777]:
+                            - button "full details of Lead Substation Protection and Controls Engineer" [ref=f56e1778] [cursor=pointer]: Lead Substation Protection and Controls Engineer
+                          - generic [ref=f56e1782]:
+                            - generic [ref=f56e1783]: Leidos
+                            - generic [ref=f56e1786]: Hybrid work
+                          - list [ref=f56e1789]:
+                            - listitem [ref=f56e1790]:
+                              - generic [ref=f56e1791]:
+                                - img "matches your preference" [ref=f56e1793]
+                                - generic [ref=f56e1795]: $107,900 - $195,050 a year
+                            - listitem [ref=f56e1797]:
+                              - generic [ref=f56e1798]:
+                                - img "matches your preference" [ref=f56e1800]
+                                - generic [ref=f56e1802]: Full-time
+                            - listitem [ref=f56e1804]:
+                              - generic [ref=f56e1805]: Day shift
+                            - listitem [ref=f56e1808]:
+                              - generic [ref=f56e1809]: Opportunities for advancement
+                        - generic [ref=f56e1812]:
+                          - button "Save job Toggle" [ref=f56e1813] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1816] [cursor=pointer]
+                    - listitem [ref=f56e1820]:
+                      - generic [ref=f56e1823]:
+                        - generic [ref=f56e1824]:
+                          - heading [level=3] [ref=f56e1827]:
+                            - button "full details of Oncology Account Manager - Midwest (IL, WI)" [ref=f56e1828] [cursor=pointer]: Oncology Account Manager - Midwest (IL, WI)
+                          - generic [ref=f56e1830]:
+                            - generic [ref=f56e1831]: Immunocore
+                            - generic [ref=f56e1834]: Remote
+                          - list [ref=f56e1837]:
+                            - listitem [ref=f56e1838]:
+                              - generic [ref=f56e1839]:
+                                - img "matches your preference" [ref=f56e1841]
+                                - generic [ref=f56e1843]: $160,000 - $214,000 a year
+                            - listitem [ref=f56e1845]:
+                              - generic [ref=f56e1846]: Contract
+                            - listitem [ref=f56e1849]:
+                              - generic [ref=f56e1850]: 401(k)
+                            - listitem [ref=f56e1853]:
+                              - generic [ref=f56e1854]: Health insurance
+                            - listitem [ref=f56e1857]:
+                              - generic [ref=f56e1858]: Vision insurance
+                            - listitem [ref=f56e1861]:
+                              - generic [ref=f56e1862]: Dental insurance
+                        - generic [ref=f56e1865]:
+                          - button "Save job Toggle" [ref=f56e1866] [cursor=pointer]
+                          - button "Not interested" [ref=f56e1869] [cursor=pointer]
+                  - generic [ref=f56e1873]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 8" [ref=f56e1874]: 1/8
+                    - button "Next" [ref=f56e1875] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f56e1878]:
+              - generic [ref=f56e1885]:
+                - generic [ref=f56e1886]:
+                  - heading [level=3] [ref=f56e1887]:
+                    - button "full details of Android Developer - AI Trainer" [ref=f56e1888] [cursor=pointer]: Android Developer - AI Trainer
+                  - generic [ref=f56e1889]: Easily apply
+                - generic [ref=f56e1896]:
+                  - generic [ref=f56e1901]:
+                    - generic [ref=f56e1902]: DataAnnotation
+                    - generic [ref=f56e1904]: Remote in Rochester, NY
+                  - list [ref=f56e1906]:
+                    - listitem [ref=f56e1907]:
+                      - generic [ref=f56e1908]:
+                        - img "matches your preference" [ref=f56e1910]
+                        - generic [ref=f56e1912]: $50 - $100 an hour
+                    - listitem [ref=f56e1914]:
+                      - generic [ref=f56e1915]:
+                        - img "matches your preference" [ref=f56e1917]
+                        - generic [ref=f56e1920]:
+                          - text: Full-time
+                          - generic [ref=f56e1921]: "+2"
+                    - listitem [ref=f56e1922]:
+                      - generic [ref=f56e1923]: On demand
+                    - listitem [ref=f56e1926]:
+                      - generic [ref=f56e1927]: Flexible schedule
+                - link "View 10+ similar jobs with this employer" [ref=f56e1931] [cursor=pointer]:
+                  - /url: /addlLoc/redirect?tk=1jv9nnllqi017800&jk=e1ef02e29ee32671&dest=%2Fjobs%3Fq%3Dremote%2Breact%2Bdeveloper%26nl%3D%26l%3DRemote%26radius%3D25%26sort%3Ddate%26grpKey%3DoAEB8gcFdG5mZWy4D7qkqTyqEB4KCW5vcm10aXRsZRoRYW5kcm9pZCBkZXZlbG9wZXI%253D
+                - generic [ref=f56e1934]:
+                  - button "Save job Toggle" [ref=f56e1935] [cursor=pointer]
+                  - button "Not interested" [ref=f56e1938] [cursor=pointer]
+            - listitem [ref=f56e1942]:
+              - generic [ref=f56e1947]:
+                - heading [level=3] [ref=f56e1949]:
+                  - button "full details of Software Engineer I (Remote Eligible)" [ref=f56e1950] [cursor=pointer]: Software Engineer I (Remote Eligible)
+                - generic [ref=f56e1953]:
+                  - generic [ref=f56e1958]:
+                    - generic [ref=f56e1959]: Smartsheet
+                    - generic [ref=f56e1961]: Remote in Bellevue, WA
+                  - list [ref=f56e1963]:
+                    - listitem [ref=f56e1964]:
+                      - generic [ref=f56e1965]:
+                        - img "matches your preference" [ref=f56e1967]
+                        - generic [ref=f56e1969]: $107,500 - $147,500 a year
+                - generic [ref=f56e1971]:
+                  - button "Save job Toggle" [ref=f56e1972] [cursor=pointer]
+                  - button "Not interested" [ref=f56e1975] [cursor=pointer]
+            - listitem [ref=f56e1979]:
+              - generic [ref=f56e1981]:
+                - heading "Frontend programming positions" [level=2] [ref=f56e1984]
+                - generic [ref=f56e1987]:
+                  - button "Skip past carousel"
+                  - list "Job cards carousel" [ref=f56e1988]:
+                    - listitem [ref=f56e1989]:
+                      - generic [ref=f56e1992]:
+                        - generic [ref=f56e1993]:
+                          - generic [ref=f56e1995]:
+                            - heading [level=3] [ref=f56e1996]:
+                              - button "full details of Salesforce Marketing Cloud Solution Architect" [ref=f56e1997] [cursor=pointer]: Salesforce Marketing Cloud Solution Architect
+                            - generic [ref=f56e1998]: Easily apply
+                          - generic [ref=f56e2004]:
+                            - generic [ref=f56e2005]: LHH US
+                            - generic [ref=f56e2008]: Remote in Denver, CO
+                          - list [ref=f56e2011]:
+                            - listitem [ref=f56e2012]:
+                              - generic [ref=f56e2013]:
+                                - img "matches your preference" [ref=f56e2015]
+                                - generic [ref=f56e2017]: $50 - $68 an hour
+                            - listitem [ref=f56e2019]:
+                              - generic [ref=f56e2020]: Contract
+                            - listitem [ref=f56e2023]:
+                              - generic [ref=f56e2024]: 401(k)
+                            - listitem [ref=f56e2027]:
+                              - generic [ref=f56e2028]: Health insurance
+                            - listitem [ref=f56e2031]:
+                              - generic [ref=f56e2032]: Dental insurance
+                            - listitem [ref=f56e2035]:
+                              - generic [ref=f56e2036]: Paid sick time
+                            - listitem [ref=f56e2039]:
+                              - generic [ref=f56e2040]: Life insurance
+                            - listitem [ref=f56e2043]:
+                              - generic [ref=f56e2044]: Employee assistance program
+                        - generic [ref=f56e2047]:
+                          - button "Save job Toggle" [ref=f56e2048] [cursor=pointer]
+                          - button "Not interested" [ref=f56e2051] [cursor=pointer]
+                    - listitem [ref=f56e2055]:
+                      - generic [ref=f56e2058]:
+                        - generic [ref=f56e2059]:
+                          - generic [ref=f56e2061]:
+                            - heading [level=3] [ref=f56e2062]:
+                              - button "full details of Backend Software Engineer - AI Trainer" [ref=f56e2063] [cursor=pointer]: Backend Software Engineer - AI Trainer
+                            - generic [ref=f56e2064]: Easily apply
+                          - generic [ref=f56e2072]:
+                            - generic [ref=f56e2073]: DataAnnotation
+                            - generic [ref=f56e2076]: Remote in Newark, NJ
+                          - list [ref=f56e2079]:
+                            - listitem [ref=f56e2080]:
+                              - generic [ref=f56e2081]:
+                                - img "matches your preference" [ref=f56e2083]
+                                - generic [ref=f56e2085]: $50 - $100 an hour
+                            - listitem [ref=f56e2087]:
+                              - generic [ref=f56e2088]:
+                                - img "matches your preference" [ref=f56e2090]
+                                - generic [ref=f56e2093]:
+                                  - text: Full-time
+                                  - generic [ref=f56e2094]: "+2"
+                            - listitem [ref=f56e2095]:
+                              - generic [ref=f56e2096]: On demand
+                            - listitem [ref=f56e2099]:
+                              - generic [ref=f56e2100]: Flexible schedule
+                        - generic [ref=f56e2103]:
+                          - button "Save job Toggle" [ref=f56e2104] [cursor=pointer]
+                          - button "Not interested" [ref=f56e2107] [cursor=pointer]
+                    - listitem [ref=f56e2111]:
+                      - generic [ref=f56e2114]:
+                        - generic [ref=f56e2115]:
+                          - generic [ref=f56e2117]:
+                            - heading [level=3] [ref=f56e2118]:
+                              - button "full details of CI/CD Pipeline Engineer - AI Trainer" [ref=f56e2119] [cursor=pointer]: CI/CD Pipeline Engineer - AI Trainer
+                            - generic [ref=f56e2120]: Easily apply
+                          - generic [ref=f56e2128]:
+                            - generic [ref=f56e2129]: DataAnnotation
+                            - generic [ref=f56e2132]: Remote in Bensalem, PA
+                          - list [ref=f56e2135]:
+                            - listitem [ref=f56e2136]:
+                              - generic [ref=f56e2137]:
+                                - img "matches your preference" [ref=f56e2139]
+                                - generic [ref=f56e2141]: $50 - $100 an hour
+                            - listitem [ref=f56e2143]:
+                              - generic [ref=f56e2144]:
+                                - img "matches your preference" [ref=f56e2146]
+                                - generic [ref=f56e2149]:
+                                  - text: Full-time
+                                  - generic [ref=f56e2150]: "+2"
+                            - listitem [ref=f56e2151]:
+                              - generic [ref=f56e2152]: On demand
+                            - listitem [ref=f56e2155]:
+                              - generic [ref=f56e2156]: Flexible schedule
+                        - generic [ref=f56e2159]:
+                          - button "Save job Toggle" [ref=f56e2160] [cursor=pointer]
+                          - button "Not interested" [ref=f56e2163] [cursor=pointer]
+                    - listitem [ref=f56e2167]:
+                      - generic [ref=f56e2170]:
+                        - generic [ref=f56e2171]:
+                          - generic [ref=f56e2173]:
+                            - heading [level=3] [ref=f56e2174]:
+                              - button "full details of Build & Release Engineer - AI Trainer" [ref=f56e2175] [cursor=pointer]: Build & Release Engineer - AI Trainer
+                            - generic [ref=f56e2176]: Easily apply
+                          - generic [ref=f56e2184]:
+                            - generic [ref=f56e2185]: DataAnnotation
+                            - generic [ref=f56e2188]: Remote in New York, NY
+                          - list [ref=f56e2191]:
+                            - listitem [ref=f56e2192]:
+                              - generic [ref=f56e2193]:
+                                - img "matches your preference" [ref=f56e2195]
+                                - generic [ref=f56e2197]: $50 - $100 an hour
+                            - listitem [ref=f56e2199]:
+                              - generic [ref=f56e2200]:
+                                - img "matches your preference" [ref=f56e2202]
+                                - generic [ref=f56e2205]:
+                                  - text: Full-time
+                                  - generic [ref=f56e2206]: "+2"
+                            - listitem [ref=f56e2207]:
+                              - generic [ref=f56e2208]: On demand
+                            - listitem [ref=f56e2211]:
+                              - generic [ref=f56e2212]: Flexible schedule
+                        - generic [ref=f56e2215]:
+                          - button "Save job Toggle" [ref=f56e2216] [cursor=pointer]
+                          - button "Not interested" [ref=f56e2219] [cursor=pointer]
+                  - generic [ref=f56e2223]:
+                    - button "Previous" [disabled]
+                    - generic "Item 1 of 4" [ref=f56e2224]: 1/4
+                    - button "Next" [ref=f56e2225] [cursor=pointer]
+                  - button "Go to beginning of carousel"
+            - listitem [ref=f56e2228]:
+              - generic [ref=f56e2233]:
+                - heading [level=3] [ref=f56e2235]:
+                  - button "full details of Software Engineer, Unsecured Installments" [ref=f56e2236] [cursor=pointer]: Software Engineer, Unsecured Installments
+                - generic [ref=f56e2239]:
+                  - generic [ref=f56e2242]:
+                    - generic [ref=f56e2243]: Upstart Network, Inc.
+                    - generic [ref=f56e2245]: Remote in Burlingame, CA
+                  - list [ref=f56e2247]:
+                    - listitem [ref=f56e2248]:
+                      - generic [ref=f56e2249]:
+                        - img "matches your preference" [ref=f56e2251]
+                        - generic [ref=f56e2253]: $136,000 - $196,600 a year
+                    - listitem [ref=f56e2255]:
+                      - generic [ref=f56e2256]: Employee stock purchase plan
+                    - listitem [ref=f56e2259]:
+                      - generic [ref=f56e2260]: Parental leave
+                    - listitem [ref=f56e2263]:
+                      - generic [ref=f56e2264]: 401(k)
+                    - listitem [ref=f56e2267]:
+                      - generic [ref=f56e2268]: Health insurance
+                    - listitem [ref=f56e2271]:
+                      - generic [ref=f56e2272]: Paid time off
+                    - listitem [ref=f56e2275]:
+                      - generic [ref=f56e2276]: Vision insurance
+                - generic [ref=f56e2279]:
+                  - button "Save job Toggle" [ref=f56e2280] [cursor=pointer]
+                  - button "Not interested" [ref=f56e2283] [cursor=pointer]
+            - listitem [ref=f56e2287]:
+              - generic [ref=f56e2292]:
+                - heading [level=3] [ref=f56e2294]:
+                  - button "full details of Sr Front End Developer" [ref=f56e2295] [cursor=pointer]: Sr Front End Developer
+                - generic [ref=f56e2298]:
+                  - generic [ref=f56e2301]:
+                    - generic [ref=f56e2302]: Connection
+                    - generic [ref=f56e2304]: Remote in Concord, NH 03301
+                  - list [ref=f56e2306]:
+                    - listitem [ref=f56e2307]:
+                      - generic [ref=f56e2308]:
+                        - img "matches your preference" [ref=f56e2310]
+                        - generic [ref=f56e2312]: $97,000 - $125,000 a year
+                    - listitem [ref=f56e2314]:
+                      - generic [ref=f56e2315]: Paid time off
+                    - listitem [ref=f56e2318]:
+                      - generic [ref=f56e2319]: Volunteer time off
+                - generic [ref=f56e2322]:
+                  - button "Save job Toggle" [ref=f56e2323] [cursor=pointer]
+                  - button "Not interested" [ref=f56e2326] [cursor=pointer]
+            - listitem [ref=f56e2330]:
+              - generic [ref=f56e2335]:
+                - generic [ref=f56e2336]:
+                  - heading [level=3] [ref=f56e2337]:
+                    - button "full details of Front End Web and Mobile Software Developer (Remote)" [ref=f56e2338] [cursor=pointer]: Front End Web and Mobile Software Developer (Remote)
+                  - generic [ref=f56e2339]: Often replies in 7 days
+                - generic [ref=f56e2346]:
+                  - generic [ref=f56e2349]:
+                    - generic [ref=f56e2350]: Coloplast
+                    - generic [ref=f56e2352]: Remote in Coral Springs, FL
+                  - list [ref=f56e2354]:
+                    - listitem [ref=f56e2355]:
+                      - generic [ref=f56e2356]:
+                        - img "matches your preference" [ref=f56e2358]
+                        - generic [ref=f56e2360]: $81,655 - $122,482 a year
+                    - listitem [ref=f56e2362]:
+                      - generic [ref=f56e2363]: Tuition reimbursement
+                    - listitem [ref=f56e2366]:
+                      - generic [ref=f56e2367]: Paid parental leave
+                    - listitem [ref=f56e2370]:
+                      - generic [ref=f56e2371]: Financial planning services
+                    - listitem [ref=f56e2374]:
+                      - generic [ref=f56e2375]: Parental leave
+                    - listitem [ref=f56e2378]:
+                      - generic [ref=f56e2379]: 401(k) matching
+                    - listitem [ref=f56e2382]:
+                      - generic [ref=f56e2383]: Paid time off
+                - generic [ref=f56e2386]:
+                  - button "Save job Toggle" [ref=f56e2387] [cursor=pointer]
+                  - button "Not interested" [ref=f56e2390] [cursor=pointer]
+          - navigation "pagination" [ref=f56e2394]:
+            - list [ref=f56e2395]:
+              - listitem [ref=f56e2396]:
+                - link "1" [ref=f56e2397] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f56e2398]:
+                - link "2" [ref=f56e2399] [cursor=pointer]:
+                  - /url: /jobs?q=remote+react+developer&l=Remote&radius=25&sort=date&start=10
+              - listitem [ref=f56e2400]:
+                - link "Next Page" [ref=f56e2401] [cursor=pointer]:
+                  - /url: /jobs?q=remote+react+developer&l=Remote&radius=25&sort=date&start=10
+          - generic [ref=f56e2407]:
+            - heading "I want to receive the latest job alert for remote react developer in Remote" [level=2] [ref=f56e2409]
+            - generic [ref=f56e2412]:
+              - generic [ref=f56e2414]:
+                - generic [ref=f56e2415]: Email address *
+                - textbox "Email address" [ref=f56e2417]: yosoytujeffe@gmail.com
+              - button "Activate" [ref=f56e2419] [cursor=pointer]
+            - paragraph [ref=f56e2422]:
+              - text: By creating a job alert, you agree to our
+              - link "Terms (opens in a new tab)" [ref=f56e2423] [cursor=pointer]:
+                - /url: /legal?hl=en
+                - text: Terms
+              - text: . You can change your consent settings at any time by unsubscribing or as detailed in our terms.
+          - generic [ref=f56e2427]:
+            - heading "People also searched:" [level=3] [ref=f56e2428]
+            - list [ref=f56e2429]:
+              - listitem [ref=f56e2430]:
+                - link "junior react developer remote" [ref=f56e2431] [cursor=pointer]:
+                  - /url: /q-junior-react-developer-remote-l-remote-jobs.html
+              - listitem [ref=f56e2434]:
+                - link "react developer" [ref=f56e2435] [cursor=pointer]:
+                  - /url: /q-react-developer-l-remote-jobs.html
+              - listitem [ref=f56e2438]:
+                - link "remote frontend developer" [ref=f56e2439] [cursor=pointer]:
+                  - /url: /q-remote-frontend-developer-l-remote-jobs.html
+              - listitem [ref=f56e2442]:
+                - link "react js" [ref=f56e2443] [cursor=pointer]:
+                  - /url: /q-react-js-l-remote-jobs.html
+              - listitem [ref=f56e2446]:
+                - link "react" [ref=f56e2447] [cursor=pointer]:
+                  - /url: /q-react-l-remote-jobs.html
+              - listitem [ref=f56e2450]:
+                - link "react remote" [ref=f56e2451] [cursor=pointer]:
+                  - /url: /q-react-remote-l-remote-jobs.html
+              - listitem [ref=f56e2454]:
+                - link "entry level react developer remote" [ref=f56e2455] [cursor=pointer]:
+                  - /url: /q-entry-level-react-developer-remote-l-remote-jobs.html
+              - listitem [ref=f56e2458]:
+                - link "junior front end developer in remote" [ref=f56e2459] [cursor=pointer]:
+                  - /url: /q-junior-front-end-developer-in-remote-l-remote-jobs.html
+              - listitem [ref=f56e2462]:
+                - link "front end developer" [ref=f56e2463] [cursor=pointer]:
+                  - /url: /q-front-end-developer-l-remote-jobs.html
+              - listitem [ref=f56e2466]:
+                - link "junior react developer" [ref=f56e2467] [cursor=pointer]:
+                  - /url: /q-junior-react-developer-l-remote-jobs.html
+          - generic [ref=f56e2470]:
+            - heading "Resume Resources:" [level=2] [ref=f56e2471]
+            - list [ref=f56e2472]:
+              - listitem [ref=f56e2473]:
+                - link "Resume Samples" [ref=f56e2474] [cursor=pointer]:
+                  - /url: https://www.indeed.com/career-advice/resume-samples?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f56e2475]:
+                - link "Resume Templates" [ref=f56e2476] [cursor=pointer]:
+                  - /url: https://www.indeed.com/profile/resume-templates?from=jobsearch_footer
+          - generic [ref=f56e2477]:
+            - heading "Career Resources:" [level=2] [ref=f56e2478]
+            - list [ref=f56e2479]:
+              - listitem [ref=f56e2480]:
+                - link "Career Explorer" [ref=f56e2481] [cursor=pointer]:
+                  - /url: /career/salaries?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f56e2482]:
+                - link "Explore High Paying Jobs" [ref=f56e2483] [cursor=pointer]:
+                  - /url: /explorer/
+          - generic [ref=f56e2484]:
+            - heading "Employer Resources:" [level=2] [ref=f56e2485]
+            - list [ref=f56e2486]:
+              - listitem [ref=f56e2487]:
+                - link "How to Write a Job Description" [ref=f56e2488] [cursor=pointer]:
+                  - /url: /hire/how-to-write-a-job-description?from=jobsearch_footer
+              - text: "-"
+              - listitem [ref=f56e2489]:
+                - link "How to Hire Employees" [ref=f56e2490] [cursor=pointer]:
+                  - /url: /hire/how-to-hire?from=jobsearch_footer
+      - contentinfo [ref=f56e2496]:
+        - generic [ref=f56e2497]:
+          - list [ref=f56e2498]:
+            - listitem [ref=f56e2499]:
+              - link "Hiring Lab" [ref=f56e2501] [cursor=pointer]:
+                - /url: https://www.hiringlab.org
+            - listitem [ref=f56e2502]:
+              - link "Career advice" [ref=f56e2504] [cursor=pointer]:
+                - /url: https://www.indeed.com/career-advice
+            - listitem [ref=f56e2505]:
+              - link "Browse jobs" [ref=f56e2507] [cursor=pointer]:
+                - /url: https://www.indeed.com/browsejobs
+            - listitem [ref=f56e2508]:
+              - link "Browse companies" [ref=f56e2510] [cursor=pointer]:
+                - /url: https://www.indeed.com/companies/browse-companies
+            - listitem [ref=f56e2511]:
+              - link "Salaries" [ref=f56e2513] [cursor=pointer]:
+                - /url: https://www.indeed.com/career/salaries
+            - listitem [ref=f56e2514]:
+              - link "Indeed Events" [ref=f56e2516] [cursor=pointer]:
+                - /url: https://www.indeedevents.com/
+            - listitem [ref=f56e2517]:
+              - link "Work at Indeed" [ref=f56e2519] [cursor=pointer]:
+                - /url: https://www.indeed.com/cmp/Indeed/about
+            - listitem [ref=f56e2520]:
+              - link "Countries" [ref=f56e2522] [cursor=pointer]:
+                - /url: https://www.indeed.com/countries
+            - listitem [ref=f56e2523]:
+              - link "About" [ref=f56e2525] [cursor=pointer]:
+                - /url: https://www.indeed.com/about
+            - listitem [ref=f56e2526]:
+              - link "Help" [ref=f56e2528] [cursor=pointer]:
+                - /url: https://www.indeed.com/help/job-seekers?hl=en&co=us
+            - listitem [ref=f56e2529]:
+              - link "ESG at Indeed" [ref=f56e2531] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg?from=gnav-jobsearch--indeedmobile
+          - list [ref=f56e2532]:
+            - listitem [ref=f56e2533]: © 2026 Indeed
+            - listitem [ref=f56e2534]:
+              - link "Your Privacy Choices" [ref=f56e2536] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal/ccpa-dns?hl=en
+            - listitem [ref=f56e2543]:
+              - link "Accessibility at Indeed" [ref=f56e2545] [cursor=pointer]:
+                - /url: https://www.indeed.com/esg/accessibility?hl=en
+            - listitem [ref=f56e2546]:
+              - link "Privacy Center and Ad Choices" [ref=f56e2548] [cursor=pointer]:
+                - /url: https://hrtechprivacy.com/brands/indeed#privacypolicy
+            - listitem [ref=f56e2549]:
+              - link "Terms" [ref=f56e2551] [cursor=pointer]:
+                - /url: https://www.indeed.com/legal?hl=en
+          - list:
+            - listitem
+  - generic [ref=f56e2552]:
+    - text: This site is protected by reCAPTCHA and the Google
+    - link "Privacy Policy" [ref=f56e2553] [cursor=pointer]:
+      - /url: https://policies.google.com/privacy
+    - text: and
+    - link "Terms of Service" [ref=f56e2554] [cursor=pointer]:
+      - /url: https://policies.google.com/terms
+    - text: apply.

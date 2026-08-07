@@ -1,0 +1,408 @@
+- generic [active] [ref=f37e1]:
+  - main [ref=f37e2]:
+    - generic [ref=f37e3]:
+      - link [ref=f37e5] [cursor=pointer]:
+        - /url: https://www.anthropic.com/jobs
+        - img "Anthropic Logo" [ref=f37e6]
+      - generic [ref=f37e7]:
+        - link "Back to jobs" [ref=f37e8] [cursor=pointer]:
+          - /url: https://job-boards.greenhouse.io/anthropic
+        - generic [ref=f37e12]:
+          - generic [ref=f37e13]:
+            - heading "Full Stack Engineer, Education Labs" [level=1] [ref=f37e14]
+            - generic [ref=f37e15]: San Francisco, CA | New York City, NY
+          - button "Apply" [ref=f37e19] [cursor=pointer]
+        - generic [ref=f37e20]:
+          - generic [ref=f37e21]:
+            - heading [level=2] [ref=f37e22]:
+              - strong [ref=f37e23]: About Anthropic
+            - paragraph [ref=f37e24]: Anthropic’s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.
+          - generic [ref=f37e25]:
+            - heading [level=2] [ref=f37e26]:
+              - strong [ref=f37e28]: About the role
+            - paragraph [ref=f37e29]: We believe skill with AI is fundamental to human agency. Education Labs builds the paradigms that help people become genuinely more capable—not just more engaged.
+            - paragraph [ref=f37e30]: "This is a new kind of role: part researcher, part product builder, part interaction designer. You'll be the second technical builder on a small team studying how AI transforms human capability—and shipping features based on what we discover. You'll have significant creative license to define what \"good\" looks like, exploring new interaction patterns rather than optimizing existing ones."
+            - paragraph [ref=f37e31]: We're skeptical of tutorials, onboarding flows, and engagement metrics. We care about experiences that make users progressively more capable, curious, and empowered over time. This means integrating skill development into product design, using Claude itself as a capability-building partner, and measuring success by how users actually grow.
+            - paragraph [ref=f37e32]: "You'll operate as a one-person technical shop: prototyping new ideas, establishing technical direction, and shipping production-quality features to millions of users. You'll need strong product instincts and clean interface design sensibilities, balanced with comfort in ambiguity and frontier thinking."
+            - heading [level=2] [ref=f37e33]:
+              - strong [ref=f37e35]: "Responsibilities:"
+            - list [ref=f37e36]:
+              - listitem [ref=f37e37]:
+                - paragraph [ref=f37e38]: Ship features that help users develop real skill with AI—measuring success by capability growth, not time-on-site
+              - listitem [ref=f37e39]:
+                - paragraph [ref=f37e40]: "Architect end-to-end prototypes (front-end and back-end) that test new interaction paradigms, with particular attention to the front-of-the-frontend: motion, polish, and interaction feel"
+              - listitem [ref=f37e41]:
+                - paragraph [ref=f37e42]: Define technical direction for the team—establish patterns others can follow
+              - listitem [ref=f37e43]:
+                - paragraph [ref=f37e44]: Build relationships across Product, Design, and Research to influence how skill development principles shape Anthropic's broader product strategy
+              - listitem [ref=f37e45]:
+                - paragraph [ref=f37e46]: Shape team strategy and roadmap—identify the highest-leverage opportunities and build conviction across stakeholders
+              - listitem [ref=f37e47]:
+                - paragraph [ref=f37e48]: Translate research insights about skill development and human-AI collaboration into shipped product through close collaboration with researchers
+              - listitem [ref=f37e49]:
+                - paragraph [ref=f37e50]: Document and share your work through clear writing, prototypes, and presentations that influence thinking across the organization
+            - heading [level=2] [ref=f37e51]:
+              - strong [ref=f37e53]: "You may be a good fit if you have:"
+            - paragraph [ref=f37e54]:
+              - strong [ref=f37e55]: Strong full-stack engineering with design sensibility
+            - list [ref=f37e56]:
+              - listitem [ref=f37e57]:
+                - paragraph [ref=f37e58]: 6+ years building and shipping web products, with deep expertise across the stack
+              - listitem [ref=f37e59]:
+                - paragraph [ref=f37e60]: "Strong front-end craft: TypeScript/JavaScript, React, CSS—with an eye for interaction design, motion, and visual detail"
+              - listitem [ref=f37e61]:
+                - paragraph [ref=f37e62]: "Solid back-end and data pipeline experience: Python, API design, analytics infrastructure"
+              - listitem [ref=f37e63]:
+                - paragraph [ref=f37e64]: A portfolio showcasing innovative interaction designs and high-quality implementations
+              - listitem [ref=f37e65]:
+                - paragraph [ref=f37e66]: Track record of independently driving features from prototype to production
+            - paragraph [ref=f37e67]:
+              - strong [ref=f37e68]: Deep conviction about human capability
+            - list [ref=f37e69]:
+              - listitem [ref=f37e70]:
+                - paragraph [ref=f37e71]: Strong perspective on how technology should enhance human capabilities rather than diminish them
+              - listitem [ref=f37e72]:
+                - paragraph [ref=f37e73]: Experience or genuine passion for skill development, HCI, developer tools, or products that help people become more capable
+              - listitem [ref=f37e74]:
+                - paragraph [ref=f37e75]: Skepticism of purely engagement-driven metrics; interest in measuring capability outcomes
+            - paragraph [ref=f37e76]:
+              - strong [ref=f37e77]: Research mindset with product execution
+            - list [ref=f37e78]:
+              - listitem [ref=f37e79]:
+                - paragraph [ref=f37e80]: Comfort with ambiguity and exploring undefined problem spaces
+              - listitem [ref=f37e81]:
+                - paragraph [ref=f37e82]: Ability to rapidly prototype, test with users, and iterate toward production
+              - listitem [ref=f37e83]:
+                - paragraph [ref=f37e84]: Strong instincts for product design and user experience, even without formal design training
+            - paragraph [ref=f37e85]:
+              - strong [ref=f37e86]: Strategic leadership and coalition building
+            - list [ref=f37e87]:
+              - listitem [ref=f37e88]:
+                - paragraph [ref=f37e89]: Experience setting vision, shaping team strategy, and building conviction across cross-functional stakeholders
+              - listitem [ref=f37e90]:
+                - paragraph [ref=f37e91]: Ability to build productive relationships with Product, Design, Research, and Engineering teams—especially when your team isn't the owner
+              - listitem [ref=f37e92]:
+                - paragraph [ref=f37e93]: Strong sense of prioritization—knowing what to build now, what to defer, and what to cut
+              - listitem [ref=f37e94]:
+                - paragraph [ref=f37e95]: Track record of influencing roadmaps and decisions beyond your immediate team
+            - heading [level=3] [ref=f37e96]
+            - heading [level=2] [ref=f37e97]:
+              - strong [ref=f37e99]: "Strong candidates may also have:"
+            - list [ref=f37e100]:
+              - listitem [ref=f37e101]:
+                - paragraph [ref=f37e102]: Experience in developer tools, creative tools, learning platforms, or other products where user skill development and mastery matter more than time-on-site
+              - listitem [ref=f37e103]:
+                - paragraph [ref=f37e104]: Background in learning sciences, cognitive science, HCI, skill acquisition research, or educational psychology (formal or self-directed)
+              - listitem [ref=f37e105]:
+                - paragraph [ref=f37e106]: Experience with experimentation frameworks, A/B testing, or analytics that measure capability development in production
+              - listitem [ref=f37e107]:
+                - paragraph [ref=f37e108]: Previous experience in research labs, frontier tech companies, or startups with high autonomy and ambiguity
+              - listitem [ref=f37e109]:
+                - paragraph [ref=f37e110]: Published writing, talks, or open-source work on skill development, human-AI interaction, or product philosophy
+              - listitem [ref=f37e111]:
+                - paragraph [ref=f37e112]: Experience building AI-native product experiences or working with LLMs in production contexts
+            - heading "Strong candidates may also have" [level=3] [ref=f37e113]
+            - list [ref=f37e114]:
+              - listitem [ref=f37e115]:
+                - paragraph [ref=f37e116]: Background in learning sciences, cognitive science, HCI, or educational psychology
+              - listitem [ref=f37e117]:
+                - paragraph [ref=f37e118]: Experience in developer tools, creative tools, or learning platforms where mastery matters more than engagement
+              - listitem [ref=f37e119]:
+                - paragraph [ref=f37e120]: Published writing, talks, or open-source work on skill development or human-AI interaction
+              - listitem [ref=f37e121]:
+                - paragraph [ref=f37e122]: Experience building AI-native product experiences or working with LLMs in production
+            - heading "What this role is not" [level=3] [ref=f37e123]
+            - paragraph [ref=f37e124]: This is a hands-on technical role building product features, embedded within a research team. You'll provide technical guidance and help set direction, but this role doesn't involve people management off the bat. If you're looking to immediately transition into engineering management or lead a large team, this likely isn't the right fit.
+            - paragraph [ref=f37e125]
+          - generic [ref=f37e127]:
+            - generic [ref=f37e130]:
+              - paragraph [ref=f37e131]: The annual compensation range for this role is listed below.
+              - paragraph [ref=f37e132]: For sales roles, the range provided is the role’s On Target Earnings ("OTE") range, meaning that the range includes both the sales commissions/sales bonuses target and annual base salary for the role.
+            - paragraph [ref=f37e133]: "Annual Salary:"
+            - paragraph [ref=f37e134]: $300,000 - $405,000 USD
+          - generic [ref=f37e135]:
+            - heading [level=2] [ref=f37e136]:
+              - strong [ref=f37e137]: Logistics
+            - paragraph [ref=f37e138]:
+              - strong [ref=f37e139]: "Minimum education:"
+              - text: Bachelor’s degree or an equivalent combination of education, training, and/or experience
+            - paragraph [ref=f37e140]:
+              - strong [ref=f37e141]: "Required field of study:"
+              - text: A field relevant to the role as demonstrated through coursework, training, or professional experience
+            - paragraph [ref=f37e142]:
+              - strong [ref=f37e143]: "Minimum years of experience:"
+              - text: Years of experience required will correlate with the internal job level requirements for the position
+            - paragraph [ref=f37e144]:
+              - strong [ref=f37e145]: "Location-based hybrid policy:"
+              - text: Currently, we expect all staff to be in one of our offices at least 25% of the time. However, some roles may require more time in our offices.
+            - paragraph [ref=f37e146]:
+              - strong [ref=f37e147]: "Visa sponsorship:"
+              - text: We do sponsor visas! However, we aren't able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.
+            - paragraph [ref=f37e148]:
+              - strong [ref=f37e149]: We encourage you to apply even if you do not believe you meet every single qualification.
+              - text: Not all strong candidates will meet every single qualification as listed. Research shows that people who identify as being from underrepresented groups are more prone to experiencing imposter syndrome and doubting the strength of their candidacy, so we urge you not to exclude yourself prematurely and to submit an application if you're interested in this work. We think AI systems like the ones we're building have enormous social and ethical implications. We think this makes representation even more important, and we strive to include a range of diverse perspectives on our team.
+              - strong [ref=f37e150]: Your safety matters to us.
+              - text: To protect yourself from potential scams, remember that Anthropic recruiters only contact you from @anthropic.com email addresses. In some cases, we may partner with vetted recruiting agencies who will identify themselves as working on behalf of Anthropic. Be cautious of emails from other domains. Legitimate Anthropic recruiters will never ask for money, fees, or banking information before your first day. If you're ever unsure about a communication, don't click any links—visit
+              - link "anthropic.com/careers" [ref=f37e152] [cursor=pointer]:
+                - /url: http://anthropic.com/careers
+              - text: directly for confirmed position openings.
+            - heading [level=2] [ref=f37e153]:
+              - strong [ref=f37e154]: How we're different
+            - paragraph [ref=f37e155]: We believe that the highest-impact AI research will be big science. At Anthropic we work as a single cohesive team on just a few large-scale research efforts. And we value impact — advancing our long-term goals of steerable, trustworthy AI — rather than work on smaller and more specific puzzles. We view AI research as an empirical science, which has as much in common with physics and biology as with traditional efforts in computer science. We're an extremely collaborative group, and we host frequent research discussions to ensure that we are pursuing the highest-impact work at any given time. As such, we greatly value communication skills.
+            - paragraph [ref=f37e156]: "The easiest way to understand our research directions is to read our recent research. This research continues many of the directions our team worked on prior to Anthropic, including: GPT-3, Circuit-Based Interpretability, Multimodal Neurons, Scaling Laws, AI & Compute, Concrete Problems in AI Safety, and Learning from Human Preferences."
+            - heading [level=2] [ref=f37e157]:
+              - strong [ref=f37e158]: Come work with us!
+            - paragraph [ref=f37e159]:
+              - text: Anthropic is a public benefit corporation headquartered in San Francisco. We offer competitive compensation and benefits, optional equity donation matching, generous vacation and parental leave, flexible working hours, and a lovely office space in which to collaborate with colleagues.
+              - strong [ref=f37e160]: "Guidance on Candidates' AI Usage:"
+              - text: Learn about
+              - link "our policy" [ref=f37e161] [cursor=pointer]:
+                - /url: https://www.anthropic.com/candidate-ai-guidance
+              - text: for using AI in our application process.
+      - separator [ref=f37e162]
+      - generic [ref=f37e163]:
+        - generic [ref=f37e165]:
+          - heading "Apply for this job" [level=2] [ref=f37e167]
+          - generic [ref=f37e168]:
+            - paragraph [ref=f37e170]: "*"
+            - paragraph [ref=f37e171]: indicates a required field
+        - generic [ref=f37e172]:
+          - generic [ref=f37e173]:
+            - generic [ref=f37e176]:
+              - generic [ref=f37e177]: First Name*
+              - textbox "First Name" [ref=f37e178]
+            - generic [ref=f37e181]:
+              - generic [ref=f37e182]: Last Name*
+              - textbox "Last Name" [ref=f37e183]
+            - generic [ref=f37e186]:
+              - generic [ref=f37e187]: Email*
+              - textbox "Email" [ref=f37e188]
+            - group "Phone" [ref=f37e190]:
+              - generic [ref=f37e194]:
+                - generic [ref=f37e195]: Country
+                - generic [ref=f37e196]:
+                  - log [ref=f37e198]
+                  - generic [ref=f37e200]:
+                    - combobox "Country" [ref=f37e203]
+                    - button "Toggle flyout" [ref=f37e205] [cursor=pointer]
+              - generic [ref=f37e210]:
+                - generic [ref=f37e211]: Phone
+                - textbox "Phone" [ref=f37e212]
+            - group "Resume/CV" [ref=f37e214]:
+              - generic [ref=f37e217]:
+                - generic [ref=f37e219]:
+                  - button "Attach" [ref=f37e220] [cursor=pointer]
+                  - generic [ref=f37e221]: Attach
+                  - button "Attach" [ref=f37e222]
+                - button "Dropbox" [ref=f37e224] [cursor=pointer]
+                - button "Google Drive" [ref=f37e226] [cursor=pointer]
+                - generic [ref=f37e228]:
+                  - button "Enter manually" [ref=f37e229] [cursor=pointer]
+                  - generic [ref=f37e230]: Enter manually
+                - paragraph [ref=f37e231]: "Accepted file types: pdf, doc, docx, txt, rtf"
+          - generic [ref=f37e232]:
+            - separator [ref=f37e233]
+            - generic [ref=f37e234]:
+              - generic [ref=f37e236]:
+                - generic [ref=f37e237]: (Optional) Personal Preferences
+                - textbox "(Optional) Personal Preferences" [ref=f37e238]
+              - paragraph [ref=f37e241]: How do you pronounce your name?
+            - generic [ref=f37e244]:
+              - generic [ref=f37e245]: Website
+              - textbox "Website" [ref=f37e246]
+            - generic [ref=f37e249]:
+              - generic [ref=f37e250]: Are you open to working in-person in one of our offices 25% of the time?*
+              - generic [ref=f37e251]:
+                - log [ref=f37e253]
+                - generic [ref=f37e255]:
+                  - generic [ref=f37e256]:
+                    - generic [ref=f37e257]: Select...
+                    - combobox "Are you open to working in-person in one of our offices 25% of the time?" [ref=f37e259]
+                  - button "Toggle flyout" [ref=f37e261] [cursor=pointer]
+                - textbox
+            - generic [ref=f37e266]:
+              - generic [ref=f37e267]: When is the earliest you would want to start working with us?
+              - textbox "When is the earliest you would want to start working with us?" [ref=f37e268]
+            - generic [ref=f37e271]:
+              - generic [ref=f37e272]: Do you have any deadlines or timeline considerations we should be aware of?
+              - textbox "Do you have any deadlines or timeline considerations we should be aware of?" [ref=f37e273]
+            - generic [ref=f37e274]:
+              - generic [ref=f37e276]:
+                - generic [ref=f37e277]: AI Policy for Application*
+                - generic [ref=f37e278]:
+                  - log [ref=f37e280]
+                  - generic [ref=f37e282]:
+                    - generic [ref=f37e283]:
+                      - generic [ref=f37e284]: Select...
+                      - combobox "AI Policy for Application" [ref=f37e286]
+                    - button "Toggle flyout" [ref=f37e288] [cursor=pointer]
+                  - textbox
+              - paragraph [ref=f37e293]:
+                - text: We believe that AI will have a transformative impact on the world, and we’re seeking exceptional candidates who collaborate thoughtfully with Claude to realize this vision. At the same time, we want to understand your unique skills, expertise, and perspective through our hiring process. We invite you to review our
+                - link "AI partnership guidelines for candidates" [ref=f37e294] [cursor=pointer]:
+                  - /url: https://www.anthropic.com/candidate-ai-guidance
+                - text: and confirm your understanding by selecting “Yes.”
+            - generic [ref=f37e295]:
+              - generic [ref=f37e297]:
+                - generic [ref=f37e298]: Why Anthropic?*
+                - textbox "Why Anthropic?" [ref=f37e299]
+              - paragraph [ref=f37e302]: Why do you want to work at Anthropic? (We value this response highly - great answers are often 200-400 words.)
+            - generic [ref=f37e305]:
+              - generic [ref=f37e306]: Do you require visa sponsorship? *
+              - generic [ref=f37e307]:
+                - log [ref=f37e309]
+                - generic [ref=f37e311]:
+                  - generic [ref=f37e312]:
+                    - generic [ref=f37e313]: Select...
+                    - combobox "Do you require visa sponsorship?" [ref=f37e315]
+                  - button "Toggle flyout" [ref=f37e317] [cursor=pointer]
+                - textbox
+            - generic [ref=f37e322]:
+              - generic [ref=f37e323]: Will you now or will you in the future require employment visa sponsorship to work in the country in which the job you're applying for is located? *
+              - generic [ref=f37e324]:
+                - log [ref=f37e326]
+                - generic [ref=f37e328]:
+                  - generic [ref=f37e329]:
+                    - generic [ref=f37e330]: Select...
+                    - combobox "Will you now or will you in the future require employment visa sponsorship to work in the country in which the job you're applying for is located?" [ref=f37e332]
+                  - button "Toggle flyout" [ref=f37e334] [cursor=pointer]
+                - textbox
+            - generic [ref=f37e337]:
+              - generic [ref=f37e339]:
+                - generic [ref=f37e340]: Additional Information
+                - textbox "Additional Information" [ref=f37e341]
+              - paragraph [ref=f37e344]: Add a cover letter or anything else you want to share.
+            - generic [ref=f37e345]:
+              - generic [ref=f37e347]:
+                - generic [ref=f37e348]: LinkedIn Profile
+                - textbox "LinkedIn Profile" [ref=f37e349]
+              - paragraph [ref=f37e352]:
+                - text: Please ensure to provide
+                - emphasis [ref=f37e353]: either
+                - text: your LinkedIn profile or Resume, we require at least one of the two.
+            - generic [ref=f37e356]:
+              - generic [ref=f37e357]: Are you open to relocation for this role? *
+              - generic [ref=f37e358]:
+                - log [ref=f37e360]
+                - generic [ref=f37e362]:
+                  - generic [ref=f37e363]:
+                    - generic [ref=f37e364]: Select...
+                    - combobox "Are you open to relocation for this role?" [ref=f37e366]
+                  - button "Toggle flyout" [ref=f37e368] [cursor=pointer]
+                - textbox
+            - generic [ref=f37e373]:
+              - generic [ref=f37e374]: What is the address from which you plan on working? If you would need to relocate, please type "relocating".
+              - textbox "What is the address from which you plan on working? If you would need to relocate, please type \"relocating\"." [ref=f37e375]
+            - generic [ref=f37e378]:
+              - generic [ref=f37e379]: Have you ever interviewed at Anthropic before?*
+              - generic [ref=f37e380]:
+                - log [ref=f37e382]
+                - generic [ref=f37e384]:
+                  - generic [ref=f37e385]:
+                    - generic [ref=f37e386]: Select...
+                    - combobox "Have you ever interviewed at Anthropic before?" [ref=f37e388]
+                  - button "Toggle flyout" [ref=f37e390] [cursor=pointer]
+                - textbox
+          - generic [ref=f37e393]:
+            - separator [ref=f37e394]
+            - generic [ref=f37e395]:
+              - heading "Voluntary Self-Identification" [level=2] [ref=f37e396]
+              - paragraph [ref=f37e397]: For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely voluntary. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file.
+              - paragraph [ref=f37e398]: As set forth in Anthropic’s Equal Employment Opportunity policy, we do not discriminate on the basis of any protected group status under any applicable law.
+            - generic [ref=f37e401]:
+              - generic [ref=f37e402]: Gender
+              - generic [ref=f37e403]:
+                - log [ref=f37e405]
+                - generic [ref=f37e407]:
+                  - generic [ref=f37e408]:
+                    - generic [ref=f37e409]: Select...
+                    - combobox "Gender" [ref=f37e411]
+                  - button "Toggle flyout" [ref=f37e413] [cursor=pointer]
+            - generic [ref=f37e416]:
+              - generic [ref=f37e418]:
+                - generic [ref=f37e419]: Are you Hispanic/Latino?
+                - generic [ref=f37e420]:
+                  - log [ref=f37e422]
+                  - generic [ref=f37e424]:
+                    - generic [ref=f37e425]:
+                      - generic [ref=f37e426]: Select...
+                      - combobox "Are you Hispanic/Latino?" [ref=f37e428]
+                    - button "Toggle flyout" [ref=f37e430] [cursor=pointer]
+              - link "Race & Ethnicity Definitions" [ref=f37e433] [cursor=pointer]:
+                - /url: https://job-boards.cdn.greenhouse.io/docs/2023/RaceEthnicityDefinitions.pdf
+            - generic [ref=f37e434]:
+              - paragraph [ref=f37e435]: "If you believe you belong to any of the categories of protected veterans listed below, please indicate by making the appropriate selection. As a government contractor subject to the Vietnam Era Veterans Readjustment Assistance Act (VEVRAA), we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to VEVRAA. Classification of protected categories is as follows:"
+              - paragraph [ref=f37e436]: "A \"disabled veteran\" is one of the following: a veteran of the U.S. military, ground, naval or air service who is entitled to compensation (or who but for the receipt of military retired pay would be entitled to compensation) under laws administered by the Secretary of Veterans Affairs; or a person who was discharged or released from active duty because of a service-connected disability."
+              - paragraph [ref=f37e437]: A "recently separated veteran" means any veteran during the three-year period beginning on the date of such veteran's discharge or release from active duty in the U.S. military, ground, naval, or air service.
+              - paragraph [ref=f37e438]: An "active duty wartime or campaign badge veteran" means a veteran who served on active duty in the U.S. military, ground, naval or air service during a war, or in a campaign or expedition for which a campaign badge has been authorized under the laws administered by the Department of Defense.
+              - paragraph [ref=f37e439]: An "Armed forces service medal veteran" means a veteran who, while serving on active duty in the U.S. military, ground, naval or air service, participated in a United States military operation for which an Armed Forces service medal was awarded pursuant to Executive Order 12985.
+            - generic [ref=f37e442]:
+              - generic [ref=f37e443]: Veteran Status
+              - generic [ref=f37e444]:
+                - log [ref=f37e446]
+                - generic [ref=f37e448]:
+                  - generic [ref=f37e449]:
+                    - generic [ref=f37e450]: Select...
+                    - combobox "Veteran Status" [ref=f37e452]
+                  - button "Toggle flyout" [ref=f37e454] [cursor=pointer]
+            - separator [ref=f37e457]
+            - generic [ref=f37e458]:
+              - heading "Voluntary Self-Identification of Disability" [level=2] [ref=f37e459]
+              - generic [ref=f37e460]:
+                - generic [ref=f37e461]:
+                  - generic [ref=f37e462]: Form CC-305
+                  - generic [ref=f37e463]: Page 1 of 1
+                - generic [ref=f37e464]:
+                  - generic [ref=f37e465]: OMB Control Number 1250-0005
+                  - generic [ref=f37e466]: Expires 04/30/2026
+              - strong [ref=f37e467]: Why are you being asked to complete this form?
+              - paragraph [ref=f37e468]: We are a federal contractor or subcontractor. The law requires us to provide equal employment opportunity to qualified people with disabilities. We have a goal of having at least 7% of our workers as people with disabilities. The law says we must measure our progress towards this goal. To do this, we must ask applicants and employees if they have a disability or have ever had one. People can become disabled, so we need to ask this question at least every five years.
+              - paragraph [ref=f37e469]:
+                - text: Completing this form is voluntary, and we hope that you will choose to do so. Your answer is confidential. No one who makes hiring decisions will see it. Your decision to complete the form and your answer will not harm you in any way. If you want to learn more about the law or this form, visit the U.S. Department of Labor’s Office of Federal Contract Compliance Programs (OFCCP) website at
+                - link "www.dol.gov/ofccp" [ref=f37e470] [cursor=pointer]:
+                  - /url: https://www.dol.gov/ofccp
+                - text: .
+              - strong [ref=f37e471]: How do you know if you have a disability?
+              - paragraph [ref=f37e472]:
+                - text: A disability is a condition that substantially limits one or more of your “major life activities.” If you have or have ever had such a condition, you are a person with a disability.
+                - strong [ref=f37e473]: "Disabilities include, but are not limited to:"
+              - list [ref=f37e474]:
+                - listitem [ref=f37e475]: Alcohol or other substance use disorder (not currently using drugs illegally)
+                - listitem [ref=f37e476]: Autoimmune disorder, for example, lupus, fibromyalgia, rheumatoid arthritis, HIV/AIDS
+                - listitem [ref=f37e477]: Blind or low vision
+                - listitem [ref=f37e478]: Cancer (past or present)
+                - listitem [ref=f37e479]: Cardiovascular or heart disease
+                - listitem [ref=f37e480]: Celiac disease
+                - listitem [ref=f37e481]: Cerebral palsy
+                - listitem [ref=f37e482]: Deaf or serious difficulty hearing
+                - listitem [ref=f37e483]: Diabetes
+                - listitem [ref=f37e484]: Disfigurement, for example, disfigurement caused by burns, wounds, accidents, or congenital disorders
+                - listitem [ref=f37e485]: Epilepsy or other seizure disorder
+                - listitem [ref=f37e486]: Gastrointestinal disorders, for example, Crohn's Disease, irritable bowel syndrome
+                - listitem [ref=f37e487]: Intellectual or developmental disability
+                - listitem [ref=f37e488]: Mental health conditions, for example, depression, bipolar disorder, anxiety disorder, schizophrenia, PTSD
+                - listitem [ref=f37e489]: Missing limbs or partially missing limbs
+                - listitem [ref=f37e490]: Mobility impairment, benefiting from the use of a wheelchair, scooter, walker, leg brace(s) and/or other supports
+                - listitem [ref=f37e491]: Nervous system condition, for example, migraine headaches, Parkinson’s disease, multiple sclerosis (MS)
+                - listitem [ref=f37e492]: Neurodivergence, for example, attention-deficit/hyperactivity disorder (ADHD), autism spectrum disorder, dyslexia, dyspraxia, other learning disabilities
+                - listitem [ref=f37e493]: Partial or complete paralysis (any cause)
+                - listitem [ref=f37e494]: Pulmonary or respiratory conditions, for example, tuberculosis, asthma, emphysema
+                - listitem [ref=f37e495]: Short stature (dwarfism)
+                - listitem [ref=f37e496]: Traumatic brain injury
+            - generic [ref=f37e499]:
+              - generic [ref=f37e500]: Disability Status
+              - generic [ref=f37e501]:
+                - log [ref=f37e503]
+                - generic [ref=f37e505]:
+                  - generic [ref=f37e506]:
+                    - generic [ref=f37e507]: Select...
+                    - combobox "Disability Status" [ref=f37e509]
+                  - button "Toggle flyout" [ref=f37e511] [cursor=pointer]
+            - paragraph [ref=f37e515]: "PUBLIC BURDEN STATEMENT: According to the Paperwork Reduction Act of 1995 no persons are required to respond to a collection of information unless such collection displays a valid OMB control number. This survey should take about 5 minutes to complete."
+          - button "Submit application" [ref=f37e517] [cursor=pointer]
+  - contentinfo [ref=f37e518]:
+    - generic [ref=f37e519]:
+      - paragraph [ref=f37e520]: Powered by
+      - link [ref=f37e521] [cursor=pointer]:
+        - /url: https://www.greenhouse.com
+        - img "Greenhouse logo" [ref=f37e522]

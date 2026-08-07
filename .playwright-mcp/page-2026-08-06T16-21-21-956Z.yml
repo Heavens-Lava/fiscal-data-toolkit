@@ -1,0 +1,280 @@
+- generic [ref=f47e1]:
+  - banner [ref=f47e2]:
+    - generic [ref=f47e3]:
+      - generic [ref=f47e4]:
+        - button "Main menu" [ref=f47e5] [cursor=pointer]
+        - link "Careers" [ref=f47e10] [cursor=pointer]:
+          - /url: /about/careers/applications/
+      - generic [ref=f47e13]:
+        - link "Skip navigation links" [ref=f47e14]
+        - generic [ref=f47e17]:
+          - navigation "Candidate Portal Left Navigation" [ref=f47e21]:
+            - menubar [ref=f47e23]:
+              - generic [ref=f47e24]:
+                - menuitem "Home navigation link" [ref=f47e25] [cursor=pointer]:
+                  - menuitem [ref=f47e27]:
+                    - generic [ref=f47e28]:
+                      - generic [ref=f47e29]:
+                        - generic [ref=f47e31]: home
+                        - generic [ref=f47e35]: Home
+                      - generic [ref=f47e37]: Home
+                - menuitem "Jobs navigation item" [ref=f47e39] [cursor=pointer]:
+                  - menuitem [ref=f47e41]:
+                    - generic [ref=f47e42]:
+                      - generic [ref=f47e43]:
+                        - generic [ref=f47e45]: work_outline
+                        - generic [ref=f47e49]: Jobs
+                      - generic [ref=f47e51]: Jobs
+                - menuitem "Students navigation item" [ref=f47e53] [cursor=pointer]:
+                  - menuitem [ref=f47e55]:
+                    - generic [ref=f47e56]:
+                      - generic [ref=f47e57]:
+                        - generic [ref=f47e59]: noogler_hat
+                        - generic [ref=f47e63]: Students
+                      - generic [ref=f47e65]: Students
+                - menuitem "How we work navigation item" [ref=f47e67] [cursor=pointer]:
+                  - menuitem [ref=f47e69]:
+                    - generic [ref=f47e70]:
+                      - generic [ref=f47e71]:
+                        - generic [ref=f47e73]: google
+                        - generic [ref=f47e77]: How we work
+                      - generic [ref=f47e79]: How we work
+                - menuitem "How we hire navigation item" [ref=f47e81] [cursor=pointer]:
+                  - menuitem [ref=f47e83]:
+                    - generic [ref=f47e84]:
+                      - generic [ref=f47e85]:
+                        - generic [ref=f47e87]: handyman
+                        - generic [ref=f47e91]: How we hire
+                      - generic [ref=f47e93]: How we hire
+                - menuitem "Your career navigation item" [ref=f47e95] [cursor=pointer]:
+                  - menuitem [ref=f47e97]:
+                    - generic [ref=f47e98]:
+                      - generic [ref=f47e99]:
+                        - generic [ref=f47e101]: person_outline
+                        - generic [ref=f47e105]: Your career
+                      - generic [ref=f47e107]: Your career
+          - generic [ref=f47e114]:
+            - generic [ref=f47e115]:
+              - generic [ref=f47e116] [cursor=pointer]:
+                - generic [ref=f47e117]: help_outline
+                - link "Help link" [ref=f47e118]:
+                  - /url: https://support.google.com/googlecareers
+              - tooltip [ref=f47e119]: Help link
+            - generic [ref=f47e120]:
+              - button "Send feedback" [ref=f47e121] [cursor=pointer]:
+                - generic [ref=f47e122]: feedback
+              - tooltip [ref=f47e123]: Send feedback
+      - generic [ref=f47e125]:
+        - button "Google apps" [ref=f47e129] [cursor=pointer]
+        - 'button "Google Account: Jeffrey Macy (yosoytujeffe@gmail.com)" [ref=f47e135] [cursor=pointer]'
+  - generic [ref=f47e446]:
+    - main [ref=f47e160]:
+      - generic [ref=f47e161]:
+        - generic [ref=f47e162]:
+          - generic: keyboard_arrow_left
+          - tablist "Application stepper" [ref=f47e447]:
+            - tab "Step 1 - Get started" [selected] [ref=f47e448]:
+              - generic [ref=f47e168]:
+                - generic [ref=f47e169]: "1"
+                - generic [ref=f47e170]: Get started
+            - tab "Step 2 - Careers profile" [ref=f47e449]:
+              - generic [ref=f47e176]:
+                - generic [ref=f47e177]: "2"
+                - generic [ref=f47e178]:
+                  - generic [ref=f47e179]: Careers profile
+                  - generic [ref=f47e180]: 5-10 minutes
+            - tab "Step 3 - Role Information" [ref=f47e450]:
+              - generic [ref=f47e185]:
+                - generic [ref=f47e186]: "3"
+                - generic [ref=f47e187]:
+                  - generic [ref=f47e188]: Role Information
+                  - generic [ref=f47e189]: less than 1 minute
+            - tab "Step 4 - Voluntary self-identification" [ref=f47e451]:
+              - generic [ref=f47e194]:
+                - generic [ref=f47e195]: "4"
+                - generic [ref=f47e196]:
+                  - generic [ref=f47e197]: Voluntary self-identification
+                  - generic [ref=f47e198]: less than 1 minute
+            - tab "Step 5 - Review & apply" [ref=f47e452]:
+              - generic [ref=f47e203]:
+                - generic [ref=f47e204]: "5"
+                - generic [ref=f47e205]: Review & apply
+          - generic: keyboard_arrow_right
+        - tabpanel "Step 1 - Get started"
+      - generic [ref=f47e213]:
+        - heading "Create your profile" [level=1] [ref=f47e453]
+        - generic [ref=f47e215]: A Google Careers profile saves your info so you can apply quickly and provides personalized job recommendations and career content to help you in your search. It only takes 1–2 minutes.
+        - generic [ref=f47e216]: "* indicates a required field"
+        - generic [ref=f47e217]:
+          - heading [level=2] [ref=f47e454]:
+            - text: Legal name
+            - button "See more information about legal name" [ref=f47e455] [cursor=pointer]:
+              - generic [ref=f47e221]: info_outline
+          - generic [ref=f47e222]:
+            - generic [ref=f47e224]:
+              - generic [ref=f47e225]:
+                - generic: First name*
+                - textbox "First name" [ref=f47e456]: Jeffrey
+              - paragraph [ref=f47e228]: Enter a valid first name.
+            - generic [ref=f47e231]:
+              - generic: Middle name
+              - textbox "Middle name" [ref=f47e457]
+            - generic [ref=f47e235]:
+              - generic [ref=f47e236]:
+                - generic: Last name*
+                - textbox "Last name" [ref=f47e458]: Macy
+              - paragraph [ref=f47e239]: Enter a valid last name.
+            - combobox "Suffix" [ref=f47e459] [cursor=pointer]
+          - text: Your legal name is what appears on official documents (such as your driver’s license or passport). This will be verified later in the hiring process.
+        - button "Add preferred name" [ref=f47e460]
+        - generic [ref=f47e252]:
+          - generic:
+            - generic: Email address
+            - textbox "Email address" [disabled] [ref=f47e461]: yosoytujeffe@gmail.com
+        - generic [ref=f47e255]:
+          - text: Not you?
+          - link "Switch accounts" [ref=f47e462] [cursor=pointer]:
+            - /url: https://accounts.google.com/AccountChooser?continue=https://www.google.com/about/careers/applications/apply?jobId%3DCiUAL2FckfWzShPLq0DAtxZ8z9QMMfysBjlMmDNHPKM1s9pKVnLuEjsA1Ny_iwL5ml_cGrk73cqBIkF4raq9mOB4N6YHyvIgfQxkBT7qJtkxc4XW54IiNfOj-A7OKu4vh8kQfQ%253D%253D_V2
+        - heading "Country code & phone number" [level=2] [ref=f47e463]
+        - group "Primary phone" [ref=f47e464]:
+          - combobox "Country calling code United States (+1)" [ref=f47e465] [cursor=pointer]
+          - generic [ref=f47e270]:
+            - textbox "Phone number" [active] [ref=f47e466]: 602-619-4553
+            - paragraph [ref=f47e274]: "Error: Invalid phone number"
+        - heading "Upload your résumé*" [level=2] [ref=f47e467]
+        - generic [ref=f47e276]: We’ll use your résumé to fill out the rest of your Careers profile for you. You’ll be able to update your full profile after it’s created.
+        - generic [ref=f47e280]:
+          - generic [ref=f47e281]: description
+          - generic [ref=f47e282]: Drag and drop your résumé
+          - generic [ref=f47e283]: OR
+          - generic [ref=f47e284]:
+            - button "Browse for résumé" [ref=f47e468]:
+              - generic [ref=f47e289]: Browse
+            - tooltip [ref=f47e290]: Browse for résumé
+          - generic [ref=f47e291]: PDF or DOCX | 2 MB
+        - generic [ref=f47e293]:
+          - generic [ref=f47e294]: Do you currently or have you previously worked for an Alphabet company (e.g., Google, Waymo, gFiber, etc.) in any capacity? This includes, but is not limited to Intern, Student Ambassador, Student Researcher, Fellow, Full-time Employee; served on a current or prior engagement supporting an Alphabet company as either Temp, Vendor or Contractor; or were part of a prior acquisition. *
+          - radiogroup "Have you worked at Alphabet before?" [ref=f47e469]:
+            - generic [ref=f47e296]:
+              - radio "Yes" [ref=f47e470] [cursor=pointer]
+              - generic [ref=f47e301]: "Yes"
+            - generic [ref=f47e302]:
+              - radio "No" [checked] [ref=f47e471] [cursor=pointer]
+              - generic [ref=f47e308]: "No"
+          - generic [ref=f47e309]: "Disclaimer: This information is used to prevent delays in the hiring process and ensure a smooth hiring experience. We recommend reviewing your resume and highlighting work you completed while employed directly or as part of an assignment with Alphabet in the past."
+        - generic [ref=f47e311]:
+          - generic [ref=f47e312]:
+            - img "Info" [ref=f47e472]:
+              - generic [ref=f47e314]: info_outline
+            - generic [ref=f47e315]: X
+            - generic [ref=f47e316]: Google securely stores your personal work history to give you personalized job alerts and help recruiters find the perfect job.
+          - generic [ref=f47e317]: Personalize your Google Careers profile with job recommendations and related content? *
+          - radiogroup "Personalize your Google Careers profile with job recommendations and related content?" [ref=f47e473]:
+            - generic [ref=f47e319]:
+              - radio "Yes" [ref=f47e474] [cursor=pointer]
+              - generic [ref=f47e324]: "Yes"
+            - generic [ref=f47e325]:
+              - radio "No" [ref=f47e475] [cursor=pointer]
+              - generic [ref=f47e330]: "No"
+        - generic [ref=f47e333]:
+          - checkbox "I understand that the information I provide will be used in accordance with Google's applicant and candidate privacy policy (opens in a new tab) I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks).*" [ref=f47e476] [cursor=pointer]
+          - generic [ref=f47e337]:
+            - text: I understand that the information I provide will be used in accordance with
+            - link "Google's applicant and candidate privacy policy (opens in a new tab)" [ref=f47e477] [cursor=pointer]:
+              - /url: ./privacy-policy
+              - text: Google's applicant and candidate privacy policy.
+            - generic [ref=f47e339]: open_in_new
+            - text: I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks).*
+        - generic [ref=f47e343]:
+          - checkbox "I hereby certify that, to the best of my knowledge, the provided information is true and accurate.*" [ref=f47e478] [cursor=pointer]
+          - generic [ref=f47e346]: I hereby certify that, to the best of my knowledge, the provided information is true and accurate.*
+        - generic [ref=f47e349]:
+          - button "Cancel and return to application dashboard" [ref=f47e479]:
+            - generic [ref=f47e355]: Cancel
+          - button "Submit profile & continue" [ref=f47e480]
+    - contentinfo [ref=f47e362]:
+      - generic [ref=f47e364]:
+        - generic [ref=f47e365]:
+          - heading "Follow Life at Google on" [level=2] [ref=f47e366]
+          - list [ref=f47e367]:
+            - listitem [ref=f47e368]:
+              - link "View our Instagram feed (Opens in a new tab)" [ref=f47e369] [cursor=pointer]:
+                - /url: https://www.instagram.com/lifeatgoogle/
+            - listitem [ref=f47e374]:
+              - link "View our Twitter feed (Opens in a new tab)" [ref=f47e375] [cursor=pointer]:
+                - /url: https://twitter.com/lifeatgoogle
+            - listitem [ref=f47e378]:
+              - link "View our YouTube channel (Opens in a new tab)" [ref=f47e379] [cursor=pointer]:
+                - /url: https://www.youtube.com/lifeatgoogle
+            - listitem [ref=f47e382]:
+              - link "View LinkedIn (Opens in a new tab)" [ref=f47e383] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/google/jobs/
+            - listitem [ref=f47e386]:
+              - link "View our Facebook (Opens in a new tab)" [ref=f47e387] [cursor=pointer]:
+                - /url: https://www.facebook.com/lifeatgoogle/
+        - generic [ref=f47e392]:
+          - generic [ref=f47e393]:
+            - heading "More about us" [level=2] [ref=f47e394]
+            - generic [ref=f47e395]:
+              - link "About us (opens in a new tab)" [ref=f47e396] [cursor=pointer]:
+                - /url: https://about.google/
+                - text: About us
+                - generic [ref=f47e397]: open_in_new
+              - link "Contact us (opens in a new tab)" [ref=f47e399] [cursor=pointer]:
+                - /url: https://about.google/contact-google/
+                - text: Contact us
+                - generic [ref=f47e400]: open_in_new
+              - link "Press (opens in a new tab)" [ref=f47e402] [cursor=pointer]:
+                - /url: https://blog.google/press/
+                - text: Press
+                - generic [ref=f47e403]: open_in_new
+          - generic [ref=f47e405]:
+            - heading "Related Information" [level=2] [ref=f47e406]
+            - generic [ref=f47e407]:
+              - link "Investor relations (opens in a new tab)" [ref=f47e408] [cursor=pointer]:
+                - /url: https://abc.xyz/investor/
+                - text: Investor relations
+                - generic [ref=f47e409]: open_in_new
+              - link "Blog (opens in a new tab)" [ref=f47e411] [cursor=pointer]:
+                - /url: https://blog.google/
+                - text: Blog
+                - generic [ref=f47e412]: open_in_new
+          - generic [ref=f47e414]:
+            - heading "Equal Opportunity" [level=2] [ref=f47e415]
+            - paragraph [ref=f47e416]:
+              - text: Google is proud to be an equal opportunity and affirmative action employer. We are committed to building a workforce that is representative of the users we serve, creating a culture of belonging, and providing an equal employment opportunity regardless of race, creed, color, religion, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition (including breastfeeding), expecting or parents-to-be, criminal histories consistent with legal requirements, or any other basis protected by law. See also
+              - link "Google's EEO Policy" [ref=f47e417] [cursor=pointer]:
+                - /url: https://www.google.com/about/careers/applications/eeo/
+              - text: ","
+              - 'link "Know your rights: workplace discrimination is illegal" [ref=f47e418] [cursor=pointer]':
+                - /url: https://careers.google.com/jobs/dist/legal/EEOC_KnowYourRights_10_20.pdf
+              - text: ","
+              - link "Belonging at Google" [ref=f47e419] [cursor=pointer]:
+                - /url: https://about.google/belonging/
+              - text: ", and"
+              - link "How we hire" [ref=f47e420] [cursor=pointer]:
+                - /url: https://careers.google.com/how-we-hire/
+              - text: .
+        - generic [ref=f47e421]:
+          - link "google.com (Opens in a new tab)" [ref=f47e423] [cursor=pointer]:
+            - /url: https://www.google.com/
+            - img "Google" [ref=f47e424]
+          - generic [ref=f47e425]:
+            - generic [ref=f47e426]:
+              - link "Privacy (opens in a new tab)" [ref=f47e428] [cursor=pointer]:
+                - /url: https://policies.google.com/privacy
+                - text: Privacy
+                - generic [ref=f47e429]: open_in_new
+              - link "Applicant & Candidate Privacy (opens in a new tab)" [ref=f47e432] [cursor=pointer]:
+                - /url: ./privacy-policy
+                - text: Applicant & Candidate Privacy
+                - generic [ref=f47e433]: open_in_new
+              - link "Terms (opens in a new tab)" [ref=f47e436] [cursor=pointer]:
+                - /url: https://policies.google.com/terms
+                - text: Terms
+                - generic [ref=f47e437]: open_in_new
+            - link "Help (opens in a new tab)" [ref=f47e440] [cursor=pointer]:
+              - /url: https://support.google.com/googlecareers/#topic=6095159
+              - generic [ref=f47e441]: help
+              - text: Help
+              - generic [ref=f47e443]: open_in_new

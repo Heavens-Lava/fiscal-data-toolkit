@@ -1,0 +1,10 @@
+- main [ref=f41e2]:
+  - link [ref=f41e3] [cursor=pointer]:
+    - /url: //www.google.com
+    - img "Google" [ref=f41e4]
+  - paragraph [ref=f41e5]:
+    - text: "404."
+    - insertion [ref=f41e6]: That’s an error.
+  - paragraph [ref=f41e7]:
+    - text: The requested URL was not found on this server.
+    - insertion [ref=f41e8]: That’s all we know.

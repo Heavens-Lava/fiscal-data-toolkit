@@ -1,0 +1,344 @@
+- generic [active] [ref=f101e1]:
+  - link [ref=f101e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - link "Skip to main content" [ref=f101e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=f101e6]:
+    - banner [ref=f101e7]:
+      - navigation [ref=f101e8]:
+        - list [ref=f101e9]:
+          - listitem [ref=f101e10]:
+            - link "Smartsheet" [ref=f101e11] [cursor=pointer]:
+              - /url: /
+              - figure [ref=f101e13]
+          - listitem [ref=f101e15]:
+            - list [ref=f101e17]:
+              - listitem [ref=f101e18]:
+                - button [ref=f101e19]
+              - listitem [ref=f101e23]:
+                - button [ref=f101e24]
+              - listitem [ref=f101e28]:
+                - button [ref=f101e29]
+              - listitem [ref=f101e33]:
+                - link "Pricing" [ref=f101e34] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=f101e36]:
+                - link "Contact" [ref=f101e37] [cursor=pointer]:
+                  - /url: https://www.smartsheet.com/contact?fts=contact-header-nav
+          - listitem [ref=f101e39]:
+            - list [ref=f101e40]:
+              - listitem [ref=f101e41]:
+                - link "Watch a demo" [ref=f101e42] [cursor=pointer]:
+                  - /url: https://www.smartsheet.com/contact/watch-demo?fts=nav-demo
+              - listitem [ref=f101e43]:
+                - link "Try Smartsheet for free" [ref=f101e45] [cursor=pointer]:
+                  - /url: https://www.smartsheet.com/try-it?lpv=topnav
+              - listitem [ref=f101e46]:
+                - generic [ref=f101e47]: Select language
+                - generic "Language Picker" [ref=f101e48]:
+                  - generic:
+                    - generic:
+                      - generic [ref=f101e51]: Select your language
+                      - combobox [ref=f101e52] [cursor=pointer]:
+                        - option "English" [selected]
+                        - option "Deutsch"
+                        - option "Español"
+                        - option "Français"
+                        - option "Italiano"
+                        - option "Português"
+                        - option "Pусский"
+                        - option "日本語"
+              - listitem [ref=f101e53]:
+                - generic [ref=f101e54]: Open search
+                - button "Search" [ref=f101e55]
+              - listitem [ref=f101e58]:
+                - link "Log in" [ref=f101e59] [cursor=pointer]:
+                  - /url: https://app.smartsheet.com/b/home
+    - main [ref=f101e61]:
+      - article [ref=f101e65]:
+        - generic [ref=f101e66]:
+          - generic [ref=f101e69]:
+            - paragraph [ref=f101e70]: Careers
+            - heading "Software Engineer I (Remote Eligible)" [level=1] [ref=f101e71]
+          - generic [ref=f101e72]:
+            - generic [ref=f101e74]:
+              - paragraph [ref=f101e76]: "For over 20 years, Smartsheet has empowered teams to manage work seamlessly and scale solutions smarter. Now, in our most ambitious chapter yet, we are uniting human teams with AI agents. By orchestrating the work agents do best, automating manual tasks and uncovering insights at scale, we create the space for people to focus on what truly matters: judgment, creativity, and big thinking. That is magic at work, and it’s what we show up for every day."
+              - paragraph [ref=f101e77]: We are hiring a Software Engineer I to join our Engineering team. You will get your hands on full-stack services, dig into distributed systems problems, and work right at the intersection of traditional software engineering and AI-driven development. We are not just dabbling in AI here. We use it to write better code, catch bugs faster, and troubleshoot smarter, and we want engineers who want to get good at that too and help their teammates do the same. You will ship real features, sit in on architectural conversations that actually shape the product, and grow alongside a team that cares as much about doing good work as they do about doing meaningful work.
+              - paragraph [ref=f101e78]:
+                - strong [ref=f101e79]: "You Will:"
+              - list [ref=f101e80]:
+                - listitem [ref=f101e81]: Build scalable front-end and back-end services for the next generation of applications at Smartsheet (Kotlin, Java, Typescript, React)
+                - listitem [ref=f101e82]: Solve challenging distributed systems problems and work with modern cloud infrastructure (AWS, Kubernetes)
+                - listitem [ref=f101e83]: Take part in code reviews and architectural discussions as you work with other software engineers and product managers
+                - listitem [ref=f101e84]: Forge a strong partnership with product management and other key areas of the business
+                - listitem [ref=f101e85]: Enhance existing application code with new features and strike a balance when making technical decisions (build vs refactor vs simplify)
+                - listitem [ref=f101e86]: Actively use AI tools to improve personal and team efficiency across coding, testing, design, and troubleshooting, exploring AI integration opportunities within team processes and features, and coaching others on effective AI use
+              - paragraph [ref=f101e87]:
+                - strong [ref=f101e88]: "You Have:"
+              - list [ref=f101e89]:
+                - listitem [ref=f101e90]: 1+ years software development experience building highly scalable, highly available applications
+                - listitem [ref=f101e91]: 1+ years of programming experience with full stack technologies such Java, Kotlin, Python or TypeScript
+                - listitem [ref=f101e92]: 1+ years of experience with cloud technologies (AWS, Azure, etc.)
+                - listitem [ref=f101e93]: Experience developing, documenting, and supporting REST APIs
+                - listitem [ref=f101e94]: 6+ months professional experience leveraging AI to improve personal productivity in service of building complex SaaS feature sets
+                - listitem [ref=f101e95]: A degree in Computer Science, Engineering, or a related field or equivalent practical experience
+                - listitem [ref=f101e96]: Adaptable as priorities or problems change
+                - listitem [ref=f101e97]: Ready to take ownership of your work and grow into bigger challenges
+                - listitem [ref=f101e98]: A clear written and verbal communicator, able to explain your thinking in code reviews, documentation, and team discussions
+                - listitem [ref=f101e99]: Legally eligible to work in the U.S. on an ongoing basis
+              - generic [ref=f101e101]:
+                - generic [ref=f101e102]:
+                  - paragraph [ref=f101e103]:
+                    - strong [ref=f101e104]: "Current US Perks & Benefits:"
+                  - list [ref=f101e105]:
+                    - listitem [ref=f101e106]: Employer subsidized medical/vision and dental coverage for full-time employees
+                    - listitem [ref=f101e107]: 401k Match to help you save for your future (50% of your contribution up to the first 6% of your eligible pay)
+                    - listitem [ref=f101e108]: Monthly stipend to support your work and productivity
+                    - listitem [ref=f101e109]: Flexible Time Away Program, plus Sick Time Off
+                    - listitem [ref=f101e110]: US employees are automatically covered under Smartsheet-sponsored life insurance, short-term, and long-term disability plans
+                    - listitem [ref=f101e111]: US employees receive 12 paid holidays per year
+                    - listitem [ref=f101e112]: Up to 24 weeks of Parental Leave
+                    - listitem [ref=f101e113]: Personal paid Volunteer Day to support our community
+                    - listitem [ref=f101e114]: Opportunities for professional growth and development including access to Udemy online courses
+                    - listitem [ref=f101e115]: Company Funded Perks, including a counseling membership, local retail discounts, and your own personal Smartsheet account
+                    - listitem [ref=f101e116]: Teleworking options from any registered location in the U.S. (role specific)
+                  - paragraph [ref=f101e117]:
+                    - emphasis [ref=f101e118]: Smartsheet provides a competitive base salary range for roles that may be hired in different geographic areas we are licensed to operate our business from. Actual compensation is determined by several factors including, but not limited to, level of professional, educational experience, skills, and specific candidate location. In addition, this role will be eligible for a market competitive incentive opportunity.
+                - generic [ref=f101e119]: US Base Salary Pay Range
+                - generic [ref=f101e120]: $107,500—$147,500 USD
+              - generic [ref=f101e121]:
+                - paragraph [ref=f101e122]
+                - paragraph [ref=f101e123]:
+                  - strong [ref=f101e124]: "Get to Know Us:"
+                - paragraph [ref=f101e125]: At Smartsheet, your ideas are heard, your potential is supported, and your contributions have real impact. You’ll have the freedom to explore, push boundaries, and grow beyond your role. We welcome diverse perspectives and nontraditional paths—because we know that impact comes from individuals who care deeply and challenge thoughtfully. When you’re doing work that stretches you, excites you, and connects you to something bigger, that’s magic at work. Let’s build what’s next, together.
+                - paragraph [ref=f101e126]:
+                  - strong [ref=f101e127]: "Equal Opportunity Employer:"
+                - paragraph [ref=f101e128]: Smartsheet is an Equal Opportunity (EEO) employer committed to fostering an inclusive environment with the best employees. It is our policy to provide equal employment opportunities to all qualified applicants in accordance with applicable laws in the US, UK, Australia, Germany, Costa Rica, Japan, Bulgaria, India, and Singapore. All qualified applicants will receive consideration without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, protected veteran or disabled status, or genetic information.
+                - paragraph [ref=f101e129]: If there are preparations we can make to help ensure you have a comfortable and positive interview experience, please let us know.
+                - paragraph [ref=f101e130]
+              - paragraph [ref=f101e131]:
+                - text: Our
+                - link "Candidate Privacy Notice" [ref=f101e132] [cursor=pointer]:
+                  - /url: https://www.smartsheet.com/legal/privacy-candidate
+                - text: describes how Smartsheet may process your personal data, including the use of a third party provider for application submissions.
+              - link "Apply Now" [ref=f101e133] [cursor=pointer]:
+                - /url: https://job-boards.greenhouse.io/smartsheet/jobs/8070067
+            - generic [ref=f101e134]:
+              - generic [ref=f101e135]:
+                - heading "Department" [level=4] [ref=f101e136]
+                - paragraph [ref=f101e137]: Engineering - Developers
+                - heading "Job Location" [level=4] [ref=f101e138]
+                - paragraph [ref=f101e139]: "-REMOTE, USA-"
+              - link "Apply Now" [ref=f101e140] [cursor=pointer]:
+                - /url: https://job-boards.greenhouse.io/smartsheet/jobs/8070067
+              - list [ref=f101e142]:
+                - listitem [ref=f101e143]:
+                  - link "Share on Facebook" [ref=f101e144] [cursor=pointer]:
+                    - /url: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.smartsheet.com%2Fcareers%2Fposition%2F8070067%2Fsoftware-engineer-i-remote-eligible
+                - listitem [ref=f101e149]:
+                  - link "Share on X" [ref=f101e150] [cursor=pointer]:
+                    - /url: http://twitter.com/share?text=Software Engineer I (Remote Eligible)&url=https%3A%2F%2Fwww.smartsheet.com%2Fcareers%2Fposition%2F8070067%2Fsoftware-engineer-i-remote-eligible&via=smartsheet
+                - listitem [ref=f101e155]:
+                  - link "Share on LinkedIn" [ref=f101e156] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.smartsheet.com%2Fcareers%2Fposition%2F8070067%2Fsoftware-engineer-i-remote-eligible
+                - listitem [ref=f101e161]:
+                  - button "Copy link" [ref=f101e162]
+    - contentinfo [ref=f101e167]:
+      - generic [ref=f101e168]:
+        - list [ref=f101e169]:
+          - listitem [ref=f101e170]:
+            - link "Smartsheet" [ref=f101e171] [cursor=pointer]:
+              - /url: /
+              - figure [ref=f101e173]:
+                - img "Smartsheet logo" [ref=f101e174]
+          - listitem [ref=f101e175]:
+            - list [ref=f101e177]:
+              - listitem [ref=f101e178]:
+                - text: Product
+                - list [ref=f101e179]:
+                  - listitem [ref=f101e180]:
+                    - link "Overview" [ref=f101e181] [cursor=pointer]:
+                      - /url: /platform
+                  - listitem [ref=f101e182]:
+                    - link "Solutions" [ref=f101e183] [cursor=pointer]:
+                      - /url: /solutions
+                  - listitem [ref=f101e184]:
+                    - link "Features" [ref=f101e185] [cursor=pointer]:
+                      - /url: /platform/features
+                  - listitem [ref=f101e186]:
+                    - link "Integrations" [ref=f101e187] [cursor=pointer]:
+                      - /url: /integrations
+                  - listitem [ref=f101e188]:
+                    - link "Pricing & plans" [ref=f101e189] [cursor=pointer]:
+                      - /url: /pricing
+                  - listitem [ref=f101e190]:
+                    - link "Advanced Work Management" [ref=f101e191] [cursor=pointer]:
+                      - /url: /advanced-work-management
+                  - listitem [ref=f101e192]:
+                    - link "Professional services" [ref=f101e193] [cursor=pointer]:
+                      - /url: /services/professional-services
+                  - listitem [ref=f101e194]:
+                    - link "Trust Center" [ref=f101e195] [cursor=pointer]:
+                      - /url: /trust
+                  - listitem [ref=f101e196]:
+                    - link "Template Gallery" [ref=f101e197] [cursor=pointer]:
+                      - /url: /template-gallery
+                  - listitem [ref=f101e198]:
+                    - link "Why Smartsheet" [ref=f101e199] [cursor=pointer]:
+                      - /url: /why-smartsheet
+                  - listitem [ref=f101e200]:
+                    - link "Start a trial" [ref=f101e202] [cursor=pointer]:
+                      - /url: https://www.smartsheet.com/try-it?lpv=footercta
+          - listitem [ref=f101e203]:
+            - list [ref=f101e205]:
+              - listitem [ref=f101e206]:
+                - text: Resources
+                - list [ref=f101e207]:
+                  - listitem [ref=f101e208]:
+                    - link "Content Center" [ref=f101e209] [cursor=pointer]:
+                      - /url: /content-center
+                  - listitem [ref=f101e210]:
+                    - link "Product insights" [ref=f101e211] [cursor=pointer]:
+                      - /url: /content-center/product-insights
+                  - listitem [ref=f101e212]:
+                    - link "Help and Learning" [ref=f101e213] [cursor=pointer]:
+                      - /url: /help-center
+                  - listitem [ref=f101e214]:
+                    - link "Smartsheet University" [ref=f101e215] [cursor=pointer]:
+                      - /url: /smartsheet-university
+                  - listitem [ref=f101e216]:
+                    - link "Training options" [ref=f101e217] [cursor=pointer]:
+                      - /url: /help-center?url=training_resources
+                  - listitem [ref=f101e218]:
+                    - link "Support" [ref=f101e219] [cursor=pointer]:
+                      - /url: https://www.smartsheet.com/services/support
+                  - listitem [ref=f101e220]:
+                    - link "Community" [ref=f101e221] [cursor=pointer]:
+                      - /url: https://community.smartsheet.com/
+                  - listitem [ref=f101e222]:
+                    - link "Partner program" [ref=f101e223] [cursor=pointer]:
+                      - /url: /partners
+                  - listitem [ref=f101e224]:
+                    - link "Release updates" [ref=f101e225] [cursor=pointer]:
+                      - /url: /content-center/product-news/release-notes
+                  - listitem [ref=f101e226]:
+                    - link "Developers & API" [ref=f101e227] [cursor=pointer]:
+                      - /url: https://developers.smartsheet.com/
+                  - listitem [ref=f101e228]:
+                    - link "Watch a demo" [ref=f101e229] [cursor=pointer]:
+                      - /url: https://www.smartsheet.com/contact/watch-demo?fts=footer-demo
+          - listitem [ref=f101e230]:
+            - list [ref=f101e232]:
+              - listitem [ref=f101e233]:
+                - text: Company
+                - list [ref=f101e234]:
+                  - listitem [ref=f101e235]:
+                    - link "About us" [ref=f101e236] [cursor=pointer]:
+                      - /url: /about
+                  - listitem [ref=f101e237]:
+                    - link "Leadership" [ref=f101e238] [cursor=pointer]:
+                      - /url: /about/leadership
+                  - listitem [ref=f101e239]:
+                    - link "Newsroom" [ref=f101e240] [cursor=pointer]:
+                      - /url: /content-center/news
+                  - listitem [ref=f101e241]:
+                    - link "Customer stories" [ref=f101e242] [cursor=pointer]:
+                      - /url: /customers
+                  - listitem [ref=f101e243]:
+                    - link "Careers We're hiring!" [ref=f101e244] [cursor=pointer]:
+                      - /url: /careers
+                      - generic [ref=f101e245]: Careers
+                      - generic [ref=f101e246]: We're hiring!
+                  - listitem [ref=f101e247]:
+                    - link "Privacy" [ref=f101e248] [cursor=pointer]:
+                      - /url: /legal/privacy
+                  - listitem [ref=f101e249]:
+                    - link "Legal" [ref=f101e250] [cursor=pointer]:
+                      - /url: /legal
+                  - listitem [ref=f101e251]:
+                    - link "Contact us" [ref=f101e252] [cursor=pointer]:
+                      - /url: https://www.smartsheet.com/contact?fts=contact-footer
+          - listitem [ref=f101e253]:
+            - list [ref=f101e255]:
+              - listitem [ref=f101e256]:
+                - text: Learn
+                - list [ref=f101e257]:
+                  - listitem [ref=f101e258]:
+                    - link "Project management templates" [ref=f101e259] [cursor=pointer]:
+                      - /url: /content-center/best-practices/project-management-guide/templates-project-management
+                  - listitem [ref=f101e260]:
+                    - link "Smartsheet dashboard gallery" [ref=f101e261] [cursor=pointer]:
+                      - /url: /content-center/product-news/reports-dashboards/smartsheet-dashboard-gallery
+                  - listitem [ref=f101e262]:
+                    - link "5 steps for getting started with the Smartsheet API" [ref=f101e263] [cursor=pointer]:
+                      - /url: /content-center/best-practices/tips-tricks/api-getting-started
+                  - listitem [ref=f101e264]:
+                    - link "3 formulas to look up data in Smartsheet" [ref=f101e265] [cursor=pointer]:
+                      - /url: /content-center/best-practices/tips-tricks/3-formulas-look-up-data-smartsheet
+                  - listitem [ref=f101e266]:
+                    - separator [ref=f101e267]
+                  - listitem [ref=f101e268]:
+                    - link "Unlock the power of Smartsheet with AI" [ref=f101e269] [cursor=pointer]:
+                      - /url: /ai
+                      - figure [ref=f101e271]:
+                        - img "Smartsheet AI" [ref=f101e273]
+                  - listitem [ref=f101e274]:
+                    - link "Learn more about ENGAGE" [ref=f101e275] [cursor=pointer]:
+                      - /url: /engage
+                      - figure [ref=f101e277]:
+                        - img "Engage Footer Nav Graphic" [ref=f101e279]
+        - generic [ref=f101e280]:
+          - generic [ref=f101e281]:
+            - generic "Language Picker" [ref=f101e283]:
+              - generic [ref=f101e287]:
+                - generic [ref=f101e288]: Select your language
+                - combobox "Select your language" [ref=f101e289] [cursor=pointer]:
+                  - option "English" [selected]
+                  - option "Deutsch"
+                  - option "Español"
+                  - option "Français"
+                  - option "Italiano"
+                  - option "Português"
+                  - option "Pусский"
+                  - option "日本語"
+            - link "Download desktop app" [ref=f101e291] [cursor=pointer]:
+              - /url: /platform/desktop-app
+            - list [ref=f101e296]:
+              - listitem [ref=f101e297] [cursor=pointer]:
+                - link "Facebook" [ref=f101e298]:
+                  - /url: https://www.facebook.com/smartsheet
+              - listitem [ref=f101e303] [cursor=pointer]:
+                - link "X" [ref=f101e304]:
+                  - /url: https://twitter.com/smartsheet
+              - listitem [ref=f101e309] [cursor=pointer]:
+                - link "LinkedIn" [ref=f101e310]:
+                  - /url: https://www.linkedin.com/company/smartsheet-com
+              - listitem [ref=f101e315] [cursor=pointer]:
+                - link "TikTok" [ref=f101e316]:
+                  - /url: https://www.tiktok.com/@smartsheet
+              - listitem [ref=f101e321] [cursor=pointer]:
+                - link "YouTube" [ref=f101e322]:
+                  - /url: https://youtube.com/user/SmartSheet
+              - listitem [ref=f101e327] [cursor=pointer]:
+                - link "Instagram" [ref=f101e328]:
+                  - /url: https://www.instagram.com/smartsheetplatform/
+          - generic [ref=f101e333]:
+            - link [ref=f101e334] [cursor=pointer]:
+              - /url: /legal/site-terms
+              - paragraph [ref=f101e335]: ©2026. All Rights Reserved Smartsheet Inc.
+            - generic [ref=f101e336]: •
+            - link [ref=f101e337] [cursor=pointer]:
+              - /url: /legal/machine-translation-disclaimer
+              - paragraph [ref=f101e338]: Machine Translation Disclaimer
+            - generic [ref=f101e339]: •
+            - link [ref=f101e340] [cursor=pointer]:
+              - /url: "#"
+              - paragraph [ref=f101e341]: Cookie Preferences
+            - generic [ref=f101e342]: •
+            - link [ref=f101e343] [cursor=pointer]:
+              - /url: "#"
+              - paragraph [ref=f101e344]
+            - paragraph [ref=f101e351] [cursor=pointer]: Your Privacy Choices
+  - generic:
+    - iframe

@@ -1,0 +1,220 @@
+- generic [ref=f33e4]:
+  - generic [ref=f33e6]:
+    - banner [ref=f33e7]:
+      - generic [ref=f33e8]:
+        - link [ref=f33e10] [cursor=pointer]:
+          - /url: /therapynotes/
+          - img "TherapyNotes.com" [ref=f33e11]
+        - heading "Software Developer" [level=1] [ref=f33e12]
+        - generic [ref=f33e13]:
+          - paragraph [ref=f33e14]:
+            - strong [ref=f33e16]: Remote
+            - text: ·Development·Full time
+          - generic [ref=f33e19]:
+            - generic [ref=f33e20]: Philadelphia,
+            - generic [ref=f33e21]: Pennsylvania,
+            - text: United States
+    - generic [ref=f33e22]:
+      - navigation [ref=f33e24]:
+        - link "Overview" [ref=f33e26] [cursor=pointer]:
+          - /url: /therapynotes/j/D3368D6D4F/
+        - link "Application" [ref=f33e27]:
+          - /url: /therapynotes/j/D3368D6D4F/apply/
+      - progressbar "Scroll progress" [ref=f33e400]
+      - main [ref=f33e28]:
+        - generic [ref=f33e29]:
+          - generic [ref=f33e32]:
+            - generic [ref=f33e33]:
+              - strong [ref=f33e36]: Autofill application
+              - paragraph [ref=f33e37]: "Save time by importing your resume in one of the following formats: .pdf, .doc, .docx, .odt, or .rtf."
+            - button "Import resume from" [ref=f33e41] [cursor=pointer]
+          - generic [ref=f33e44]: "* Required fields"
+          - generic [ref=f33e45]:
+            - generic [ref=f33e46]:
+              - heading "Personal information" [level=2] [ref=f33e47]
+              - button "Clear Personal information" [ref=f33e48] [cursor=pointer]: Clear
+            - generic [ref=f33e51]:
+              - generic [ref=f33e53]:
+                - generic [ref=f33e54]:
+                  - strong [ref=f33e56]: "*"
+                  - strong [ref=f33e59]: First name
+                - textbox "First name" [ref=f33e62]: Jeffrey
+              - generic [ref=f33e64]:
+                - generic [ref=f33e65]:
+                  - strong [ref=f33e67]: "*"
+                  - strong [ref=f33e70]: Last name
+                - textbox "Last name" [ref=f33e73]: Macy
+              - generic [ref=f33e75]:
+                - generic [ref=f33e76]:
+                  - strong [ref=f33e78]: "*"
+                  - strong [ref=f33e81]: Email
+                - textbox "Email" [ref=f33e84]: macy.jeffreyj@gmail.com
+              - generic [ref=f33e85]:
+                - generic [ref=f33e86]:
+                  - generic [ref=f33e87]:
+                    - strong [ref=f33e89]: "*"
+                    - strong [ref=f33e92]: Phone
+                  - generic [ref=f33e96] [cursor=pointer]:
+                    - combobox "Telephone country code" [ref=f33e98]:
+                      - generic [ref=f33e100]: "+1"
+                    - textbox "* Phone" [ref=f33e102]: "6026194553"
+                - generic [ref=f33e103]: The hiring team may use this number to contact you about this job.
+              - generic [ref=f33e106]:
+                - generic [ref=f33e107]:
+                  - generic [ref=f33e108]:
+                    - strong [ref=f33e110]: "*"
+                    - strong [ref=f33e113]: Address
+                  - textbox "Address" [ref=f33e120]: Phoenix, United States of America
+                - generic [ref=f33e121]: Include your city, region, and country, so that employers can easily manage your application.
+              - textbox [ref=f33e127]
+              - textbox [ref=f33e131]
+              - textbox [ref=f33e135]
+          - generic [ref=f33e136]:
+            - generic [ref=f33e137]:
+              - heading "Profile" [level=2] [ref=f33e138]
+              - button "Clear Profile" [disabled] [ref=f33e139]: Clear
+            - generic [ref=f33e142]:
+              - generic [ref=f33e145]:
+                - generic [ref=f33e146]:
+                  - strong [ref=f33e148]: "*"
+                  - strong [ref=f33e151]: Resume
+                - generic [ref=f33e156]:
+                  - generic [ref=f33e163]:
+                    - button "Choose file" [ref=f33e164] [cursor=pointer]
+                    - text: or drag and drop here
+                  - button "Resume Choose file" [ref=f33e165]
+              - generic [ref=f33e167]:
+                - generic [ref=f33e169]:
+                  - strong [ref=f33e171]: Summary
+                  - text: (Optional)
+                - textbox "Summary" [ref=f33e174]
+          - generic [ref=f33e175]:
+            - generic [ref=f33e176]:
+              - heading "Details" [level=2] [ref=f33e177]
+              - button "Clear Details" [ref=f33e178] [cursor=pointer]: Clear
+            - generic [ref=f33e181]:
+              - generic [ref=f33e183]:
+                - generic [ref=f33e185]:
+                  - strong [ref=f33e187]: Cover letter
+                  - text: (Optional)
+                - textbox "Cover letter" [ref=f33e190]: Before I was a developer, I spent over a year as a Family Support Specialist doing in-home coaching for parents and kids working through communication breakdowns. I bring that up first because TherapyNotes isn't just a SaaS company to me -- I know what it's like to sit across from a family in crisis, and I know how much the clinician's tools matter to whether that session actually helps. On the engineering side, I currently build and maintain full-stack production software for the Arizona State Legislature -- structured content pipelines out of SQL Server, template systems fifteen-plus pages deep, WCAG AA accessibility enforced at the token level, and C# document-processing tools alongside another developer on the team. My day-to-day stack is React and TypeScript rather than Angular and ASP.NET Core, but the underlying discipline -- API design, relational data modeling, full lifecycle ownership -- is the same shape of work, and I pick up frameworks fast when the fundamentals transfer. I also run a freelance practice building full-stack web applications for small business clients, so I'm used to owning a project end to end. TherapyNotes is exactly the kind of place I want that instinct pointed at. Jeffrey Macy
+              - generic [ref=f33e192]:
+                - generic [ref=f33e193]:
+                  - strong [ref=f33e195]: "*"
+                  - strong [ref=f33e198]: What are your salary requirements?
+                - textbox "What are your salary requirements?" [ref=f33e201]: $75,000-$90,000
+              - generic [ref=f33e203]:
+                - generic [ref=f33e204]:
+                  - strong [ref=f33e206]: "*"
+                  - strong [ref=f33e209]: Were you referred by a TherapyNotes’ team member? If so, please enter their name here.
+                - textbox "Were you referred by a TherapyNotes’ team member? If so, please enter their name here." [ref=f33e212]: N/A
+              - generic [ref=f33e214]:
+                - generic [ref=f33e215]:
+                  - strong [ref=f33e217]: "*"
+                  - strong [ref=f33e220]: Do you have a portfolio or GitHub link to share?
+                - textbox "Do you have a portfolio or GitHub link to share?" [ref=f33e223]: https://github.com/Heavens-Lava and https://jeffreymacy.com
+              - generic [ref=f33e225]:
+                - generic [ref=f33e226]:
+                  - strong [ref=f33e228]: "*"
+                  - strong [ref=f33e231]: Please share the link to your LinkedIn profile.
+                - textbox "Please share the link to your LinkedIn profile." [ref=f33e234]: https://www.linkedin.com/in/jeffrey-macy-176746146/
+              - generic [ref=f33e236]:
+                - generic [ref=f33e237]:
+                  - strong [ref=f33e239]: "*"
+                  - strong [ref=f33e242]: Will you now, or in the future, require sponsorship for employment visa status (e.g., H-1B status)?
+                - generic [ref=f33e243]:
+                  - combobox "Will you now, or in the future, require sponsorship for employment visa status (e.g., H-1B status)?" [active] [ref=f33e247]: "No"
+                  - textbox [ref=f33e248]: "417359"
+              - generic [ref=f33e250]:
+                - generic [ref=f33e251]:
+                  - strong [ref=f33e253]: "*"
+                  - strong [ref=f33e256]: Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)?
+                - radiogroup [ref=f33e258]:
+                  - radio "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? YES" [ref=f33e259] [cursor=pointer]:
+                    - generic [ref=f33e260]:
+                      - radio [ref=f33e261]
+                      - generic [ref=f33e262]: "YES"
+                  - radio "Will you now or in the future require sponsorship for employment visa status (e.g., H-1B status)? NO" [checked] [ref=f33e265] [cursor=pointer]:
+                    - generic [ref=f33e266]:
+                      - radio [checked] [ref=f33e267]
+                      - generic [ref=f33e268]: "NO"
+              - generic [ref=f33e272]:
+                - generic [ref=f33e273]:
+                  - strong [ref=f33e275]: "*"
+                  - strong [ref=f33e278]: Have you obtained a bachelor's degree or higher in Computer Science or a similar concentration?
+                - radiogroup [ref=f33e280]:
+                  - radio "Have you obtained a bachelor's degree or higher in Computer Science or a similar concentration? YES" [ref=f33e281] [cursor=pointer]:
+                    - generic [ref=f33e282]:
+                      - radio [ref=f33e283]
+                      - generic [ref=f33e284]: "YES"
+                  - radio "Have you obtained a bachelor's degree or higher in Computer Science or a similar concentration? NO" [checked] [ref=f33e287] [cursor=pointer]:
+                    - generic [ref=f33e288]:
+                      - radio [checked] [ref=f33e289]
+                      - generic [ref=f33e290]: "NO"
+              - generic [ref=f33e294]:
+                - generic [ref=f33e295]:
+                  - strong [ref=f33e297]: "*"
+                  - strong [ref=f33e300]: Would you consider yourself a full-stack developer?
+                - radiogroup [ref=f33e302]:
+                  - radio "Would you consider yourself a full-stack developer? YES" [checked] [ref=f33e303] [cursor=pointer]:
+                    - generic [ref=f33e304]:
+                      - radio [checked] [ref=f33e305]
+                      - generic [ref=f33e306]: "YES"
+                  - radio "Would you consider yourself a full-stack developer? NO" [ref=f33e309] [cursor=pointer]:
+                    - generic [ref=f33e310]:
+                      - radio [ref=f33e311]
+                      - generic [ref=f33e312]: "NO"
+              - generic [ref=f33e316]:
+                - generic [ref=f33e317]:
+                  - strong [ref=f33e319]: "*"
+                  - strong [ref=f33e322]: Do you have 3+ years of professional experience with C#?
+                - radiogroup [ref=f33e324]:
+                  - radio "Do you have 3+ years of professional experience with C#? YES" [ref=f33e325] [cursor=pointer]:
+                    - generic [ref=f33e326]:
+                      - radio [ref=f33e327]
+                      - generic [ref=f33e328]: "YES"
+                  - radio "Do you have 3+ years of professional experience with C#? NO" [checked] [ref=f33e331] [cursor=pointer]:
+                    - generic [ref=f33e332]:
+                      - radio [checked] [ref=f33e333]
+                      - generic [ref=f33e334]: "NO"
+              - generic [ref=f33e338]:
+                - generic [ref=f33e339]:
+                  - strong [ref=f33e341]: "*"
+                  - strong [ref=f33e344]: Do you have experience with Angular v. 15 or higher?
+                - radiogroup [ref=f33e346]:
+                  - radio "Do you have experience with Angular v. 15 or higher? YES" [ref=f33e347] [cursor=pointer]:
+                    - generic [ref=f33e348]:
+                      - radio [ref=f33e349]
+                      - generic [ref=f33e350]: "YES"
+                  - radio "Do you have experience with Angular v. 15 or higher? NO" [checked] [ref=f33e353] [cursor=pointer]:
+                    - generic [ref=f33e354]:
+                      - radio [checked] [ref=f33e355]
+                      - generic [ref=f33e356]: "NO"
+              - generic [ref=f33e360]:
+                - generic [ref=f33e361]:
+                  - strong [ref=f33e363]: "*"
+                  - strong [ref=f33e366]: What current version(s) of Angular do you have experience with?
+                - textbox "What current version(s) of Angular do you have experience with?" [ref=f33e369]: None in production — my primary framework is React 18. I've built component-driven, state-managed frontends professionally for
+              - generic [ref=f33e371]:
+                - generic [ref=f33e372]:
+                  - strong [ref=f33e374]: "*"
+                  - strong [ref=f33e377]: What is your experience with Service Oriented Architecture?
+                - textbox "What is your experience with Service Oriented Architecture?" [ref=f33e380]: I design REST APIs with clear separation between presentation, business logic, and data access layers — for example, the structured content pipeline I built for the Arizona Legislature pulls from a SQL Server backend into reusable, decoupled views shared across three government sites. I haven't worked in a formally titled SOA environment, but the underlying discipline (service boundaries, decoupled data contracts) is the same work.
+          - button "Submit application" [ref=f33e381] [cursor=pointer]
+  - contentinfo [ref=f33e382]:
+    - generic [ref=f33e383]:
+      - link "View website" [ref=f33e385] [cursor=pointer]:
+        - /url: https://www.therapynotes.com
+      - generic [ref=f33e386]:
+        - link "View all jobs" [ref=f33e387] [cursor=pointer]:
+          - /url: /therapynotes/
+        - link "Help" [ref=f33e388] [cursor=pointer]:
+          - /url: https://jobseekers.workable.com/hc/en
+    - generic [ref=f33e391]:
+      - link "Accessibility" [ref=f33e393] [cursor=pointer]:
+        - /url: https://workable.com/web-accessibility-statement
+      - button "Cookie settings" [ref=f33e397] [cursor=pointer]
+      - generic [ref=f33e398]:
+        - text: Powered by
+        - link "Workable" [ref=f33e399] [cursor=pointer]:
+          - /url: https://jobs.workable.com/?utm_campaign=careers_page&utm_content=careers_page&utm_medium=feature&utm_source=careers_page

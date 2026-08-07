@@ -1,0 +1,449 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e7]:
+    - generic [ref=f1e9]:
+      - text:  
+      - link "Microsoft" [ref=f1e10] [cursor=pointer]:
+        - /url: https://www.microsoft.com
+      - text:  
+      - link "Careers" [ref=f1e14] [cursor=pointer]:
+        - /url: https://careers.microsoft.com/v2/global/en/home.html
+      - navigation "Contextual menu" [ref=f1e16]:
+        - list [ref=f1e17]:
+          - listitem [ref=f1e18]:
+            - link "Locations" [ref=f1e19] [cursor=pointer]:
+              - /url: https://careers.microsoft.com/v2/global/en/locations.html
+          - listitem [ref=f1e20]:
+            - link "Professions" [ref=f1e21] [cursor=pointer]:
+              - /url: https://careers.microsoft.com/v2/global/en/professions.html
+          - listitem [ref=f1e22]:
+            - button "Programs " [ref=f1e24] [cursor=pointer]
+          - listitem [ref=f1e25]:
+            - button "Life at Microsoft " [ref=f1e27] [cursor=pointer]
+          - listitem [ref=f1e28]:
+            - link "Hiring tips" [ref=f1e29] [cursor=pointer]:
+              - /url: https://careers.microsoft.com/v2/global/en/hiring-tips.html
+          - text: 
+          - listitem [ref=f1e30]:
+            - link "Join talent network" [ref=f1e31] [cursor=pointer]:
+              - /url: https://apply.careers.microsoft.com/careers/join
+      - generic [ref=f1e32]:
+        - button "Search jobs" [ref=f1e34] [cursor=pointer]: Search 
+        - generic:  
+        - generic [ref=f1e35]: Sign in
+  - generic [ref=f1e39]:
+    - main [ref=f1e40]:
+      - heading "Jobs" [level=1] [ref=f1e41]
+      - generic [ref=f1e43]:
+        - generic [ref=f1e44]:
+          - generic [ref=f1e45]:
+            - generic [ref=f1e46]:
+              - generic [ref=f1e48]:
+                - status [ref=f1e49]
+                - combobox "Search by job title, ID, or keyword" [ref=f1e53]
+              - generic [ref=f1e57]:
+                - status [ref=f1e58]
+                - combobox "City, state, or country/region" [ref=f1e62]
+              - generic [ref=f1e66]:
+                - button "Search jobs" [ref=f1e67] [cursor=pointer]
+                - button "Job Cart 0 job(s) added" [disabled] [ref=f1e70]:
+                  - generic [ref=f1e74]:
+                    - text: Job cart
+                    - generic [ref=f1e75]: "0"
+            - generic [ref=f1e76]:
+              - generic [ref=f1e77]:
+                - button "Work site" [ref=f1e79] [cursor=pointer]
+                - button "Experience level" [ref=f1e87] [cursor=pointer]
+                - button "Profession" [ref=f1e95] [cursor=pointer]
+                - button "Discipline" [ref=f1e103] [cursor=pointer]
+              - button "All filters" [ref=f1e110] [cursor=pointer]
+              - button "Clear all selected filters" [ref=f1e116] [cursor=pointer]:
+                - generic [ref=f1e117]: Clear All
+          - generic [ref=f1e121]:
+            - generic [ref=f1e122]:
+              - heading "Get personalized job recommendations" [level=1] [ref=f1e123]
+              - generic [ref=f1e124]: Use AI to see how you match and get help on your career journey
+            - button "Upload your resume to get personalized job recommendations" [ref=f1e126] [cursor=pointer]:
+              - generic [ref=f1e127]: Upload your resume
+        - generic [ref=f1e129]:
+          - generic [ref=f1e130]:
+            - heading "1907 jobs" [level=2] [ref=f1e132]
+            - 'button "Sort by: Latest" [ref=f1e135] [cursor=pointer]':
+              - generic [ref=f1e136]: "Sort: Latest"
+            - generic [ref=f1e140]:
+              - generic [ref=f1e141] [cursor=pointer]:
+                - generic:
+                  - switch "Turn on job alerts for this search" [disabled]
+                  - generic: Turn on job alerts for this search
+              - link "Manage" [ref=f1e142] [cursor=pointer]:
+                - /url: /careers/settings
+            - generic [ref=f1e143]:
+              - generic [ref=f1e144]:
+                - 'button "View job: Site Reliability Engineer - CTJ - Poly" [ref=f1e145] [cursor=pointer]':
+                  - generic [ref=f1e146]:
+                    - generic [ref=f1e147]: Site Reliability Engineer - CTJ - Poly
+                    - generic [ref=f1e149]: United States, Virginia, Reston + 3 more
+                    - generic [ref=f1e154]: Posted 22 minutes ago
+                - button "Save Site Reliability Engineer - CTJ - Poly" [ref=f1e155] [cursor=pointer]
+              - generic [ref=f1e158]:
+                - 'button "View job: Chief of Staff - AI Experiences, Microsoft Edge" [ref=f1e159] [cursor=pointer]':
+                  - generic [ref=f1e160]:
+                    - generic [ref=f1e161]: Chief of Staff - AI Experiences, Microsoft Edge
+                    - generic [ref=f1e163]: United States, Washington, Redmond
+                    - generic [ref=f1e168]: Posted 30 minutes ago
+                - button "Save Chief of Staff - AI Experiences, Microsoft Edge" [ref=f1e169] [cursor=pointer]
+              - generic [ref=f1e172]:
+                - 'button "View job: Senior Software Engineer" [ref=f1e173] [cursor=pointer]':
+                  - generic [ref=f1e174]:
+                    - generic [ref=f1e175]: Senior Software Engineer
+                    - generic [ref=f1e177]: United States, Washington, Redmond
+                    - generic [ref=f1e182]: Posted 33 minutes ago
+                - button "Save Senior Software Engineer" [ref=f1e183] [cursor=pointer]
+              - generic [ref=f1e186]:
+                - 'button "View job: Solution Area Specialist" [ref=f1e187] [cursor=pointer]':
+                  - generic [ref=f1e188]:
+                    - generic [ref=f1e189]: Solution Area Specialist
+                    - generic [ref=f1e191]: Norway, Oslo, Oslo
+                    - generic [ref=f1e196]: Posted 36 minutes ago
+                - button "Save Solution Area Specialist" [ref=f1e197] [cursor=pointer]
+              - generic [ref=f1e200]:
+                - 'button "View job: Sales Compensation Implementation Manager" [ref=f1e201] [cursor=pointer]':
+                  - generic [ref=f1e202]:
+                    - generic [ref=f1e203]: Sales Compensation Implementation Manager
+                    - generic [ref=f1e205]: United States, Multiple Locations, Multiple Locations
+                    - generic [ref=f1e210]: Posted 42 minutes ago
+                - button "Save Sales Compensation Implementation Manager" [ref=f1e211] [cursor=pointer]
+              - generic [ref=f1e214]:
+                - 'button "View job: Site Procurement Manager" [ref=f1e215] [cursor=pointer]':
+                  - generic [ref=f1e216]:
+                    - generic [ref=f1e217]: Site Procurement Manager
+                    - generic [ref=f1e219]: Canada, Ontario, Toronto
+                    - generic [ref=f1e224]: Posted 41 minutes ago
+                - button "Save Site Procurement Manager" [ref=f1e225] [cursor=pointer]
+              - generic [ref=f1e228]:
+                - 'button "View job: Senior CAD Software Engineer" [ref=f1e229] [cursor=pointer]':
+                  - generic [ref=f1e230]:
+                    - generic [ref=f1e231]: Senior CAD Software Engineer
+                    - generic [ref=f1e233]: United States, North Carolina, Raleigh + 2 more
+                    - generic [ref=f1e238]: Posted an hour ago
+                - button "Save Senior CAD Software Engineer" [ref=f1e239] [cursor=pointer]
+              - generic [ref=f1e242]:
+                - 'button "View job: Logistics Technician" [ref=f1e243] [cursor=pointer]':
+                  - generic [ref=f1e244]:
+                    - generic [ref=f1e245]: Logistics Technician
+                    - generic [ref=f1e247]: Canada, Québec, Quebec City
+                    - generic [ref=f1e252]: Posted an hour ago
+                - button "Save Logistics Technician" [ref=f1e253] [cursor=pointer]
+              - generic [ref=f1e256]:
+                - 'button "View job: Senior Critical Environment Technician (Shift Lead)" [ref=f1e257] [cursor=pointer]':
+                  - generic [ref=f1e258]:
+                    - generic [ref=f1e259]: Senior Critical Environment Technician (Shift Lead)
+                    - generic [ref=f1e261]: United Kingdom, Newport, Newport
+                    - generic [ref=f1e266]: Posted an hour ago
+                - button "Save Senior Critical Environment Technician (Shift Lead)" [ref=f1e267] [cursor=pointer]
+              - generic [ref=f1e270]:
+                - 'button "View job: Logistics Technician" [ref=f1e271] [cursor=pointer]':
+                  - generic [ref=f1e272]:
+                    - generic [ref=f1e273]: Logistics Technician
+                    - generic [ref=f1e275]: United States, Illinois, Chicago
+                    - generic [ref=f1e280]: Posted 2 hours ago
+                - button "Save Logistics Technician" [ref=f1e281] [cursor=pointer]
+            - generic [ref=f1e284]: Page 1 of 191
+            - navigation "Jobs pagination" [ref=f1e285]:
+              - button "Previous jobs" [disabled] [ref=f1e286]
+              - generic [ref=f1e289]:
+                - generic [ref=f1e290]: "1"
+                - generic [ref=f1e291]: of
+                - generic [ref=f1e292]: "191"
+              - button "Next jobs" [ref=f1e293] [cursor=pointer]
+          - generic [ref=f1e297]:
+            - generic [ref=f1e298]:
+              - generic [ref=f1e299]:
+                - heading "Site Reliability Engineer - CTJ - Poly" [level=2] [ref=f1e300]
+                - generic [ref=f1e301]:
+                  - generic [ref=f1e304]: United States, Virginia, Reston
+                  - button "Show more locations" [ref=f1e306] [cursor=pointer]: +3 more
+                - generic [ref=f1e307]:
+                  - link "Apply now" [ref=f1e308] [cursor=pointer]:
+                    - /url: /careers/apply?pid=1970393556957397
+                  - button "Add to cart" [ref=f1e311] [cursor=pointer]
+              - generic [ref=f1e313]:
+                - button "Favourite this job" [ref=f1e314] [cursor=pointer]
+                - button "Share position, Site Reliability Engineer - CTJ - Poly" [ref=f1e318] [cursor=pointer]
+            - generic [ref=f1e322]:
+              - generic [ref=f1e323]: Find out how well you match with this job
+              - button "Upload your resume" [ref=f1e324] [cursor=pointer]
+            - generic [ref=f1e329]:
+              - tablist [ref=f1e332]:
+                - tab "Job description" [selected] [ref=f1e333] [cursor=pointer]
+                - tab "Company and benefits" [ref=f1e336] [cursor=pointer]
+              - generic [ref=f1e338]:
+                - generic [ref=f1e339]:
+                  - generic [ref=f1e340]:
+                    - generic [ref=f1e341]:
+                      - generic [ref=f1e342]: Job number
+                      - generic [ref=f1e343]: "200047150"
+                    - generic [ref=f1e344]:
+                      - generic [ref=f1e345]: Date posted
+                      - generic [ref=f1e346]: Aug 06, 2026
+                    - generic [ref=f1e347]:
+                      - generic [ref=f1e348]: Work site
+                      - generic [ref=f1e349]: Fully on-site
+                    - generic [ref=f1e350]:
+                      - generic [ref=f1e351]: Travel
+                      - generic [ref=f1e352]: Less than 25%
+                    - generic [ref=f1e353]:
+                      - generic [ref=f1e354]: Profession
+                      - generic [ref=f1e355]: Software Engineering
+                    - generic [ref=f1e356]:
+                      - generic [ref=f1e357]: Discipline
+                      - generic [ref=f1e358]: Site Reliability Engineering
+                    - generic [ref=f1e359]:
+                      - generic [ref=f1e360]: Role type
+                      - generic [ref=f1e361]: Individual Contributor
+                    - generic [ref=f1e362]:
+                      - generic [ref=f1e363]: Employment type
+                      - generic [ref=f1e364]: Full-Time
+                  - generic [ref=f1e366]:
+                    - text: Overview
+                    - paragraph [ref=f1e367]: Help build and operate the trusted platforms that power Microsoft 365's most critical compliance, security, and governance services. As a member of our team, you will work at the intersection of large-scale cloud engineering, service reliability, and operational excellence, helping ensure that enterprise and government customers can rely on Microsoft services every day. You'll collaborate with engineers across Microsoft to solve complex technical challenges, improve resiliency, and drive innovation through automation, modern cloud technologies, and data-driven operations.
+                    - paragraph [ref=f1e368]: As a Site Reliability Engineer, you will help design, operate, and continuously improve large-scale Microsoft 365 and Purview services that support millions of users worldwide. You will partner with software engineers, service owners, and reliability teams to monitor service health, automate operational processes, investigate production issues, and implement engineering solutions that improve availability, performance, security, and customer experience.This opportunity will allow you to accelerate your cloud engineering expertise, develop deep knowledge of distributed systems and large-scale service operations, and build advanced skills in automation, observability, incident management, and AI-powered operational tooling. You will gain end-to-end ownership experience across the service lifecycle while helping shape the future of reliability engineering through automation, data-driven operations, and AI-enabled solutions.Microsoft’s mission is to empower every person and every organization on the planet to achieve more. As employees we come together with a growth mindset, innovate to empower others, and collaborate to realize our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond.
+                    - text: Responsibilities
+                    - generic [ref=f1e369]: • You participate in onboarding, code/design reviews, and regular meetings with the engineering teams that develop and manage those products.
+                    - paragraph [ref=f1e370]: • You independently develop code or scripts that automate the performance of repetitive and easily scalable operations processes.• You design, develop, and maintain telemetry pipelines and monitoring tools that detail operations metrics.• You develop, test, troubleshoot, and implement changes to optimize code and improve products.• You respond to incidents during regular on-call rotations.
+                    - text: Qualifications
+                    - table [ref=f1e371]:
+                      - rowgroup [ref=f1e372]:
+                        - row [ref=f1e373]:
+                          - cell [ref=f1e374]:
+                            - generic [ref=f1e376]:
+                              - paragraph [ref=f1e377]:
+                                - strong [ref=f1e378]: Required/Minimum Qualifications
+                              - list [ref=f1e379]:
+                                - listitem [ref=f1e380]: Bachelor's Degree in Computer Science or related technical field AND 2+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python OR equivalent experience.
+                              - paragraph [ref=f1e381]:
+                                - heading "Other Requirements:" [level=3] [ref=f1e382]
+                              - paragraph [ref=f1e383]:
+                                - strong [ref=f1e384]: "Security Clearance Requirements:"
+                                - text: "Candidates must be able to meet Microsoft, customer and/or government security screening requirements are required for this role. These requirements include, but are not limited to the following specialized security screenings:"
+                              - list [ref=f1e385]:
+                                - listitem [ref=f1e386]: The successful candidate must have an active U.S. Government Top Secret Clearance with access to Sensitive Compartmented Information (SCI) based on a Single Scope Background Investigation (SSBI). Ability to meet Microsoft, customer and/or government security screening requirements are required for this role. Failure to maintain or obtain the appropriate U.S. Government clearance and/or customer screening requirements may result in employment action up to and including termination.
+                                - listitem [ref=f1e387]:
+                                  - strong [ref=f1e388]: Clearance Verification
+                                  - text: ": This position requires successful verification of the stated security clearance to meet federal government customer requirements. You will be asked to provide clearance verification information prior to an offer of employment."
+                                - listitem [ref=f1e389]:
+                                  - strong [ref=f1e390]: "Microsoft Cloud Background Check:"
+                                  - text: This position will be required to pass the Microsoft Cloud background check upon hire/transfer and every two years thereafter.
+                                - listitem [ref=f1e391]:
+                                  - strong [ref=f1e392]: "Citizenship & Citizenship Verification:"
+                                  - text: This position requires verification of U.S. citizenship due to citizenship-based legal restrictions. Specifically, this position supports United States federal, state, and/or local United States government agency customer and is subject to certain citizenship-based restrictions where required or permitted by applicable law. To meet this legal requirement, citizenship will be verified via a valid passport, or other approved documents, or verified US government Clearance
+                              - paragraph [ref=f1e393]:
+                                - strong [ref=f1e394]: Preferred/Additional Qualifications
+                              - list [ref=f1e395]:
+                                - listitem [ref=f1e396]: Master's Degree in Computer Science or related technical field AND 6+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python OR Bachelor's Degree in Computer Science or related technical field AND 8+ years technical engineering experience with coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python OR equivalent experience.
+                    - paragraph [ref=f1e397]: Site Reliability Engineering IC3 - The typical base pay range for this role across the U.S. is USD $102,100 - $202,200 per year. There is a different range applicable to specific work locations, within the San Francisco Bay area and New York City metropolitan area, and the base pay range for this role in those locations is USD $133,800 - $219,200 per year.
+                    - paragraph
+                    - paragraph [ref=f1e398]:
+                      - text: "Certain roles may be eligible for benefits and other compensation. Find additional benefits and pay information here:"
+                      - link "https://careers.microsoft.com/us/en/us-corporate-pay" [ref=f1e399] [cursor=pointer]:
+                        - /url: https://careers.microsoft.com/us/en/us-corporate-pay
+                    - paragraph [ref=f1e400]: This position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.
+                    - separator [ref=f1e401]
+                    - paragraph [ref=f1e402]:
+                      - text: Microsoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about
+                      - link "requesting accommodations." [ref=f1e403] [cursor=pointer]:
+                        - /url: https://careers.microsoft.com/v2/global/en/accessibility.html
+                - generic [ref=f1e405]:
+                  - heading "Insights from previous hires" [level=3] [ref=f1e406]
+                  - generic [ref=f1e407]:
+                    - generic [ref=f1e408]:
+                      - heading "Top skills" [level=4] [ref=f1e409]
+                      - list [ref=f1e410]:
+                        - listitem [ref=f1e411]:
+                          - generic [ref=f1e412]: Algorithms
+                        - listitem [ref=f1e413]:
+                          - generic [ref=f1e414]: Automation
+                        - listitem [ref=f1e415]:
+                          - generic [ref=f1e416]: Architecture
+                        - listitem [ref=f1e417]:
+                          - generic [ref=f1e418]: Amazon Web Services (AWS)
+                        - listitem [ref=f1e419]:
+                          - generic [ref=f1e420]: Algorithm Design
+                        - listitem [ref=f1e421]:
+                          - generic [ref=f1e422]: Cascading Style Sheets (Css)
+                        - listitem [ref=f1e423]:
+                          - generic [ref=f1e424]: C++
+                        - listitem [ref=f1e425]:
+                          - generic [ref=f1e426]: Business
+                        - listitem [ref=f1e427]:
+                          - generic [ref=f1e428]: Android
+                        - listitem [ref=f1e429]:
+                          - generic [ref=f1e430]: Collaborative Environment
+                    - generic [ref=f1e431]:
+                      - heading "Previously worked as" [level=4] [ref=f1e432]
+                      - list [ref=f1e433]:
+                        - listitem [ref=f1e434]: 1. Software Engineer II
+                        - listitem [ref=f1e435]: 2. Software Engineer 2
+                        - listitem [ref=f1e436]: 3. Software Engineer
+                        - listitem [ref=f1e437]: 4. Machine Learning Engineer
+                        - listitem [ref=f1e438]: 5. Engineer Senior
+            - region "Similar Positions" [ref=f1e440]:
+              - generic [ref=f1e441]:
+                - heading "Similar jobs" [level=2] [ref=f1e442]
+                - generic [ref=f1e443]:
+                  - button "Previous similar jobs" [disabled] [ref=f1e444]
+                  - button "Next similar jobs" [ref=f1e447] [cursor=pointer]
+              - generic [ref=f1e450]:
+                - navigation [ref=f1e451]
+                - list "Similar jobs" [ref=f1e455]:
+                  - listitem [ref=f1e456]:
+                    - generic [ref=f1e457]:
+                      - 'link "View job: Site Reliability Engineer - CTJ - POLY" [ref=f1e458] [cursor=pointer]':
+                        - /url: /careers/job/1970393556761670
+                        - generic [ref=f1e459]:
+                          - generic [ref=f1e460]: Site Reliability Engineer - CTJ - POLY
+                          - generic [ref=f1e462]: United States, Virginia, Reston + 2 more
+                          - generic [ref=f1e467]: Posted 6 months ago
+                      - button "Save Site Reliability Engineer - CTJ - POLY" [ref=f1e468] [cursor=pointer]
+                  - listitem [ref=f1e471]:
+                    - generic [ref=f1e472]:
+                      - 'link "View job: Site Reliability Engineering- CTJ- Poly" [ref=f1e473] [cursor=pointer]':
+                        - /url: /careers/job/1970393556843673
+                        - generic [ref=f1e474]:
+                          - generic [ref=f1e475]: Site Reliability Engineering- CTJ- Poly
+                          - generic [ref=f1e477]: United States, Washington, Redmond + 1 more
+                          - generic [ref=f1e482]: Posted 5 months ago
+                      - button "Save Site Reliability Engineering- CTJ- Poly" [ref=f1e483] [cursor=pointer]
+                  - listitem [ref=f1e486]:
+                    - generic [ref=f1e487]:
+                      - 'link "View job: Site Reliability Engineer II - CTJ - Top Secret" [ref=f1e488] [cursor=pointer]':
+                        - /url: /careers/job/1970393556867058
+                        - generic [ref=f1e489]:
+                          - generic [ref=f1e490]: Site Reliability Engineer II - CTJ - Top Secret
+                          - generic [ref=f1e492]: United States, Washington, Redmond + 1 more
+                          - generic [ref=f1e497]: Posted 2 months ago
+                      - button "Save Site Reliability Engineer II - CTJ - Top Secret" [ref=f1e498] [cursor=pointer]
+                  - listitem [ref=f1e501]:
+                    - generic [ref=f1e502]:
+                      - 'link "View job: Senior Site Reliability Engineer - CTJ - Top Secret" [ref=f1e503] [cursor=pointer]':
+                        - /url: /careers/job/1970393556867059
+                        - generic [ref=f1e504]:
+                          - generic [ref=f1e505]: Senior Site Reliability Engineer - CTJ - Top Secret
+                          - generic [ref=f1e507]: United States, Washington, Redmond + 1 more
+                          - generic [ref=f1e512]: Posted 3 months ago
+                      - button "Save Senior Site Reliability Engineer - CTJ - Top Secret" [ref=f1e513] [cursor=pointer]
+                  - listitem [ref=f1e516]:
+                    - generic [ref=f1e517]:
+                      - 'link "View job: Service Engineer II - CTJ - Poly" [ref=f1e518] [cursor=pointer]':
+                        - /url: /careers/job/1970393556939406
+                        - generic [ref=f1e519]:
+                          - generic [ref=f1e520]: Service Engineer II - CTJ - Poly
+                          - generic [ref=f1e522]: United States, Washington, Redmond + 1 more
+                          - generic [ref=f1e527]: Posted 6 days ago
+                      - button "Save Service Engineer II - CTJ - Poly" [ref=f1e528] [cursor=pointer]
+                  - listitem [ref=f1e531]:
+                    - generic [ref=f1e532]:
+                      - 'link "View job: Sr. Service Engineer- CTJ- Poly" [ref=f1e533] [cursor=pointer]':
+                        - /url: /careers/job/1970393556865812
+                        - generic [ref=f1e534]:
+                          - generic [ref=f1e535]: Sr. Service Engineer- CTJ- Poly
+                          - generic [ref=f1e537]: United States, Multiple Locations, Multiple Locations + 4 more
+                          - generic [ref=f1e542]: Posted 3 months ago
+                      - button "Save Sr. Service Engineer- CTJ- Poly" [ref=f1e543] [cursor=pointer]
+                  - listitem [ref=f1e546]:
+                    - generic [ref=f1e547]:
+                      - 'link "View job: Senior Security Assurance Engineer - CTJ - POLY" [ref=f1e548] [cursor=pointer]':
+                        - /url: /careers/job/1970393556837632
+                        - generic [ref=f1e549]:
+                          - generic [ref=f1e550]: Senior Security Assurance Engineer - CTJ - POLY
+                          - generic [ref=f1e552]: United States, Virginia, Reston + 2 more
+                          - generic [ref=f1e557]: Posted 6 days ago
+                      - button "Save Senior Security Assurance Engineer - CTJ - POLY" [ref=f1e558] [cursor=pointer]
+                  - listitem [ref=f1e561]:
+                    - generic [ref=f1e562]:
+                      - 'link "View job: Principal Software Engineer Manager- CTJ- Poly" [ref=f1e563] [cursor=pointer]':
+                        - /url: /careers/job/1970393556828219
+                        - generic [ref=f1e564]:
+                          - generic [ref=f1e565]: Principal Software Engineer Manager- CTJ- Poly
+                          - generic [ref=f1e567]: United States, Virginia, Reston + 2 more
+                          - generic [ref=f1e572]: Posted 5 months ago
+                      - button "Save Principal Software Engineer Manager- CTJ- Poly" [ref=f1e573] [cursor=pointer]
+                  - listitem [ref=f1e576]:
+                    - generic [ref=f1e577]:
+                      - 'link "View job: Sr. Software Engineer -CTJ- Poly" [ref=f1e578] [cursor=pointer]':
+                        - /url: /careers/job/1970393556947844
+                        - generic [ref=f1e579]:
+                          - generic [ref=f1e580]: Sr. Software Engineer -CTJ- Poly
+                          - generic [ref=f1e582]: United States, Virginia, Reston + 1 more
+                          - generic [ref=f1e587]: Posted 7 days ago
+                      - button "Save Sr. Software Engineer -CTJ- Poly" [ref=f1e588] [cursor=pointer]
+                  - listitem [ref=f1e591]:
+                    - generic [ref=f1e592]:
+                      - 'link "View job: Software Engineer II - CTJ - Poly" [ref=f1e593] [cursor=pointer]':
+                        - /url: /careers/job/1970393556955702
+                        - generic [ref=f1e594]:
+                          - generic [ref=f1e595]: Software Engineer II - CTJ - Poly
+                          - generic [ref=f1e597]: United States, Virginia, Reston + 2 more
+                          - generic [ref=f1e602]: Posted 2 days ago
+                      - button "Save Software Engineer II - CTJ - Poly" [ref=f1e603] [cursor=pointer]
+    - contentinfo [ref=f1e606]:
+      - generic [ref=f1e609]:
+        - paragraph [ref=f1e611]:
+          - link [ref=f1e612] [cursor=pointer]:
+            - /url: https://eightfold.ai
+            - text: Powered by
+            - img "Eightfold AI Logo" [ref=f1e613]
+        - paragraph [ref=f1e616]:
+          - text: This site uses AI technology provided by Eightfold, the provider of the system. Microsoft, as the deployer, applies human oversight and judgment when using this technology. For details on Eightfold's AI functionality, please see
+          - link "Eightfold's transparency documentation" [ref=f1e617] [cursor=pointer]:
+            - /url: https://eightfold.ai/responsible-ai/
+          - text: . Learn more about Microsoft's data practices in the
+          - link "Microsoft Data Privacy Notice" [ref=f1e618] [cursor=pointer]:
+            - /url: http://go.microsoft.com/fwlink/?LinkId=518021
+          - text: and
+          - link "Career Site Transparency FAQs" [ref=f1e619] [cursor=pointer]:
+            - /url: https://careers.microsoft.com/v2/global/en/transparency.html
+          - text: .
+        - contentinfo [ref=f1e620]:
+          - contentinfo [ref=f1e621]:
+            - generic [ref=f1e622]:
+              - generic [ref=f1e623]:
+                - generic [ref=f1e624]:
+                  - generic [ref=f1e625]: 
+                  - generic [ref=f1e626]:
+                    - link "English" [disabled]
+                    - text: "|"
+                  - link "FR - Canada" [ref=f1e628] [cursor=pointer]
+                - generic [ref=f1e630]:
+                  - link "Support" [ref=f1e632] [cursor=pointer]:
+                    - /url: https://apply.careers.microsoft.com/careers/forms/create?templateId=yx2LlRBJ7wq&fullPageResponse=1&hl=en-US
+                  - link "Accessibility" [ref=f1e634] [cursor=pointer]:
+                    - /url: https://careers.microsoft.com/v2/global/en/accessibility.html
+                  - link "Microsoft Data Privacy Notice" [ref=f1e636] [cursor=pointer]:
+                    - /url: http://go.microsoft.com/fwlink/?LinkId=518021
+                  - link "Transparency FAQ" [ref=f1e638] [cursor=pointer]:
+                    - /url: https://careers.microsoft.com/v2/global/en/transparency.html
+                  - link "Legal policies" [ref=f1e640] [cursor=pointer]:
+                    - /url: https://careers.microsoft.com/v2/global/en/legal-policies.html
+                  - link "Contractor roles" [ref=f1e642] [cursor=pointer]:
+                    - /url: https://careers.microsoft.com/v2/global/en/contractor-roles.html
+              - generic [ref=f1e643]:
+                - link "Facebook" [ref=f1e645] [cursor=pointer]:
+                  - /url: https://www.facebook.com/MicrosoftLife
+                - link "Linkedin" [ref=f1e650] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/microsoft
+                - link "Instagram" [ref=f1e657] [cursor=pointer]:
+                  - /url: https://www.instagram.com/microsoftlife
+                - link "x" [ref=f1e667] [cursor=pointer]:
+                  - /url: https://x.com/microsoft
+            - generic [ref=f1e674]:
+              - link "Your Privacy Choices" [ref=f1e681] [cursor=pointer]:
+                - /url: https://aka.ms/yourcaliforniaprivacychoices
+              - link "Consumer Health Privacy" [ref=f1e682] [cursor=pointer]:
+                - /url: https://go.microsoft.com/fwlink/?linkid=2259814
+              - link "Privacy" [ref=f1e683] [cursor=pointer]:
+                - /url: https://go.microsoft.com/fwlink/?LinkId=521839
+              - link "Trademarks" [ref=f1e684] [cursor=pointer]:
+                - /url: https://go.microsoft.com/fwlink/?linkid=2196228
+              - link "Terms of use" [ref=f1e685] [cursor=pointer]:
+                - /url: https://go.microsoft.com/fwlink/?LinkID=206977
+              - generic [ref=f1e686]: © Microsoft 2026

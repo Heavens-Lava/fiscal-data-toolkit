@@ -1,0 +1,49 @@
+- generic [active] [ref=f21e1]:
+  - navigation "Primary" [ref=f21e3]:
+    - generic [ref=f21e5]:
+      - generic [ref=f21e6]:
+        - generic [ref=f21e7]:
+          - button "Skip to main content" [ref=f21e8] [cursor=pointer]
+          - link "Indeed Home" [ref=f21e10] [cursor=pointer]:
+            - /url: /?from=gnav-homepage--homepage-frontend
+          - list [ref=f21e14]:
+            - listitem [ref=f21e15]:
+              - link "Home" [ref=f21e17] [cursor=pointer]:
+                - /url: https://www.indeed.com/
+            - listitem [ref=f21e18]:
+              - link "Company reviews" [ref=f21e20] [cursor=pointer]:
+                - /url: https://www.indeed.com/companies
+            - listitem [ref=f21e21]:
+              - link "Find salaries" [ref=f21e23] [cursor=pointer]:
+                - /url: https://www.indeed.com/career/salaries
+        - generic [ref=f21e24]:
+          - list [ref=f21e25]:
+            - listitem [ref=f21e26]:
+              - link "My jobs" [ref=f21e28] [cursor=pointer]:
+                - /url: https://myjobs.indeed.com?from=gnav-util-homepage--homepage-frontend&gnavTK=1jv9lfescj2pg802&tk=&co=US&hl=en
+            - listitem [ref=f21e31]:
+              - link "Messages Unread count 0" [ref=f21e33] [cursor=pointer]:
+                - /url: https://messages.indeed.com?from=gnav-util-homepage--homepage-frontend&gnavTK=1jv9lfescj2pg802&tk=&co=US&hl=en
+            - listitem [ref=f21e40]:
+              - link "Notifications Unread count 0" [ref=f21e42] [cursor=pointer]:
+                - /url: https://www.indeed.com/notifications?from=gnav-util-homepage--homepage-frontend&gnavTK=1jv9lfescj2pg802&tk=&hl=en
+            - listitem [ref=f21e45]:
+              - button "Account" [ref=f21e49] [cursor=pointer]:
+                - generic [ref=f21e53]:
+                  - text: "1"
+                  - generic [ref=f21e54]: new update
+          - link "Employers / Post Job" [ref=f21e59] [cursor=pointer]:
+            - /url: https://www.indeed.com/hire?co=US&hl=en
+      - generic [ref=f21e60]: Start of main content
+  - main [ref=f21e61]:
+    - generic [ref=f21e62]:
+      - img "404" [ref=f21e63]
+      - heading "Something went wrong on our end" [level=1] [ref=f21e64]
+      - paragraph [ref=f21e65]: We're working to fix it. Please try again later.
+      - button [ref=f21e66] [cursor=pointer]:
+        - text: Return home
+        - img "arrow" [ref=f21e67]
+      - paragraph [ref=f21e68]:
+        - text: Need more help?
+        - link "Contact us" [ref=f21e69] [cursor=pointer]:
+          - /url: https://support.indeed.com/hc

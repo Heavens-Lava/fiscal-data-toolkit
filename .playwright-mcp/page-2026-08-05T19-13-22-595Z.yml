@@ -1,0 +1,338 @@
+- generic [active] [ref=f23e7]:
+  - link "Skip To Main Content" [ref=f23e8] [cursor=pointer]:
+    - /url: "#"
+  - banner [ref=f23e9]:
+    - navigation [ref=f23e12]:
+      - link [ref=f23e14] [cursor=pointer]:
+        - /url: /
+        - img "TherapyNotes Practice Management and EHR" [ref=f23e15]
+      - list [ref=f23e16]:
+        - listitem [ref=f23e17]:
+          - link "Features" [ref=f23e18] [cursor=pointer]:
+            - /url: /features/
+        - listitem [ref=f23e19]:
+          - link "Pricing" [ref=f23e20] [cursor=pointer]:
+            - /url: /pricing/
+        - listitem [ref=f23e21]:
+          - link "Blog" [ref=f23e22] [cursor=pointer]:
+            - /url: https://blog.therapynotes.com/
+        - listitem [ref=f23e23]:
+          - link "About" [ref=f23e24] [cursor=pointer]:
+            - /url: /company/
+        - listitem [ref=f23e25]:
+          - link "Contact" [ref=f23e26] [cursor=pointer]:
+            - /url: /contact/
+        - listitem [ref=f23e27]:
+          - link [ref=f23e28] [cursor=pointer]:
+            - /url: tel:+12156584550
+            - img "Call us" [ref=f23e29]
+            - text: (215) 658-4550
+        - listitem [ref=f23e30]:
+          - link "Try Free" [ref=f23e32] [cursor=pointer]:
+            - /url: /about/signup/
+          - link "Log In" [ref=f23e33] [cursor=pointer]:
+            - /url: /app/login/
+  - generic [ref=f23e34]:
+    - navigation [ref=f23e36]:
+      - list [ref=f23e37]:
+        - listitem [ref=f23e38]:
+          - link "Company" [ref=f23e39] [cursor=pointer]:
+            - /url: /company/
+        - listitem [ref=f23e40]:
+          - link "Careers" [ref=f23e41] [cursor=pointer]:
+            - /url: /careers/
+        - listitem [ref=f23e42]:
+          - link "Reviews" [ref=f23e43] [cursor=pointer]:
+            - /url: /reviews/
+    - main [ref=f23e44]:
+      - generic [ref=f23e45]:
+        - generic [ref=f23e49]:
+          - heading "Let's Work Together" [level=1] [ref=f23e50]
+          - paragraph [ref=f23e52]: Join the team behind the system trusted by thousands of behavioral health professionals nationwide. We’re committed to supporting the supporters and improving the state of mental health care through technology.
+        - generic [ref=f23e53]:
+          - heading "Culture and Perks" [level=2] [ref=f23e56]
+          - generic [ref=f23e57]:
+            - generic [ref=f23e58]:
+              - img "Two puzzle pieces fitting together" [ref=f23e59]
+              - paragraph [ref=f23e60]: Meaningful Collaboration
+            - generic [ref=f23e61]:
+              - img "Thumbs up" [ref=f23e62]
+              - paragraph [ref=f23e63]: Supportive Team
+            - generic [ref=f23e64]:
+              - img "Plant sprout peaks out of the ground" [ref=f23e65]
+              - paragraph [ref=f23e66]: Growth Opportunities
+            - generic [ref=f23e67]:
+              - img "Speech bubbles" [ref=f23e68]
+              - paragraph [ref=f23e69]: Open Communication
+            - generic [ref=f23e70]:
+              - img "Mug with a foamy liquid" [ref=f23e71]
+              - paragraph [ref=f23e72]: Monthly Happy Hours
+            - generic [ref=f23e73]:
+              - img "Slice of pizza" [ref=f23e74]
+              - paragraph [ref=f23e75]: Company Lunches
+          - region "TherapyNotes picture carousel" [ref=f23e76]:
+            - list [ref=f23e78]:
+              - listitem [ref=f23e79]:
+                - img "Staff attending the NAMI Walk" [ref=f23e80]
+              - listitem [ref=f23e81]:
+                - img "Staff participating in the NAMI Walk" [ref=f23e82]
+              - listitem [ref=f23e83]:
+                - img "Staff at a business conference" [ref=f23e84]
+              - listitem [ref=f23e85]:
+                - img "Staff wearing red flannel shirts" [ref=f23e86]
+        - generic [ref=f23e92]:
+          - heading "Open Positions" [level=2] [ref=f23e95]
+          - generic [ref=f23e99]:
+            - link "Software Developer Development Learn More " [ref=f23e100] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f23e101]: Software Developer
+              - generic [ref=f23e102]: Development
+              - generic [ref=f23e103]:
+                - text: Learn More
+                - generic [ref=f23e104]: 
+              - text: 
+            - link "Senior Software Developer Development Learn More " [ref=f23e105] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f23e106]: Senior Software Developer
+              - generic [ref=f23e107]: Development
+              - generic [ref=f23e108]:
+                - text: Learn More
+                - generic [ref=f23e109]: 
+              - text: 
+            - link "Senior Quality Assurance Engineer QA Learn More " [ref=f23e110] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f23e111]: Senior Quality Assurance Engineer
+              - generic [ref=f23e112]: QA
+              - generic [ref=f23e113]:
+                - text: Learn More
+                - generic [ref=f23e114]: 
+              - text: 
+            - link "Senior Software Developer (Agentic Development) Development Learn More " [ref=f23e115] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=f23e116]: Senior Software Developer (Agentic Development)
+              - generic [ref=f23e117]: Development
+              - generic [ref=f23e118]:
+                - text: Learn More
+                - generic [ref=f23e119]: 
+              - text: 
+          - generic [ref=f23e120]:
+            - text: Don't See Your Dream Job?
+            - link "Send us a resume." [ref=f23e121] [cursor=pointer]:
+              - /url: mailto:therapynotes@jobs.workablemail.com
+          - paragraph [ref=f23e125]:
+            - generic [ref=f23e126]: 
+            - text: "Diversity at TherapyNotes, LLC: We believe in equality of opportunities regardless of race, religion, gender, disability, or sexual orientation. Employees are encouraged to be open and sensitive to the unique needs of others, and discrimination is strictly forbidden. We strongly believe that diversity fosters creativity which is crucial for serving our customers."
+        - generic [ref=f23e127]:
+          - generic [ref=f23e129]:
+            - heading "Our Departments" [level=2] [ref=f23e130]
+            - paragraph [ref=f23e131]: We build the best practice management and EMR system for behavioral health, and we’re proud of it. Each team brings valuable expertise to the table to create an awesome software experience and a helluva great place to work.
+          - generic [ref=f23e132]:
+            - generic [ref=f23e133]:
+              - generic [ref=f23e134]:
+                - img "HTML symbols" [ref=f23e135]
+                - heading "Development" [level=3] [ref=f23e136]
+              - paragraph [ref=f23e138]:
+                - generic [ref=f23e139]:
+                  - text: Our developers build TherapyNotes
+                  - superscript [ref=f23e140]: ®
+                  - text: . We’re collaborative, Agile, and work with a wide range of technologies including C#, TypeScript, JavaScript, PL/SQL, and ASP.NET.
+            - generic [ref=f23e141]:
+              - generic [ref=f23e142]:
+                - img "Pencil moving across the page" [ref=f23e143]
+                - heading "Product Planning and Design" [level=3] [ref=f23e144]
+              - paragraph [ref=f23e146]:
+                - generic [ref=f23e147]:
+                  - text: Our product team plans and designs TherapyNotes
+                  - superscript [ref=f23e148]: ®
+                  - text: features. We empathize with our users and aggregate product ideas from the entire TherapyNotes
+                  - superscript [ref=f23e149]: ®
+                  - text: team to design the most intuitive software for behavioral health.
+            - generic [ref=f23e150]:
+              - generic [ref=f23e151]:
+                - img "Circle with checkmark" [ref=f23e152]
+                - heading "Quality Assurance" [level=3] [ref=f23e153]
+              - paragraph [ref=f23e155]: Our QA engineers ensure that our customers only see our software at its best. We’re incredibly detailed and aren’t afraid to poke holes in our own product to guarantee a great, bug-free user experience.
+            - generic [ref=f23e156]:
+              - generic [ref=f23e157]:
+                - img "Chart symbol" [ref=f23e158]
+                - heading "Information Technology" [level=3] [ref=f23e159]
+              - paragraph [ref=f23e161]:
+                - generic [ref=f23e162]:
+                  - text: Our IT experts keep our system secure and efficient. We understand that our users rely heavily on our software to run their businesses. We keep TherapyNotes
+                  - superscript [ref=f23e163]: ®
+                  - text: running so that our users always have the tools they need.
+            - generic [ref=f23e164]:
+              - generic [ref=f23e165]:
+                - img "Headset" [ref=f23e166]
+                - heading "Customer Success" [level=3] [ref=f23e167]
+              - paragraph [ref=f23e169]:
+                - generic [ref=f23e170]:
+                  - text: Our customer success specialists help our current and prospective customers use TherapyNotes
+                  - superscript [ref=f23e171]: ®
+                  - text: to grow their organizations. We love our customers and work hard to help users feel confident using our software.
+            - generic [ref=f23e172]:
+              - generic [ref=f23e173]:
+                - img "Pie chart" [ref=f23e174]
+                - heading "Business and Marketing" [level=3] [ref=f23e175]
+              - paragraph [ref=f23e177]:
+                - generic [ref=f23e178]:
+                  - text: Our marketing team keeps us connected with behavioral health professionals nationwide. We advertise, develop partnerships, and spread the word so that even more professionals can discover TherapyNotes
+                  - superscript [ref=f23e179]: ®
+                  - text: .
+        - generic [ref=f23e182]:
+          - generic [ref=f23e183]:
+            - heading "Find Us in Horsham, Pennsylvania" [level=2] [ref=f23e184]
+            - paragraph [ref=f23e186]: Located a short drive or train ride outside of Philadelphia, Horsham boasts the comfort of the suburbs with easy access to Center City. We’re surrounded by tons of great places to hangout and dine, and we’re right off of the Pennsylvania Turnpike.
+          - link "TherapyNotes, LLC 630 Dresher Rd, Horsham, PA 19044 4.8 1,276 reviews as of Feb 2026 View larger map Map showing TherapyNotes, LLC on Dresher Road in Horsham, PA, with nearby roads and businesses" [ref=f23e188] [cursor=pointer]:
+            - /url: https://maps.app.goo.gl/W7UKff4mUkdNUetw6
+            - generic [ref=f23e189]:
+              - generic [ref=f23e190]: TherapyNotes, LLC
+              - generic [ref=f23e191]: 630 Dresher Rd, Horsham, PA 19044
+              - generic [ref=f23e192]:
+                - generic [ref=f23e193]: "4.8"
+                - generic [ref=f23e200]: 1,276 reviews
+                - generic [ref=f23e201]: as of Feb 2026
+              - generic [ref=f23e202]: View larger map
+            - img "Map showing TherapyNotes, LLC on Dresher Road in Horsham, PA, with nearby roads and businesses" [ref=f23e204]
+    - contentinfo [ref=f23e205]:
+      - generic [ref=f23e208]:
+        - generic [ref=f23e209]:
+          - generic [ref=f23e211]:
+            - generic [ref=f23e212]:
+              - img "Image of a phone icon representing customer support availability every day of the week." [ref=f23e213]
+              - text: We're here for you every day of the week.
+              - link "(215) 658-4550" [ref=f23e214] [cursor=pointer]:
+                - /url: tel:+12156584550
+            - generic [ref=f23e218]:
+              - generic [ref=f23e219]: "What our customers are saying:"
+              - generic [ref=f23e220]: "“I’ve been a therapist for a lot of years. I’ve used several EHR providers but I have to say that TherapyNotes is by far the best! From simplified form fill, to available online assessments, integrated billing and credit card processing, it’s the all in one platform. Their customer service is excellent: they respond quickly and are always helpful. 5 stars plus! ”"
+              - generic [ref=f23e221]: By Peg T on July 9, 2026
+          - generic [ref=f23e223]:
+            - generic [ref=f23e224]:
+              - text: Explore
+              - link "Pricing" [ref=f23e226] [cursor=pointer]:
+                - /url: /pricing/
+              - link "Blog" [ref=f23e228] [cursor=pointer]:
+                - /url: https://blog.therapynotes.com/
+              - link "Help Center" [ref=f23e230] [cursor=pointer]:
+                - /url: https://support.therapynotes.com
+              - link "For Education" [ref=f23e232] [cursor=pointer]:
+                - /url: /education/
+            - generic [ref=f23e233]:
+              - generic [ref=f23e234]:
+                - text: Practice Management
+                - link "Billing" [ref=f23e236] [cursor=pointer]:
+                  - /url: /features/billing/
+                - link "Scheduling" [ref=f23e238] [cursor=pointer]:
+                  - /url: /features/scheduling/
+                - link "Messaging" [ref=f23e240] [cursor=pointer]:
+                  - /url: /features/securemessaging/
+                - link "Payments" [ref=f23e242] [cursor=pointer]:
+                  - /url: /features/payment-processing/
+              - generic [ref=f23e243]:
+                - text: Clinical Documentation
+                - link "Notes" [ref=f23e245] [cursor=pointer]:
+                  - /url: /features/notes/
+                - link "TherapyFuel" [ref=f23e247] [cursor=pointer]:
+                  - /url: /features/therapyfuel/
+                - link "Outcome Measures" [ref=f23e249] [cursor=pointer]:
+                  - /url: /features/outcome-measures/
+                - link "ePrescribe" [ref=f23e251] [cursor=pointer]:
+                  - /url: /features/eprescribe/
+            - generic [ref=f23e252]:
+              - generic [ref=f23e253]:
+                - text: Client Engagement
+                - link "TherapyPortal" [ref=f23e255] [cursor=pointer]:
+                  - /url: /features/client-portal/
+                - link "Telehealth" [ref=f23e257] [cursor=pointer]:
+                  - /url: /features/telehealth/
+                - link "TherapySearch" [ref=f23e259] [cursor=pointer]:
+                  - /url: https://www.therapysearch.com
+              - generic [ref=f23e260]:
+                - text: Additional Resources
+                - link "Mobile App" [ref=f23e262] [cursor=pointer]:
+                  - /url: /features/therapynotes-mobile/
+                - link "Support" [ref=f23e264] [cursor=pointer]:
+                  - /url: /features/support/
+                - link "Security" [ref=f23e266] [cursor=pointer]:
+                  - /url: /features/security/
+            - generic [ref=f23e267]:
+              - text: About
+              - link "Company" [ref=f23e269] [cursor=pointer]:
+                - /url: /company/
+              - link "Careers" [ref=f23e271] [cursor=pointer]:
+                - /url: /careers/
+              - link "Reviews" [ref=f23e273] [cursor=pointer]:
+                - /url: /reviews/
+              - link "Contact" [ref=f23e275] [cursor=pointer]:
+                - /url: /contact/
+              - link "Store" [ref=f23e277] [cursor=pointer]:
+                - /url: https://therapynotes.myshopify.com
+              - link "Status" [ref=f23e279] [cursor=pointer]:
+                - /url: https://blog.therapynotes.com/status
+          - generic [ref=f23e280]:
+            - generic [ref=f23e284]:
+              - img "Image of the Trustpilot logo, a green star followed by the word Trustpilot." [ref=f23e286]
+              - generic [ref=f23e290]:
+                - text: Highest Rated EHR
+                - generic [ref=f23e291]:
+                  - text: 4.9 out of 5 stars |
+                  - link "3,081 Reviews" [ref=f23e292] [cursor=pointer]:
+                    - /url: /reviews/
+            - generic [ref=f23e294]:
+              - img "Image of the Newsweek logo, large red serif text reading Newsweek" [ref=f23e296]
+              - generic [ref=f23e298]:
+                - generic [ref=f23e299]: America’s Best Online Platforms
+                - generic [ref=f23e300]: Newsweek and Statista 2025–2026
+        - generic [ref=f23e304]:
+          - generic [ref=f23e309]:
+            - link [ref=f23e311] [cursor=pointer]:
+              - /url: /
+              - img "TherapyNotes logo" [ref=f23e312]
+            - generic [ref=f23e314]:
+              - generic [ref=f23e315]: © TherapyNotes, LLC. All Rights Reserved.
+              - generic [ref=f23e316]:
+                - link "California Consumer Privacy Act (CCPA) Opt-Out Icon Your Privacy Choices" [ref=f23e318] [cursor=pointer]:
+                  - /url: https://blog.therapynotes.com/data-subject-request
+                  - img "California Consumer Privacy Act (CCPA) Opt-Out Icon" [ref=f23e319]
+                  - generic [ref=f23e320]: Your Privacy Choices
+                - link "Privacy Policy" [ref=f23e321] [cursor=pointer]:
+                  - /url: /legal/privacypolicy/
+                - link "Terms of Service" [ref=f23e322] [cursor=pointer]:
+                  - /url: /legal/usertermsofservice/
+                - link "Data Processing Addendum" [ref=f23e323] [cursor=pointer]:
+                  - /url: /legal/eucustomerdpa/
+                - link "Cookie Settings" [ref=f23e324] [cursor=pointer]:
+                  - /url: javascript:;
+          - generic [ref=f23e328]:
+            - link "Follow us on Facebook" [ref=f23e329] [cursor=pointer]:
+              - /url: https://www.facebook.com/therapynotes
+              - generic [ref=f23e330]: 
+            - link "Follow us on LinkedIn" [ref=f23e331] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/therapynotes-llc/
+              - generic [ref=f23e332]: 
+            - link "Follow us on Instagram" [ref=f23e333] [cursor=pointer]:
+              - /url: https://www.instagram.com/therapynotesllc/
+              - generic [ref=f23e334]: 
+            - link "Follow us on YouTube" [ref=f23e335] [cursor=pointer]:
+              - /url: https://www.youtube.com/c/therapynotes
+              - generic [ref=f23e336]: 
+            - link "Follow us on TikTok" [ref=f23e337] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@therapynotesllc?
+              - generic [ref=f23e338]: 
+            - link "Follow us on Threads" [ref=f23e339] [cursor=pointer]:
+              - /url: https://www.threads.net/@therapynotesllc
+              - generic [ref=f23e340]: 
+    - generic [ref=f23e341]:
+      - paragraph [ref=f23e342]:
+        - text: By continuing to use this site, you acknowledge and agree to our
+        - link "Privacy Policy" [ref=f23e343] [cursor=pointer]:
+          - /url: /legal/privacypolicy/
+        - text: and
+        - link "Terms of Service" [ref=f23e344] [cursor=pointer]:
+          - /url: /legal/usertermsofservice/
+        - text: . If you use our chatbot, your session may be monitored by third-party providers bound by privacy agreements. We use cookies and similar technologies, including session replay, to analyze and improve your website experience. These tools process personal data such as IP address, session details, and browsing activity to deliver content, maintain security, and enhance our site. Would you like to accept or reject non-essential cookies?
+      - generic [ref=f23e345]:
+        - button "Settings" [ref=f23e347] [cursor=pointer]
+        - button "Reject" [ref=f23e350] [cursor=pointer]
+        - button "Accept" [ref=f23e353] [cursor=pointer]

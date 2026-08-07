@@ -1,0 +1,440 @@
+- generic [ref=f10e8]:
+  - link [ref=f10e9] [cursor=pointer]:
+    - /url: "#mdc-main-content"
+    - generic [ref=f10e10]: Skip to main content
+  - navigation [ref=f10e14]:
+    - generic [ref=f10e18]:
+      - generic [ref=f10e20]:
+        - button [ref=f10e22] [cursor=pointer]
+        - link [ref=f10e26] [cursor=pointer]:
+          - /url: /
+      - button [ref=f10e31] [cursor=pointer]
+  - generic [ref=f10e41]:
+    - generic [ref=f10e44]:
+      - heading [level=2] [ref=f10e49]: Get personalized job recommendations from AI
+      - generic [ref=f10e50]: The Meta AI recruiting assistant can recommend jobs based on your resume, location, and role preferences.
+      - button [ref=f10e53] [cursor=pointer]:
+        - generic [ref=f10e54]: Upload resume for job recommendations
+    - generic [ref=f10e57]:
+      - generic [ref=f10e60]:
+        - button [ref=f10e61] [cursor=pointer]:
+          - generic [ref=f10e62]: Hide filters
+        - generic [ref=f10e69]: 29 Items
+      - separator [ref=f10e71]
+      - generic [ref=f10e76]:
+        - generic [ref=f10e80]:
+          - generic [ref=f10e81]: Search by technology, team, location, or ref. code
+          - combobox [ref=f10e86]: front end engineer
+        - generic [ref=f10e88]:
+          - link [ref=f10e89] [cursor=pointer]:
+            - /url: /profile/job_details/1626846688961875
+            - generic [ref=f10e90]:
+              - generic [ref=f10e91]:
+                - generic [ref=f10e93]:
+                  - heading [level=3] [ref=f10e94]: Systems Engineer, RF and Wireless
+                  - button [ref=f10e95]
+                - generic [ref=f10e100]:
+                  - generic [ref=f10e101]: Redmond, WA
+                  - generic [ref=f10e102]: ⋅
+                  - generic [ref=f10e103]: AR/VR +3 more
+                  - generic [ref=f10e104]: ⋅
+                  - generic [ref=f10e105]: Engineering +2 more
+              - generic [ref=f10e106]:
+                - generic [ref=f10e107]: Redmond, WA
+                - generic [ref=f10e110]: AR/VR
+                - generic [ref=f10e113]: AI Research
+                - generic [ref=f10e116]: Facebook Reality Labs
+                - generic [ref=f10e119]: Research
+                - generic [ref=f10e122]: Engineering
+                - generic [ref=f10e125]: Hardware
+          - link [ref=f10e128] [cursor=pointer]:
+            - /url: /profile/job_details/2282367178830920
+            - generic [ref=f10e129]:
+              - generic [ref=f10e130]:
+                - generic [ref=f10e132]:
+                  - heading [level=3] [ref=f10e133]: Software Engineer (Technical Leadership)
+                  - button [ref=f10e134]
+                - generic [ref=f10e139]:
+                  - generic [ref=f10e140]: Sunnyvale, CA +3 locations
+                  - generic [ref=f10e141]: ⋅
+                  - generic [ref=f10e142]: Software Engineering
+                  - generic [ref=f10e143]: ⋅
+                  - generic [ref=f10e144]: Engineering
+              - generic [ref=f10e145]:
+                - generic [ref=f10e146]: Multiple Locations
+                - generic [ref=f10e149]: Software Engineering
+                - generic [ref=f10e152]: Engineering
+          - link [ref=f10e155] [cursor=pointer]:
+            - /url: /profile/job_details/2233593477484075
+            - generic [ref=f10e156]:
+              - generic [ref=f10e157]:
+                - generic [ref=f10e159]:
+                  - heading [level=3] [ref=f10e160]: ASIC Implementation Engineer - Static Verification
+                  - button [ref=f10e161]
+                - generic [ref=f10e166]:
+                  - generic [ref=f10e167]: Sunnyvale, CA +1 locations
+                  - generic [ref=f10e168]: ⋅
+                  - generic [ref=f10e169]: Data Center +2 more
+                  - generic [ref=f10e170]: ⋅
+                  - generic [ref=f10e171]: Design +2 more
+              - generic [ref=f10e172]:
+                - generic [ref=f10e173]: Multiple Locations
+                - generic [ref=f10e176]: Data Center
+                - generic [ref=f10e179]: Facebook
+                - generic [ref=f10e182]: Infrastructure
+                - generic [ref=f10e185]: Design
+                - generic [ref=f10e188]: Engineering
+                - generic [ref=f10e191]: Hardware
+          - link [ref=f10e194] [cursor=pointer]:
+            - /url: /profile/job_details/1502620761640503
+            - generic [ref=f10e195]:
+              - generic [ref=f10e196]:
+                - generic [ref=f10e198]:
+                  - heading [level=3] [ref=f10e199]: ASIC Engineer, Design
+                  - button [ref=f10e200]
+                - generic [ref=f10e205]:
+                  - generic [ref=f10e206]: Bangalore, India
+                  - generic [ref=f10e207]: ⋅
+                  - generic [ref=f10e208]: Infrastructure
+                  - generic [ref=f10e209]: ⋅
+                  - generic [ref=f10e210]: Hardware
+              - generic [ref=f10e211]:
+                - generic [ref=f10e212]: Bangalore, India
+                - generic [ref=f10e215]: Infrastructure
+                - generic [ref=f10e218]: Hardware
+          - link [ref=f10e221] [cursor=pointer]:
+            - /url: /profile/job_details/857382750648491
+            - generic [ref=f10e222]:
+              - generic [ref=f10e223]:
+                - generic [ref=f10e225]:
+                  - heading [level=3] [ref=f10e226]: Business Engineer, Business Agents
+                  - button [ref=f10e227]
+                - generic [ref=f10e232]:
+                  - generic [ref=f10e233]: São Paulo, Brazil
+                  - generic [ref=f10e234]: ⋅
+                  - generic [ref=f10e235]: Advertising Technology +7 more
+                  - generic [ref=f10e236]: ⋅
+                  - generic [ref=f10e237]: Artificial Intelligence +10 more
+              - generic [ref=f10e238]:
+                - generic [ref=f10e239]: São Paulo, Brazil
+                - generic [ref=f10e242]: Advertising Technology
+                - generic [ref=f10e245]: Artificial Intelligence
+                - generic [ref=f10e248]: Facebook
+                - generic [ref=f10e251]: Enterprise Engineering
+                - generic [ref=f10e254]: Generative AI
+                - generic [ref=f10e257]: Sales & Marketing
+                - generic [ref=f10e260]: Software Engineering
+                - generic [ref=f10e263]: Technical Program Management
+                - generic [ref=f10e266]: Client Solutions
+                - generic [ref=f10e269]: Business Marketing
+                - generic [ref=f10e272]: Business Development
+                - generic [ref=f10e275]: Consumer Marketing
+                - generic [ref=f10e278]: Engineering
+                - generic [ref=f10e281]: IT
+                - generic [ref=f10e284]: Partner Engineering
+                - generic [ref=f10e287]: Sales
+                - generic [ref=f10e290]: Solutions Engineering
+                - generic [ref=f10e293]: Technical Account Management
+          - link [ref=f10e296] [cursor=pointer]:
+            - /url: /profile/job_details/1445438187630465
+            - generic [ref=f10e297]:
+              - generic [ref=f10e298]:
+                - generic [ref=f10e300]:
+                  - heading [level=3] [ref=f10e301]: Business Engineer, Business Agents
+                  - button [ref=f10e302]
+                - generic [ref=f10e307]:
+                  - generic [ref=f10e308]: Menlo Park, CA +3 locations
+                  - generic [ref=f10e309]: ⋅
+                  - generic [ref=f10e310]: Artificial Intelligence +3 more
+                  - generic [ref=f10e311]: ⋅
+                  - generic [ref=f10e312]: Artificial Intelligence +2 more
+              - generic [ref=f10e313]:
+                - generic [ref=f10e314]: Multiple Locations
+                - generic [ref=f10e317]: Artificial Intelligence
+                - generic [ref=f10e320]: Business Development & Partnerships
+                - generic [ref=f10e323]: Enterprise Engineering
+                - generic [ref=f10e326]: Software Engineering
+                - generic [ref=f10e329]: Business Marketing
+                - generic [ref=f10e332]: Engineering
+          - link [ref=f10e335] [cursor=pointer]:
+            - /url: /profile/job_details/862327293063416
+            - generic [ref=f10e336]:
+              - generic [ref=f10e337]:
+                - generic [ref=f10e339]:
+                  - heading [level=3] [ref=f10e340]: Research Engineer, Fundamental AI Research (FAIR) - Generative Models/LLM Acceleration
+                  - button [ref=f10e341]
+                - generic [ref=f10e346]:
+                  - generic [ref=f10e347]: Tel Aviv, Israel
+                  - generic [ref=f10e348]: ⋅
+                  - generic [ref=f10e349]: AI Research
+                  - generic [ref=f10e350]: ⋅
+                  - generic [ref=f10e351]: Artificial Intelligence
+              - generic [ref=f10e352]:
+                - generic [ref=f10e353]: Tel Aviv, Israel
+                - generic [ref=f10e356]: AI Research
+                - generic [ref=f10e359]: Artificial Intelligence
+          - link [ref=f10e362] [cursor=pointer]:
+            - /url: /profile/job_details/1050350287318267
+            - generic [ref=f10e363]:
+              - generic [ref=f10e364]:
+                - generic [ref=f10e366]:
+                  - heading [level=3] [ref=f10e367]: Network Engineer, Engineering R&D Environments
+                  - button [ref=f10e368]
+                - generic [ref=f10e373]:
+                  - generic [ref=f10e374]: Menlo Park, CA
+                  - generic [ref=f10e375]: ⋅
+                  - generic [ref=f10e376]: Data Center
+                  - generic [ref=f10e377]: ⋅
+                  - generic [ref=f10e378]: Network Engineering
+              - generic [ref=f10e379]:
+                - generic [ref=f10e380]: Menlo Park, CA
+                - generic [ref=f10e383]: Data Center
+                - generic [ref=f10e386]: Network Engineering
+          - link [ref=f10e389] [cursor=pointer]:
+            - /url: /profile/job_details/1512065736047495
+            - generic [ref=f10e390]:
+              - generic [ref=f10e391]:
+                - generic [ref=f10e393]:
+                  - heading [level=3] [ref=f10e394]: Production Engineer
+                  - button [ref=f10e395]
+                - generic [ref=f10e400]:
+                  - generic [ref=f10e401]: Bellevue, WA +1 locations
+                  - generic [ref=f10e402]: ⋅
+                  - generic [ref=f10e403]: AI Infrastructure +1 more
+                  - generic [ref=f10e404]: ⋅
+                  - generic [ref=f10e405]: Engineering
+              - generic [ref=f10e406]:
+                - generic [ref=f10e407]: Multiple Locations
+                - generic [ref=f10e410]: AI Infrastructure
+                - generic [ref=f10e413]: Infrastructure
+                - generic [ref=f10e416]: Engineering
+          - link [ref=f10e419] [cursor=pointer]:
+            - /url: /profile/job_details/1382952597371528
+            - generic [ref=f10e420]:
+              - generic [ref=f10e421]:
+                - generic [ref=f10e423]:
+                  - heading [level=3] [ref=f10e424]: ASIC Engineer, EDA Infrastructure
+                  - button [ref=f10e425]
+                - generic [ref=f10e430]:
+                  - generic [ref=f10e431]: Sunnyvale, CA +1 locations
+                  - generic [ref=f10e432]: ⋅
+                  - generic [ref=f10e433]: AI Infrastructure +2 more
+                  - generic [ref=f10e434]: ⋅
+                  - generic [ref=f10e435]: Engineering +2 more
+              - generic [ref=f10e436]:
+                - generic [ref=f10e437]: Multiple Locations
+                - generic [ref=f10e440]: AI Infrastructure
+                - generic [ref=f10e443]: Data Center
+                - generic [ref=f10e446]: Infrastructure
+                - generic [ref=f10e449]: Engineering
+                - generic [ref=f10e452]: Hardware
+                - generic [ref=f10e455]: Facilities
+          - generic [ref=f10e459]:
+            - button [disabled] [ref=f10e460]
+            - generic [ref=f10e465]: Page 1 of 3
+            - button [ref=f10e466] [cursor=pointer]
+      - contentinfo [ref=f10e472]:
+        - generic [ref=f10e473]:
+          - separator [ref=f10e474]
+          - generic [ref=f10e476]:
+            - generic [ref=f10e478]:
+              - list [ref=f10e484]:
+                - listitem [ref=f10e485]:
+                  - link [ref=f10e486] [cursor=pointer]:
+                    - /url: https://www.facebook.com/LifeAtMeta
+                - listitem [ref=f10e488]:
+                  - link [ref=f10e489] [cursor=pointer]:
+                    - /url: https://www.instagram.com/lifeatmeta
+                - listitem [ref=f10e491]:
+                  - link [ref=f10e492] [cursor=pointer]:
+                    - /url: https://www.twitter.com/MetaforBusiness
+                - listitem [ref=f10e494]:
+                  - link [ref=f10e495] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/meta
+              - generic [ref=f10e498]:
+                - generic [ref=f10e499]:
+                  - heading [level=2] [ref=f10e502]:
+                    - link [ref=f10e504] [cursor=pointer]:
+                      - /url: /jobsearch/
+                      - text: Job Search
+                  - generic [ref=f10e506]:
+                    - heading [level=2] [ref=f10e507]:
+                      - generic [ref=f10e508]: Technology Teams
+                    - list [ref=f10e509]:
+                      - listitem [ref=f10e510]:
+                        - link [ref=f10e512] [cursor=pointer]:
+                          - /url: /teams/technology/ai/
+                          - text: Artificial Intelligence
+                      - listitem [ref=f10e513]:
+                        - link [ref=f10e515] [cursor=pointer]:
+                          - /url: /teams/technology/creative/
+                          - text: Creative
+                      - listitem [ref=f10e516]:
+                        - link [ref=f10e518] [cursor=pointer]:
+                          - /url: /teams/technology/infrastructure/
+                          - text: Infrastructure
+                      - listitem [ref=f10e519]:
+                        - link [ref=f10e521] [cursor=pointer]:
+                          - /url: /teams/technology/metaverse-and-wearables/
+                          - text: Metaverse and Wearables
+                      - listitem [ref=f10e522]:
+                        - link [ref=f10e524] [cursor=pointer]:
+                          - /url: /teams/technology/product-and-program-management/
+                          - text: Product and Program Management
+                      - listitem [ref=f10e525]:
+                        - link [ref=f10e527] [cursor=pointer]:
+                          - /url: /teams/technology/research-and-data/
+                          - text: Research and Data
+                      - listitem [ref=f10e528]:
+                        - link [ref=f10e530] [cursor=pointer]:
+                          - /url: /teams/technology/security/
+                          - text: Security
+                      - listitem [ref=f10e531]:
+                        - link [ref=f10e533] [cursor=pointer]:
+                          - /url: /teams/technology/software-engineering/
+                          - text: Software Engineering
+                - generic [ref=f10e534]:
+                  - generic [ref=f10e536]:
+                    - heading [level=2] [ref=f10e537]:
+                      - generic [ref=f10e538]: Business Teams
+                    - list [ref=f10e539]:
+                      - listitem [ref=f10e540]:
+                        - link [ref=f10e542] [cursor=pointer]:
+                          - /url: /teams/business/business-operations/
+                          - text: Business Operations
+                      - listitem [ref=f10e543]:
+                        - link [ref=f10e545] [cursor=pointer]:
+                          - /url: /teams/business/partnerships/
+                          - text: Partnerships
+                      - listitem [ref=f10e546]:
+                        - link [ref=f10e548] [cursor=pointer]:
+                          - /url: /teams/business/sales-and-marketing/
+                          - text: Sales and Marketing
+                  - generic [ref=f10e550]:
+                    - heading [level=2] [ref=f10e551]:
+                      - generic [ref=f10e552]: Career Programs
+                    - list [ref=f10e553]:
+                      - listitem [ref=f10e554]:
+                        - link [ref=f10e556] [cursor=pointer]:
+                          - /url: /careerprograms/research/
+                          - text: Research
+                      - listitem [ref=f10e557]:
+                        - link [ref=f10e559] [cursor=pointer]:
+                          - /url: /careerprograms/accelerate-eng-talent/
+                          - text: Accelerate Eng Talent
+                      - listitem [ref=f10e560]:
+                        - link [ref=f10e562] [cursor=pointer]:
+                          - /url: /careerprograms/students/
+                          - text: Students and Grads
+                      - listitem [ref=f10e563]:
+                        - link [ref=f10e565] [cursor=pointer]:
+                          - /url: /rotational-programs/
+                          - text: Rotational Programs
+                  - generic [ref=f10e567]:
+                    - heading [level=2] [ref=f10e568]:
+                      - generic [ref=f10e569]: Working at Meta
+                    - list [ref=f10e570]:
+                      - listitem [ref=f10e571]:
+                        - link [ref=f10e573] [cursor=pointer]:
+                          - /url: /accessibility-and-engagement/
+                          - text: Accessiblity and Engagement
+                      - listitem [ref=f10e574]:
+                        - link [ref=f10e576] [cursor=pointer]:
+                          - /url: /benefits/
+                          - text: Benefits
+                      - listitem [ref=f10e577]:
+                        - link [ref=f10e579] [cursor=pointer]:
+                          - /url: /culture/
+                          - text: Culture
+                      - listitem [ref=f10e580]:
+                        - link [ref=f10e582] [cursor=pointer]:
+                          - /url: /hiring-process/
+                          - text: Hiring Process
+                - generic [ref=f10e583]:
+                  - generic [ref=f10e585]:
+                    - heading [level=2] [ref=f10e586]:
+                      - generic [ref=f10e587]: My account
+                    - list [ref=f10e588]:
+                      - listitem [ref=f10e589]:
+                        - link [ref=f10e591] [cursor=pointer]:
+                          - /url: /profile/info
+                          - text: Career profile
+                      - listitem [ref=f10e592]:
+                        - link [ref=f10e594] [cursor=pointer]:
+                          - /url: /profile/settings
+                          - text: Account settings
+                      - listitem [ref=f10e595]:
+                        - link [ref=f10e597] [cursor=pointer]:
+                          - /url: /profile/messages
+                          - text: Messages
+                  - heading [level=2] [ref=f10e600]:
+                    - link [ref=f10e602] [cursor=pointer]:
+                      - /url: /blog/
+                      - text: Meta Careers Blog
+                  - heading [level=2] [ref=f10e605]:
+                    - link [ref=f10e607] [cursor=pointer]:
+                      - /url: /podcasts/
+                      - text: Meta Tech Podcasts
+                  - generic [ref=f10e609]:
+                    - heading [level=2] [ref=f10e610]:
+                      - generic [ref=f10e611]: About us
+                    - list [ref=f10e612]:
+                      - listitem [ref=f10e613]:
+                        - link [ref=f10e615] [cursor=pointer]:
+                          - /url: https://www.meta.com/about/company-info/
+                          - text: About Meta
+                      - listitem [ref=f10e616]:
+                        - link [ref=f10e618] [cursor=pointer]:
+                          - /url: https://www.meta.com/media-gallery/
+                          - text: Media gallery
+                      - listitem [ref=f10e619]:
+                        - link [ref=f10e621] [cursor=pointer]:
+                          - /url: https://www.meta.com/brand/resources/
+                          - text: Brand resources
+                      - listitem [ref=f10e622]:
+                        - link [ref=f10e624] [cursor=pointer]:
+                          - /url: https://investor.atmeta.com/home/default.aspx
+                          - text: For investors
+                      - listitem [ref=f10e625]:
+                        - link [ref=f10e627] [cursor=pointer]:
+                          - /url: https://us.meta.talentnet.community/
+                          - text: Looking for contractor roles?
+            - generic [ref=f10e629]:
+              - generic [ref=f10e632]:
+                - link [ref=f10e634] [cursor=pointer]:
+                  - /url: https://transparency.meta.com/policies/community-standards
+                  - text: Community Standards
+                - link [ref=f10e636] [cursor=pointer]:
+                  - /url: /privacy/
+                  - text: Data Policy
+                - link [ref=f10e638] [cursor=pointer]:
+                  - /url: https://www.facebook.com/terms.php
+                  - text: Terms
+                - link [ref=f10e640] [cursor=pointer]:
+                  - /url: /policy/cookies/
+                  - text: Cookie Policy
+              - generic [ref=f10e642]:
+                - text: Equal Employment Opportunity
+                - paragraph [ref=f10e643]:
+                  - text: Meta is proud to be an Equal Employment Opportunity employer. We do not discriminate based upon race, religion, color, national origin, sex (including pregnancy, childbirth, reproductive health decisions, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, genetic information, political views or activity, or other applicable legally protected characteristics. You may view our Equal Employment Opportunity notice
+                  - link [ref=f10e644] [cursor=pointer]:
+                    - /url: /profile/footer_link/redirect/?page=equal_opportunity_policy
+                    - text: here
+                  - text: .
+                - paragraph [ref=f10e645]:
+                  - text: Meta is committed to providing reasonable support (called accommodations) in our recruiting processes for candidates with disabilities, long term conditions, mental health conditions or sincerely held religious beliefs, or who are neurodivergent or require pregnancy-related support. If you need assistance or an accommodation due to a disability, fill out the
+                  - link [ref=f10e646] [cursor=pointer]:
+                    - /url: /accommodations_request/
+                    - text: Accommodations request form
+                - text: Notice regarding automated employment decision tools in New York City
+                - paragraph [ref=f10e647]:
+                  - text: Learn more about this
+                  - link [ref=f10e648] [cursor=pointer]:
+                    - /url: /nyc-disclosure-notice/
+                    - text: here
+                  - text: .
+                - paragraph [ref=f10e649]: ©2026 Meta.
+              - generic [ref=f10e650]:
+                - text: If you have any trouble, you can report an issue
+                - button [ref=f10e652] [cursor=pointer]:
+                  - generic [ref=f10e653]: Report a bug

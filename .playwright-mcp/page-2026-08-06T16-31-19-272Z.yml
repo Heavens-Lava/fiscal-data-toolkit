@@ -1,0 +1,1276 @@
+- generic [ref=f53e1]:
+  - banner [ref=f53e2]:
+    - generic [ref=f53e3]:
+      - generic [ref=f53e4]:
+        - button "Main menu" [ref=f53e5] [cursor=pointer]
+        - link "Careers" [ref=f53e10] [cursor=pointer]:
+          - /url: /about/careers/applications/
+      - generic [ref=f53e13]:
+        - link "Skip navigation links" [ref=f53e14]
+        - generic [ref=f53e17]:
+          - navigation "Candidate Portal Left Navigation" [ref=f53e21]:
+            - menubar [ref=f53e23]:
+              - generic [ref=f53e24]:
+                - menuitem "Home navigation link" [ref=f53e25] [cursor=pointer]:
+                  - menuitem [ref=f53e27]:
+                    - generic [ref=f53e28]:
+                      - generic [ref=f53e29]:
+                        - generic [ref=f53e31]: home
+                        - generic [ref=f53e35]: Home
+                      - generic [ref=f53e37]: Home
+                - menuitem "Jobs navigation item" [ref=f53e39] [cursor=pointer]:
+                  - menuitem [ref=f53e41]:
+                    - generic [ref=f53e42]:
+                      - generic [ref=f53e43]:
+                        - generic [ref=f53e45]: work_outline
+                        - generic [ref=f53e49]: Jobs
+                      - generic [ref=f53e51]: Jobs
+                - menuitem "Students navigation item" [ref=f53e53] [cursor=pointer]:
+                  - menuitem [ref=f53e55]:
+                    - generic [ref=f53e56]:
+                      - generic [ref=f53e57]:
+                        - generic [ref=f53e59]: noogler_hat
+                        - generic [ref=f53e63]: Students
+                      - generic [ref=f53e65]: Students
+                - menuitem "How we work navigation item" [ref=f53e67] [cursor=pointer]:
+                  - menuitem [ref=f53e69]:
+                    - generic [ref=f53e70]:
+                      - generic [ref=f53e71]:
+                        - generic [ref=f53e73]: google
+                        - generic [ref=f53e77]: How we work
+                      - generic [ref=f53e79]: How we work
+                - menuitem "How we hire navigation item" [ref=f53e81] [cursor=pointer]:
+                  - menuitem [ref=f53e83]:
+                    - generic [ref=f53e84]:
+                      - generic [ref=f53e85]:
+                        - generic [ref=f53e87]: handyman
+                        - generic [ref=f53e91]: How we hire
+                      - generic [ref=f53e93]: How we hire
+                - menuitem "Your career navigation item" [ref=f53e95] [cursor=pointer]:
+                  - menuitem [ref=f53e97]:
+                    - generic [ref=f53e98]:
+                      - generic [ref=f53e99]:
+                        - generic [ref=f53e101]: person_outline
+                        - generic [ref=f53e105]: Your career
+                      - generic [ref=f53e107]: Your career
+          - generic [ref=f53e114]:
+            - generic [ref=f53e115]:
+              - generic [ref=f53e116] [cursor=pointer]:
+                - generic [ref=f53e117]: help_outline
+                - link "Help link" [ref=f53e118]:
+                  - /url: https://support.google.com/googlecareers
+              - tooltip [ref=f53e119]: Help link
+            - generic [ref=f53e120]:
+              - button "Send feedback" [ref=f53e121] [cursor=pointer]:
+                - generic [ref=f53e122]: feedback
+              - tooltip [ref=f53e123]: Send feedback
+      - generic [ref=f53e125]:
+        - button "Google apps" [ref=f53e129] [cursor=pointer]
+        - 'button "Google Account: Jeffrey Macy (yosoytujeffe@gmail.com)" [ref=f53e135] [cursor=pointer]'
+  - main [ref=f53e152]:
+    - generic [ref=f53e153]:
+      - img "Info" [ref=f53e154]:
+        - generic [ref=f53e155]: info_outline
+      - generic [ref=f53e156]: X
+      - generic [ref=f53e157]: You can submit up to 3 applications every 30 days.
+    - generic [ref=f53e160]:
+      - generic [ref=f53e162]: Learn more
+      - generic [ref=f53e163]: open_in_new
+      - link "Learn more about submitting applications (opens new window)" [ref=f53e164] [cursor=pointer]:
+        - /url: https://support.google.com/googlecareers/answer/6095391
+    - generic [ref=f53e165]:
+      - generic [ref=f53e166]:
+        - generic: keyboard_arrow_left
+        - tablist "Application stepper" [ref=f53e167]:
+          - tab "Step 1 - Careers profile" [selected] [ref=f53e168]:
+            - generic [ref=f53e172]:
+              - generic [ref=f53e173]: "1"
+              - generic [ref=f53e174]:
+                - generic [ref=f53e175]: Careers profile
+                - generic [ref=f53e176]: 5-10 minutes
+          - tab "Step 2 - Role Information" [ref=f53e177]:
+            - generic [ref=f53e181]:
+              - generic [ref=f53e182]: "2"
+              - generic [ref=f53e183]:
+                - generic [ref=f53e184]: Role Information
+                - generic [ref=f53e185]: less than 1 minute
+          - tab "Step 3 - Voluntary self-identification" [ref=f53e186]:
+            - generic [ref=f53e190]:
+              - generic [ref=f53e191]: "3"
+              - generic [ref=f53e192]:
+                - generic [ref=f53e193]: Voluntary self-identification
+                - generic [ref=f53e194]: less than 1 minute
+          - tab "Step 4 - Review & apply" [ref=f53e195]:
+            - generic [ref=f53e199]:
+              - generic [ref=f53e200]: "4"
+              - generic [ref=f53e201]: Review & apply
+        - generic: keyboard_arrow_right
+      - tabpanel "Step 1 - Careers profile"
+    - generic [ref=f53e203]:
+      - heading "Welcome, Jeffrey" [level=1] [ref=f53e204]
+      - generic [ref=f53e205]: Software Engineer III, Full Stack - Bay Area
+    - generic [ref=f53e207]:
+      - generic [ref=f53e209]:
+        - generic [ref=f53e210]:
+          - paragraph [ref=f53e211]: Your Careers profile
+          - paragraph [ref=f53e212]: Your Google Careers profile saves your info so you can apply to jobs quickly, receive personalized job recommendations, and get relevant content to help you in your search.
+        - button "Dismiss profile banner" [ref=f53e216] [cursor=pointer]:
+          - generic [ref=f53e217]: close
+      - generic [ref=f53e218]:
+        - generic [ref=f53e219]: Last updated today at 9:27 AM
+        - button "Submit profile & continue" [ref=f53e225]:
+          - generic [ref=f53e228]:
+            - generic [ref=f53e229]: Submitting Careers Profile
+            - progressbar [ref=f53e230]
+      - generic [ref=f53e247]: "* indicates a required field"
+      - generic [ref=f53e248]:
+        - generic [ref=f53e249]:
+          - generic [ref=f53e250]: text_snippet
+          - heading "Résumé" [level=2] [ref=f53e252]
+        - generic [ref=f53e257]:
+          - generic [ref=f53e258]: A copy of your résumé has been attached, separate from the one you uploaded. If you change your résumé, you must upload it again.
+          - generic [ref=f53e259]:
+            - generic [ref=f53e260]: description
+            - generic [ref=f53e261]: Jeffrey Macy - Resume.pdf
+            - generic [ref=f53e262]: 14 seconds ago
+            - generic [ref=f53e264]:
+              - button "Remove resume" [ref=f53e265] [cursor=pointer]:
+                - generic [ref=f53e266]: close
+              - tooltip [ref=f53e267]: Remove resume
+      - generic [ref=f53e268]:
+        - generic [ref=f53e269]:
+          - generic [ref=f53e270]: account_circle
+          - heading "Contact details" [level=2] [ref=f53e272]
+        - generic [ref=f53e274]:
+          - generic [ref=f53e275]:
+            - heading [level=3] [ref=f53e276]:
+              - text: Legal name
+              - button "See more information about legal name" [ref=f53e278] [cursor=pointer]:
+                - generic [ref=f53e279]: info_outline
+            - text: Your legal name is the name that you use for legal purposes as it appears on your official documents (passport or driver’s license). Make sure that your legal name is provided in Latin characters and to include all middle names.
+            - generic [ref=f53e280]:
+              - generic [ref=f53e282]:
+                - generic [ref=f53e283]:
+                  - generic: First name*
+                  - textbox "First name" [ref=f53e284]: Jeffrey
+                - paragraph [ref=f53e286]: Enter a valid first name.
+              - generic [ref=f53e289]:
+                - generic: Middle name
+                - textbox "Middle name" [ref=f53e290]: Joseph
+              - generic [ref=f53e293]:
+                - generic [ref=f53e294]:
+                  - generic: Last name*
+                  - textbox "Last name" [ref=f53e295]: Macy
+                - paragraph [ref=f53e297]: Enter a valid last name.
+              - combobox "Suffix" [ref=f53e301] [cursor=pointer]
+          - button "ADD PREFERRED NAME" [ref=f53e305]
+          - generic [ref=f53e310]:
+            - generic: Address
+            - textbox "Address" [ref=f53e311]
+          - generic [ref=f53e313]:
+            - generic [ref=f53e314]:
+              - combobox "Country / Region* United States" [ref=f53e316] [cursor=pointer]:
+                - generic: Country / Region*
+                - generic: United States
+              - paragraph [ref=f53e318]: Select a Country / Region.
+            - generic [ref=f53e319]:
+              - generic [ref=f53e320]:
+                - generic: City*
+                - textbox "City" [ref=f53e321]: Laveen
+              - paragraph [ref=f53e323]: Enter a valid city.
+          - generic [ref=f53e324]:
+            - generic [ref=f53e325]:
+              - combobox "State / province* Arizona" [ref=f53e327] [cursor=pointer]:
+                - generic: State / province*
+                - generic: Arizona
+              - paragraph [ref=f53e329]: Select a State / province.
+            - generic [ref=f53e331]:
+              - generic: Zip/postal code
+              - textbox "Zip/postal code" [ref=f53e332]
+          - generic [ref=f53e334]:
+            - generic [ref=f53e335]:
+              - generic:
+                - generic: Email address
+                - textbox "Email address" [disabled] [ref=f53e336]: yosoytujeffe@gmail.com
+            - generic [ref=f53e338]:
+              - text: Not you?
+              - link "Switch accounts" [ref=f53e339] [cursor=pointer]:
+                - /url: https://accounts.google.com/AccountChooser?continue=https://www.google.com/about/careers/applications/apply?jobId%3DCiUAL2FckXYFzQsAtGcQaJCmG5Nz9vG5fEfSxU-pOY7k5ZNpDXSyEjsA1Ny_ixcSuLHlqF2PDkByoqV4dOu7BhU7NR3pIqQBArP5cPobNv_Yn28-_JdyxHDKDZy0fv53txkg8A%253D%253D_V2
+          - generic [ref=f53e340]:
+            - list [ref=f53e341]:
+              - listitem [ref=f53e342]:
+                - generic [ref=f53e344]:
+                  - generic: Additional email address 1
+                  - textbox "Additional email address 1" [ref=f53e345]: macy.jeffreyj@gmail.com
+                - generic [ref=f53e347]:
+                  - button "Delete email" [ref=f53e348] [cursor=pointer]:
+                    - generic [ref=f53e349]: delete
+                  - tooltip [ref=f53e351]: Delete email
+            - button "ADD ANOTHER EMAIL" [ref=f53e353]
+          - generic [ref=f53e357]:
+            - list [ref=f53e358]:
+              - listitem [ref=f53e359]:
+                - group "Primary phone" [ref=f53e362]:
+                  - combobox "Country calling code United States (+1)" [ref=f53e367] [cursor=pointer]
+                  - generic [ref=f53e372]:
+                    - textbox "Phone number" [ref=f53e374]: +1 602-619-4553
+                    - paragraph [ref=f53e376]: "Error: Invalid phone number"
+            - button "ADD ANOTHER PHONE" [ref=f53e378]
+          - generic [ref=f53e383]:
+            - generic: Website
+            - textbox "Website" [ref=f53e384]: https://github.com/Heavens-Lava
+      - generic [ref=f53e386]:
+        - generic [ref=f53e387]:
+          - generic [ref=f53e388]: school
+          - heading "Higher education" [level=2] [ref=f53e390]
+        - generic [ref=f53e392]:
+          - generic [ref=f53e393]:
+            - generic [ref=f53e394]: Attended university degree program? *
+            - radiogroup "Attended university degree program?" [ref=f53e395]:
+              - generic [ref=f53e396]:
+                - radio "Yes" [checked] [ref=f53e398] [cursor=pointer]
+                - generic [ref=f53e402]: "Yes"
+              - generic [ref=f53e403]:
+                - radio "No" [ref=f53e405] [cursor=pointer]
+                - generic [ref=f53e408]: "No"
+          - list [ref=f53e409]:
+            - listitem [ref=f53e410]:
+              - generic [ref=f53e413]:
+                - generic [ref=f53e414]:
+                  - generic: School name*
+                  - combobox "School name" [ref=f53e415]: Phoenix College
+                - paragraph [ref=f53e417]: Enter a valid school name.
+              - generic [ref=f53e420]:
+                - combobox "Degree* Bachelor of Science" [ref=f53e422] [cursor=pointer]:
+                  - generic: Degree*
+                  - generic: Bachelor of Science
+                - paragraph [ref=f53e424]: Select your degree.
+              - generic [ref=f53e427]:
+                - generic [ref=f53e428]:
+                  - combobox "Degree Status* Now attending" [ref=f53e1561] [cursor=pointer]:
+                    - generic: Degree Status*
+                    - generic: Now attending
+                  - listbox "Degree Status" [ref=f53e1553]:
+                    - option [ref=f53e1554] [cursor=pointer]
+                    - option "Graduated" [ref=f53e1555] [cursor=pointer]
+                    - option "Incomplete" [ref=f53e1557] [cursor=pointer]
+                    - option "Now attending" [selected] [ref=f53e1559] [cursor=pointer]
+                - paragraph [ref=f53e431]: Select your degree status.
+              - generic [ref=f53e433]:
+                - generic [ref=f53e434]:
+                  - generic: Major / area of study*
+                  - textbox "Major / area of study" [ref=f53e435]: Programming & Data Analytics
+                - paragraph [ref=f53e437]: Enter a valid major / area of study.
+              - generic [ref=f53e440]:
+                - combobox "Country / Region* United States" [ref=f53e442] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e444]: Select a Country / Region.
+              - generic [ref=f53e1562]: TranscriptA transcript could be a screenshot or other version of the document with or without an authorized seal. Unofficial transcripts are accepted. Please make sure that your transcript file is not password protected.
+              - button "Upload transcript" [ref=f53e1567]:
+                - generic [ref=f53e1571]: arrow_drop_down
+            - listitem [ref=f53e445]:
+              - generic [ref=f53e448]:
+                - generic [ref=f53e449]:
+                  - generic: School name*
+                  - combobox "School name" [ref=f53e450]: Glendale Community College
+                - paragraph [ref=f53e452]: Enter a valid school name.
+              - generic [ref=f53e455]:
+                - generic [ref=f53e456]:
+                  - combobox "Degree* Associate Degree" [ref=f53e1611] [cursor=pointer]:
+                    - generic: Degree*
+                    - generic: Associate Degree
+                  - listbox "Degree" [ref=f53e1573]:
+                    - option [ref=f53e1574] [cursor=pointer]
+                    - option "Associate Degree" [selected] [ref=f53e1575] [cursor=pointer]
+                    - option "Bachelor of Arts" [ref=f53e1577] [cursor=pointer]
+                    - option "Bachelor of Computer Science" [ref=f53e1579] [cursor=pointer]
+                    - option "Bachelor of Engineering" [ref=f53e1581] [cursor=pointer]
+                    - option "Bachelor of Science" [ref=f53e1583] [cursor=pointer]
+                    - option "Bachelor's Degree - Other" [ref=f53e1585] [cursor=pointer]
+                    - option "Doctor of Medicine" [ref=f53e1587] [cursor=pointer]
+                    - option "Doctoral" [ref=f53e1589] [cursor=pointer]
+                    - option "Doctoral - All But Dissertation" [ref=f53e1591] [cursor=pointer]
+                    - option "Juris Doctor" [ref=f53e1593] [cursor=pointer]
+                    - option "Master of Arts" [ref=f53e1595] [cursor=pointer]
+                    - option "Master of Business Administration" [ref=f53e1597] [cursor=pointer]
+                    - option "Master of Engineering" [ref=f53e1599] [cursor=pointer]
+                    - option "Master of Science" [ref=f53e1601] [cursor=pointer]
+                    - option "Master's Degree - Other" [ref=f53e1603] [cursor=pointer]
+                    - option "Post Doc" [ref=f53e1605] [cursor=pointer]
+                    - option "Teaching Credential" [ref=f53e1607] [cursor=pointer]
+                    - option "Other" [ref=f53e1609] [cursor=pointer]
+                - paragraph [ref=f53e459]: Select your degree.
+              - generic [ref=f53e462]:
+                - generic [ref=f53e463]:
+                  - combobox "Degree Status* Graduated" [ref=f53e1621] [cursor=pointer]:
+                    - generic: Degree Status*
+                    - generic: Graduated
+                  - listbox "Degree Status" [ref=f53e1613]:
+                    - option [ref=f53e1614] [cursor=pointer]
+                    - option "Graduated" [selected] [ref=f53e1615] [cursor=pointer]
+                    - option "Incomplete" [ref=f53e1617] [cursor=pointer]
+                    - option "Now attending" [ref=f53e1619] [cursor=pointer]
+                - paragraph [ref=f53e466]: Select your degree status.
+              - generic [ref=f53e468]:
+                - generic [ref=f53e469]:
+                  - generic: Major / area of study*
+                  - textbox "Major / area of study" [ref=f53e470]: Web Design & Development
+                - paragraph [ref=f53e472]: Enter a valid major / area of study.
+              - generic [ref=f53e475]:
+                - combobox "Country / Region* United States" [ref=f53e477] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e479]: Select a Country / Region.
+              - generic [ref=f53e480]:
+                - button "ADD ANOTHER DEGREE" [ref=f53e483]
+                - button "REMOVE THIS DEGREE" [ref=f53e489]
+      - generic [ref=f53e493]:
+        - generic [ref=f53e494]:
+          - generic [ref=f53e495]: google
+          - heading "Alphabet experience" [level=2] [ref=f53e497]
+        - generic [ref=f53e500]:
+          - generic [ref=f53e501]: Do you currently or have you previously worked for an Alphabet company (e.g., Google, Waymo, gFiber, etc.) in any capacity? This includes, but is not limited to Intern, Student Ambassador, Student Researcher, Fellow, Full-time Employee; served on a current or prior engagement supporting an Alphabet company as either Temp, Vendor or Contractor; or were part of a prior acquisition. *
+          - radiogroup "Have you worked at Alphabet before?" [ref=f53e502]:
+            - generic [ref=f53e503]:
+              - radio "Yes" [ref=f53e505] [cursor=pointer]
+              - generic [ref=f53e508]: "Yes"
+            - generic [ref=f53e509]:
+              - radio "No" [checked] [ref=f53e511] [cursor=pointer]
+              - generic [ref=f53e515]: "No"
+          - generic [ref=f53e516]: "Disclaimer: This information is used to prevent delays in the hiring process and ensure a smooth hiring experience. We recommend reviewing your resume and highlighting work you completed while employed directly or as part of an assignment with Alphabet in the past."
+      - generic [ref=f53e517]:
+        - generic [ref=f53e518]:
+          - generic [ref=f53e519]: work_outline
+          - heading "Work experience" [level=2] [ref=f53e521]
+        - generic [ref=f53e523]:
+          - generic [ref=f53e524]:
+            - generic [ref=f53e525]: Applying for your first job? *
+            - radiogroup "Applying for your first job?" [ref=f53e526]:
+              - generic [ref=f53e527]:
+                - radio "Yes" [ref=f53e529] [cursor=pointer]
+                - generic [ref=f53e532]: "Yes"
+              - generic [ref=f53e533]:
+                - radio "No" [checked] [ref=f53e535] [cursor=pointer]
+                - generic [ref=f53e539]: "No"
+          - list [ref=f53e540]:
+            - listitem [ref=f53e541]:
+              - generic [ref=f53e544]:
+                - generic [ref=f53e545]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e546]: Arizona State Legislature
+                - paragraph [ref=f53e548]: Enter a valid employer’s name.
+              - generic [ref=f53e550]:
+                - generic [ref=f53e551]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e552]: Web & Applications Developer
+                - paragraph [ref=f53e554]: Enter a valid job title.
+              - generic [ref=f53e557]:
+                - generic [ref=f53e558]: "Start Date:"
+                - generic [ref=f53e559]:
+                  - generic [ref=f53e560]:
+                    - combobox "Month* October" [ref=f53e562] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: October
+                    - paragraph [ref=f53e564]: Select a month.
+                  - generic [ref=f53e565]:
+                    - generic [ref=f53e566]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e567]: "2025"
+                    - paragraph [ref=f53e569]: Enter a valid year.
+              - generic [ref=f53e571]:
+                - checkbox "This is your current job" [checked] [ref=f53e573] [cursor=pointer]
+                - generic [ref=f53e574]: This is your current job
+              - generic [ref=f53e577]:
+                - combobox "Country / Region* United States" [ref=f53e579] [cursor=pointer]:
+                  - generic: Country / Region*
+                  - generic: United States
+                - paragraph [ref=f53e581]: Select a Country / Region.
+              - generic [ref=f53e583]:
+                - generic [ref=f53e584]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e585]: Phoenix
+                - paragraph [ref=f53e587]: Enter a valid city.
+              - generic [ref=f53e590]:
+                - combobox "State / province* Arizona" [ref=f53e592] [cursor=pointer]:
+                  - generic: State / province*
+                  - generic: Arizona
+                - paragraph [ref=f53e594]: Select a State / province.
+            - listitem [ref=f53e595]:
+              - generic [ref=f53e598]:
+                - generic [ref=f53e599]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e600]: Touchstone Behavioral Health Services
+                - paragraph [ref=f53e602]: Enter a valid employer’s name.
+              - generic [ref=f53e604]:
+                - generic [ref=f53e605]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e606]: Family Support Specialist
+                - paragraph [ref=f53e608]: Enter a valid job title.
+              - generic [ref=f53e611]:
+                - generic [ref=f53e612]: "Start Date:"
+                - generic [ref=f53e613]:
+                  - generic [ref=f53e614]:
+                    - combobox "Month* October" [ref=f53e616] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: October
+                    - paragraph [ref=f53e618]: Select a month.
+                  - generic [ref=f53e619]:
+                    - generic [ref=f53e620]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e621]: "2023"
+                    - paragraph [ref=f53e623]: Enter a valid year.
+              - generic [ref=f53e624]:
+                - generic [ref=f53e625]:
+                  - checkbox "This is your current job" [ref=f53e627] [cursor=pointer]
+                  - generic [ref=f53e628]: This is your current job
+                - generic [ref=f53e630]:
+                  - generic [ref=f53e631]: "End Date:"
+                  - generic [ref=f53e632]:
+                    - generic [ref=f53e633]:
+                      - combobox "Month* January" [ref=f53e635] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: January
+                      - paragraph [ref=f53e637]: Select a month.
+                    - generic [ref=f53e638]:
+                      - generic [ref=f53e639]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e640]: "2025"
+                      - paragraph [ref=f53e642]: Enter a valid year.
+              - generic [ref=f53e645]:
+                - generic [ref=f53e646]:
+                  - combobox "Country / Region*" [active] [ref=f53e647] [cursor=pointer]
+                  - listbox "Country / Region" [ref=f53e1623]:
+                    - option [selected] [ref=f53e1624] [cursor=pointer]
+                    - option "Afghanistan" [ref=f53e1625] [cursor=pointer]
+                    - option "Åland Islands" [ref=f53e1627] [cursor=pointer]
+                    - option "Albania" [ref=f53e1629] [cursor=pointer]
+                    - option "Algeria" [ref=f53e1631] [cursor=pointer]
+                    - option "American Samoa" [ref=f53e1633] [cursor=pointer]
+                    - option "Andorra" [ref=f53e1635] [cursor=pointer]
+                    - option "Angola" [ref=f53e1637] [cursor=pointer]
+                    - option "Anguilla" [ref=f53e1639] [cursor=pointer]
+                    - option "Antarctica" [ref=f53e1641] [cursor=pointer]
+                    - option "Antigua & Barbuda" [ref=f53e1643] [cursor=pointer]
+                    - option "Argentina" [ref=f53e1645] [cursor=pointer]
+                    - option "Armenia" [ref=f53e1647] [cursor=pointer]
+                    - option "Aruba" [ref=f53e1649] [cursor=pointer]
+                    - option "Ascension Island" [ref=f53e1651] [cursor=pointer]
+                    - option "Australia" [ref=f53e1653] [cursor=pointer]
+                    - option "Austria" [ref=f53e1655] [cursor=pointer]
+                    - option "Azerbaijan" [ref=f53e1657] [cursor=pointer]
+                    - option "Bahamas" [ref=f53e1659] [cursor=pointer]
+                    - option "Bahrain" [ref=f53e1661] [cursor=pointer]
+                    - option "Bangladesh" [ref=f53e1663] [cursor=pointer]
+                    - option "Barbados" [ref=f53e1665] [cursor=pointer]
+                    - option "Belarus" [ref=f53e1667] [cursor=pointer]
+                    - option "Belgium" [ref=f53e1669] [cursor=pointer]
+                    - option "Belize" [ref=f53e1671] [cursor=pointer]
+                    - option "Benin" [ref=f53e1673] [cursor=pointer]
+                    - option "Bermuda" [ref=f53e1675] [cursor=pointer]
+                    - option "Bhutan" [ref=f53e1677] [cursor=pointer]
+                    - option "Bolivia" [ref=f53e1679] [cursor=pointer]
+                    - option "Bosnia & Herzegovina" [ref=f53e1681] [cursor=pointer]
+                    - option "Botswana" [ref=f53e1683] [cursor=pointer]
+                    - option "Bouvet Island" [ref=f53e1685] [cursor=pointer]
+                    - option "Brazil" [ref=f53e1687] [cursor=pointer]
+                    - option "British Indian Ocean Territory" [ref=f53e1689] [cursor=pointer]
+                    - option "British Virgin Islands" [ref=f53e1691] [cursor=pointer]
+                    - option "Brunei" [ref=f53e1693] [cursor=pointer]
+                    - option "Bulgaria" [ref=f53e1695] [cursor=pointer]
+                    - option "Burkina Faso" [ref=f53e1697] [cursor=pointer]
+                    - option "Burundi" [ref=f53e1699] [cursor=pointer]
+                    - option "Cambodia" [ref=f53e1701] [cursor=pointer]
+                    - option "Cameroon" [ref=f53e1703] [cursor=pointer]
+                    - option "Canada" [ref=f53e1705] [cursor=pointer]
+                    - option "Canary Islands" [ref=f53e1707] [cursor=pointer]
+                    - option "Cape Verde" [ref=f53e1709] [cursor=pointer]
+                    - option "Caribbean Netherlands" [ref=f53e1711] [cursor=pointer]
+                    - option "Cayman Islands" [ref=f53e1713] [cursor=pointer]
+                    - option "Central African Republic" [ref=f53e1715] [cursor=pointer]
+                    - option "Ceuta & Melilla" [ref=f53e1717] [cursor=pointer]
+                    - option "Chad" [ref=f53e1719] [cursor=pointer]
+                    - option "Chile" [ref=f53e1721] [cursor=pointer]
+                    - option "China" [ref=f53e1723] [cursor=pointer]
+                    - option "Christmas Island" [ref=f53e1725] [cursor=pointer]
+                    - option "Clipperton Island" [ref=f53e1727] [cursor=pointer]
+                    - option "Cocos (Keeling) Islands" [ref=f53e1729] [cursor=pointer]
+                    - option "Colombia" [ref=f53e1731] [cursor=pointer]
+                    - option "Comoros" [ref=f53e1733] [cursor=pointer]
+                    - option "Congo - Brazzaville" [ref=f53e1735] [cursor=pointer]
+                    - option "Congo - Kinshasa" [ref=f53e1737] [cursor=pointer]
+                    - option "Cook Islands" [ref=f53e1739] [cursor=pointer]
+                    - option "Costa Rica" [ref=f53e1741] [cursor=pointer]
+                    - option "Côte d’Ivoire" [ref=f53e1743] [cursor=pointer]
+                    - option "Croatia" [ref=f53e1745] [cursor=pointer]
+                    - option "Cuba" [ref=f53e1747] [cursor=pointer]
+                    - option "Curaçao" [ref=f53e1749] [cursor=pointer]
+                    - option "Cyprus" [ref=f53e1751] [cursor=pointer]
+                    - option "Czechia" [ref=f53e1753] [cursor=pointer]
+                    - option "Denmark" [ref=f53e1755] [cursor=pointer]
+                    - option "Diego Garcia" [ref=f53e1757] [cursor=pointer]
+                    - option "Djibouti" [ref=f53e1759] [cursor=pointer]
+                    - option "Dominica" [ref=f53e1761] [cursor=pointer]
+                    - option "Dominican Republic" [ref=f53e1763] [cursor=pointer]
+                    - option "Ecuador" [ref=f53e1765] [cursor=pointer]
+                    - option "Egypt" [ref=f53e1767] [cursor=pointer]
+                    - option "El Salvador" [ref=f53e1769] [cursor=pointer]
+                    - option "Equatorial Guinea" [ref=f53e1771] [cursor=pointer]
+                    - option "Eritrea" [ref=f53e1773] [cursor=pointer]
+                    - option "Estonia" [ref=f53e1775] [cursor=pointer]
+                    - option "Eswatini" [ref=f53e1777] [cursor=pointer]
+                    - option "Ethiopia" [ref=f53e1779] [cursor=pointer]
+                    - option "Falkland Islands (Islas Malvinas)" [ref=f53e1781] [cursor=pointer]
+                    - option "Faroe Islands" [ref=f53e1783] [cursor=pointer]
+                    - option "Fiji" [ref=f53e1785] [cursor=pointer]
+                    - option "Finland" [ref=f53e1787] [cursor=pointer]
+                    - option "France" [ref=f53e1789] [cursor=pointer]
+                    - option "French Guiana" [ref=f53e1791] [cursor=pointer]
+                    - option "French Polynesia" [ref=f53e1793] [cursor=pointer]
+                    - option "French Southern Territories" [ref=f53e1795] [cursor=pointer]
+                    - option "Gabon" [ref=f53e1797] [cursor=pointer]
+                    - option "Gambia" [ref=f53e1799] [cursor=pointer]
+                    - option "Georgia" [ref=f53e1801] [cursor=pointer]
+                    - option "Germany" [ref=f53e1803] [cursor=pointer]
+                    - option "Ghana" [ref=f53e1805] [cursor=pointer]
+                    - option "Gibraltar" [ref=f53e1807] [cursor=pointer]
+                    - option "Greece" [ref=f53e1809] [cursor=pointer]
+                    - option "Greenland" [ref=f53e1811] [cursor=pointer]
+                    - option "Grenada" [ref=f53e1813] [cursor=pointer]
+                    - option "Guadeloupe" [ref=f53e1815] [cursor=pointer]
+                    - option "Guam" [ref=f53e1817] [cursor=pointer]
+                    - option "Guatemala" [ref=f53e1819] [cursor=pointer]
+                    - option "Guernsey" [ref=f53e1821] [cursor=pointer]
+                    - option "Guinea" [ref=f53e1823] [cursor=pointer]
+                    - option "Guinea-Bissau" [ref=f53e1825] [cursor=pointer]
+                    - option "Guyana" [ref=f53e1827] [cursor=pointer]
+                    - option "Haiti" [ref=f53e1829] [cursor=pointer]
+                    - option "Heard & McDonald Islands" [ref=f53e1831] [cursor=pointer]
+                    - option "Honduras" [ref=f53e1833] [cursor=pointer]
+                    - option "Hong Kong" [ref=f53e1835] [cursor=pointer]
+                    - option "Hungary" [ref=f53e1837] [cursor=pointer]
+                    - option "Iceland" [ref=f53e1839] [cursor=pointer]
+                    - option "India" [ref=f53e1841] [cursor=pointer]
+                    - option "Indonesia" [ref=f53e1843] [cursor=pointer]
+                    - option "Iran" [ref=f53e1845] [cursor=pointer]
+                    - option "Iraq" [ref=f53e1847] [cursor=pointer]
+                    - option "Ireland" [ref=f53e1849] [cursor=pointer]
+                    - option "Isle of Man" [ref=f53e1851] [cursor=pointer]
+                    - option "Israel" [ref=f53e1853] [cursor=pointer]
+                    - option "Italy" [ref=f53e1855] [cursor=pointer]
+                    - option "Jamaica" [ref=f53e1857] [cursor=pointer]
+                    - option "Japan" [ref=f53e1859] [cursor=pointer]
+                    - option "Jersey" [ref=f53e1861] [cursor=pointer]
+                    - option "Jordan" [ref=f53e1863] [cursor=pointer]
+                    - option "Kazakhstan" [ref=f53e1865] [cursor=pointer]
+                    - option "Kenya" [ref=f53e1867] [cursor=pointer]
+                    - option "Kiribati" [ref=f53e1869] [cursor=pointer]
+                    - option "Kosovo" [ref=f53e1871] [cursor=pointer]
+                    - option "Kuwait" [ref=f53e1873] [cursor=pointer]
+                    - option "Kyrgyzstan" [ref=f53e1875] [cursor=pointer]
+                    - option "Laos" [ref=f53e1877] [cursor=pointer]
+                    - option "Latvia" [ref=f53e1879] [cursor=pointer]
+                    - option "Lebanon" [ref=f53e1881] [cursor=pointer]
+                    - option "Lesotho" [ref=f53e1883] [cursor=pointer]
+                    - option "Liberia" [ref=f53e1885] [cursor=pointer]
+                    - option "Libya" [ref=f53e1887] [cursor=pointer]
+                    - option "Liechtenstein" [ref=f53e1889] [cursor=pointer]
+                    - option "Lithuania" [ref=f53e1891] [cursor=pointer]
+                    - option "Luxembourg" [ref=f53e1893] [cursor=pointer]
+                    - option "Macao" [ref=f53e1895] [cursor=pointer]
+                    - option "Madagascar" [ref=f53e1897] [cursor=pointer]
+                    - option "Malawi" [ref=f53e1899] [cursor=pointer]
+                    - option "Malaysia" [ref=f53e1901] [cursor=pointer]
+                    - option "Maldives" [ref=f53e1903] [cursor=pointer]
+                    - option "Mali" [ref=f53e1905] [cursor=pointer]
+                    - option "Malta" [ref=f53e1907] [cursor=pointer]
+                    - option "Marshall Islands" [ref=f53e1909] [cursor=pointer]
+                    - option "Martinique" [ref=f53e1911] [cursor=pointer]
+                    - option "Mauritania" [ref=f53e1913] [cursor=pointer]
+                    - option "Mauritius" [ref=f53e1915] [cursor=pointer]
+                    - option "Mayotte" [ref=f53e1917] [cursor=pointer]
+                    - option "Mexico" [ref=f53e1919] [cursor=pointer]
+                    - option "Micronesia" [ref=f53e1921] [cursor=pointer]
+                    - option "Moldova" [ref=f53e1923] [cursor=pointer]
+                    - option "Monaco" [ref=f53e1925] [cursor=pointer]
+                    - option "Mongolia" [ref=f53e1927] [cursor=pointer]
+                    - option "Montenegro" [ref=f53e1929] [cursor=pointer]
+                    - option "Montserrat" [ref=f53e1931] [cursor=pointer]
+                    - option "Morocco" [ref=f53e1933] [cursor=pointer]
+                    - option "Mozambique" [ref=f53e1935] [cursor=pointer]
+                    - option "Myanmar (Burma)" [ref=f53e1937] [cursor=pointer]
+                    - option "Namibia" [ref=f53e1939] [cursor=pointer]
+                    - option "Nauru" [ref=f53e1941] [cursor=pointer]
+                    - option "Nepal" [ref=f53e1943] [cursor=pointer]
+                    - option "Netherlands" [ref=f53e1945] [cursor=pointer]
+                    - option "New Caledonia" [ref=f53e1947] [cursor=pointer]
+                    - option "New Zealand" [ref=f53e1949] [cursor=pointer]
+                    - option "Nicaragua" [ref=f53e1951] [cursor=pointer]
+                    - option "Niger" [ref=f53e1953] [cursor=pointer]
+                    - option "Nigeria" [ref=f53e1955] [cursor=pointer]
+                    - option "Niue" [ref=f53e1957] [cursor=pointer]
+                    - option "Norfolk Island" [ref=f53e1959] [cursor=pointer]
+                    - option "North Korea" [ref=f53e1961] [cursor=pointer]
+                    - option "North Macedonia" [ref=f53e1963] [cursor=pointer]
+                    - option "Northern Mariana Islands" [ref=f53e1965] [cursor=pointer]
+                    - option "Norway" [ref=f53e1967] [cursor=pointer]
+                    - option "Oman" [ref=f53e1969] [cursor=pointer]
+                    - option "Pakistan" [ref=f53e1971] [cursor=pointer]
+                    - option "Palau" [ref=f53e1973] [cursor=pointer]
+                    - option "Palestine" [ref=f53e1975] [cursor=pointer]
+                    - option "Panama" [ref=f53e1977] [cursor=pointer]
+                    - option "Papua New Guinea" [ref=f53e1979] [cursor=pointer]
+                    - option "Paraguay" [ref=f53e1981] [cursor=pointer]
+                    - option "Peru" [ref=f53e1983] [cursor=pointer]
+                    - option "Philippines" [ref=f53e1985] [cursor=pointer]
+                    - option "Pitcairn Islands" [ref=f53e1987] [cursor=pointer]
+                    - option "Poland" [ref=f53e1989] [cursor=pointer]
+                    - option "Portugal" [ref=f53e1991] [cursor=pointer]
+                    - option "Puerto Rico" [ref=f53e1993] [cursor=pointer]
+                    - option "Qatar" [ref=f53e1995] [cursor=pointer]
+                    - option "Réunion" [ref=f53e1997] [cursor=pointer]
+                    - option "Romania" [ref=f53e1999] [cursor=pointer]
+                    - option "Russia" [ref=f53e2001] [cursor=pointer]
+                    - option "Rwanda" [ref=f53e2003] [cursor=pointer]
+                    - option "Samoa" [ref=f53e2005] [cursor=pointer]
+                    - option "San Marino" [ref=f53e2007] [cursor=pointer]
+                    - option "São Tomé & Príncipe" [ref=f53e2009] [cursor=pointer]
+                    - option "Saudi Arabia" [ref=f53e2011] [cursor=pointer]
+                    - option "Senegal" [ref=f53e2013] [cursor=pointer]
+                    - option "Serbia" [ref=f53e2015] [cursor=pointer]
+                    - option "Seychelles" [ref=f53e2017] [cursor=pointer]
+                    - option "Sierra Leone" [ref=f53e2019] [cursor=pointer]
+                    - option "Singapore" [ref=f53e2021] [cursor=pointer]
+                    - option "Sint Maarten" [ref=f53e2023] [cursor=pointer]
+                    - option "Slovakia" [ref=f53e2025] [cursor=pointer]
+                    - option "Slovenia" [ref=f53e2027] [cursor=pointer]
+                    - option "Solomon Islands" [ref=f53e2029] [cursor=pointer]
+                    - option "Somalia" [ref=f53e2031] [cursor=pointer]
+                    - option "South Africa" [ref=f53e2033] [cursor=pointer]
+                    - option "South Georgia & South Sandwich Islands" [ref=f53e2035] [cursor=pointer]
+                    - option "South Korea" [ref=f53e2037] [cursor=pointer]
+                    - option "South Sudan" [ref=f53e2039] [cursor=pointer]
+                    - option "Spain" [ref=f53e2041] [cursor=pointer]
+                    - option "Sri Lanka" [ref=f53e2043] [cursor=pointer]
+                    - option "St. Barthélemy" [ref=f53e2045] [cursor=pointer]
+                    - option "St. Helena" [ref=f53e2047] [cursor=pointer]
+                    - option "St. Kitts & Nevis" [ref=f53e2049] [cursor=pointer]
+                    - option "St. Lucia" [ref=f53e2051] [cursor=pointer]
+                    - option "St. Martin" [ref=f53e2053] [cursor=pointer]
+                    - option "St. Pierre & Miquelon" [ref=f53e2055] [cursor=pointer]
+                    - option "St. Vincent & Grenadines" [ref=f53e2057] [cursor=pointer]
+                    - option "Sudan" [ref=f53e2059] [cursor=pointer]
+                    - option "Suriname" [ref=f53e2061] [cursor=pointer]
+                    - option "Svalbard & Jan Mayen" [ref=f53e2063] [cursor=pointer]
+                    - option "Sweden" [ref=f53e2065] [cursor=pointer]
+                    - option "Switzerland" [ref=f53e2067] [cursor=pointer]
+                    - option "Syria" [ref=f53e2069] [cursor=pointer]
+                    - option "Taiwan" [ref=f53e2071] [cursor=pointer]
+                    - option "Tajikistan" [ref=f53e2073] [cursor=pointer]
+                    - option "Tanzania" [ref=f53e2075] [cursor=pointer]
+                    - option "Thailand" [ref=f53e2077] [cursor=pointer]
+                    - option "Timor-Leste" [ref=f53e2079] [cursor=pointer]
+                    - option "Togo" [ref=f53e2081] [cursor=pointer]
+                    - option "Tokelau" [ref=f53e2083] [cursor=pointer]
+                    - option "Tonga" [ref=f53e2085] [cursor=pointer]
+                    - option "Trinidad & Tobago" [ref=f53e2087] [cursor=pointer]
+                    - option "Tristan da Cunha" [ref=f53e2089] [cursor=pointer]
+                    - option "Tunisia" [ref=f53e2091] [cursor=pointer]
+                    - option "Turkey" [ref=f53e2093] [cursor=pointer]
+                    - option "Turkmenistan" [ref=f53e2095] [cursor=pointer]
+                    - option "Turks & Caicos Islands" [ref=f53e2097] [cursor=pointer]
+                    - option "Tuvalu" [ref=f53e2099] [cursor=pointer]
+                    - option "U.S. Outlying Islands" [ref=f53e2101] [cursor=pointer]
+                    - option "U.S. Virgin Islands" [ref=f53e2103] [cursor=pointer]
+                    - option "Uganda" [ref=f53e2105] [cursor=pointer]
+                    - option "Ukraine" [ref=f53e2107] [cursor=pointer]
+                    - option "United Arab Emirates" [ref=f53e2109] [cursor=pointer]
+                    - option "United Kingdom" [ref=f53e2111] [cursor=pointer]
+                    - option "United States" [ref=f53e2113] [cursor=pointer]
+                    - option "Uruguay" [ref=f53e2115] [cursor=pointer]
+                    - option "Uzbekistan" [ref=f53e2117] [cursor=pointer]
+                    - option "Vanuatu" [ref=f53e2119] [cursor=pointer]
+                    - option "Vatican City" [ref=f53e2121] [cursor=pointer]
+                    - option "Venezuela" [ref=f53e2123] [cursor=pointer]
+                    - option "Vietnam" [ref=f53e2125] [cursor=pointer]
+                    - option "Wallis & Futuna" [ref=f53e2127] [cursor=pointer]
+                    - option "Western Sahara" [ref=f53e2129] [cursor=pointer]
+                    - option "Yemen" [ref=f53e2131] [cursor=pointer]
+                    - option "Zambia" [ref=f53e2133] [cursor=pointer]
+                    - option "Zimbabwe" [ref=f53e2135] [cursor=pointer]
+                - paragraph [ref=f53e649]: Select a Country / Region.
+              - generic [ref=f53e651]:
+                - generic [ref=f53e652]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e653]: Phoenix
+                - paragraph [ref=f53e655]: Enter a valid city.
+              - generic [ref=f53e658]:
+                - generic: State
+                - textbox "State" [ref=f53e659]
+              - button "REMOVE THIS JOB" [ref=f53e664]
+            - listitem [ref=f53e668]:
+              - generic [ref=f53e671]:
+                - generic [ref=f53e672]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e673]: the App Store
+                - paragraph [ref=f53e675]: Enter a valid employer’s name.
+              - generic [ref=f53e677]:
+                - generic [ref=f53e678]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e679]: Independent Game Developer
+                - paragraph [ref=f53e681]: Enter a valid job title.
+              - generic [ref=f53e684]:
+                - generic [ref=f53e685]: "Start Date:"
+                - generic [ref=f53e686]:
+                  - generic [ref=f53e687]:
+                    - combobox "Month* June" [ref=f53e689] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: June
+                    - paragraph [ref=f53e691]: Select a month.
+                  - generic [ref=f53e692]:
+                    - generic [ref=f53e693]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e694]: "2022"
+                    - paragraph [ref=f53e696]: Enter a valid year.
+              - generic [ref=f53e697]:
+                - generic [ref=f53e698]:
+                  - checkbox "This is your current job" [ref=f53e700] [cursor=pointer]
+                  - generic [ref=f53e701]: This is your current job
+                - generic [ref=f53e703]:
+                  - generic [ref=f53e704]: "End Date:"
+                  - generic [ref=f53e705]:
+                    - generic [ref=f53e706]:
+                      - combobox "Month* June" [ref=f53e708] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: June
+                      - paragraph [ref=f53e710]: Select a month.
+                    - generic [ref=f53e711]:
+                      - generic [ref=f53e712]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e713]: "2023"
+                      - paragraph [ref=f53e715]: Enter a valid year.
+              - generic [ref=f53e718]:
+                - combobox "Country / Region*" [ref=f53e720] [cursor=pointer]
+                - paragraph [ref=f53e722]: Select a Country / Region.
+              - generic [ref=f53e724]:
+                - generic [ref=f53e725]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e726]: Phoenix
+                - paragraph [ref=f53e728]: Enter a valid city.
+              - generic [ref=f53e731]:
+                - generic: State
+                - textbox "State" [ref=f53e732]
+              - button "REMOVE THIS JOB" [ref=f53e737]
+            - listitem [ref=f53e741]:
+              - generic [ref=f53e744]:
+                - generic [ref=f53e745]:
+                  - generic: Employer name*
+                  - combobox "Employer name" [ref=f53e746]: United States Postal Service
+                - paragraph [ref=f53e748]: Enter a valid employer’s name.
+              - generic [ref=f53e750]:
+                - generic [ref=f53e751]:
+                  - generic: Job title*
+                  - textbox "Job title" [ref=f53e752]: Mail Carrier
+                - paragraph [ref=f53e754]: Enter a valid job title.
+              - generic [ref=f53e757]:
+                - generic [ref=f53e758]: "Start Date:"
+                - generic [ref=f53e759]:
+                  - generic [ref=f53e760]:
+                    - combobox "Month* June" [ref=f53e762] [cursor=pointer]:
+                      - generic: Month*
+                      - generic: June
+                    - paragraph [ref=f53e764]: Select a month.
+                  - generic [ref=f53e765]:
+                    - generic [ref=f53e766]:
+                      - generic: Year*
+                      - spinbutton "Year" [ref=f53e767]: "2017"
+                    - paragraph [ref=f53e769]: Enter a valid year.
+              - generic [ref=f53e770]:
+                - generic [ref=f53e771]:
+                  - checkbox "This is your current job" [ref=f53e773] [cursor=pointer]
+                  - generic [ref=f53e774]: This is your current job
+                - generic [ref=f53e776]:
+                  - generic [ref=f53e777]: "End Date:"
+                  - generic [ref=f53e778]:
+                    - generic [ref=f53e779]:
+                      - combobox "Month* June" [ref=f53e781] [cursor=pointer]:
+                        - generic: Month*
+                        - generic: June
+                      - paragraph [ref=f53e783]: Select a month.
+                    - generic [ref=f53e784]:
+                      - generic [ref=f53e785]:
+                        - generic: Year*
+                        - spinbutton "Year" [ref=f53e786]: "2022"
+                      - paragraph [ref=f53e788]: Enter a valid year.
+              - generic [ref=f53e791]:
+                - combobox "Country / Region*" [ref=f53e793] [cursor=pointer]
+                - paragraph [ref=f53e795]: Select a Country / Region.
+              - generic [ref=f53e797]:
+                - generic [ref=f53e798]:
+                  - generic: City*
+                  - textbox "City" [ref=f53e799]: Phoenix
+                - paragraph [ref=f53e801]: Enter a valid city.
+              - generic [ref=f53e804]:
+                - generic: State
+                - textbox "State" [ref=f53e805]
+              - generic [ref=f53e807]:
+                - button "ADD ANOTHER JOB" [ref=f53e810]
+                - button "REMOVE THIS JOB" [ref=f53e816]
+      - generic [ref=f53e820]:
+        - generic [ref=f53e821]:
+          - generic [ref=f53e822]: architecture
+          - heading "Skills" [level=2] [ref=f53e824]
+        - generic [ref=f53e826]:
+          - generic [ref=f53e827]:
+            - generic [ref=f53e828]: What skills would you like to add to your profile?
+            - generic [ref=f53e831]:
+              - generic: What skills do you have?
+              - generic: work_outline
+              - combobox "What skills do you have? You can add up to 25 skills" [ref=f53e832]
+            - generic [ref=f53e834]:
+              - generic [ref=f53e835]:
+                - generic [ref=f53e836]: 0 / 25
+                - text: Highlight manually added skills
+              - switch "Highlight manually added skills" [ref=f53e837] [cursor=pointer]
+          - generic [ref=f53e848]:
+            - generic [ref=f53e849]:
+              - heading "UNCATEGORIZED" [level=3] [ref=f53e850]
+              - grid "UNCATEGORIZED" [ref=f53e851]:
+                - row [ref=f53e852]:
+                  - gridcell "Internal Applications" [ref=f53e853]
+                  - gridcell [ref=f53e855]:
+                    - generic [ref=f53e856]:
+                      - button "Remove Internal Applications" [ref=f53e857] [cursor=pointer]
+                      - tooltip [ref=f53e862]: Remove
+            - generic [ref=f53e863]:
+              - heading "CODING LANGUAGE" [level=3] [ref=f53e864]
+              - grid "CODING LANGUAGE" [ref=f53e865]:
+                - row [ref=f53e866]:
+                  - gridcell "C#" [ref=f53e867]
+                  - gridcell [ref=f53e869]:
+                    - generic [ref=f53e870]:
+                      - button "Remove C#" [ref=f53e871] [cursor=pointer]
+                      - tooltip [ref=f53e876]: Remove
+                - row [ref=f53e877]:
+                  - gridcell "JavaScript" [ref=f53e878]
+                  - gridcell [ref=f53e880]:
+                    - generic [ref=f53e881]:
+                      - button "Remove JavaScript" [ref=f53e882] [cursor=pointer]
+                      - tooltip [ref=f53e887]: Remove
+                - row [ref=f53e888]:
+                  - gridcell "PHP" [ref=f53e889]
+                  - gridcell [ref=f53e891]:
+                    - generic [ref=f53e892]:
+                      - button "Remove PHP" [ref=f53e893] [cursor=pointer]
+                      - tooltip [ref=f53e898]: Remove
+                - row [ref=f53e899]:
+                  - gridcell "Programming" [ref=f53e900]
+                  - gridcell [ref=f53e902]:
+                    - generic [ref=f53e903]:
+                      - button "Remove Programming" [ref=f53e904] [cursor=pointer]
+                      - tooltip [ref=f53e909]: Remove
+                - row [ref=f53e910]:
+                  - gridcell "Python" [ref=f53e911]
+                  - gridcell [ref=f53e913]:
+                    - generic [ref=f53e914]:
+                      - button "Remove Python" [ref=f53e915] [cursor=pointer]
+                      - tooltip [ref=f53e920]: Remove
+                - row [ref=f53e921]:
+                  - gridcell "TypeScript" [ref=f53e922]
+                  - gridcell [ref=f53e924]:
+                    - generic [ref=f53e925]:
+                      - button "Remove TypeScript" [ref=f53e926] [cursor=pointer]
+                      - tooltip [ref=f53e931]: Remove
+            - generic [ref=f53e932]:
+              - heading "GENERAL" [level=3] [ref=f53e933]
+              - grid "GENERAL" [ref=f53e934]:
+                - row [ref=f53e935]:
+                  - gridcell "Accessibility" [ref=f53e936]
+                  - gridcell [ref=f53e938]:
+                    - generic [ref=f53e939]:
+                      - button "Remove Accessibility" [ref=f53e940] [cursor=pointer]
+                      - tooltip [ref=f53e945]: Remove
+                - row [ref=f53e946]:
+                  - gridcell "Banking" [ref=f53e947]
+                  - gridcell [ref=f53e949]:
+                    - generic [ref=f53e950]:
+                      - button "Remove Banking" [ref=f53e951] [cursor=pointer]
+                      - tooltip [ref=f53e956]: Remove
+                - row [ref=f53e957]:
+                  - gridcell "Cash Flow" [ref=f53e958]
+                  - gridcell [ref=f53e960]:
+                    - generic [ref=f53e961]:
+                      - button "Remove Cash Flow" [ref=f53e962] [cursor=pointer]
+                      - tooltip [ref=f53e967]: Remove
+                - row [ref=f53e968]:
+                  - gridcell "Coaching" [ref=f53e969]
+                  - gridcell [ref=f53e971]:
+                    - generic [ref=f53e972]:
+                      - button "Remove Coaching" [ref=f53e973] [cursor=pointer]
+                      - tooltip [ref=f53e978]: Remove
+                - row [ref=f53e979]:
+                  - gridcell "Communication" [ref=f53e980]
+                  - gridcell [ref=f53e982]:
+                    - generic [ref=f53e983]:
+                      - button "Remove Communication" [ref=f53e984] [cursor=pointer]
+                      - tooltip [ref=f53e989]: Remove
+                - row [ref=f53e990]:
+                  - gridcell "Compliance" [ref=f53e991]
+                  - gridcell [ref=f53e993]:
+                    - generic [ref=f53e994]:
+                      - button "Remove Compliance" [ref=f53e995] [cursor=pointer]
+                      - tooltip [ref=f53e1000]: Remove
+                - row [ref=f53e1001]:
+                  - gridcell "Design" [ref=f53e1002]
+                  - gridcell [ref=f53e1004]:
+                    - generic [ref=f53e1005]:
+                      - button "Remove Design" [ref=f53e1006] [cursor=pointer]
+                      - tooltip [ref=f53e1011]: Remove
+                - row [ref=f53e1012]:
+                  - gridcell "Finance" [ref=f53e1013]
+                  - gridcell [ref=f53e1015]:
+                    - generic [ref=f53e1016]:
+                      - button "Remove Finance" [ref=f53e1017] [cursor=pointer]
+                      - tooltip [ref=f53e1022]: Remove
+                - row [ref=f53e1023]:
+                  - gridcell "Maintenance" [ref=f53e1024]
+                  - gridcell [ref=f53e1026]:
+                    - generic [ref=f53e1027]:
+                      - button "Remove Maintenance" [ref=f53e1028] [cursor=pointer]
+                      - tooltip [ref=f53e1033]: Remove
+                - row [ref=f53e1034]:
+                  - gridcell "Management" [ref=f53e1035]
+                  - gridcell [ref=f53e1037]:
+                    - generic [ref=f53e1038]:
+                      - button "Remove Management" [ref=f53e1039] [cursor=pointer]
+                      - tooltip [ref=f53e1044]: Remove
+            - generic [ref=f53e1045]:
+              - heading "TECHNICAL" [level=3] [ref=f53e1046]
+              - grid "TECHNICAL" [ref=f53e1047]:
+                - row [ref=f53e1048]:
+                  - gridcell "Analytics" [ref=f53e1049]
+                  - gridcell [ref=f53e1051]:
+                    - generic [ref=f53e1052]:
+                      - button "Remove Analytics" [ref=f53e1053] [cursor=pointer]
+                      - tooltip [ref=f53e1058]: Remove
+                - row [ref=f53e1059]:
+                  - gridcell "App Store" [ref=f53e1060]
+                  - gridcell [ref=f53e1062]:
+                    - generic [ref=f53e1063]:
+                      - button "Remove App Store" [ref=f53e1064] [cursor=pointer]
+                      - tooltip [ref=f53e1069]: Remove
+                - row [ref=f53e1070]:
+                  - gridcell "Backend" [ref=f53e1071]
+                  - gridcell [ref=f53e1073]:
+                    - generic [ref=f53e1074]:
+                      - button "Remove Backend" [ref=f53e1075] [cursor=pointer]
+                      - tooltip [ref=f53e1080]: Remove
+                - row [ref=f53e1081]:
+                  - gridcell "CSS" [ref=f53e1082]
+                  - gridcell [ref=f53e1084]:
+                    - generic [ref=f53e1085]:
+                      - button "Remove CSS" [ref=f53e1086] [cursor=pointer]
+                      - tooltip [ref=f53e1091]: Remove
+                - row [ref=f53e1092]:
+                  - gridcell "Client Side" [ref=f53e1093]
+                  - gridcell [ref=f53e1095]:
+                    - generic [ref=f53e1096]:
+                      - button "Remove Client Side" [ref=f53e1097] [cursor=pointer]
+                      - tooltip [ref=f53e1102]: Remove
+                - row [ref=f53e1103]:
+                  - gridcell "Dashboards" [ref=f53e1104]
+                  - gridcell [ref=f53e1106]:
+                    - generic [ref=f53e1107]:
+                      - button "Remove Dashboards" [ref=f53e1108] [cursor=pointer]
+                      - tooltip [ref=f53e1113]: Remove
+                - row [ref=f53e1114]:
+                  - gridcell "Data Analytics" [ref=f53e1115]
+                  - gridcell [ref=f53e1117]:
+                    - generic [ref=f53e1118]:
+                      - button "Remove Data Analytics" [ref=f53e1119] [cursor=pointer]
+                      - tooltip [ref=f53e1124]: Remove
+                - row [ref=f53e1125]:
+                  - gridcell "Debugging" [ref=f53e1126]
+                  - gridcell [ref=f53e1128]:
+                    - generic [ref=f53e1129]:
+                      - button "Remove Debugging" [ref=f53e1130] [cursor=pointer]
+                      - tooltip [ref=f53e1135]: Remove
+                - row [ref=f53e1136]:
+                  - gridcell "Docker" [ref=f53e1137]
+                  - gridcell [ref=f53e1139]:
+                    - generic [ref=f53e1140]:
+                      - button "Remove Docker" [ref=f53e1141] [cursor=pointer]
+                      - tooltip [ref=f53e1146]: Remove
+                - row [ref=f53e1147]:
+                  - gridcell "FRED" [ref=f53e1148]
+                  - gridcell [ref=f53e1150]:
+                    - generic [ref=f53e1151]:
+                      - button "Remove FRED" [ref=f53e1152] [cursor=pointer]
+                      - tooltip [ref=f53e1157]: Remove
+                - row [ref=f53e1158]:
+                  - gridcell "Git" [ref=f53e1159]
+                  - gridcell [ref=f53e1161]:
+                    - generic [ref=f53e1162]:
+                      - button "Remove Git" [ref=f53e1163] [cursor=pointer]
+                      - tooltip [ref=f53e1168]: Remove
+                - row [ref=f53e1169]:
+                  - gridcell "GitHub" [ref=f53e1170]
+                  - gridcell [ref=f53e1172]:
+                    - generic [ref=f53e1173]:
+                      - button "Remove GitHub" [ref=f53e1174] [cursor=pointer]
+                      - tooltip [ref=f53e1179]: Remove
+                - row [ref=f53e1180]:
+                  - gridcell "MCP" [ref=f53e1181]
+                  - gridcell [ref=f53e1183]:
+                    - generic [ref=f53e1184]:
+                      - button "Remove MCP" [ref=f53e1185] [cursor=pointer]
+                      - tooltip [ref=f53e1190]: Remove
+                - row [ref=f53e1191]:
+                  - gridcell "Model Context Protocol" [ref=f53e1192]
+                  - gridcell [ref=f53e1194]:
+                    - generic [ref=f53e1195]:
+                      - button "Remove Model Context Protocol" [ref=f53e1196] [cursor=pointer]
+                      - tooltip [ref=f53e1201]: Remove
+                - row [ref=f53e1202]:
+                  - gridcell "Node.js" [ref=f53e1203]
+                  - gridcell [ref=f53e1205]:
+                    - generic [ref=f53e1206]:
+                      - button "Remove Node.js" [ref=f53e1207] [cursor=pointer]
+                      - tooltip [ref=f53e1212]: Remove
+                - row [ref=f53e1213]:
+                  - gridcell "PostgreSQL" [ref=f53e1214]
+                  - gridcell [ref=f53e1216]:
+                    - generic [ref=f53e1217]:
+                      - button "Remove PostgreSQL" [ref=f53e1218] [cursor=pointer]
+                      - tooltip [ref=f53e1223]: Remove
+                - row [ref=f53e1224]:
+                  - gridcell "Regression Testing" [ref=f53e1225]
+                  - gridcell [ref=f53e1227]:
+                    - generic [ref=f53e1228]:
+                      - button "Remove Regression Testing" [ref=f53e1229] [cursor=pointer]
+                      - tooltip [ref=f53e1234]: Remove
+                - row [ref=f53e1235]:
+                  - gridcell "SQL" [ref=f53e1236]
+                  - gridcell [ref=f53e1238]:
+                    - generic [ref=f53e1239]:
+                      - button "Remove SQL" [ref=f53e1240] [cursor=pointer]
+                      - tooltip [ref=f53e1245]: Remove
+                - row [ref=f53e1246]:
+                  - gridcell "SQLite" [ref=f53e1247]
+                  - gridcell [ref=f53e1249]:
+                    - generic [ref=f53e1250]:
+                      - button "Remove SQLite" [ref=f53e1251] [cursor=pointer]
+                      - tooltip [ref=f53e1256]: Remove
+                - row [ref=f53e1257]:
+                  - gridcell "Sites" [ref=f53e1258]
+                  - gridcell [ref=f53e1260]:
+                    - generic [ref=f53e1261]:
+                      - button "Remove Sites" [ref=f53e1262] [cursor=pointer]
+                      - tooltip [ref=f53e1267]: Remove
+                - row [ref=f53e1268]:
+                  - gridcell "Statistics" [ref=f53e1269]
+                  - gridcell [ref=f53e1271]:
+                    - generic [ref=f53e1272]:
+                      - button "Remove Statistics" [ref=f53e1273] [cursor=pointer]
+                      - tooltip [ref=f53e1278]: Remove
+                - row [ref=f53e1279]:
+                  - gridcell "Teams" [ref=f53e1280]
+                  - gridcell [ref=f53e1282]:
+                    - generic [ref=f53e1283]:
+                      - button "Remove Teams" [ref=f53e1284] [cursor=pointer]
+                      - tooltip [ref=f53e1289]: Remove
+                - row [ref=f53e1290]:
+                  - gridcell "Test Design" [ref=f53e1291]
+                  - gridcell [ref=f53e1293]:
+                    - generic [ref=f53e1294]:
+                      - button "Remove Test Design" [ref=f53e1295] [cursor=pointer]
+                      - tooltip [ref=f53e1300]: Remove
+                - row [ref=f53e1301]:
+                  - gridcell "Testing" [ref=f53e1302]
+                  - gridcell [ref=f53e1304]:
+                    - generic [ref=f53e1305]:
+                      - button "Remove Testing" [ref=f53e1306] [cursor=pointer]
+                      - tooltip [ref=f53e1311]: Remove
+                - row [ref=f53e1312]:
+                  - gridcell "Turn" [ref=f53e1313]
+                  - gridcell [ref=f53e1315]:
+                    - generic [ref=f53e1316]:
+                      - button "Remove Turn" [ref=f53e1317] [cursor=pointer]
+                      - tooltip [ref=f53e1322]: Remove
+                - row [ref=f53e1323]:
+                  - gridcell "Web Applications" [ref=f53e1324]
+                  - gridcell [ref=f53e1326]:
+                    - generic [ref=f53e1327]:
+                      - button "Remove Web Applications" [ref=f53e1328] [cursor=pointer]
+                      - tooltip [ref=f53e1333]: Remove
+                - row [ref=f53e1334]:
+                  - gridcell "Web Design" [ref=f53e1335]
+                  - gridcell [ref=f53e1337]:
+                    - generic [ref=f53e1338]:
+                      - button "Remove Web Design" [ref=f53e1339] [cursor=pointer]
+                      - tooltip [ref=f53e1344]: Remove
+                - row [ref=f53e1345]:
+                  - gridcell "WordPress" [ref=f53e1346]
+                  - gridcell [ref=f53e1348]:
+                    - generic [ref=f53e1349]:
+                      - button "Remove WordPress" [ref=f53e1350] [cursor=pointer]
+                      - tooltip [ref=f53e1355]: Remove
+      - generic [ref=f53e1356]:
+        - generic [ref=f53e1357]:
+          - generic [ref=f53e1358]: location_on
+          - heading "Locations" [level=2] [ref=f53e1360]
+        - generic [ref=f53e1363]:
+          - generic [ref=f53e1364]: Which location(s) do you prefer working out of?
+          - generic [ref=f53e1366]:
+            - generic [ref=f53e1369]:
+              - generic: Which locations(s) do you prefer?
+              - generic: search
+              - combobox "Which locations(s) do you prefer working out of?" [ref=f53e1370]
+            - generic [ref=f53e1372]:
+              - generic [ref=f53e1373]: 0 / 5
+              - text: Locations
+            - grid
+      - generic [ref=f53e1374]:
+        - generic [ref=f53e1375]:
+          - generic [ref=f53e1376]: article
+          - heading "Cover letter (optional)" [level=2] [ref=f53e1378]
+        - generic [ref=f53e1382]:
+          - generic [ref=f53e1383]:
+            - generic: Cover letter
+            - textbox "Cover letter" [ref=f53e1385]
+          - paragraph [ref=f53e1387]: Optional
+      - generic [ref=f53e1389]:
+        - generic [ref=f53e1390]:
+          - generic [ref=f53e1391]: settings
+          - heading "Profile preferences" [level=2] [ref=f53e1393]
+        - generic [ref=f53e1395]:
+          - generic [ref=f53e1396]:
+            - img "Info" [ref=f53e1397]:
+              - generic [ref=f53e1398]: info_outline
+            - generic [ref=f53e1399]: X
+            - generic [ref=f53e1400]: Google securely stores your personal work history to give you personalized job alerts and help recruiters find the perfect job.
+          - generic [ref=f53e1401]: Personalize your Google Careers profile with job recommendations and related content? *
+          - radiogroup "Personalize your Google Careers profile with job recommendations and related content?" [ref=f53e1402]:
+            - generic [ref=f53e1403]:
+              - radio "Yes" [checked] [ref=f53e1405] [cursor=pointer]
+              - generic [ref=f53e1409]: "Yes"
+            - generic [ref=f53e1410]:
+              - radio "No" [ref=f53e1412] [cursor=pointer]
+              - generic [ref=f53e1415]: "No"
+      - generic [ref=f53e1418]:
+        - generic:
+          - checkbox "I understand that the information I provide will be used in accordance with Google's applicant and candidate privacy policy (opens in a new tab) I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks)." [checked] [disabled]
+        - generic [ref=f53e1420]:
+          - text: I understand that the information I provide will be used in accordance with
+          - link "Google's applicant and candidate privacy policy (opens in a new tab)" [ref=f53e1421] [cursor=pointer]:
+            - /url: ./privacy-policy
+            - text: Google's applicant and candidate privacy policy.
+          - generic [ref=f53e1422]: open_in_new
+          - text: I consent to the processing of my information as described in that policy including that, in limited circumstances, Google may share my contact information with trusted third parties, to assist in certain phases of the hiring process (such as conducting background checks).
+      - generic [ref=f53e1426]:
+        - checkbox "I hereby certify that, to the best of my knowledge, the provided information is true and accurate." [ref=f53e1428] [cursor=pointer]
+        - generic [ref=f53e1429]: I hereby certify that, to the best of my knowledge, the provided information is true and accurate.
+      - button "Submit profile & continue" [ref=f53e1436]:
+        - generic [ref=f53e1439]:
+          - generic [ref=f53e1440]: Submitting Careers Profile
+          - progressbar [ref=f53e1441]
+    - generic [ref=f53e1458]:
+      - generic [ref=f53e1459]:
+        - text: No longer want to store your information on Google Careers?
+        - link "Request to delete your profile (Opens in a new tab)" [ref=f53e1460] [cursor=pointer]:
+          - /url: https://support.google.com/googlecareers/answer/12174691
+          - text: Request to delete your profile
+        - generic [ref=f53e1461]: open_in_new
+      - generic [ref=f53e1463]:
+        - text: Please refer to our
+        - link "Privacy policy (Opens in a new tab)" [ref=f53e1464] [cursor=pointer]:
+          - /url: ./privacy-policy
+          - text: privacy policy
+        - generic [ref=f53e1465]: open_in_new
+        - text: ", to learn more about how your information is used including profile updates."
+  - contentinfo [ref=f53e1468]:
+    - generic [ref=f53e1470]:
+      - generic [ref=f53e1471]:
+        - heading "Follow Life at Google on" [level=2] [ref=f53e1472]
+        - list [ref=f53e1473]:
+          - listitem [ref=f53e1474]:
+            - link "View our Instagram feed (Opens in a new tab)" [ref=f53e1475] [cursor=pointer]:
+              - /url: https://www.instagram.com/lifeatgoogle/
+          - listitem [ref=f53e1480]:
+            - link "View our Twitter feed (Opens in a new tab)" [ref=f53e1481] [cursor=pointer]:
+              - /url: https://twitter.com/lifeatgoogle
+          - listitem [ref=f53e1484]:
+            - link "View our YouTube channel (Opens in a new tab)" [ref=f53e1485] [cursor=pointer]:
+              - /url: https://www.youtube.com/lifeatgoogle
+          - listitem [ref=f53e1488]:
+            - link "View LinkedIn (Opens in a new tab)" [ref=f53e1489] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/google/jobs/
+          - listitem [ref=f53e1492]:
+            - link "View our Facebook (Opens in a new tab)" [ref=f53e1493] [cursor=pointer]:
+              - /url: https://www.facebook.com/lifeatgoogle/
+      - generic [ref=f53e1498]:
+        - generic [ref=f53e1499]:
+          - heading "More about us" [level=2] [ref=f53e1500]
+          - generic [ref=f53e1501]:
+            - link "About us (opens in a new tab)" [ref=f53e1502] [cursor=pointer]:
+              - /url: https://about.google/
+              - text: About us
+              - generic [ref=f53e1503]: open_in_new
+            - link "Contact us (opens in a new tab)" [ref=f53e1505] [cursor=pointer]:
+              - /url: https://about.google/contact-google/
+              - text: Contact us
+              - generic [ref=f53e1506]: open_in_new
+            - link "Press (opens in a new tab)" [ref=f53e1508] [cursor=pointer]:
+              - /url: https://blog.google/press/
+              - text: Press
+              - generic [ref=f53e1509]: open_in_new
+        - generic [ref=f53e1511]:
+          - heading "Related Information" [level=2] [ref=f53e1512]
+          - generic [ref=f53e1513]:
+            - link "Investor relations (opens in a new tab)" [ref=f53e1514] [cursor=pointer]:
+              - /url: https://abc.xyz/investor/
+              - text: Investor relations
+              - generic [ref=f53e1515]: open_in_new
+            - link "Blog (opens in a new tab)" [ref=f53e1517] [cursor=pointer]:
+              - /url: https://blog.google/
+              - text: Blog
+              - generic [ref=f53e1518]: open_in_new
+        - generic [ref=f53e1520]:
+          - heading "Equal Opportunity" [level=2] [ref=f53e1521]
+          - paragraph [ref=f53e1522]:
+            - text: Google is proud to be an equal opportunity and affirmative action employer. We are committed to building a workforce that is representative of the users we serve, creating a culture of belonging, and providing an equal employment opportunity regardless of race, creed, color, religion, gender, sexual orientation, gender identity/expression, national origin, disability, age, genetic information, veteran status, marital status, pregnancy or related condition (including breastfeeding), expecting or parents-to-be, criminal histories consistent with legal requirements, or any other basis protected by law. See also
+            - link "Google's EEO Policy" [ref=f53e1523] [cursor=pointer]:
+              - /url: https://www.google.com/about/careers/applications/eeo/
+            - text: ","
+            - 'link "Know your rights: workplace discrimination is illegal" [ref=f53e1524] [cursor=pointer]':
+              - /url: https://careers.google.com/jobs/dist/legal/EEOC_KnowYourRights_10_20.pdf
+            - text: ","
+            - link "Belonging at Google" [ref=f53e1525] [cursor=pointer]:
+              - /url: https://about.google/belonging/
+            - text: ", and"
+            - link "How we hire" [ref=f53e1526] [cursor=pointer]:
+              - /url: https://careers.google.com/how-we-hire/
+            - text: .
+      - generic [ref=f53e1527]:
+        - link "google.com (Opens in a new tab)" [ref=f53e1529] [cursor=pointer]:
+          - /url: https://www.google.com/
+          - img "Google" [ref=f53e1530]
+        - generic [ref=f53e1531]:
+          - generic [ref=f53e1532]:
+            - link "Privacy (opens in a new tab)" [ref=f53e1534] [cursor=pointer]:
+              - /url: https://policies.google.com/privacy
+              - text: Privacy
+              - generic [ref=f53e1535]: open_in_new
+            - link "Applicant & Candidate Privacy (opens in a new tab)" [ref=f53e1538] [cursor=pointer]:
+              - /url: ./privacy-policy
+              - text: Applicant & Candidate Privacy
+              - generic [ref=f53e1539]: open_in_new
+            - link "Terms (opens in a new tab)" [ref=f53e1542] [cursor=pointer]:
+              - /url: https://policies.google.com/terms
+              - text: Terms
+              - generic [ref=f53e1543]: open_in_new
+          - link "Help (opens in a new tab)" [ref=f53e1546] [cursor=pointer]:
+            - /url: https://support.google.com/googlecareers/#topic=6095159
+            - generic [ref=f53e1547]: help
+            - text: Help
+            - generic [ref=f53e1549]: open_in_new

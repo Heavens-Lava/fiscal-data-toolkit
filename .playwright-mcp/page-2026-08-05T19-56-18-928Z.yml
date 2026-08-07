@@ -1,0 +1,304 @@
+- generic [active] [ref=f131e1]:
+  - generic [ref=f131e2]:
+    - region "Cookie Consent Manager" [ref=f131e3]:
+      - generic [ref=f131e4]:
+        - paragraph [ref=f131e5]: We use cookies to offer you the best possible website experience. Your cookie preferences will be stored in your browser’s local storage. This includes cookies necessary for the website's operation. Additionally, you can freely decide and change any time whether you accept cookies or choose to opt out of cookies to improve the website's performance, as well as cookies used to display content tailored to your interests. Your experience of the site and the services we are able to offer may be impacted if you do not accept all cookies.
+        - button "Modify Cookie Preferences" [ref=f131e6] [cursor=pointer]
+        - button "Accept All Cookies" [ref=f131e8] [cursor=pointer]
+    - banner [ref=f131e9]:
+      - generic:
+        - link "Skip to main content":
+          - /url: "#content"
+      - text: 
+      - navigation "Header" [ref=f131e10]:
+        - generic [ref=f131e12]:
+          - link [ref=f131e17] [cursor=pointer]:
+            - /url: https://careers.coloplast.com/ComfortMedical/
+          - list [ref=f131e22]:
+            - listitem [ref=f131e23]:
+              - button "Language" [ref=f131e24] [cursor=pointer]
+            - listitem [ref=f131e26]:
+              - link "View profile" [ref=f131e28] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f131e31]:
+          - list [ref=f131e37]:
+            - listitem [ref=f131e38]:
+              - link "About Us" [ref=f131e39] [cursor=pointer]:
+                - /url: https://www.comfortmedical.com/about-comfort-medical/
+            - listitem [ref=f131e40]:
+              - link "Join our Careers Network" [ref=f131e41] [cursor=pointer]:
+                - /url: https://careers.coloplast.com/ComfortMedical/lp/quicksignup_comfort/99ecf131af013c8d/?locale=en_GB
+          - list [ref=f131e47]:
+            - listitem [ref=f131e48]:
+              - link "Global Career Site" [ref=f131e49] [cursor=pointer]:
+                - /url: /
+    - main [ref=f131e51]:
+      - generic [ref=f131e52]:
+        - link "Back to search results" [ref=f131e54] [cursor=pointer]:
+          - /url: https://careers.coloplast.com/search/?createNewAlert=false&q=Front+End+Web+and+Mobile+Software+Developer&locationsearch=&optionsFacetsDD_customfield1=&optionsFacetsDD_country=&optionsFacetsDD_shifttype=
+          - generic [ref=f131e55]: 
+          - text: Back to search results
+        - generic [ref=f131e56]:
+          - search [ref=f131e58]:
+            - generic [ref=f131e60]:
+              - generic [ref=f131e61]:
+                - generic [ref=f131e62]:
+                  - generic [ref=f131e63]:
+                    - generic [ref=f131e64]: Search by Keyword
+                    - textbox "Search by Keyword" [ref=f131e65]
+                  - generic [ref=f131e66]:
+                    - generic [ref=f131e67]: Search by Location
+                    - textbox "Search by Location" [ref=f131e68]
+                - button "Show More Options" [ref=f131e71] [cursor=pointer]
+              - button "Search Jobs" [ref=f131e76] [cursor=pointer]
+          - generic [ref=f131e81]:
+            - text: 
+            - generic [ref=f131e82]:
+              - generic [ref=f131e83]: "Select how often (in days) to receive an alert:"
+              - spinbutton "Select how often (in days) to receive an alert:" [ref=f131e84]: "7"
+            - button "Create Alert" [ref=f131e86] [cursor=pointer]:
+              - generic [ref=f131e87]: ✉
+              - text: Create Alert
+        - generic [ref=f131e89]:
+          - link "Apply now »" [ref=f131e92] [cursor=pointer]:
+            - /url: /talentcommunity/apply/1404035433/?locale=en_GB
+          - generic [ref=f131e93]:
+            - heading "Front End Web and Mobile Software Developer (Remote)" [level=1] [ref=f131e98]
+            - generic [ref=f131e102]:
+              - text: "Location:"
+              - paragraph [ref=f131e104]: Coral Springs, FL, US
+            - generic [ref=f131e105]: "Job Family: Information Technology"
+            - generic [ref=f131e109]: "Country/Region: United States"
+            - generic [ref=f131e118]:
+              - paragraph [ref=f131e122]:
+                - generic [ref=f131e123]:
+                  - text: We are seeking a
+                  - strong [ref=f131e124]: Front-End Web & Mobile Developer to design
+                  - text: and deliver secure, responsive and scalable web/mobile experiences. This role plays a crucial role in designing, developing, and maintaining digital customer experience platforms that enhance patient care, improve operational efficiency, and adhere to strict healthcare regulations. In this role, you will focus on
+                  - strong [ref=f131e125]: Optimizely CMS
+                  - text: ", modern"
+                  - strong [ref=f131e126]: JavaScript frameworks
+                  - text: ", and cross-platform mobile development, with a strong emphasis on"
+                  - strong [ref=f131e127]: secure authentication and API integration
+                  - text: using JWT-based tokenization and
+                  - strong [ref=f131e128]: Azure Entra External ID
+                  - text: .
+              - paragraph [ref=f131e129]:
+                - strong [ref=f131e130]: Major Areas of Accountability
+              - paragraph [ref=f131e131]:
+                - strong [ref=f131e132]: Web, CMS & Front-End Development
+              - list [ref=f131e133]:
+                - listitem [ref=f131e134]:
+                  - generic [ref=f131e135]:
+                    - text: Develop and maintain
+                    - strong [ref=f131e136]: Optimizely CMS (Episerver)
+                    - text: solutions, including reusable components, page templates, and content-driven experiences.
+                - listitem [ref=f131e137]:
+                  - generic [ref=f131e138]:
+                    - text: Build responsive, accessible, and high-performance user interfaces using
+                    - strong [ref=f131e139]: JavaScript (ES6+), HTML5, and CSS3.
+                - listitem [ref=f131e140]:
+                  - generic [ref=f131e141]:
+                    - text: Implement and maintain front-end applications using
+                    - strong [ref=f131e142]: React, Vue.js, and/or Angular.
+                - listitem [ref=f131e143]: Ensure cross-browser compatibility and mobile-first design principles.
+                - listitem [ref=f131e144]: Microsoft .NET Razor Pages, MVC, MVVM patterns
+              - paragraph [ref=f131e145]
+              - paragraph [ref=f131e146]:
+                - strong [ref=f131e147]: Mobile Development
+              - list [ref=f131e148]:
+                - listitem [ref=f131e149]:
+                  - generic [ref=f131e150]:
+                    - text: Build cross-platform mobile applications using
+                    - strong [ref=f131e151]: React Native
+                    - text: or other frameworks.
+                - listitem [ref=f131e152]: Share design patterns and business logic between web and mobile where appropriate.
+                - listitem [ref=f131e153]: Collaborate with designers and product teams to deliver intuitive mobile experiences.
+              - paragraph [ref=f131e154]
+              - paragraph [ref=f131e155]:
+                - strong [ref=f131e156]: Security & Identity
+              - list [ref=f131e157]:
+                - listitem [ref=f131e158]:
+                  - generic [ref=f131e159]:
+                    - text: Implement
+                    - strong [ref=f131e160]: JWT-based authentication and authorization
+                    - text: for secure front-end and mobile applications.
+                - listitem [ref=f131e161]:
+                  - generic [ref=f131e162]:
+                    - text: Integrate applications with
+                    - strong [ref=f131e163]: Azure Entra External ID (CIAM)
+                    - text: for external user identity, authentication, and authorization flows.
+                - listitem [ref=f131e164]: Secure API communication using access tokens, refresh tokens, and role-based or claims-based access control.
+                - listitem [ref=f131e165]: Apply front-end security best practices to protect against common vulnerabilities (XSS, CSRF, token leakage).
+                - listitem [ref=f131e166]: Lead the team in adhering to strict healthcare regulations, including HIPAA, and take a proactive approach to conducting regular security audits to identify and address potential vulnerabilities.
+                - listitem [ref=f131e167]: Conduct regular security audits to identify and address potential vulnerabilities
+              - paragraph [ref=f131e168]
+              - paragraph [ref=f131e169]:
+                - strong [ref=f131e170]: API Integration & Tooling
+              - list [ref=f131e171]:
+                - listitem [ref=f131e172]: Consume and integrate RESTful APIs and services securely from front-end and mobile applications.
+                - listitem [ref=f131e173]: Use Postman to test, validate, and debug APIs, authentication flows, and token-based security.
+                - listitem [ref=f131e174]: Collaborate with back-end teams to define API contracts and error-handling standards.
+              - paragraph [ref=f131e175]
+              - paragraph [ref=f131e176]:
+                - strong [ref=f131e177]: Quality, Performance & Collaboration
+              - list [ref=f131e178]:
+                - listitem [ref=f131e179]: Optimize applications for performance, accessibility (WCAG), SEO, and scalability.
+                - listitem [ref=f131e180]: Write clean, maintainable, and well-documented code.
+                - listitem [ref=f131e181]: Participate in code reviews, sprint planning, and architectural discussions.
+                - listitem [ref=f131e182]: Troubleshoot and resolve front-end, mobile, and API-related issues across environments.
+                - listitem [ref=f131e183]: Follow internally established processes for software development.
+                - listitem [ref=f131e184]: Communicate effectively with management, teammates and other departments to source and collect data
+                - listitem [ref=f131e185]: Support the team culture within the organization by adhering to policies, practices, and the Company’s mission statement.
+                - listitem [ref=f131e186]: Drive the creation and maintenance of comprehensive documentation for advanced software architecture, design principles, and deployment processes.
+                - listitem [ref=f131e187]: Provide expert-level troubleshooting and resolution for software issues, demonstrating a deep understanding of system architecture and dependencies
+                - listitem [ref=f131e188]: of Ethics on Interactions with Healthcare Professionals, and company policies.
+                - listitem [ref=f131e189]: Comfort Medical employees are required to conduct business to the highest ethical and professional standards; comply with applicable laws and regulations, the Advamed Code of Ethics on Interactions with Healthcare Professionals, and company policies.
+                - listitem [ref=f131e190]: Other job duties as assigned
+              - paragraph [ref=f131e191]
+              - paragraph [ref=f131e192]:
+                - strong [ref=f131e193]: Basic Qualifications
+              - list [ref=f131e194]:
+                - listitem [ref=f131e195]: Bachelor’s degree in Computer Science, Information Technology, or a related field.
+                - listitem [ref=f131e196]: Minimum of 4 years as a Front-End web and mobile developer building responsive web and mobile solutions.
+                - listitem [ref=f131e197]: Strong problem-solving skills and ability to translate business requirements into technical solutions.
+                - listitem [ref=f131e198]: Demonstrated ability to apply SOLID principles to design and develop maintainable and scalable software.
+                - listitem [ref=f131e199]: Experience working with Agile tools and frameworks like Scrum, Kanban, or Lean.
+                - listitem [ref=f131e200]: "Experience with the following platforms:"
+              - list [ref=f131e201]:
+                - listitem [ref=f131e202]:
+                  - list [ref=f131e203]:
+                    - listitem [ref=f131e204]:
+                      - strong [ref=f131e205]: Optimizely CMS
+                    - listitem [ref=f131e206]:
+                      - strong [ref=f131e207]: Vue.js
+                      - generic [ref=f131e208]:
+                        - text: and at least one additional framework (
+                        - strong [ref=f131e209]: React or Angular
+                        - text: )
+                    - listitem [ref=f131e210]: Building mobile applications with React Native
+                    - listitem [ref=f131e211]:
+                      - generic [ref=f131e212]:
+                        - text: Implementing
+                        - strong [ref=f131e213]: JWT authentication
+                        - text: and securing API calls
+                    - listitem [ref=f131e214]:
+                      - generic [ref=f131e215]:
+                        - text: Working knowledge of
+                        - strong [ref=f131e216]: Azure Entra External ID
+                        - text: (Azure AD B2C / CIAM concepts)
+                    - listitem [ref=f131e217]:
+                      - strong [ref=f131e218]: Postman
+                      - text: for API testing and validation
+                    - listitem [ref=f131e219]: REST APIs and modern authentication flows (OAuth 2.0 / OpenID Connect)
+                    - listitem [ref=f131e220]: Git and CI/CD pipelines
+                    - listitem [ref=f131e221]: Microsoft.NET and Razor Pages
+                - listitem [ref=f131e222]: Must be in person and onsite for first 2 weeks of training.
+              - paragraph [ref=f131e223]:
+                - strong [ref=f131e224]
+              - paragraph [ref=f131e225]:
+                - strong [ref=f131e226]: Preferred Qualifications
+              - list [ref=f131e227]:
+                - listitem [ref=f131e228]:
+                  - generic [ref=f131e229]:
+                    - text: Experience with
+                    - strong [ref=f131e230]: Optimizely experimentation, personalization, or A/B testing
+                - listitem [ref=f131e231]: Proficiency in TypeScript, Javascript, JQuery
+                - listitem [ref=f131e232]: Experience with headless or composable CMS architectures
+                - listitem [ref=f131e233]: Familiarity with front-end security standards and OWASP best practices
+                - listitem [ref=f131e234]:
+                  - generic [ref=f131e235]:
+                    - text: Experience with cloud platforms such as
+                    - strong [ref=f131e236]: Microsoft Azure
+                - listitem [ref=f131e237]: Understanding performance optimization and monitoring tools such as Azure Insights
+                - listitem [ref=f131e238]: Experience mentoring and working with Backend development on front end specifications
+                - listitem [ref=f131e239]: Comfortable working with diverse teams and fostering a positive and productive work environment
+                - listitem [ref=f131e240]:
+                  - generic [ref=f131e241]: Ability to provide samples or portfolio of real-world front-end web or mobile development.
+                  - paragraph [ref=f131e242]: "At Coloplast, we believe in recognizing and rewarding the contributions of our employees. Our total rewards package is designed to support your well-being, foster your professional growth, and ensure a healthy work-life balance. Here is some of what you can expect:"
+                  - list [ref=f131e243]:
+                    - listitem [ref=f131e244]:
+                      - generic [ref=f131e245]:
+                        - strong [ref=f131e246]: Health and Wellness
+                        - text: ": Comprehensive medical, dental, and vision insurance plans to keep you and your family healthy. Plus, access to company sponsored wellness programs and mental health resources, paid leave of absence for qualifying events and generous paid parental leave for both birthing and non-birthing parents."
+                    - listitem [ref=f131e247]:
+                      - generic [ref=f131e248]:
+                        - strong [ref=f131e249]: "Financial Security:"
+                        - text: A competitive 401(k) plan with company match that vest immediately, financial planning services to help you secure your future, and corporate discount programs for goods and services.
+                    - listitem [ref=f131e250]:
+                      - generic [ref=f131e251]:
+                        - strong [ref=f131e252]: "Work-Life Balance:"
+                        - text: Generous paid time off, flexible work hours, and flexible work arrangement options to help you balance your personal and professional life may be available.
+                    - listitem [ref=f131e253]:
+                      - generic [ref=f131e254]:
+                        - strong [ref=f131e255]: "Professional Development:"
+                        - text: Opportunities for continuous learning and career advancement through training programs, mentorship, and tuition reimbursement.
+                    - listitem [ref=f131e256]:
+                      - generic [ref=f131e257]:
+                        - strong [ref=f131e258]: "Recognition and Rewards:"
+                        - text: Recognition programs to celebrate achievements and contributions, including peer recognition, bonuses, awards, and special events.
+                    - listitem [ref=f131e259]:
+                      - generic [ref=f131e260]:
+                        - strong [ref=f131e261]: Community and Culture
+                        - text: ": A supportive work environment where everyone feels valued and has a sense of belonging. Participate in team-building activities, volunteer opportunities, and company-sponsored events. Sustainability strategy that outlines our ambitions for how to run our company in a more sustainable way."
+                    - listitem [ref=f131e262]:
+                      - generic [ref=f131e263]:
+                        - strong [ref=f131e264]: "Competitive Compensation:"
+                        - strong [ref=f131e265]:
+                          - emphasis [ref=f131e266]
+                        - text: The compensation range for this position is $81,655 - $122,482 . Actual compensation is influenced by a variety of factors including but not limited to skills, experience, qualifications, and geographic location. Hired candidates may be eligible to receive additional compensation in the form of bonuses and/or incentives.
+              - paragraph [ref=f131e267]
+              - paragraph [ref=f131e268]:
+                - generic [ref=f131e270]:
+                  - emphasis [ref=f131e271]:
+                    - generic [ref=f131e272]: Comfort Medical provides an extensive selection of name brand catheter and ostomy supplies to thousands of customers nationwide. Our attention to detail, unmatched customer service, and dedication to helping our customers live happier, healthier lives are just a few of the many reasons we are one of the fastest growing catheter and ostomy supply companies in the nation!
+                  - emphasis
+              - paragraph [ref=f131e274]:
+                - emphasis [ref=f131e277]
+              - paragraph [ref=f131e278]:
+                - generic [ref=f131e280]:
+                  - generic [ref=f131e281]: Comfort Medical employees are required to conduct business to the highest ethical and professional standards; comply with applicable laws and regulations, the
+                  - generic [ref=f131e283]: Advamed Code of Ethics on Interactions with Healthcare Professionals, and company policies.
+              - paragraph [ref=f131e285]
+              - paragraph [ref=f131e287]:
+                - generic [ref=f131e288]: Comfort Medical is committed to a policy of Equal Employment Opportunity (EEO) which means we employ and promote individuals based on their merits, regardless of race, color, religion, sex, national origin, age, disability, veteran status, pregnancy, sexual orientation, gender identity or expression, genetic information, marital status, citizenship status, status with regards to public assistance or any other protected classification.
+              - paragraph [ref=f131e292]:
+                - generic [ref=f131e293]: "61423#LI-CM #LI-REMOTE"
+            - paragraph [ref=f131e294]:
+              - generic [ref=f131e295]:
+                - strong [ref=f131e296]: "Nearest Major Market:"
+                - text: Fort Lauderdale
+                - strong [ref=f131e297]: "Nearest Secondary Market:"
+                - text: Miami
+          - link "Apply now »" [ref=f131e299] [cursor=pointer]:
+            - /url: /talentcommunity/apply/1404035433/?locale=en_GB
+    - contentinfo [ref=f131e301]:
+      - generic [ref=f131e304]:
+        - list [ref=f131e305]:
+          - listitem [ref=f131e306]:
+            - link "Privacy Policy" [ref=f131e307] [cursor=pointer]:
+              - /url: https://www.comfortmedical.com/privacy-policy/
+          - listitem [ref=f131e308]:
+            - link "Terms & Conditions" [ref=f131e309] [cursor=pointer]:
+              - /url: https://www.comfortmedical.com/terms-and-conditions/
+          - listitem [ref=f131e310]:
+            - link "Cookie Policy" [ref=f131e311] [cursor=pointer]:
+              - /url: https://www.comfortmedical.com/cookie-policy/
+        - list [ref=f131e313]:
+          - listitem [ref=f131e314]:
+            - link "Visit our Facebook page" [ref=f131e315] [cursor=pointer]:
+              - /url: https://www.facebook.com/comfortmedical/
+              - generic [ref=f131e316]: Opens in a new tab.
+          - listitem [ref=f131e319]:
+            - link "Follow us on LinkedIn" [ref=f131e320] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/9230518
+              - generic [ref=f131e321]: Opens in a new tab.
+          - listitem [ref=f131e324]:
+            - link "Follow us on X" [ref=f131e325] [cursor=pointer]:
+              - /url: https://twitter.com/Comfort_Medical
+              - generic [ref=f131e326]: Opens in a new tab.
+          - listitem [ref=f131e329]:
+            - link "Follow us on Instagram" [ref=f131e330] [cursor=pointer]:
+              - /url: https://www.instagram.com/comfort.medical/
+              - generic [ref=f131e331]: Opens in a new tab.
+  - generic: Yes No   Yes No Yes No   Yes No Yes No   Yes No

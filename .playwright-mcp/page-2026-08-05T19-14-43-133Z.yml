@@ -1,0 +1,107 @@
+- generic [ref=f30e4]:
+  - generic [ref=f30e6]:
+    - banner [ref=f30e7]:
+      - generic [ref=f30e8]:
+        - link [ref=f30e10] [cursor=pointer]:
+          - /url: /therapynotes/
+          - img "TherapyNotes.com" [ref=f30e11]
+        - heading "Software Developer" [level=1] [ref=f30e12]
+        - generic [ref=f30e13]:
+          - paragraph [ref=f30e14]:
+            - strong [ref=f30e16]: Remote
+            - text: ·Development·Full time
+          - generic [ref=f30e19]:
+            - generic [ref=f30e20]: Philadelphia,
+            - generic [ref=f30e21]: Pennsylvania,
+            - text: United States
+    - generic [ref=f30e22]:
+      - navigation [ref=f30e24]:
+        - link "Overview" [ref=f30e26]:
+          - /url: /therapynotes/j/D3368D6D4F/
+        - link "Application" [ref=f30e27] [cursor=pointer]:
+          - /url: /therapynotes/j/D3368D6D4F/apply/
+      - main [ref=f30e28]:
+        - button "Share this job" [ref=f30e31] [cursor=pointer]
+        - region [ref=f30e37]:
+          - heading "Description" [level=2] [ref=f30e38]
+          - generic [ref=f30e39]:
+            - paragraph [ref=f30e40]:
+              - strong [ref=f30e41]: About Us
+            - paragraph [ref=f30e42]: TherapyNotes is the go-to superhero for behavioral health Practice Management and EHR software! Our top-notch SaaS solution handles scheduling, billing, documenting, telehealth, and more so clinicians can focus on awesome patient care.
+            - paragraph [ref=f30e43]: We're a dynamic team of pros who love to innovate and push the envelope, keeping our software cutting-edge. Join us, and let's revolutionize behavioral health software together while making a real difference!
+            - paragraph [ref=f30e44]:
+              - strong [ref=f30e45]: About The Job
+            - paragraph [ref=f30e46]: TherapyNotes is seeking a Software Developer to join our growing team. We are looking for a passionate engineer skilled in building scalable and responsive web applications and services using Angular and ASP.NET Core. The ideal candidate will have demonstrated experience in implementing robust APIs using event-based software design and adhering to Service-Oriented Architecture (SOA) principles. They should excel in a collaborative environment.
+            - paragraph [ref=f30e47]:
+              - strong [ref=f30e48]: "What You'll Do:"
+            - list [ref=f30e49]:
+              - listitem [ref=f30e50]: Perform full-stack development including front end, business logic, and data access layers.
+              - listitem [ref=f30e51]: Responsible for the entire development lifecycle from planning to release and support
+              - listitem [ref=f30e52]: Actively contribute to software architecture decisions, design strategies, and code reviews to ensure high-quality, scalable, and maintainable solutions
+              - listitem [ref=f30e53]: Collaborate closely with development team members and stakeholders
+              - listitem [ref=f30e54]: Maintain high standards, attention to detail, accuracy and completeness
+            - paragraph [ref=f30e55]:
+              - strong [ref=f30e56]: "What We're Looking For:"
+            - list [ref=f30e57]:
+              - listitem [ref=f30e58]: 3 or more years of experience developing software in an Agile, team-based environment
+              - listitem [ref=f30e59]: 1 or more years of experience developing responsive web applications
+              - listitem [ref=f30e60]:
+                - strong [ref=f30e61]: Expertise with Angular, ASP.NET Core, C#, JavaScript, TypeScript, CSS, SASS, and HTML
+              - listitem [ref=f30e62]:
+                - strong [ref=f30e63]: BS and/or MS in a technical discipline (Computer Science or Software Engineering required)
+              - listitem [ref=f30e64]: Strong understanding of OOP concepts and design patterns
+              - listitem [ref=f30e65]: Experience in building robust APIs and adhering to Service-Oriented Architecture (SOA) principles
+              - listitem [ref=f30e66]: Familiarity with event-based software design and event-driven architecture
+              - listitem [ref=f30e67]: Experience with PostgreSQL or other relational databases, and Entity Framework Core or similar object-relational mapping frameworks
+              - listitem [ref=f30e68]: Excellent problem solving and communication skills
+            - paragraph [ref=f30e69]:
+              - strong [ref=f30e70]: "What We Offer:"
+            - list [ref=f30e71]:
+              - listitem [ref=f30e72]: Competitive salary - $65,000-$115,000
+              - listitem [ref=f30e73]: Employer sponsored health, dental, vision, life, and disability insurance
+              - listitem [ref=f30e74]: Retirement plan with company contribution
+              - listitem [ref=f30e75]: Annual company profit sharing
+              - listitem [ref=f30e76]: Personal development/training budget
+              - listitem [ref=f30e77]: Open, collaborative work environment
+              - listitem [ref=f30e78]: Extensive 2-week onboarding plan
+              - listitem [ref=f30e79]: Comprehensive mentorship program
+            - paragraph
+            - paragraph [ref=f30e80]: "TherapyNotes LLC is an Equal Opportunity Employer and does not discriminate based on race, color, religion, sex, national origin, age, disability, genetic information, or any other protected status under federal, state, or local law. We are committed to providing a workplace free of discrimination and harassment. For more information about your rights under federal employment laws, please review the following:"
+            - list [ref=f30e81]:
+              - listitem [ref=f30e82]:
+                - 'link "Know Your Rights: Workplace Discrimination is Illegal" [ref=f30e83] [cursor=pointer]':
+                  - /url: https://www.eeoc.gov/poster
+              - listitem [ref=f30e84]:
+                - 'link "Family and Medical Leave Act (FMLA): Employee Rights Under FMLA" [ref=f30e85] [cursor=pointer]':
+                  - /url: https://www.dol.gov/agencies/whd/posters/fmla
+            - paragraph [ref=f30e86]:
+              - text: If you require a reasonable accommodation during the application process, please contact
+              - link "humanresources@therapynotes.com" [ref=f30e87] [cursor=pointer]:
+                - /url: mailto:humanresources@therapynotes.com
+              - text: .#LI-Remote#LI-AC15/5/2026
+        - region [ref=f30e88]:
+          - heading "Requirements" [level=2] [ref=f30e89]
+          - generic:
+            - paragraph
+        - region [ref=f30e90]:
+          - heading "Benefits" [level=2] [ref=f30e91]
+          - generic:
+            - paragraph
+        - button "Apply for this job" [ref=f30e94] [cursor=pointer]
+  - contentinfo [ref=f30e95]:
+    - generic [ref=f30e96]:
+      - link "View website" [ref=f30e98] [cursor=pointer]:
+        - /url: https://www.therapynotes.com
+      - generic [ref=f30e99]:
+        - link "View all jobs" [ref=f30e100] [cursor=pointer]:
+          - /url: /therapynotes/
+        - link "Help" [ref=f30e101] [cursor=pointer]:
+          - /url: https://jobseekers.workable.com/hc/en
+    - generic [ref=f30e104]:
+      - link "Accessibility" [ref=f30e106] [cursor=pointer]:
+        - /url: https://workable.com/web-accessibility-statement
+      - button "Cookie settings" [ref=f30e110] [cursor=pointer]
+      - generic [ref=f30e111]:
+        - text: Powered by
+        - link "Workable" [ref=f30e112] [cursor=pointer]:
+          - /url: https://jobs.workable.com/?utm_campaign=careers_page&utm_content=careers_page&utm_medium=feature&utm_source=careers_page

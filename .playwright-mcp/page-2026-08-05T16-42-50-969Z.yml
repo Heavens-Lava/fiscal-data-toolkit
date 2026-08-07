@@ -1,0 +1,91 @@
+- generic [active] [ref=f24e1]:
+  - generic [ref=f24e2]:
+    - navigation [ref=f24e3]:
+      - generic [ref=f24e4]:
+        - link "Jeffrey's Tech Solutions" [ref=f24e5] [cursor=pointer]:
+          - /url: "#/"
+        - list [ref=f24e8]:
+          - listitem [ref=f24e9]: Home
+          - listitem [ref=f24e10]:
+            - link "Services" [ref=f24e11] [cursor=pointer]:
+              - /url: "#/services"
+          - listitem [ref=f24e12]:
+            - link "Projects" [ref=f24e13] [cursor=pointer]:
+              - /url: "#/projects"
+          - listitem [ref=f24e14]:
+            - link "About Me" [ref=f24e15] [cursor=pointer]:
+              - /url: "#/aboutus"
+        - button "Toggle dark mode" [ref=f24e19] [cursor=pointer]
+    - generic [ref=f24e21]:
+      - generic [ref=f24e24]:
+        - generic [ref=f24e25]:
+          - generic [ref=f24e26]: ▶
+          - text: jeffreymacy.com — web & software solutions
+        - heading "Ship fast. Build smart. Scale further." [level=1] [ref=f24e28]:
+          - text: Ship fast.
+          - generic [ref=f24e29]: Build smart.
+          - generic [ref=f24e30]: Scale further.
+        - paragraph [ref=f24e31]: React, Supabase, Stripe — conversion-focused websites and apps built for your business. Quote in 24 hours.
+        - generic [ref=f24e32]:
+          - link [ref=f24e33] [cursor=pointer]:
+            - /url: "#/services"
+            - button "View Services" [ref=f24e34]
+          - button "Contact Jeffrey" [ref=f24e37] [cursor=pointer]
+          - link [ref=f24e40] [cursor=pointer]:
+            - /url: "#/projects"
+            - button "View Projects" [ref=f24e41]
+        - generic [ref=f24e44]:
+          - paragraph [ref=f24e45]: ▶ pricing
+          - generic [ref=f24e46]:
+            - generic [ref=f24e47]:
+              - generic [ref=f24e48]: Starter
+              - generic [ref=f24e49]: $500
+            - generic [ref=f24e50]:
+              - generic [ref=f24e51]: POPULAR
+              - generic [ref=f24e52]: Pro
+              - generic [ref=f24e53]: $1,000
+            - generic [ref=f24e54]:
+              - generic [ref=f24e55]: Custom
+              - generic [ref=f24e56]: $1,500+
+      - generic [ref=f24e58]:
+        - generic [ref=f24e59]:
+          - generic [ref=f24e60]: ▶
+          - text: next-steps
+        - heading "Ready to Build Something Great?" [level=2] [ref=f24e61]
+        - paragraph [ref=f24e62]: Tell me about your project and I'll send a tailored plan within 24 hours. Government-grade engineering, freelance prices.
+        - generic [ref=f24e63]:
+          - generic [ref=f24e64]:
+            - generic [ref=f24e69]: ▶ Consult
+            - heading "Free Consultation" [level=3] [ref=f24e70]
+            - paragraph [ref=f24e71]: 45-minute strategy session — no strings, no pitch deck.
+          - generic [ref=f24e72]:
+            - generic [ref=f24e80]: ▶ Speed
+            - heading "Fast Delivery" [level=3] [ref=f24e81]
+            - paragraph [ref=f24e82]: Starter sites launch in 2–3 weeks. Custom builds in 4–8.
+          - generic [ref=f24e83]:
+            - generic [ref=f24e89]: ▶ Quality
+            - heading "Satisfaction Guarantee" [level=3] [ref=f24e90]
+            - paragraph [ref=f24e91]: 100% satisfaction or your money back. No hidden fees.
+        - generic [ref=f24e94]:
+          - generic [ref=f24e95]:
+            - generic [ref=f24e96]: ▶ get-started
+            - paragraph [ref=f24e97]: Book a free call or reach out directly — I respond same business day.
+            - generic [ref=f24e98]:
+              - link "(602) 619-4553" [ref=f24e99] [cursor=pointer]:
+                - /url: tel:6026194553
+              - link "macy.jeffreyj@gmail.com" [ref=f24e102] [cursor=pointer]:
+                - /url: mailto:macy.jeffreyj@gmail.com
+          - generic [ref=f24e106]:
+            - button "Book a Free Consultation" [ref=f24e107] [cursor=pointer]
+            - paragraph [ref=f24e110]: No commitment. Free 45-min strategy call.
+      - list [ref=f24e112]:
+        - listitem [ref=f24e113]:
+          - link "LinkedIn" [ref=f24e114] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/jeffrey-macy-176746146/
+        - listitem [ref=f24e117]:
+          - link "GitHub" [ref=f24e118] [cursor=pointer]:
+            - /url: https://github.com/Heavens-Lava
+        - listitem [ref=f24e121]:
+          - link "Mail" [ref=f24e122] [cursor=pointer]:
+            - /url: mailto:macy.jeffreyj@gmail.com
+  - button "💬" [ref=f24e125] [cursor=pointer]

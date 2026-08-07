@@ -1,0 +1,85 @@
+- generic [ref=f24e9]:
+  - generic [ref=f24e10]:
+    - banner [ref=f24e13]:
+      - generic [ref=f24e14]:
+        - img "TherapyNotes.com" [ref=f24e15]
+        - heading "Careers at TherapyNotes" [level=1] [ref=f24e16]
+        - paragraph
+        - paragraph [ref=f24e17]:
+          - generic [ref=f24e18]: Your chance to work with the leading EHR in Behavioral Health is here!
+          - text: Check out our current listings for an opportunity to do amazing work with awesome people.
+        - link "View jobs" [ref=f24e21] [cursor=pointer]:
+          - /url: "#jobs"
+    - region [ref=f24e23]:
+      - generic [ref=f24e25]:
+        - heading "Job Openings" [level=2] [ref=f24e26]
+        - search [ref=f24e28]
+        - generic [ref=f24e30]:
+          - list [ref=f24e31]:
+            - listitem [ref=f24e32]:
+              - link "Senior Software Developer Development Philadelphia, Pennsylvania, United States" [ref=f24e33] [cursor=pointer]:
+                - /url: /therapynotes/j/BBCF44BA41/
+              - heading "Senior Software Developer" [level=3] [ref=f24e35]
+              - strong [ref=f24e38]: Remote
+              - generic [ref=f24e41]:
+                - generic [ref=f24e42]: Philadelphia,
+                - generic [ref=f24e43]: Pennsylvania,
+                - text: United States
+              - generic [ref=f24e44]: Development
+              - generic [ref=f24e45]: Full time
+            - listitem [ref=f24e46]:
+              - link "Senior Quality Assurance Engineer QA Philadelphia, Pennsylvania, United States" [ref=f24e47] [cursor=pointer]:
+                - /url: /therapynotes/j/CFB11D93EC/
+              - heading "Senior Quality Assurance Engineer" [level=3] [ref=f24e49]
+              - strong [ref=f24e52]: Remote
+              - generic [ref=f24e55]:
+                - generic [ref=f24e56]: Philadelphia,
+                - generic [ref=f24e57]: Pennsylvania,
+                - text: United States
+              - generic [ref=f24e58]: QA
+              - generic [ref=f24e59]: Full time
+            - listitem [ref=f24e60]:
+              - link "Senior Software Developer (Agentic Development) Development Philadelphia, Pennsylvania, United States" [ref=f24e61] [cursor=pointer]:
+                - /url: /therapynotes/j/4D90EA1129/
+              - heading "Senior Software Developer (Agentic Development)" [level=3] [ref=f24e63]
+              - strong [ref=f24e66]: Remote
+              - generic [ref=f24e69]:
+                - generic [ref=f24e70]: Philadelphia,
+                - generic [ref=f24e71]: Pennsylvania,
+                - text: United States
+              - generic [ref=f24e72]: Development
+              - generic [ref=f24e73]: Full time
+            - listitem [ref=f24e74]:
+              - link "Software Developer Development Philadelphia, Pennsylvania, United States" [ref=f24e75] [cursor=pointer]:
+                - /url: /therapynotes/j/D3368D6D4F/
+              - heading "Software Developer" [level=3] [ref=f24e77]
+              - strong [ref=f24e80]: Remote
+              - generic [ref=f24e83]:
+                - generic [ref=f24e84]: Philadelphia,
+                - generic [ref=f24e85]: Pennsylvania,
+                - text: United States
+              - generic [ref=f24e86]: Development
+              - generic [ref=f24e87]: Full time
+          - generic [ref=f24e88]:
+            - paragraph [ref=f24e89]:
+              - paragraph [ref=f24e90]:
+                - text: Can’t find the right role? Email your resume to
+                - link "therapynotes@jobs.workablemail.com" [ref=f24e91] [cursor=pointer]:
+                  - /url: mailto:therapynotes@jobs.workablemail.com
+                - text: to be considered for new positions in the future.
+            - link "Email my resume" [ref=f24e92] [cursor=pointer]:
+              - /url: mailto:therapynotes@jobs.workablemail.com
+  - contentinfo [ref=f24e93]:
+    - generic [ref=f24e94]:
+      - link "View website" [ref=f24e96] [cursor=pointer]:
+        - /url: https://www.therapynotes.com
+      - link "Help" [ref=f24e98] [cursor=pointer]:
+        - /url: https://jobseekers.workable.com/hc/en
+    - generic [ref=f24e101]:
+      - link "Accessibility" [ref=f24e103] [cursor=pointer]:
+        - /url: https://workable.com/web-accessibility-statement
+      - button "Cookie settings" [ref=f24e107] [cursor=pointer]
+      - generic [ref=f24e108]:
+        - text: Powered by
+        - link "Workable" [ref=f24e109] [cursor=pointer]:
+          - /url: https://jobs.workable.com/?utm_campaign=careers_page&utm_content=careers_page&utm_medium=feature&utm_source=careers_page
