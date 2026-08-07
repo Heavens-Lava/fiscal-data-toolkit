@@ -212,10 +212,19 @@ export function horizontalBarChart(points, { fmtTick, fmtVal }) {
   const valueSize = Math.max(10, Math.round(16 * scale));
   const tickSize = Math.max(10, Math.round(14 * scale));
   const w = PW, h = top + points.length * rowH + 34;
-  const max = Math.max(...points.map((p) => p.v));
-  const ticks = niceTicks(0, max, 4).filter((t) => t >= 0);
+  // Diverging-safe domain: when every value is >= 0 this reduces to the old
+  // [0, max] behavior exactly (zeroX lands on x0, bars grow rightward only).
+  // When values are negative (e.g. "net migration", "% change"), the domain
+  // spans below 0 too — otherwise xOf() folds negative values to a ~0-width
+  // sliver at x0 regardless of magnitude, which misrepresents them as
+  // negligible instead of proportionally showing how negative they are.
+  const domainMin = Math.min(0, ...points.map((p) => p.v));
+  const domainMax = Math.max(0, ...points.map((p) => p.v));
+  const ticks = niceTicks(domainMin, domainMax, 4);
   const x0 = labelW, x1 = w - rightW;
-  const xOf = (v) => x0 + (x1 - x0) * (v / ticks[ticks.length - 1]);
+  const tickSpan = ticks[ticks.length - 1] - ticks[0] || 1;
+  const xOf = (v) => x0 + (x1 - x0) * (v - ticks[0]) / tickSpan;
+  const zeroX = xOf(0);
   let s = "";
   for (const t of ticks) {
     const x = xOf(t);
@@ -224,10 +233,14 @@ export function horizontalBarChart(points, { fmtTick, fmtVal }) {
   }
   points.forEach((p, i) => {
     const y = top + i * rowH;
-    const bw = Math.max(xOf(p.v) - x0, 2);
+    const barX = Math.min(xOf(p.v), zeroX);
+    const bw = Math.max(Math.abs(xOf(p.v) - zeroX), 2);
+    const negative = p.v < 0;
+    const labelX = negative ? barX - 10 : barX + bw + 10;
+    const anchor = negative ? ` text-anchor="end"` : "";
     s += `<text x="0" y="${y + barH + 2}" font-size="${labelSize}" font-weight="600" fill="${C.ink2}">${esc(p.label)}</text>`;
-    s += `<rect x="${x0}" y="${y + 2}" width="${bw}" height="${barH}" rx="4" fill="${p.color || C.s1}"/>`;
-    s += `<text x="${x0 + bw + 10}" y="${y + barH}" font-size="${valueSize}" font-weight="650" fill="${C.ink}">${esc(fmtVal(p.v))}</text>`;
+    s += `<rect x="${barX}" y="${y + 2}" width="${bw}" height="${barH}" rx="4" fill="${p.color || C.s1}"/>`;
+    s += `<text x="${labelX}" y="${y + barH}" font-size="${valueSize}" font-weight="650" fill="${C.ink}"${anchor}>${esc(fmtVal(p.v))}</text>`;
   });
   return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
 }
