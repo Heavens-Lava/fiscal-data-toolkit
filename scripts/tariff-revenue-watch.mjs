@@ -112,8 +112,17 @@ const html = cardHTML({
   vintage: latestRow.record_date,
 });
 
+// The strongest, cleanest comparison is two consecutive COMPLETE fiscal
+// years (no partial-year asterisk needed) — surfaced as the lead hook,
+// ahead of the current-year partial comparison.
+const lastFullYear = isPartialYear ? years[years.length - 2] : years[years.length - 1];
+const priorFullYear = years.find((y) => y.fy === lastFullYear?.fy - 1);
+const fullYearMultiple = priorFullYear ? lastFullYear.fytd / priorFullYear.fytd : null;
+
 const facebook = [
-  "Tariff revenue check:",
+  fullYearMultiple != null
+    ? `Tariff revenue nearly ${fullYearMultiple.toFixed(1)}x'd in a single year: the federal government collected ${money(lastFullYear.fytd)} in customs duties in FY${lastFullYear.fy}, up from ${money(priorFullYear.fytd)} in FY${priorFullYear.fy} — both complete fiscal years, no partial-year comparison needed.`
+    : "Tariff revenue check:",
   "",
   `The federal government has collected ${money(latest.fytd)} in customs duties (tariffs) so far in FY${latest.fy}, through ${latestRow.record_date}.`,
   ...(yoyChange != null ? [`That's ${yoyChange >= 0 ? "up" : "down"} ${Math.abs(yoyChange).toFixed(0)}% from the same point last fiscal year (${money(priorFYTD)}) — a true apples-to-apples, same-point-in-the-fiscal-year comparison.`] : []),
