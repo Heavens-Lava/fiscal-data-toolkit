@@ -15,7 +15,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { engagementCTA, fred, screenshot, tableCard, toCSV } from "./lib/chart-kit.mjs";
+import { C, engagementCTA, fred, screenshot, tableCard, toCSV } from "./lib/chart-kit.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -52,7 +52,10 @@ const ITEMS = [
 ];
 
 console.log(`Fetching ${ITEMS.length} FRED series...`);
-const seriesData = await Promise.all(ITEMS.map((item) => fred(item.seriesId)));
+const [seriesData, cpiSeries] = await Promise.all([
+  Promise.all(ITEMS.map((item) => fred(item.seriesId))),
+  fred("CPIAUCNS"), // headline CPI, not seasonally adjusted — the inflation benchmark for these multiples
+]);
 
 const rows = ITEMS.map((item, i) => {
   const series = seriesData[i];
@@ -66,6 +69,15 @@ const actualYear2 = new Date(rows[0].p2.d).getUTCFullYear();
 const changeMultiples = rows.map((r) => r.p2.v / r.p1.v);
 const biggestMover = rows[changeMultiples.indexOf(Math.max(...changeMultiples))];
 
+// Inflation benchmark: without this, a raw "8.6x since 1976" multiple is
+// close to meaningless — the dollar itself is worth far less than it was in
+// 1976, so every nominal multiple needs to be read against how much of it
+// is just general inflation vs. an actual real-terms change.
+const cpi1 = valueNear(cpiSeries, year1);
+const cpi2 = valueNear(cpiSeries, actualYear2);
+const inflationMultiple = cpi2.v / cpi1.v;
+const realMultiples = rows.map((r, i) => changeMultiples[i] / inflationMultiple);
+
 const stamp = localDateStamp();
 const outBase = path.join(SOCIAL, `cost-comparison-table-${stamp}`);
 mkdirSync(SOCIAL, { recursive: true });
@@ -73,10 +85,11 @@ mkdirSync(SOCIAL, { recursive: true });
 const html = tableCard({
   kicker: "Cost of living check",
   title: "What things cost",
-  subtitle: `${year1} vs. ${actualYear2}`,
-  columnLabels: [String(year1), String(actualYear2)],
-  rows: rows.map((r) => ({ label: r.label, values: [r.fmt(r.p1.v), r.fmt(r.p2.v)] })),
-  footnote: "All figures: official government data (FRED / BLS / DOL), nearest available observation to January of each year.",
+  subtitle: `${year1} vs. ${actualYear2} — nominal and inflation-adjusted`,
+  columnLabels: [String(year1), String(actualYear2), "Real change"],
+  columnColors: [C.s1, C.s1, C.s2],
+  rows: rows.map((r, i) => ({ label: r.label, values: [r.fmt(r.p1.v), r.fmt(r.p2.v), `${realMultiples[i].toFixed(2)}x`] })),
+  footnote: `All figures: official government data (FRED / BLS / DOL), nearest available observation to January of each year. "Real change" divides out ${inflationMultiple.toFixed(1)}x general inflation (CPI) over the period — above 1.0x got more expensive in real terms, below 1.0x got cheaper.`,
   source: "FRED (Federal Reserve Economic Data)",
   vintage: String(actualYear2),
 });
@@ -84,12 +97,16 @@ const html = tableCard({
 const biggestMoverMultiple = changeMultiples[rows.indexOf(biggestMover)];
 const incomeRow = rows.find((r) => /income/i.test(r.label));
 const incomeMultiple = incomeRow ? changeMultiples[rows.indexOf(incomeRow)] : null;
+const incomeRealMultiple = incomeRow ? realMultiples[rows.indexOf(incomeRow)] : null;
 const facebook = [
   incomeRow && biggestMover !== incomeRow
     ? `${biggestMover.label} is up ${biggestMoverMultiple.toFixed(1)}x since ${year1} — but pay only rose ${incomeMultiple.toFixed(1)}x in that time. What things actually cost, ${year1} vs. ${actualYear2}:`
     : `The biggest mover since ${year1}: ${biggestMover.label}, up ${biggestMoverMultiple.toFixed(1)}x. What things actually cost, ${year1} vs. ${actualYear2}:`,
   "",
-  ...rows.map((r) => `${r.label}: ${r.fmt(r.p1.v)} → ${r.fmt(r.p2.v)} (${changeMultiples[rows.indexOf(r)].toFixed(1)}x)`),
+  ...rows.map((r, i) => `${r.label}: ${r.fmt(r.p1.v)} → ${r.fmt(r.p2.v)} (${changeMultiples[i].toFixed(1)}x nominal, ${realMultiples[i].toFixed(2)}x after inflation)`),
+  "",
+  `For reference: general inflation (CPI) alone was ${inflationMultiple.toFixed(1)}x over this period — a dollar in ${year1} buys about what $${inflationMultiple.toFixed(2)} buys in ${actualYear2}. Anything above 1.0x "after inflation" got more expensive in real terms; anything below 1.0x actually got cheaper once inflation is accounted for.`,
+  incomeRow ? `By that measure, real (inflation-adjusted) income is ${incomeRealMultiple >= 1 ? "up" : "down"} about ${(Math.abs(incomeRealMultiple - 1) * 100).toFixed(0)}% since ${year1} — a very different picture than the raw ${incomeMultiple.toFixed(1)}x nominal number suggests.` : "",
   "",
   "Every number here is pulled live from FRED (Federal Reserve Economic Data) — official BLS, DOL, and Census series, not a recalled or estimated figure.",
   "",
@@ -98,15 +115,16 @@ const facebook = [
   "Source website: https://fred.stlouisfed.org/",
   "Information retrieved programmatically via API.",
   "Graph made by Jeffrey Macy.",
-];
+].filter(Boolean);
 
 const lines = [
   `Cost comparison table (${stamp}) — ${year1} vs. ${actualYear2}`, "",
-  "Item | " + year1 + " | " + actualYear2 + " | Change",
-  "---|---:|---:|---:",
-  ...rows.map((r, i) => `${r.label} | ${r.fmt(r.p1.v)} | ${r.fmt(r.p2.v)} | ${changeMultiples[i].toFixed(1)}x`),
+  `Inflation (CPI) benchmark over this period: ${inflationMultiple.toFixed(2)}x`, "",
+  "Item | " + year1 + " | " + actualYear2 + " | Nominal change | Real (inflation-adj.) change",
+  "---|---:|---:|---:|---:",
+  ...rows.map((r, i) => `${r.label} | ${r.fmt(r.p1.v)} | ${r.fmt(r.p2.v)} | ${changeMultiples[i].toFixed(2)}x | ${realMultiples[i].toFixed(2)}x`),
   "", "Facebook post", "-------------", facebook.join("\n"), "",
-  "Source: FRED (Federal Reserve Economic Data) — series MAFAINUSA646N, FEDMINNFRWG, APU000074714, MSPUS.",
+  "Source: FRED (Federal Reserve Economic Data) — series MAFAINUSA646N, FEDMINNFRWG, APU000074714, MSPUS, CPIAUCNS.",
 ];
 
 writeFileSync(`${outBase}.txt`, lines.join("\n"));

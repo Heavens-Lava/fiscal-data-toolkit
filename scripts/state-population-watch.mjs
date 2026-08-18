@@ -18,34 +18,70 @@ const noImage = process.argv.includes("--no-image");
 const outBase = path.join(SOCIAL, `state-population-watch-${STAMP}`);
 mkdirSync(SOCIAL, { recursive: true });
 
-let vintage, raw;
-for (const candidate of [2023, 2022, 2021]) {
-  try {
-    const res = await fetch(`https://api.census.gov/data/${candidate}/pep/charv?get=NAME,POP,YEAR,MONTH&for=state:*&key=${key}`);
-    if (!res.ok) continue;
-    raw = await res.json();
-    if (raw?.length > 1) { vintage = candidate; break; }
-  } catch { /* try prior vintage */ }
+// The pep/charv API endpoint tops out one vintage behind Census's actual
+// latest annual release (confirmed: no 2024 vintage exists on that API path
+// as of this writing) — the Vintage 2024 numbers do exist, just only as the
+// flat-file release Census publishes alongside the API (same official
+// source used by state-migration-watch.mjs for net migration). Prefer that
+// when it's reachable so this doesn't run a year stale by default; fall
+// back to the API-only vintages if the flat file ever moves/changes shape.
+let vintage, rows;
+try {
+  const flatRes = await fetch("https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/state/totals/NST-EST2024-ALLDATA.csv", {
+    headers: { "User-Agent": "fiscal-data-toolkit/1.0" },
+  });
+  if (!flatRes.ok) throw new Error(`flat file HTTP ${flatRes.status}`);
+  const text = await flatRes.text();
+  const [flatHeader, ...flatLines] = text.trim().split("\n");
+  const cols = flatHeader.split(",");
+  const fIdx = Object.fromEntries(cols.map((c, i) => [c, i]));
+  rows = flatLines
+    .map((l) => l.split(","))
+    .filter((r) => r[fIdx.SUMLEV] === "040")
+    .map((r) => ({
+      state: r[fIdx.NAME],
+      pop: Number(r[fIdx.POPESTIMATE2024]),
+      priorPop: Number(r[fIdx.POPESTIMATE2023]),
+    }))
+    .filter((r) => Number.isFinite(r.pop) && Number.isFinite(r.priorPop))
+    .map((r) => ({ ...r, growthPct: ((r.pop - r.priorPop) / r.priorPop) * 100 }));
+  if (!rows.length) throw new Error("no rows parsed from flat file");
+  vintage = "2024 (flat-file release)";
+} catch {
+  rows = null;
 }
-if (!vintage) throw new Error("No Census PEP state population vintage available.");
 
-const [header, ...body] = raw;
-const idx = Object.fromEntries(header.map((n, i) => [n, i]));
-const julyRows = body.filter((r) => r[idx.MONTH] === "7" && r[idx.state] !== "72");
-const byState = new Map();
-for (const r of julyRows) {
-  const name = r[idx.NAME];
-  const entry = byState.get(name) || {};
-  entry[r[idx.YEAR]] = Number(r[idx.POP]);
-  byState.set(name, entry);
+let latestYear = "2024", priorYear = "2023";
+if (!rows) {
+  let raw;
+  for (const candidate of [2023, 2022, 2021]) {
+    try {
+      const res = await fetch(`https://api.census.gov/data/${candidate}/pep/charv?get=NAME,POP,YEAR,MONTH&for=state:*&key=${key}`);
+      if (!res.ok) continue;
+      raw = await res.json();
+      if (raw?.length > 1) { vintage = candidate; break; }
+    } catch { /* try prior vintage */ }
+  }
+  if (!vintage) throw new Error("No Census PEP state population vintage available.");
+
+  const [header, ...body] = raw;
+  const idx = Object.fromEntries(header.map((n, i) => [n, i]));
+  const julyRows = body.filter((r) => r[idx.MONTH] === "7" && r[idx.state] !== "72");
+  const byState = new Map();
+  for (const r of julyRows) {
+    const name = r[idx.NAME];
+    const entry = byState.get(name) || {};
+    entry[r[idx.YEAR]] = Number(r[idx.POP]);
+    byState.set(name, entry);
+  }
+  const years = [...new Set(julyRows.map((r) => r[idx.YEAR]))].sort();
+  latestYear = years.at(-1); priorYear = years.at(-2);
+
+  rows = [...byState.entries()]
+    .map(([state, byYear]) => ({ state, pop: byYear[latestYear], priorPop: byYear[priorYear] }))
+    .filter((r) => Number.isFinite(r.pop) && Number.isFinite(r.priorPop))
+    .map((r) => ({ ...r, growthPct: ((r.pop - r.priorPop) / r.priorPop) * 100 }));
 }
-const years = [...new Set(julyRows.map((r) => r[idx.YEAR]))].sort();
-const latestYear = years.at(-1), priorYear = years.at(-2);
-
-const rows = [...byState.entries()]
-  .map(([state, byYear]) => ({ state, pop: byYear[latestYear], priorPop: byYear[priorYear] }))
-  .filter((r) => Number.isFinite(r.pop) && Number.isFinite(r.priorPop))
-  .map((r) => ({ ...r, growthPct: ((r.pop - r.priorPop) / r.priorPop) * 100 }));
 if (!rows.length) throw new Error("No matched Census PEP state population rows.");
 
 const ranked = [...rows]
@@ -73,7 +109,7 @@ const html = cardHTML({
   title: view === "growth" ? "Which states are growing the fastest?" : "Where do Americans actually live?",
   hero: view === "growth" ? pct(top[0].growthPct) : `${(top[0].pop / 1e6).toFixed(1)}M`,
   heroLabel: `${top[0].state}; ${view === "growth" ? `population growth, ${priorYear}–${latestYear}` : `population, July ${latestYear}`}`,
-  chartSVG, source: "U.S. Census Bureau Population Estimates Program", vintage: `${latestYear} (vintage ${vintage})`,
+  chartSVG, source: "U.S. Census Bureau Population Estimates Program", vintage: String(latestYear),
 });
 
 const facebook = view === "growth" ? [

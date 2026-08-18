@@ -89,13 +89,26 @@ const chartSVG = horizontalBarChart(
 
 const html = cardHTML({
   kicker: "Arizona economy check",
-  title: "One-year change across Arizona jobs, income, and housing",
-  hero: gdp.chg,
-  heroLabel: `Arizona nominal GDP through ${gdp.latest.d}`,
+  title: "Phoenix gas is up sharply — the rest of Arizona's economy isn't moving nearly as fast",
+  hero: fmt(gas.latest, gas.unit),
+  heroLabel: `Phoenix regular gas, ${gas.latest.d} · ${gas.chg} vs. a year earlier`,
   chartSVG,
   source: "FRED",
   vintage: gdp.latest.d,
 });
+
+const facebook = [
+  `Phoenix gas hit ${fmt(gas.latest, gas.unit)}/gallon in ${gas.latest.d} — up ${gas.chg} from a year earlier.`,
+  "",
+  "Arizona economy snapshot:",
+  ...rows.map((r) => `${r.label}: ${fmt(r.latest, r.unit)} as of ${r.latest.d} (${r.chg} vs. a year earlier)`),
+  "",
+  `For context: Arizona payroll jobs are ${jobs.chg} and unemployment is ${unemp.chg} over the same period — the labor market itself has moved far less than gas prices have.`,
+  "",
+  "Gas prices are volatile and largely driven by national/global oil markets, not Arizona-specific conditions — this is a snapshot, not a claim about the state economy's underlying health.",
+  "",
+  "Sources: FRED, series AZUR, AZNA, AZSTHPI, AZNGSP, AZPCPI, APUS48A74714.",
+];
 
 const lines = [
   `Arizona economy check (${stamp})`,
@@ -108,7 +121,9 @@ const lines = [
   "---|---:|---:|---:",
   ...rows.map((r) => `${r.label} | ${fmt(r.latest, r.unit)} | ${r.latest.d} | ${r.chg}`),
   "",
-  "Sources: FRED series AZUR, AZNA, AZSTHPI, AZNGSP, AZPCPI, APUS48A74714.",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 const csv = [
