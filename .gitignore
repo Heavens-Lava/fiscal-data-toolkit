@@ -12,3 +12,9 @@ social/
 
 # stray files that don't belong in this repo
 weppy-project-sync/
+
+# job-search / IDE artifacts that don't belong in this repo
+.claude/
+.playwright-mcp/
+*.png
+!social/**/*.png
