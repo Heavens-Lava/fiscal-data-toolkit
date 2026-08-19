@@ -568,15 +568,18 @@ export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", char
 // (dataviz skill's "one axis" rule) — don't mix units within a single card.
 const ICONS = {
   globe: '<circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h16M10 2c2.5 2.2 2.5 13.8 0 16M10 2c-2.5 2.2-2.5 13.8 0 16" fill="none" stroke="currentColor" stroke-width="1.6"/>',
-  flag: '<path d="M4 2v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4 3h12l-3 4 3 4H4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+  // True-color mini US flag (not currentColor — a flag only reads as "US" in
+  // its real red/white/blue, not tinted to whatever the row's category hue is).
+  flag: '<rect x="2" y="4" width="16" height="12" rx="1" fill="#fff" stroke="#00000022" stroke-width="0.5"/><g clip-path="url(#flagclip)"><rect x="2" y="4" width="16" height="1.71" fill="#B22234"/><rect x="2" y="7.43" width="16" height="1.71" fill="#B22234"/><rect x="2" y="10.86" width="16" height="1.71" fill="#B22234"/><rect x="2" y="14.29" width="16" height="1.71" fill="#B22234"/><rect x="2" y="4" width="7.5" height="8.57" fill="#3C3B6E"/><circle cx="3.6" cy="5.4" r="0.45" fill="#fff"/><circle cx="5.6" cy="5.4" r="0.45" fill="#fff"/><circle cx="7.6" cy="5.4" r="0.45" fill="#fff"/><circle cx="4.6" cy="7" r="0.45" fill="#fff"/><circle cx="6.6" cy="7" r="0.45" fill="#fff"/><circle cx="3.6" cy="8.6" r="0.45" fill="#fff"/><circle cx="5.6" cy="8.6" r="0.45" fill="#fff"/><circle cx="7.6" cy="8.6" r="0.45" fill="#fff"/><circle cx="4.6" cy="10.2" r="0.45" fill="#fff"/><circle cx="6.6" cy="10.2" r="0.45" fill="#fff"/></g><rect x="2" y="4" width="16" height="12" rx="1" fill="none" stroke="#00000030" stroke-width="0.6"/><clipPath id="flagclip"><rect x="2" y="4" width="16" height="12" rx="1"/></clipPath>',
   trend: '<path d="M3 14l5-5 4 3 5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5h4v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
   percent: '<circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="14" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 3L3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
-  doc: '<path d="M5 2h7l3 3v13H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 9h6M7 12h6M7 15h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+  doc: '<path d="M5 2h7l3 3v13H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 2v3h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M7 10h6M7 13h6M7 16h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
   building: '<path d="M3 18V5l7-3 7 3v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 18h14M7 8h2M11 8h2M7 12h2M11 12h2M9 18v-4h2v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
   calendar: '<rect x="3" y="4" width="14" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h14M7 2v4M13 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
 };
 
 function iconSVG(icon, color) {
+  if (icon === "flag") return `<svg viewBox="0 0 20 20" width="20" height="20">${ICONS.flag}</svg>`; // true-color, ignores row hue
   if (ICONS[icon]) return `<svg viewBox="0 0 20 20" width="20" height="20" color="${color}">${ICONS[icon]}</svg>`;
   // Short text badge (e.g. "IPO", "%") when no glyph fits — same slot as an icon.
   return `<span style="font-size:11px;font-weight:800;color:${color};letter-spacing:0.02em">${esc(icon)}</span>`;
@@ -610,24 +613,27 @@ export function metricListCard({
   * { margin:0; padding:0; box-sizing:border-box; }
   body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
   .accent-top { height:4px; background:${brand}; flex-shrink:0; }
-  .header { background:${C.surface}; height:48px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:8px; border-bottom:1px solid ${C.grid}; }
+  .header { background:${C.surface}; height:64px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:12px; border-bottom:1px solid ${C.grid}; }
   .header .wordmark-wrap { display:flex; flex-direction:column; gap:3px; }
-  .header .wordmark { color:${brand}; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .header .wordmark { color:${brand}; font-size:15px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
   .header .rule { width:28px; height:2px; background:${brand}; }
   .header .mark { color:${brand}; }
   .logo-img { width:30px; height:30px; border-radius:50%; display:block; }
-  .brand-mark-img { width:34px; height:34px; display:block; object-fit:contain; }
+  .brand-mark-img { width:48px; height:48px; display:block; object-fit:contain; }
   .avatar-img { width:26px; height:26px; border-radius:50%; display:block; }
-  .body { flex:1; min-height:0; padding:26px 40px 18px; display:flex; flex-direction:column; overflow:hidden; }
+  .body { flex:1; min-height:0; padding:16px 40px 12px; display:flex; flex-direction:column; overflow:hidden; }
   .top { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-shrink:0; }
   h1 { font-family: Georgia, "Times New Roman", serif; font-size:33px; font-weight:700; color:${C.ink}; line-height:1.22; max-width:640px; }
   .subtitle { font-size:16px; color:${C.ink2}; margin-top:8px; }
-  .hero-tile { background:${brand}; border-radius:14px; padding:18px 28px; text-align:center; min-width:300px; flex-shrink:0; }
-  .hero-tile .label { color:${C.brandText}; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
-  .hero-tile .value { color:#fff; font-size:44px; font-weight:800; line-height:1.15; margin-top:4px; }
-  .hero-tile .sub { color:${C.brandText}; font-size:12px; margin-top:4px; }
-  .rows { margin-top:24px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:16px 28px; flex-shrink:0; }
-  .row { display:flex; align-items:center; gap:16px; padding:11px 0; }
+  .hero-tile { background:linear-gradient(180deg, #12503c 0%, ${brand} 55%); border-radius:16px; padding:20px 30px; text-align:center; min-width:320px; flex-shrink:0; }
+  .hero-tile .label { color:${C.brandText}; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .hero-tile .value { color:#fff; font-size:64px; font-weight:800; line-height:1.1; margin-top:6px; }
+  .hero-tile .sub-row { display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .hero-tile .sub-rule { flex:1; height:1px; background:linear-gradient(90deg, transparent, ${C.brandText}66); }
+  .hero-tile .sub-rule.right { background:linear-gradient(270deg, transparent, ${C.brandText}66); }
+  .hero-tile .sub { color:${C.brandText}; font-size:13px; flex-shrink:0; }
+  .rows { margin-top:10px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:6px 28px; flex-shrink:0; }
+  .row { display:flex; align-items:center; gap:16px; padding:6px 0; }
   .row-icon { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .row-icon svg { width:19px; height:19px; }
   .row-label { font-size:16px; font-weight:700; color:${C.ink}; width:290px; flex-shrink:0; }
@@ -635,7 +641,7 @@ export function metricListCard({
   .row-bar { height:15px; border-radius:5px; }
   .row-value { font-size:16px; font-weight:800; width:110px; text-align:right; flex-shrink:0; font-variant-numeric: tabular-nums; }
   .row-divider { border-top:1px solid ${C.grid}; margin:6px 0; }
-  .callouts { display:flex; gap:20px; margin-top:20px; background:${C.surface}; border:1px solid ${C.grid}; border-radius:12px; padding:16px 24px; flex-shrink:0; }
+  .callouts { display:flex; gap:20px; margin-top:8px; background:${C.surface}; border:1px solid ${C.grid}; border-radius:12px; padding:9px 24px; flex-shrink:0; }
   .callout { flex:1; display:flex; gap:12px; align-items:flex-start; }
   .callout-icon { flex-shrink:0; margin-top:1px; }
   .callout-icon svg { width:20px; height:20px; }
@@ -653,7 +659,7 @@ export function metricListCard({
   <div class="body">
     <div class="top">
       <div><h1>${esc(title)}</h1>${subtitle ? `<div class="subtitle">${esc(subtitle)}</div>` : ""}</div>
-      <div class="hero-tile"><div class="label">${esc(heroLabel)}</div><div class="value">${esc(heroValue)}</div>${heroSub ? `<div class="sub">${esc(heroSub)}</div>` : ""}</div>
+      <div class="hero-tile"><div class="label">${esc(heroLabel)}</div><div class="value">${esc(heroValue)}</div>${heroSub ? `<div class="sub-row"><span class="sub-rule"></span><span class="sub">${esc(heroSub)}</span><span class="sub-rule right"></span></div>` : ""}</div>
     </div>
     <div class="rows">${rowsHTML}</div>
     ${calloutsHTML}
