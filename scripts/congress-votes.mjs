@@ -30,7 +30,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { C, cardHTML, engagementCTA, esc, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { C, brandedChromeCSS, brandedFooterHTML, brandedHeaderHTML, cardHTML, engagementCTA, esc, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -511,18 +511,17 @@ function buildBillSocial(bill) {
   const why = WHY_IT_MATTERED[bill.title] || "";
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .accent { height:8px; display:flex; }
-  .accent i { flex:1; }
-  .card { width:100%; height:calc(100% - 8px); padding:40px 48px 30px; display:flex; flex-direction:column; }
-  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:34px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
-  .subtitle { font-size:17px; color:${C.ink2}; margin-top:6px; }
-  .banner { display:flex; align-items:center; gap:24px; margin-top:16px; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
+  ${brandedChromeCSS()}
+  .card { flex:1; min-height:0; padding:20px 48px 14px; display:flex; flex-direction:column; overflow:hidden; }
+  .kicker { font-size:14px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size:29px; font-weight:700; color:${C.ink}; margin-top:6px; max-width:1000px; line-height:1.2; }
+  .subtitle { font-size:16px; color:${C.ink2}; margin-top:6px; }
+  .banner { display:flex; align-items:center; gap:24px; margin-top:14px; flex-shrink:0; }
   .pill { background:#1baf7a; color:#fff; font-weight:700; font-size:15px; letter-spacing:0.05em; padding:8px 18px; border-radius:999px; }
-  .vote-big { font-size:52px; font-weight:750; color:${C.ink}; line-height:1; }
+  .vote-big { font-size:48px; font-weight:800; color:${C.brand}; line-height:1; }
   .vote-sub { font-size:15px; color:${C.ink2}; margin-top:3px; }
-  .statbox { margin-top:16px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:18px 22px; display:flex; flex-direction:column; gap:12px; }
+  .statbox { margin-top:14px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:16px 22px; display:flex; flex-direction:column; gap:12px; flex-shrink:0; }
   .parties { display:flex; flex-direction:column; gap:12px; }
   .party-row { display:flex; align-items:center; gap:16px; }
   .party-name { width:140px; font-size:16px; font-weight:600; color:${C.ink2}; }
@@ -534,9 +533,8 @@ function buildBillSocial(bill) {
   .why-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:${C.muted}; }
   .why-text { font-size:14px; color:${C.ink2}; margin-top:3px; line-height:1.35; }
   .context { font-size:12px; color:${C.muted}; margin-top:10px; max-width:1080px; line-height:1.4; }
-  .foot { margin-top:auto; padding-top:12px; display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; }
   </style></head><body>
-  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  ${brandedHeaderHTML()}
   <div class="card">
     <div class="kicker">Congressional Record Series</div>
     <h1>How Congress voted on ${esc(noun)}</h1>
@@ -550,8 +548,9 @@ function buildBillSocial(bill) {
       ${why ? `<div class="why"><div class="why-label">Why it mattered</div><div class="why-text">${esc(why)}</div></div>` : ""}
     </div>
     <div class="context">${esc(COALITION_NOTE)}</div>
-    <div class="foot"><span>Source: Voteview (UCLA/Stanford) · Chart: Jeff Macy</span><span>${ordinal(bill.congress)} Congress</span></div>
-  </div></body></html>`;
+  </div>
+  ${brandedFooterHTML({ source: "Voteview (UCLA/Stanford)", vintage: `${ordinal(bill.congress)} Congress` })}
+  </body></html>`;
 
   const dParty = decisive.parties.find((x) => x.name === "Democrat");
   const rParty = decisive.parties.find((x) => x.name === "Republican");
@@ -628,29 +627,27 @@ function buildNoVoteTreatyCard(key) {
 
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .accent { height:8px; display:flex; }
-  .accent i { flex:1; }
-  .card { width:100%; height:calc(100% - 8px); padding:36px 48px 26px; display:flex; flex-direction:column; }
-  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:30px; font-weight:650; color:${C.ink}; margin-top:8px; max-width:1000px; line-height:1.15; }
-  .subtitle { font-size:16px; color:${C.ink2}; margin-top:6px; }
-  .banner { display:flex; align-items:center; gap:20px; margin-top:14px; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
+  ${brandedChromeCSS()}
+  .card { flex:1; min-height:0; padding:18px 48px 14px; display:flex; flex-direction:column; overflow:hidden; }
+  .kicker { font-size:14px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size:27px; font-weight:700; color:${C.ink}; margin-top:6px; max-width:1000px; line-height:1.2; }
+  .subtitle { font-size:15px; color:${C.ink2}; margin-top:6px; }
+  .banner { display:flex; align-items:center; gap:20px; margin-top:12px; flex-shrink:0; }
   .pill { background:#8a8a84; color:#fff; font-weight:700; font-size:14px; letter-spacing:0.05em; padding:7px 16px; border-radius:999px; }
-  .hero-stat { font-size:40px; font-weight:750; color:${C.ink}; line-height:1; }
+  .hero-stat { font-size:38px; font-weight:800; color:${C.brand}; line-height:1; }
   .hero-sub { font-size:14px; color:${C.ink2}; margin-top:3px; max-width:640px; }
-  .timelinebox { flex:1; margin-top:14px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:14px 20px; overflow:hidden; }
+  .timelinebox { flex:1; min-height:0; margin-top:12px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:14px 20px; overflow:hidden; }
   .timeline { display:flex; flex-direction:column; }
   .tl-row { display:flex; align-items:flex-start; gap:14px; padding:4px 0; }
   .tl-date { width:110px; flex-shrink:0; font-size:13px; font-weight:600; color:${C.muted}; padding-top:1px; }
-  .tl-dot { width:8px; height:8px; border-radius:50%; background:${C.s1}; margin-top:5px; flex-shrink:0; }
+  .tl-dot { width:8px; height:8px; border-radius:50%; background:${C.brand}; margin-top:5px; flex-shrink:0; }
   .tl-text { font-size:14px; color:${C.ink2}; line-height:1.35; }
-  .why { margin-top:12px; background:#f2f1ea; border-left:4px solid ${C.s1}; padding:12px 16px; border-radius:4px; }
+  .why { margin-top:10px; background:#f2f1ea; border-left:4px solid ${C.brand}; padding:10px 16px; border-radius:4px; flex-shrink:0; }
   .why-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:${C.muted}; }
-  .why-text { font-size:14px; color:${C.ink2}; margin-top:3px; line-height:1.35; }
-  .foot { margin-top:auto; padding-top:10px; display:flex; justify-content:space-between; font-size:13px; color:${C.muted}; }
+  .why-text { font-size:13px; color:${C.ink2}; margin-top:3px; line-height:1.35; }
   </style></head><body>
-  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  ${brandedHeaderHTML()}
   <div class="card">
     <div class="kicker">Congressional Record Series</div>
     <h1>The treaty the Senate never voted on</h1>
@@ -661,8 +658,9 @@ function buildNoVoteTreatyCard(key) {
     </div>
     <div class="timelinebox"><div class="timeline">${timelineRows}</div></div>
     <div class="why"><div class="why-label">Why it mattered</div><div class="why-text">${esc(t.why)}</div></div>
-    <div class="foot"><span>Source: Congress.gov Treaty actions (v3/treaty/96/25) · Chart: Jeff Macy</span><span>${ordinal(t.congress)} Congress</span></div>
-  </div></body></html>`;
+  </div>
+  ${brandedFooterHTML({ source: "Congress.gov Treaty actions (v3/treaty/96/25)", vintage: `${ordinal(t.congress)} Congress` })}
+  </body></html>`;
 
   const facebookLines = [`Not every major treaty gets ratified. ${t.title}:`, ""];
   for (const item of t.timeline) {

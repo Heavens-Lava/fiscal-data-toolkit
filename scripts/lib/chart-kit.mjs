@@ -26,6 +26,39 @@ function assetDataUri(filename, mime) {
 const logoDataUri = () => assetDataUri("jm-logo.png", "image/png");
 const abnLogoDataUri = () => assetDataUri("abn-logo.jpg", "image/jpeg");
 
+// Shared brand chrome (accent bar + header + footer) for bespoke templates
+// that can't use cardHTML/tableCard/metricListCard directly (e.g.
+// congress-votes.mjs's stat-block and timeline cards) but still need the
+// same consistent header/footer identity as every other post.
+export function brandedChromeCSS(brand = C.brand) {
+  return `
+  .accent-top { height:4px; background:${brand}; flex-shrink:0; }
+  .header { background:${C.surface}; height:64px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:12px; border-bottom:1px solid ${C.grid}; }
+  .header .wordmark-wrap { display:flex; flex-direction:column; gap:3px; }
+  .header .wordmark { color:${brand}; font-size:15px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .header .rule { width:28px; height:2px; background:${brand}; }
+  .brand-mark-img { width:48px; height:48px; display:block; object-fit:contain; }
+  .avatar-img { width:26px; height:26px; border-radius:50%; display:block; }
+  .footer { background:${brand}; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:0 40px; }
+  .footer-left { display:flex; align-items:center; gap:10px; }
+  .avatar { width:26px; height:26px; border-radius:50%; border:1.5px solid ${C.brandText}; display:flex; align-items:center; justify-content:center; color:${C.brandText}; font-size:10px; font-weight:700; }
+  .footer-text { color:${C.brandText}; font-size:12px; line-height:1.3; }
+  .footer-right { display:flex; align-items:center; gap:8px; color:${C.brandText}; font-size:12px; }
+  .footer-right b { color:#fff; }`;
+}
+
+export function brandedHeaderHTML({ brand = C.brand, wordmark = "America by the Numbers" } = {}) {
+  return `<div class="accent-top"></div>
+  <div class="header"><span class="mark">${abnLogoDataUri() ? `<img class="brand-mark-img" src="${abnLogoDataUri()}" alt="">` : iconSVG("building", brand)}</span><div class="wordmark-wrap"><span class="wordmark">${esc(wordmark)}</span><span class="rule"></span></div></div>`;
+}
+
+export function brandedFooterHTML({ source, vintage, authorInitials = "JM", authorName = "Jeff Macy" }) {
+  return `<div class="footer">
+    <div class="footer-left">${logoDataUri() ? `<img class="avatar-img" src="${logoDataUri()}" alt="">` : `<div class="avatar">${esc(authorInitials)}</div>`}<div class="footer-text">Source: ${esc(source)}<br>Chart: ${esc(authorName)}</div></div>
+    <div class="footer-right">${iconSVG("calendar", C.brandText)}<span>Data through <b>${esc(vintage)}</b></span></div>
+  </div>`;
+}
+
 // ── data sources ──────────────────────────────────────────────────────────────
 export async function fred(id) {
   const res = await fetch(`https://fred.stlouisfed.org/graph/fredgraph.csv?id=${id}`);
