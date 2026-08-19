@@ -18,3 +18,4 @@ weppy-project-sync/
 .playwright-mcp/
 *.png
 !social/**/*.png
+!scripts/lib/assets/**

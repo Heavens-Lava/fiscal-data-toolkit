@@ -7,7 +7,24 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
+import { fileURLToPath } from "node:url";
 import { STATE_PATHS, STATE_PATHS_BBOX, STATE_CENTROIDS, STATE_LABEL_ABBRS, DC_POINT } from "./us-state-paths.mjs";
+
+// Real brand marks, embedded as data URIs so the standalone card HTML stays
+// self-contained for file:// screenshots. JM = Jeff Macy's personal
+// monogram (jeffreymacy2's BrandMark "warm" icon) — used as the footer
+// signature. ABN = the "America By the Numbers" page's own mark — used as
+// the header brand mark, since that's the wordmark it sits beside.
+const ASSETS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "assets");
+const _dataUriCache = {};
+function assetDataUri(filename, mime) {
+  if (_dataUriCache[filename] !== undefined) return _dataUriCache[filename];
+  const file = path.join(ASSETS_DIR, filename);
+  _dataUriCache[filename] = existsSync(file) ? `data:${mime};base64,${readFileSync(file).toString("base64")}` : null;
+  return _dataUriCache[filename];
+}
+const logoDataUri = () => assetDataUri("jm-logo.png", "image/png");
+const abnLogoDataUri = () => assetDataUri("abn-logo.jpg", "image/jpeg");
 
 // ── data sources ──────────────────────────────────────────────────────────────
 export async function fred(id) {
@@ -104,6 +121,13 @@ export const C = {
   s1: "#2a78d6",  // categorical slot 1 (blue)
   s2: "#1baf7a",  // categorical slot 2 (aqua) — sub-3:1: always direct-labeled
   pos: "#2a78d6", neg: "#e34948",  // diverging pair (blue <-> red)
+  // Full 8-hue categorical set, dataviz skill's validated default order —
+  // documented-palette values (palette.md), not eyeballed. s1/s2/neg above
+  // are slots 1/3/8 of this same set, kept as their own names since ~190
+  // existing scripts already call them that way.
+  cat: ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"],
+  brand: "#0b3d2e",       // deep green brand chrome (header/footer/hero-tile fill) — white text on this is ~12:1 contrast
+  brandText: "#e7f3ec",   // muted near-white for secondary text on brand-green chrome
 };
 
 // Plot geometry shared by both chart builders (SVG viewBox 1104 x 400).
@@ -532,6 +556,113 @@ export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", char
     <div class="plotbox">${chartSVG}</div>
     <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
   </div></body></html>`;
+}
+
+// ── branded metric-list card (1200x675) ───────────────────────────────────
+// A richer alternative to cardHTML for "several standalone numbers, each
+// worth its own row" stories (vs. cardHTML's single ranked bar chart): a
+// branded header/footer, a hero stat tile, one icon+bar per metric with
+// categorical color carrying identity (dataviz skill's validated 8-hue
+// order, C.cat — never invented per-row), an optional group divider, and up
+// to 3 callout insights. Bar length is one shared scale across every row
+// (dataviz skill's "one axis" rule) — don't mix units within a single card.
+const ICONS = {
+  globe: '<circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h16M10 2c2.5 2.2 2.5 13.8 0 16M10 2c-2.5 2.2-2.5 13.8 0 16" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+  flag: '<path d="M4 2v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4 3h12l-3 4 3 4H4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+  trend: '<path d="M3 14l5-5 4 3 5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5h4v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  percent: '<circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="14" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 3L3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  doc: '<path d="M5 2h7l3 3v13H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 9h6M7 12h6M7 15h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+  building: '<path d="M3 18V5l7-3 7 3v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 18h14M7 8h2M11 8h2M7 12h2M11 12h2M9 18v-4h2v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+  calendar: '<rect x="3" y="4" width="14" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h14M7 2v4M13 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+};
+
+function iconSVG(icon, color) {
+  if (ICONS[icon]) return `<svg viewBox="0 0 20 20" width="20" height="20" color="${color}">${ICONS[icon]}</svg>`;
+  // Short text badge (e.g. "IPO", "%") when no glyph fits — same slot as an icon.
+  return `<span style="font-size:11px;font-weight:800;color:${color};letter-spacing:0.02em">${esc(icon)}</span>`;
+}
+
+export function metricListCard({
+  title, subtitle = "", heroLabel, heroValue, heroSub = "",
+  rows, dividerAfterIndex = null, callouts = [],
+  source, vintage, brand = C.brand, wordmark = "America by the Numbers",
+  authorInitials = "JM", authorName = "Jeff Macy",
+}) {
+  const max = Math.max(...rows.map((r) => r.value));
+  const barMaxWidth = 560; // px, inside the plot column
+  const rowsHTML = rows.map((r, i) => {
+    const color = r.color || C.cat[0];
+    const bw = Math.max((r.value / max) * barMaxWidth, 6);
+    const divider = dividerAfterIndex === i ? `<div class="row-divider"></div>` : "";
+    return `<div class="row">
+      <div class="row-icon" style="background:${color}1f"><div style="color:${color}">${iconSVG(r.icon || "trend", color)}</div></div>
+      <div class="row-label">${esc(r.label)}</div>
+      <div class="row-bar-track"><div class="row-bar" style="width:${bw}px;background:${color}"></div></div>
+      <div class="row-value" style="color:${color}">${esc(r.value_display ?? r.value)}</div>
+    </div>${divider}`;
+  }).join("");
+
+  const calloutsHTML = callouts.length ? `<div class="callouts">${callouts.map((c) => `
+    <div class="callout"><div class="callout-icon" style="color:${brand}">${iconSVG(c.icon || "trend", brand)}</div><div class="callout-text">${c.html}</div></div>
+  `).join("")}</div>` : "";
+
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
+  .accent-top { height:4px; background:${brand}; flex-shrink:0; }
+  .header { background:${C.surface}; height:48px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:8px; border-bottom:1px solid ${C.grid}; }
+  .header .wordmark-wrap { display:flex; flex-direction:column; gap:3px; }
+  .header .wordmark { color:${brand}; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .header .rule { width:28px; height:2px; background:${brand}; }
+  .header .mark { color:${brand}; }
+  .logo-img { width:30px; height:30px; border-radius:50%; display:block; }
+  .brand-mark-img { width:34px; height:34px; display:block; object-fit:contain; }
+  .avatar-img { width:26px; height:26px; border-radius:50%; display:block; }
+  .body { flex:1; min-height:0; padding:26px 40px 18px; display:flex; flex-direction:column; overflow:hidden; }
+  .top { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-shrink:0; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size:33px; font-weight:700; color:${C.ink}; line-height:1.22; max-width:640px; }
+  .subtitle { font-size:16px; color:${C.ink2}; margin-top:8px; }
+  .hero-tile { background:${brand}; border-radius:14px; padding:18px 28px; text-align:center; min-width:300px; flex-shrink:0; }
+  .hero-tile .label { color:${C.brandText}; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .hero-tile .value { color:#fff; font-size:44px; font-weight:800; line-height:1.15; margin-top:4px; }
+  .hero-tile .sub { color:${C.brandText}; font-size:12px; margin-top:4px; }
+  .rows { margin-top:24px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:16px 28px; flex-shrink:0; }
+  .row { display:flex; align-items:center; gap:16px; padding:11px 0; }
+  .row-icon { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .row-icon svg { width:19px; height:19px; }
+  .row-label { font-size:16px; font-weight:700; color:${C.ink}; width:290px; flex-shrink:0; }
+  .row-bar-track { flex:1; }
+  .row-bar { height:15px; border-radius:5px; }
+  .row-value { font-size:16px; font-weight:800; width:110px; text-align:right; flex-shrink:0; font-variant-numeric: tabular-nums; }
+  .row-divider { border-top:1px solid ${C.grid}; margin:6px 0; }
+  .callouts { display:flex; gap:20px; margin-top:20px; background:${C.surface}; border:1px solid ${C.grid}; border-radius:12px; padding:16px 24px; flex-shrink:0; }
+  .callout { flex:1; display:flex; gap:12px; align-items:flex-start; }
+  .callout-icon { flex-shrink:0; margin-top:1px; }
+  .callout-icon svg { width:20px; height:20px; }
+  .callout-text { font-size:14px; color:${C.ink2}; line-height:1.4; }
+  .callout-text b { color:${C.ink}; }
+  .footer { background:${brand}; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:0 40px; }
+  .footer-left { display:flex; align-items:center; gap:10px; }
+  .avatar { width:26px; height:26px; border-radius:50%; border:1.5px solid ${C.brandText}; display:flex; align-items:center; justify-content:center; color:${C.brandText}; font-size:10px; font-weight:700; }
+  .footer-text { color:${C.brandText}; font-size:12px; line-height:1.3; }
+  .footer-right { display:flex; align-items:center; gap:8px; color:${C.brandText}; font-size:12px; }
+  .footer-right b { color:#fff; }
+  </style></head><body>
+  <div class="accent-top"></div>
+  <div class="header"><span class="mark">${abnLogoDataUri() ? `<img class="brand-mark-img" src="${abnLogoDataUri()}" alt="">` : iconSVG("building", brand)}</span><div class="wordmark-wrap"><span class="wordmark">${esc(wordmark)}</span><span class="rule"></span></div></div>
+  <div class="body">
+    <div class="top">
+      <div><h1>${esc(title)}</h1>${subtitle ? `<div class="subtitle">${esc(subtitle)}</div>` : ""}</div>
+      <div class="hero-tile"><div class="label">${esc(heroLabel)}</div><div class="value">${esc(heroValue)}</div>${heroSub ? `<div class="sub">${esc(heroSub)}</div>` : ""}</div>
+    </div>
+    <div class="rows">${rowsHTML}</div>
+    ${calloutsHTML}
+  </div>
+  <div class="footer">
+    <div class="footer-left">${logoDataUri() ? `<img class="avatar-img" src="${logoDataUri()}" alt="">` : `<div class="avatar">${esc(authorInitials)}</div>`}<div class="footer-text">Source: ${esc(source)}<br>Chart: ${esc(authorName)}</div></div>
+    <div class="footer-right">${iconSVG("calendar", C.brandText)}<span>Data through <b>${esc(vintage)}</b></span></div>
+  </div>
+  </body></html>`;
 }
 
 // ── the comparison table card (1200x675) ──────────────────────────────────

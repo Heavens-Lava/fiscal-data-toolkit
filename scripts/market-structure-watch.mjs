@@ -7,8 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   C,
-  cardHTML,
-  horizontalBarChart,
+  metricListCard,
   screenshot,
   toCSV,
 } from "./lib/chart-kit.mjs";
@@ -150,27 +149,50 @@ const chartRows = dollarRows
   .sort((a, b) => b.value - a.value)
   .slice(0, 7);
 
-const chartSVG = horizontalBarChart(
-  chartRows.map((r, i) => ({
-    label: r.metric.length > 34 ? `${r.metric.slice(0, 31)}...` : r.metric,
-    v: r.value,
-    color: i === 0 ? C.s2 : C.s1,
-  })),
-  { fmtTick: money, fmtVal: money }
-);
-
 const marketCap = us.marketCap.value;
 const tradedValue = us.tradedValue.value;
 const listed = us.listedCompanies.value;
 const turnover = us.turnover.value;
 const marginShare = !finra.error ? (finra.marginDebt / marketCap) * 100 : null;
+const worldVsUsMultiple = world?.marketCap?.value ? world.marketCap.value / marketCap : null;
+const tradedShareOfCap = (tradedValue / marketCap) * 100;
 
-const html = cardHTML({
-  kicker: "Market structure watch",
+// Identity color per metric (dataviz skill categorical order, C.cat) — world
+// vs. US market size is one distinction (green vs. blue), margin debt /
+// equity issuance / IPO issuance are each their own category.
+const ROW_COLOR = {
+  "World listed-company market cap": C.cat[5],
+  "U.S. listed-company market cap": C.cat[0],
+  "U.S. annual stock-trading value": C.cat[0],
+  "Margin debt": C.cat[6],
+  "U.S. equity issuance YTD": C.cat[3],
+  "U.S. IPO issuance YTD": C.cat[2],
+};
+const ROW_ICON = {
+  "World listed-company market cap": "globe",
+  "U.S. listed-company market cap": "flag",
+  "U.S. annual stock-trading value": "trend",
+  "Margin debt": "percent",
+  "U.S. equity issuance YTD": "doc",
+  "U.S. IPO issuance YTD": "IPO",
+};
+
+const html = metricListCard({
   title: "How big is the stock market, and how much leverage is in it?",
-  hero: money(marketCap),
-  heroLabel: `U.S. listed-company market cap, ${us.marketCap.year}`,
-  chartSVG,
+  subtitle: "Key size and leverage metrics for global and U.S. markets",
+  heroLabel: "U.S. listed-company market cap",
+  heroValue: money(marketCap),
+  heroSub: us.marketCap.year,
+  rows: chartRows.map((r) => ({
+    label: r.metric, value: r.value, value_display: money(r.value),
+    color: ROW_COLOR[r.metric] || C.s1, icon: ROW_ICON[r.metric] || "trend",
+  })),
+  dividerAfterIndex: 2,
+  callouts: [
+    worldVsUsMultiple != null ? { icon: "globe", html: `The world's listed-company market cap is more than <b>${worldVsUsMultiple >= 2 ? "double" : `${worldVsUsMultiple.toFixed(1)}x`}</b> that of the U.S.` } : null,
+    { icon: "trend", html: `U.S. annual stock-trading value equals <b>~${Math.round(tradedShareOfCap)}%</b> of U.S. market cap.` },
+    marginShare != null ? { icon: "percent", html: `Margin debt remains small relative to total market size (<b>~${marginShare.toFixed(1)}%</b>).` } : null,
+  ].filter(Boolean),
   source: "World Bank, FINRA, SIFMA, Federal Reserve SCF",
   vintage: stamp,
 });
