@@ -98,7 +98,7 @@ const html = cardHTML({
 
 const facebook = [
   ...(perCapitaLeader ? [
-    `${perCapitaLeader.name} grants more patents per capita than anywhere else in America — ${perCapitaLeader.per100k.toFixed(1)} per 100,000 residents in ${year}. California still wins on raw count (it's just bigger), but per person, this is where America actually invents most:`,
+    `${perCapitaLeader.name} produced the most granted patents per resident in ${year} — ${perCapitaLeader.per100k.toFixed(1)} per 100,000 people — even though California dominates the raw count (it's just bigger):`,
   ] : [`Which U.S. states invent the most? Granted patents by inventor's home state, ${year}:`]),
   "",
   ...top10.map((r, i) => `${i + 1}. ${r.name}: ${num(r.patents)} patents`),

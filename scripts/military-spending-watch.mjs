@@ -163,9 +163,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "How much of a country's economy can war consume?",
-  "",
-  `${name(lead.iso3)} spent ${leadLatest.value.toFixed(1)}% of its entire GDP on its military in ${leadLatest.year}${series.length > 1 ? `, vs. ${series[1].pts[series[1].pts.length - 1].value.toFixed(1)}% for ${name(series[1].iso3)}` : ""}.`,
+  `Imagine roughly ${Math.round(leadLatest.value)}% of everything your country produces going to the military. That's ${name(lead.iso3)} in ${leadLatest.year}${series.length > 1 ? `, vs. ${series[1].pts[series[1].pts.length - 1].value.toFixed(1)}% for ${name(series[1].iso3)}` : ""}.`,
   "",
   ...(lead.iso3 === "UKR" ? [
     `${leadFirst.year}: ${leadFirst.value.toFixed(1)}%`,

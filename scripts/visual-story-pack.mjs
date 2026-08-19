@@ -170,15 +170,19 @@ function annualLast(series, startYear = 0) {
   return [...years.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([year, point]) => ({ year, date: point.d, point }));
 }
 
-function writeTimeline({ slug, kicker, title, question, series, value, fmt, tickFmt, source, sourceWebsite, note }) {
+function writeTimeline({ slug, kicker, title, question, hookLine, series, value, fmt, tickFmt, source, sourceWebsite, note }) {
   const first = series[0], last = series.at(-1);
   const chartSVG = lineChart([{ name: title, color: C.s1, points: series.map((row) => ({ label: row.year, v: value(row) })), endLabel: (formatted) => formatted }], {
     fmtTick: tickFmt, fmtVal: fmt, labelStep: Math.max(1, Math.floor(series.length / 7)),
   });
   const html = cardHTML({ kicker, title, hero: fmt(value(last)), heroLabel: `${last.year} latest annual point`, chartSVG, source, vintage: `${first.year}-${last.year}` });
+  // Full table stays in the CSV; the caption shows milestone years only
+  // (every ~5th year plus first/last) so it doesn't read as a giant data dump.
+  const step = Math.max(1, Math.round(series.length / 12));
+  const milestones = series.filter((_, i) => i === 0 || i === series.length - 1 || i % step === 0);
   const caption = [
-    question, `${first.year}: ${fmt(value(first))}. ${last.year}: ${fmt(value(last))}.`, "",
-    "Year | Value", ...series.map((row) => `${row.year} | ${fmt(value(row))}`), "", note, "",
+    hookLine || `${question} ${fmt(value(first))} (${first.year}) → ${fmt(value(last))} (${last.year}).`, "",
+    "Year | Value", ...milestones.map((row) => `${row.year} | ${fmt(value(row))}`), "", note, "",
     "What stands out to you in this timeline? Comment below and share it with someone who follows long-term trends.", "",
     "Sources:", `• ${source}`, `Source website: ${sourceWebsite}`, "Information retrieved programmatically via API or official data download.", "Graph made by Jeffrey Macy.",
   ];
@@ -189,7 +193,8 @@ const currentYear = new Date().getUTCFullYear();
 const populationAnnual = annualLast(await fred("POPTHM"), 1960).filter(({ year }) => Number(year) < currentYear)
   .map(({ year, date, point }) => ({ year, date, value: point.v * 1000 }));
 writeTimeline({
-  slug: "us-population-timeline", kicker: "Population timeline", title: "U.S. population since 1960", question: "How much has the U.S. population grown since 1960?",
+  slug: "us-population-timeline", kicker: "Population timeline", title: "U.S. population since 1960",
+  hookLine: `The U.S. added about ${(((populationAnnual.at(-1).value - populationAnnual[0].value)) / 1e6).toFixed(0)} million people between ${populationAnnual[0].year} and ${populationAnnual.at(-1).year}.`,
   series: populationAnnual, value: (row) => row.value, fmt: (v) => `${(v / 1e6).toFixed(1)} million`, tickFmt: (v) => `${Math.round(v / 1e6)}M`,
   source: "FRED population series POPTHM", sourceWebsite: "https://fred.stlouisfed.org/series/POPTHM",
   note: "This uses the annual year-end observation from the monthly population series.",
@@ -200,7 +205,8 @@ const debtAnnual = annualLast((debtJson.data || []).map((row) => ({ d: row.recor
   .map(({ year, date, point }) => ({ year, date, value: point.v }));
 const debtLatestDate = debtAnnual.at(-1).date;
 writeTimeline({
-  slug: "national-debt-timeline", kicker: "Debt timeline", title: "U.S. national debt since 2000", question: "How has total U.S. public debt changed since 2000?",
+  slug: "national-debt-timeline", kicker: "Debt timeline", title: "U.S. national debt since 2000",
+  hookLine: `U.S. federal debt has gone from ${fmtM(debtAnnual[0].value)} in ${debtAnnual[0].year} to about ${fmtM(debtAnnual.at(-1).value)} today.`,
   series: debtAnnual, value: (row) => row.value, fmt: fmtM, tickFmt: (v) => `$${Math.round(v / 1e12)}T`,
   source: "U.S. Treasury Fiscal Data, Debt to the Penny", sourceWebsite: "https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny",
   note: `This uses the last available daily debt observation in each calendar year; ${debtAnnual.at(-1).year} is partial through ${debtLatestDate}. It is nominal debt, not adjusted for inflation or population.`,
@@ -212,7 +218,12 @@ const inflationAnnual = cpiAnnualLevels.slice(1).map((row, index) => ({
   year: row.year, value: (row.level / cpiAnnualLevels[index].level - 1) * 100,
 }));
 writeTimeline({
-  slug: "inflation-timeline", kicker: "Inflation timeline", title: "U.S. inflation rate since 1960", question: "How unusual is today's inflation compared with earlier decades?",
+  slug: "inflation-timeline", kicker: "Inflation timeline", title: "U.S. inflation rate since 1960",
+  hookLine: (() => {
+    const peak = inflationAnnual.reduce((a, b) => (b.value > a.value ? b : a));
+    const recentPeak = inflationAnnual.filter((r) => Number(r.year) >= 2021).reduce((a, b) => (b.value > a.value ? b : a));
+    return `The post-COVID inflation spike hit ${recentPeak.value.toFixed(1)}% in ${recentPeak.year} — painful, but nowhere near the ${peak.value.toFixed(1)}% peak America saw in ${peak.year}.`;
+  })(),
   series: inflationAnnual, value: (row) => row.value, fmt: (v) => `${v.toFixed(1)}%`, tickFmt: (v) => `${v.toFixed(0)}%`,
   source: "FRED/BLS Consumer Price Index (CPIAUCSL)", sourceWebsite: "https://fred.stlouisfed.org/series/CPIAUCSL",
   note: "Note: This calculates December-to-December CPI inflation from the seasonally adjusted all-items index. It is not the annual-average inflation measure.",

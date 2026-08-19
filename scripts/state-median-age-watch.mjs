@@ -46,7 +46,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `${oldest[0].state}'s median age is ${oldest[0].age.toFixed(1)} — ${(oldest[0].age - youngest[0].age).toFixed(1)} years older than ${youngest[0].state}'s ${youngest[0].age.toFixed(1)}. Every state, ranked:`,
+  `The typical resident of ${oldest[0].state} is ${(oldest[0].age - youngest[0].age).toFixed(0)} years older than the typical resident of ${youngest[0].state} (${oldest[0].age.toFixed(1)} vs. ${youngest[0].age.toFixed(1)}). Why are states aging so differently? Retiree migration, birth rates, and college/military populations all play a role. Every state, ranked:`,
   "",
   `Census ACS ${year} data — median age by state.`,
   "",

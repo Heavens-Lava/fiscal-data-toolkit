@@ -29,8 +29,17 @@ export function writeStateRankingPost({
     chartSVG, source, vintage,
   });
   const describe = (row) => rowDetail ? rowDetail(row) : valueFormat(row.value);
+  // The hook always compares on the single primary `value` metric (never the
+  // richer per-row rowDetail, which can bundle in a second unrelated figure
+  // that doesn't move in the same direction -- mixing two metrics into one
+  // ranking claim reads as incoherent, e.g. "$X premium; $Y deductible" vs.
+  // "$X2 premium; $Y2 deductible" when X2<X but Y2>Y).
+  const ratio = low[0].value > 0 ? high[0].value / low[0].value : null;
+  const ratioClause = ratio != null && ratio >= 3
+    ? ` — ${ratio >= 10 ? Math.round(ratio) : ratio.toFixed(1)}x ${low[0].state}'s`
+    : " — versus";
   const facebook = [
-    `${high[0].state} ranks highest at ${describe(high[0])} — versus ${describe(low[0])} in ${low[0].state}. Every state, ranked:`, "",
+    `${high[0].state} ranks highest at ${valueFormat(high[0].value)}${ratioClause} ${valueFormat(low[0].value)}${ratioClause.includes("versus") ? ` in ${low[0].state}` : ""}. Every state, ranked:`, "",
     `State | ${metricLabel}`,
     ...ranked.map((row) => `#${row.rank} ${row.state} | ${describe(row)}`), "",
     az ? `Arizona ranks #${az.rank}: ${describe(az)}.` : "", "", note, "",
