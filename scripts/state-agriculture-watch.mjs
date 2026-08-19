@@ -146,6 +146,12 @@ const chartSVG = horizontalBarChart(
 );
 
 const topShare = (top[0].value / nationalTotal) * 100;
+// top[0] leads by quantity (rows is sorted on .value) -- that's NOT
+// necessarily the same state as the dollar-value leader (e.g. turkeys:
+// Minnesota leads by head count, North Carolina's crop is worth more).
+// Compute the true value leader separately so the caption never claims
+// a quantity leader is also "worth more than any other state" unless verified.
+const topByValue = hasDollar ? [...rows].filter((r) => Number.isFinite(r.dollarValue)).sort((a, b) => b.dollarValue - a.dollarValue)[0] : null;
 const html = cardHTML({
   kicker: "Agriculture check",
   title: commodityKey === "wheat" ? "Where America's wheat comes from" : `Which states produce the most ${c.label.toLowerCase()}?`,
@@ -162,7 +168,7 @@ const facebook = [
     : commodityKey === "cotton"
     ? `${top[0].state} produced ${compact(top[0].value)} cotton bales in ${year}—more than twice as many as #2 ${top[1].state}.`
     : hasDollar
-    ? `${top[0].state}'s ${c.label.toLowerCase()} production was worth ${money(top[0].dollarValue)} in ${year} — more than any other state.`
+    ? `${top[0].state} produced the most ${c.label.toLowerCase()} by volume in ${year} (${num(top[0].value)} ${c.unit})${topByValue && topByValue.state !== top[0].state ? ` — but ${topByValue.state}'s crop was worth more (${money(topByValue.dollarValue)} vs. ${money(top[0].dollarValue)}).` : `, worth ${money(top[0].dollarValue)} — more than any other state.`}`
     : `Which states produce the most ${c.label.toLowerCase()}?`,
   "",
   commodityKey === "wheat"

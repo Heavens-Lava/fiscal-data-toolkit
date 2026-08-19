@@ -111,6 +111,8 @@ const facebook = [
   "",
   "Real numbers, real source — U.S. Religion Census 2020, Association of Statisticians of American Religious Bodies:",
   SOURCE_PAGE,
+  "",
+  `Source website: ${SOURCE_PAGE}`,
 ];
 
 const lines = [
