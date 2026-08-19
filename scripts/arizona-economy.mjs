@@ -6,10 +6,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   C,
-  cardHTML,
   closest,
   fred,
-  horizontalBarChart,
+  metricListCard,
   oneYearBefore,
   screenshot,
 } from "./lib/chart-kit.mjs";
@@ -70,29 +69,33 @@ const unemp = rows.find((r) => r.id === "AZUR");
 const gas = rows.find((r) => r.id === "APUS48A74714");
 const gdp = rows.find((r) => r.id === "AZNGSP");
 
-// Gas is left out of the comparison chart on purpose: it's a volatile,
+// Gas is left out of the comparison rows on purpose: it's a volatile,
 // largely national/oil-market-driven price, not a structural economic
 // indicator, and its swings (±30-40%/yr) dwarf jobs/income/GDP/housing on
-// a shared axis, burying the more meaningful signal. It still appears in
-// the text table below, and gets its own dedicated card via the
-// weekly-digest "gas-az" topic.
-const chartSVG = horizontalBarChart(
-  rows
-    .filter((r) => r.unit !== "percent" && r.id !== "APUS48A74714")
-    .map((r) => ({ label: r.label, v: r.chgRaw, color: C.s1 }))
-    .sort((a, b) => b.v - a.v),
-  {
-    fmtTick: (t) => `${Math.round(t)}%`,
-    fmtVal: (v) => `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`,
-  }
-);
+// a shared axis, burying the more meaningful signal. It's the hero number
+// instead. Unemployment is also excluded from the bars specifically -- its
+// "change" is measured in percentage POINTS, not percent, so it isn't the
+// same unit as the other rows' % change and would be misleading side by
+// side on one bar-length scale.
+const barMetrics = rows.filter((r) => r.unit !== "percent" && r.id !== "APUS48A74714");
+const ROW_COLOR = { AZNA: C.cat[0], AZSTHPI: C.cat[2], AZNGSP: C.cat[5], AZPCPI: C.cat[3] };
+const ROW_ICON = { AZNA: "trend", AZSTHPI: "building", AZNGSP: "globe", AZPCPI: "doc" };
 
-const html = cardHTML({
-  kicker: "Arizona economy check",
+const html = metricListCard({
   title: "Phoenix gas is up sharply — the rest of Arizona's economy isn't moving nearly as fast",
-  hero: fmt(gas.latest, gas.unit),
-  heroLabel: `Phoenix regular gas, ${gas.latest.d} · ${gas.chg} vs. a year earlier`,
-  chartSVG,
+  subtitle: "Year-over-year change across Arizona's economy",
+  heroLabel: "Phoenix regular gas",
+  heroValue: fmt(gas.latest, gas.unit),
+  heroSub: gas.latest.d,
+  rows: barMetrics.map((r) => ({
+    label: r.label, value: r.chgRaw, value_display: r.chg,
+    color: ROW_COLOR[r.id] || C.s1, icon: ROW_ICON[r.id] || "trend",
+  })),
+  callouts: [
+    { icon: "trend", html: `Arizona payroll jobs are <b>${jobs.chg}</b> over the same period.` },
+    { icon: "percent", html: `Unemployment moved <b>${unemp.chg}</b> — the labor market itself has barely shifted.` },
+    { icon: "flag", html: `Gas is up <b>${gas.chg}</b> — driven mostly by national/global oil markets, not Arizona conditions.` },
+  ],
   source: "FRED",
   vintage: gdp.latest.d,
 });

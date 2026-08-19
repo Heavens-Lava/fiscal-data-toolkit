@@ -12,7 +12,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-kit.mjs";
+import { C, metricListCard, screenshot, toCSV } from "./lib/chart-kit.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOCIAL = path.join(ROOT, "social");
@@ -119,21 +119,28 @@ console.log(`  Top 10 banks ≈ ${money(top10Sum)} = ~${Math.round(top10Share)}%
 console.log(`  The other ~${(banks - 10).toLocaleString()} banks split the remaining ~${Math.round(100 - top10Share)}%.`);
 console.log("");
 
-const chartSVG = horizontalBarChart(
-  topRows.map((r, i) => ({
-    label: r.name.length > 28 ? `${r.name.slice(0, 25)}...` : r.name,
-    v: r.assets / 1e12,
-    color: i === 0 ? C.s2 : C.s1,
-  })),
-  { fmtTick: (v) => `$${v.toFixed(1)}T`, fmtVal: (v) => `$${v.toFixed(2)}T` }
-);
+const depositShare = (deposits / assets) * 100;
+const securitiesShare = (securities / assets) * 100;
+const equityShare = (equity / assets) * 100;
+const roa = (netIncome / assets) * 100;
 
-const html = cardHTML({
-  kicker: "Banking concentration check",
+const html = metricListCard({
   title: "Which banks hold the most of the U.S. banking system?",
-  hero: `${Math.round(top10Share)}%`,
-  heroLabel: `of all bank assets held by the top 10 · ${q}`,
-  chartSVG,
+  subtitle: `Sector totals for all ${banks.toLocaleString()} FDIC-insured banks · ${q} · bar length = share of total assets`,
+  heroLabel: "Total bank assets",
+  heroValue: money(assets),
+  heroSub: q,
+  rows: [
+    { label: "Total deposits", value: depositShare, value_display: money(deposits), color: C.cat[0], icon: "building" },
+    { label: "Securities held", value: securitiesShare, value_display: money(securities), color: C.cat[2], icon: "doc" },
+    { label: "Equity capital", value: equityShare, value_display: money(equity), color: C.cat[3], icon: "percent" },
+    { label: "Net income (quarter)", value: Math.max(roa, 0.05), value_display: money(netIncome), color: C.cat[5], icon: "trend" },
+  ],
+  callouts: [
+    { icon: "building", html: `<b>${leader.name}</b> alone holds ${money(leader.assets)} — about <b>${leaderShare.toFixed(0)}%</b> of all U.S. bank assets.` },
+    { icon: "trend", html: `The top 4 banks hold <b>~${Math.round(top4Share)}%</b> of the entire sector between them.` },
+    { icon: "percent", html: `The top 10 hold <b>~${Math.round(top10Share)}%</b> — more than half — leaving ~${(banks - 10).toLocaleString()} banks to split the rest.` },
+  ],
   source: "FDIC BankFind financials",
   vintage: q,
 });
