@@ -155,7 +155,10 @@ writeAsset({
   columns: ["source", "trillion_btu", "share_pct", "year"],
   rows: energySlices.map((row) => [row.label, row.v, row.v / energyTotal * 100, energyYear]),
   caption: [
-    "What sources supply U.S. primary energy?", `${energySlices[0].label} is the largest source at ${pct(energySlices[0].v / energyTotal * 100)} of this five-source total.`, "",
+    (() => {
+      const fossilShare = energySlices.filter((r) => ["Petroleum", "Natural gas", "Coal"].includes(r.label)).reduce((s, r) => s + r.v, 0) / energyTotal * 100;
+      return `Fossil fuels still supply ${pct(fossilShare)} of U.S. primary energy — ${energySlices[0].label} alone is ${pct(energySlices[0].v / energyTotal * 100)} of the five-source total.`;
+    })(), "",
     "Energy source | Share", ...energySlices.map((row) => `${row.label} | ${pct(row.v / energyTotal * 100)} (${(row.v / 1000).toFixed(1)} quadrillion Btu)`), "",
     "These shares use the sum of the five published source series. That sum can differ slightly from EIA's headline total because EIA separately accounts for electricity-system conversion losses.", "",
     "Which energy source should I chart historically next? Comment below and share this chart.", "",
