@@ -64,9 +64,28 @@ function valueFor(rows, iso3, year) {
 
 const noImage = process.argv.includes("--no-image");
 const stamp = localDateStamp();
-const outBase = path.join(SOCIAL, `gdp-per-capita-gap-watch-${stamp}`);
 
 mkdirSync(SOCIAL, { recursive: true });
+
+// Split into 3 focused posts instead of one long mini-essay -- each covers
+// one idea (nominal/PPP gap, China's catch-up trajectory, why export totals
+// don't equal captured value) rather than cramming all four into one caption.
+function writePost(slug, { kicker, title, hero, heroLabel, chartSVG, vintage, facebook, extraLines = [] }) {
+  const outBase = path.join(SOCIAL, `${slug}-${stamp}`);
+  const html = cardHTML({ kicker, title, hero, heroLabel, chartSVG, source: "World Bank Open Data", vintage });
+  const lines = [
+    `${kicker} (${stamp})`, "", ...extraLines, "",
+    "Facebook post", "-------------", facebook.join("\n"),
+  ];
+  writeFileSync(`${outBase}.txt`, lines.join("\n"));
+  writeFileSync(`${outBase}.csv`, toCSV(["metric", "us_value", "china_value", "year", "unit"], [
+    ["gdp_per_capita_nominal", usNominal.value, cnNominal.value, usNominal.date, "usd"],
+    ["gdp_per_capita_ppp", usPPP.value, cnPPP.value, usPPP.date, "usd"],
+  ]));
+  writeFileSync(`${outBase}.html`, html);
+  if (!noImage) screenshot(`${outBase}.html`, `${outBase}.png`);
+  console.log(`${slug}: ${rel(`${outBase}.txt`)}`);
+}
 
 console.log("  Fetching GDP per capita (nominal + PPP), exports, and population from World Bank...");
 const [nominalRows, pppRows, chinaHistRows, exportRows, popRows, chinaTotalRows] = await Promise.all([
@@ -99,79 +118,98 @@ const cnPop = valueFor(popRows, "CHN", popYearCN);
 const usExportsPerCapita = usExports / usPop;
 const cnExportsPerCapita = cnExports / cnPop;
 
-const chartSVG = horizontalBarChart(
-  [
-    { label: `China, nominal (${cnNominal.date})`, v: cnNominal.value, color: C.neg },
-    { label: `China, PPP-adjusted (${cnPPP.date})`, v: cnPPP.value, color: C.s1 },
-    { label: `United States (${usNominal.date})`, v: usNominal.value, color: C.s2 },
-  ],
-  { fmtTick: (v) => money(v), fmtVal: (v) => money(v) }
-);
-
-const html = cardHTML({
+// Post 1 — the nominal-vs-PPP gap itself.
+writePost("gdp-per-capita-gap-watch", {
   kicker: "GDP per capita check",
   title: "The US-China GDP-per-person gap, nominal vs. cost-of-living adjusted",
   hero: `${nominalRatio.toFixed(1)}×`,
   heroLabel: `US GDP per person vs. China's, nominal · ${usNominal.date}`,
-  chartSVG,
-  source: "World Bank Open Data",
+  chartSVG: horizontalBarChart(
+    [
+      { label: `China, nominal (${cnNominal.date})`, v: cnNominal.value, color: C.neg },
+      { label: `China, PPP-adjusted (${cnPPP.date})`, v: cnPPP.value, color: C.s1 },
+      { label: `United States (${usNominal.date})`, v: usNominal.value, color: C.s2 },
+    ],
+    { fmtTick: (v) => money(v), fmtVal: (v) => money(v) }
+  ),
   vintage: usNominal.date,
+  extraLines: [
+    `US GDP per capita (nominal, ${usNominal.date}): ${money(usNominal.value)}`,
+    `China GDP per capita (nominal, ${cnNominal.date}): ${money(cnNominal.value)}`,
+    `Nominal ratio (US/China): ${nominalRatio.toFixed(2)}x`,
+    `US GDP per capita (PPP, ${usPPP.date}): ${money(usPPP.value)}`,
+    `China GDP per capita (PPP, ${cnPPP.date}): ${money(cnPPP.value)}`,
+    `PPP ratio (US/China): ${pppRatio.toFixed(2)}x`,
+  ],
+  facebook: [
+    `In ${usNominal.date}, GDP per person was ${money(usNominal.value)} in the US vs. ${money(cnNominal.value)} in China — the average American "produces" about ${nominalRatio.toFixed(1)}× as much economic output as the average person in China, in raw dollar terms.`,
+    "",
+    `Adjust for cost of living (PPP, which accounts for goods being cheaper in China) and the gap narrows but doesn't close: ${money(usPPP.value)} vs. ${money(cnPPP.value)} — about ${pppRatio.toFixed(1)}× rather than ${nominalRatio.toFixed(1)}×.`,
+    "",
+    "Real numbers, real source — World Bank Open Data:",
+    "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+    "https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD",
+  ],
 });
 
-const facebook = [
-  `In ${usNominal.date}, GDP per person was ${money(usNominal.value)} in the US vs. ${money(cnNominal.value)} in China — the average American "produces" about ${nominalRatio.toFixed(1)}× as much economic output as the average person in China, in raw dollar terms.`,
-  "",
-  `Adjust for cost of living (PPP, which accounts for goods being cheaper in China) and the gap narrows but doesn't close: ${money(usPPP.value)} vs. ${money(cnPPP.value)} — about ${pppRatio.toFixed(1)}× rather than ${nominalRatio.toFixed(1)}×.`,
-  "",
-  `Context that matters: China's economy overall is ${money(cnTotal.value)} — the world's 2nd largest, trailing only the US — but split across 1.4 billion people it's still a fraction per person. And China's per-person GDP has come a long way fast: from ${money(cn1980.value, 0)} in ${cn1980.date} to ${money(cnNominal.value)} today — roughly a ${Math.round(catchUpMultiple)}× increase in 45 years, one of the fastest sustained catch-ups on record.`,
-  "",
-  `Total exports tell a different story than per-person exports: China exported ${money(cnExports)} in goods & services in ${expYear} — more than the US's ${money(usExports)}. But split across each country's population, the US actually exports more PER PERSON (${money(usExportsPerCapita, 0)}/person vs. China's ${money(cnExportsPerCapita, 0)}/person) — China's total is bigger because it has 4× the people, not because each worker exports more value.`,
-  "",
-  "Why the value gap, not just the volume gap? Trade totals count a product's full price at export, not who actually captured the value. The most-cited example: academic researchers tracing an iPhone's supply chain found China's assembly work captured only about $10 of its value, while Apple (US) kept the majority through design, software, and brand (Kraemer, Linden & Dedrick, UC Irvine/UC Berkeley/Syracuse, 2011). More broadly, GDP-per-person gaps like this one mainly trace back to capital per worker (machines, software, infrastructure), where a country's industries sit in the value chain (assembly vs. design/brand), and institutions (property rights, capital allocation) — not the workforce itself. It's why the gap is closing as China moves up the value chain (EVs, batteries, chips) rather than staying fixed.",
-  "",
-  "Real numbers, real source — World Bank Open Data:",
-  "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
-  "https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD",
-];
+// Post 2 — China's per-person catch-up trajectory (total GDP vs. per-person tell different stories).
+writePost("gdp-china-catchup-watch", {
+  kicker: "China's GDP catch-up",
+  title: "China's economy is #2 in the world — but per person, it's a different story",
+  hero: `${Math.round(catchUpMultiple)}×`,
+  heroLabel: `China's GDP per person growth since ${cn1980.date}`,
+  chartSVG: horizontalBarChart(
+    [
+      { label: `China, ${cn1980.date}`, v: cn1980.value, color: C.neg },
+      { label: `China, ${cnNominal.date}`, v: cnNominal.value, color: C.s1 },
+    ],
+    { fmtTick: (v) => money(v), fmtVal: (v) => money(v) }
+  ),
+  vintage: cnNominal.date,
+  extraLines: [
+    `China GDP per capita in ${cn1980.date}: ${money(cn1980.value, 0)}`,
+    `China GDP per capita in ${cnNominal.date}: ${money(cnNominal.value)}`,
+    `China catch-up multiple since ${cn1980.date}: ${catchUpMultiple.toFixed(1)}x`,
+    `China total GDP (${cnTotal.date}): ${money(cnTotal.value)}`,
+  ],
+  facebook: [
+    `China's economy overall is ${money(cnTotal.value)} — the world's 2nd largest, trailing only the US. But split across 1.4 billion people, it's still a fraction per person: ${money(cnNominal.value)}, versus ${money(usNominal.value)} in the US.`,
+    "",
+    `China's per-person GDP has come a long way fast, though: from ${money(cn1980.value, 0)} in ${cn1980.date} to ${money(cnNominal.value)} today — roughly a ${Math.round(catchUpMultiple)}× increase in 45 years, one of the fastest sustained catch-ups on record.`,
+    "",
+    "Total GDP measures a country's overall economic weight; GDP per person measures typical living standards. A country can lead on one and trail on the other — that's exactly what's happening here.",
+    "",
+    "Real numbers, real source — World Bank Open Data:",
+    "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+  ],
+});
 
-const lines = [
-  `GDP per capita check (${stamp})`,
-  "",
-  `US GDP per capita (nominal, ${usNominal.date}): ${money(usNominal.value)}`,
-  `China GDP per capita (nominal, ${cnNominal.date}): ${money(cnNominal.value)}`,
-  `Nominal ratio (US/China): ${nominalRatio.toFixed(2)}x`,
-  "",
-  `US GDP per capita (PPP, ${usPPP.date}): ${money(usPPP.value)}`,
-  `China GDP per capita (PPP, ${cnPPP.date}): ${money(cnPPP.value)}`,
-  `PPP ratio (US/China): ${pppRatio.toFixed(2)}x`,
-  "",
-  `China GDP per capita in ${cn1980.date}: ${money(cn1980.value, 0)}`,
-  `China catch-up multiple since ${cn1980.date}: ${catchUpMultiple.toFixed(1)}x`,
-  `China total GDP (${cnTotal.date}): ${money(cnTotal.value)}`,
-  "",
-  `Exports of goods & services, ${expYear}: US ${money(usExports)} | China ${money(cnExports)}`,
-  `Exports per capita, ${expYear}: US ${money(usExportsPerCapita, 0)} | China ${money(cnExportsPerCapita, 0)}`,
-  "",
-  "Facebook post",
-  "-------------",
-  facebook.join("\n"),
-];
-
-writeFileSync(`${outBase}.txt`, lines.join("\n"));
-writeFileSync(`${outBase}.csv`, toCSV(
-  ["metric", "us_value", "china_value", "year", "unit"],
-  [
-    ["gdp_per_capita_nominal", usNominal.value, cnNominal.value, usNominal.date, "usd"],
-    ["gdp_per_capita_ppp", usPPP.value, cnPPP.value, usPPP.date, "usd"],
-    ["exports_goods_services", usExports, cnExports, expYear, "usd"],
-    ["exports_per_capita", usExportsPerCapita, cnExportsPerCapita, expYear, "usd"],
-    ["china_gdp_per_capita_1980", "", cn1980.value, cn1980.date, "usd"],
-    ["china_total_gdp", "", cnTotal.value, cnTotal.date, "usd"],
-  ]
-));
-writeFileSync(`${outBase}.html`, html);
-if (!noImage) screenshot(`${outBase}.html`, `${outBase}.png`);
-
-console.log(lines.join("\n"));
-const files = ["txt", "csv", "html", !noImage && "png"].filter(Boolean).map((ext) => rel(`${outBase}.${ext}`));
-console.log(`\nFiles: ${files.join(" / ")}`);
+// Post 3 — why export totals don't equal captured value.
+writePost("gdp-export-value-watch", {
+  kicker: "Trade value check",
+  title: "China exports more than the US — but Americans export more per person",
+  hero: money(usExportsPerCapita, 0),
+  heroLabel: `US exports per person, ${expYear}`,
+  chartSVG: horizontalBarChart(
+    [
+      { label: `China per person (${expYear})`, v: cnExportsPerCapita, color: C.neg },
+      { label: `US per person (${expYear})`, v: usExportsPerCapita, color: C.s2 },
+    ],
+    { fmtTick: (v) => money(v), fmtVal: (v) => money(v) }
+  ),
+  vintage: expYear,
+  extraLines: [
+    `Exports of goods & services, ${expYear}: US ${money(usExports)} | China ${money(cnExports)}`,
+    `Exports per capita, ${expYear}: US ${money(usExportsPerCapita, 0)} | China ${money(cnExportsPerCapita, 0)}`,
+  ],
+  facebook: [
+    `China exported ${money(cnExports)} in goods & services in ${expYear} — more than the US's ${money(usExports)}. But split across each country's population, the US actually exports more PER PERSON: ${money(usExportsPerCapita, 0)} vs. China's ${money(cnExportsPerCapita, 0)}. China's total is bigger mainly because it has 4× the people, not because each worker exports more value.`,
+    "",
+    `Trade totals count a product's full price at export, not who actually captured the value. The most-cited example: researchers tracing an iPhone's supply chain found China's assembly work captured only about $10 of its value, while Apple (US) kept the majority through design, software, and brand (Kraemer, Linden & Dedrick, UC Irvine/UC Berkeley/Syracuse, 2011).`,
+    "",
+    "That's why \"Made in China\" on the label doesn't mean China captured most of the sale price — and why the gap narrows as China's industries move up the value chain (EVs, batteries, chips) rather than staying fixed.",
+    "",
+    "Real numbers, real source — World Bank Open Data:",
+    "https://data.worldbank.org/indicator/NE.EXP.GNFS.CD",
+  ],
+});
