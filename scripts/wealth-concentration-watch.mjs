@@ -77,7 +77,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "How is U.S. household wealth divided?",
+  `The richest 1% of Americans hold about ${(top1.pct / bottom50.pct).toFixed(0)}x as much wealth as the entire bottom half of the country combined.`,
   "",
   `As of ${vintage}, total U.S. household net worth was ${money(totalDollars)}.`,
   "",

@@ -56,7 +56,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `${worst.state}'s SNAP enrollment didn't just decline this year — it collapsed. And it's not close to the next state.`,
+  `Something unusual is happening to SNAP enrollment in ${worst.state} — a decline far larger than any other state, and not close.`,
   "",
   `USDA data: SNAP participants fell ${pct(worst.yoy * 100)} in ${worst.state} between ${priorLabel} and ${latestLabel} — from ${num(worst.priorYearValue)} people to ${num(worst.latestValue)}. That's more than ${multiple.toFixed(1)}x the size of the next-largest state decline (${runnerUp.state}, ${pct(runnerUp.yoy * 100)}).`,
   "",

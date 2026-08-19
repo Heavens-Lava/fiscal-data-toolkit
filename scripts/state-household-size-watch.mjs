@@ -46,7 +46,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `${largest[0].state} has the largest average household at ${largest[0].size.toFixed(2)} people — versus just ${smallest[0].size.toFixed(2)} in ${smallest[0].state}. Every state, ranked:`,
+  `Why do households in ${largest[0].state} average ${largest[0].size.toFixed(2)} people while ${smallest[0].state} averages just ${smallest[0].size.toFixed(2)}? Multigenerational living, marriage rates, birth rates, and housing costs all play a role. Every state, ranked:`,
   "",
   `Census ACS ${year} data — average household size by state.`,
   "",

@@ -110,9 +110,9 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `HUD's January ${latest.year} point-in-time count found ${f0(latest.total)} homeless veterans nationwide${latest.unsheltered != null ? ` (${f0(latest.unsheltered)} of them unsheltered — living outside rather than in a shelter)` : ""}.`,
+  `America has cut veteran homelessness by ${Math.abs(changeSinceStart).toFixed(0)}% since ${first.year} — from ${f0(first.total)} down to ${f0(latest.total)} in HUD's January ${latest.year} count${latest.unsheltered != null ? ` (${f0(latest.unsheltered)} still unsheltered)` : ""}.`,
   "",
-  `That's down ${Math.abs(changeSinceStart).toFixed(0)}% from ${f0(first.total)} in ${first.year} — one of the more consistent improvement stories in federal homelessness data, driven largely by the HUD-VA Supportive Housing (HUD-VASH) voucher program.`,
+  `That's one of the more consistent improvement stories in federal homelessness data, driven largely by the HUD-VA Supportive Housing (HUD-VASH) voucher program.`,
   ...(yoyChange != null ? [`Year over year: ${pct(yoyChange)} from ${f0(prior.total)} in ${prior.year}.`] : []),
   "",
   `States with the most homeless veterans in ${latest.year}: ${topStates.slice(0, 5).map((s) => `${s.state} ${f0(s.total)}`).join(", ")}.`,
