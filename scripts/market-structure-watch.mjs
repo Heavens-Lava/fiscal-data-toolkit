@@ -197,6 +197,19 @@ const html = metricListCard({
   vintage: stamp,
 });
 
+const facebook = [
+  `The U.S. stock market is worth ${money(marketCap)} — ${worldVsUsMultiple != null ? `about ${pct(100 / worldVsUsMultiple)} of the ${money(world.marketCap.value)} global listed-equity market` : "a huge share of the global listed-equity market"}.`,
+  "",
+  "Size and leverage, in one snapshot:",
+  ...chartRows.map((r) => `${r.metric}: ${money(r.value)} (${r.date})`),
+  "",
+  `For scale: U.S. stock trading during the year equals about ${Math.round(tradedShareOfCap)}% of the market's total value, while margin debt — money borrowed against stock holdings — is only about ${marginShare != null ? marginShare.toFixed(1) : "a small"}% of market cap. Leverage in the system is smaller than the headline dollar figures might suggest.`,
+  "",
+  `${pct(SCF.stockOwnershipPct)} of U.S. families own stocks directly or indirectly, per the Federal Reserve's ${SCF.year} Survey of Consumer Finances.`,
+  "",
+  "Sources: World Bank, FINRA Margin Statistics, SIFMA US Equity and Related Securities Statistics, Federal Reserve SCF.",
+];
+
 const lines = [
   `Market structure watch (${stamp})`,
   "",
@@ -224,6 +237,10 @@ const lines = [
   "FINRA Margin Statistics: https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
   "SIFMA US Equity and Related Securities Statistics: https://www.sifma.org/resources/research/statistics/us-equity-and-related-securities-statistics/",
   "Federal Reserve SCF: https://www.federalreserve.gov/econres/scfindex.htm",
+  "",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 writeFileSync(`${outBase}.txt`, lines.join("\n"));
