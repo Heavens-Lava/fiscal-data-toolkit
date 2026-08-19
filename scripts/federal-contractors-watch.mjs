@@ -104,8 +104,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Federal contractors check:",
-  "",
   `The single biggest federal contractor in FY${FY}: ${leader.name}, with ${money(leader.amount)} in contract awards.`,
   "",
   `Top 10 federal contractors: ${rows.map((r) => `${r.name} ${money(r.amount)}`).join(", ")}.`,

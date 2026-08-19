@@ -170,8 +170,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Money check:",
-  "",
   `The U.S. M2 money supply is about ${money(m2Dollars)} (${m2.d}). That is the broad bucket people usually mean by \"money in circulation\": cash, checking deposits, savings deposits, money-market funds, and similar liquid money.`,
   "",
   `But actual physical cash is only ${money(cashDollars)} (${cash.d}) - about ${cashShare.toFixed(1)}% of M2. The other ${money(digitalDollars)} exists only as digital bank-ledger balances, not paper bills.`,

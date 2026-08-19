@@ -146,8 +146,6 @@ const html = metricListCard({
 });
 
 const facebook = [
-  "Banking concentration check:",
-  "",
   `As of ${q}, ${banks.toLocaleString()} FDIC-insured banks held ${money(assets)} in total assets. ${leader.name} (${leader.city}, ${leader.state}) is #1 by itself, with ${money(leader.assets)} — about ${leaderShare.toFixed(0)}% of the entire sector in one institution.`,
   "",
   `The concentration is the real story: the top 4 banks hold about ${money(top4Sum)} (~${Math.round(top4Share)}% of the sector). The top 10 hold about ${money(top10Sum)} (~${Math.round(top10Share)}%) — more than half. The other ~${(banks - 10).toLocaleString()} FDIC-insured banks split the remaining ~${Math.round(100 - top10Share)}%.`,

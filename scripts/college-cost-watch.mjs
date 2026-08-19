@@ -120,8 +120,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "College cost check:",
-  "",
   `Among the 10 largest US colleges/universities by enrollment (min. ${minSize.toLocaleString("en-US")} students, bachelor's-predominant): median student debt at graduation ranges from ${money(Math.min(...rows.map((r) => r.debt)))} to ${money(Math.max(...rows.map((r) => r.debt)))}, and median earnings 10 years after enrollment range from ${money(Math.min(...rows.map((r) => r.earnings)))} to ${money(Math.max(...rows.map((r) => r.earnings)))}.`,
   "",
   `Best debt-to-earnings ratio in this group: ${bestValue.name} — ${money(bestValue.debt)} median debt against ${money(bestValue.earnings)} median earnings (debt is ${((bestValue.debt / bestValue.earnings) * 100).toFixed(0)}% of earnings). Worst: ${worstValue.name} — debt is ${((worstValue.debt / worstValue.earnings) * 100).toFixed(0)}% of earnings.`,

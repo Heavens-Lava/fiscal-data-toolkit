@@ -122,8 +122,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "State unemployment check:",
-  "",
   `Highest unemployment rate in the country (${vintage}): ${highest[0].name} at ${highest[0].rate.toFixed(1)}%. Lowest: ${lowest[0].name} at ${lowest[0].rate.toFixed(1)}%.`,
   "",
   `Top 5 highest: ${highest.map((r) => `${r.name} ${r.rate.toFixed(1)}%`).join(", ")}.`,

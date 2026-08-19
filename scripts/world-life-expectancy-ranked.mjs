@@ -109,8 +109,6 @@ const html = rankedTwoColumnHTML({
 });
 
 const facebook = [
-  "Life expectancy check:",
-  "",
   `Across ${rows.length} countries with World Bank data (${vintage}), life expectancy at birth ranges from ${highest[0].value.toFixed(1)} years (${highest[0].name}) down to ${lowest[0].value.toFixed(1)} years (${lowest[0].name}) — a gap of ${gap.toFixed(1)} years depending entirely on where you're born.`,
   "",
   `Where's the US? ${ordinal(usRank)} of ${rows.length}, at ${us.value.toFixed(1)} years — behind every country in the "Highest" column here despite having, by far, the largest economy and highest health spending per person of any large country. Money alone doesn't buy the longest life expectancy; health-system design, inequality, and lifestyle factors matter as much as GDP.`,

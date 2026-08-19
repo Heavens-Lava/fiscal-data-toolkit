@@ -119,8 +119,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "GDP per capita check:",
-  "",
   `In ${usNominal.date}, GDP per person was ${money(usNominal.value)} in the US vs. ${money(cnNominal.value)} in China — the average American "produces" about ${nominalRatio.toFixed(1)}× as much economic output as the average person in China, in raw dollar terms.`,
   "",
   `Adjust for cost of living (PPP, which accounts for goods being cheaper in China) and the gap narrows but doesn't close: ${money(usPPP.value)} vs. ${money(cnPPP.value)} — about ${pppRatio.toFixed(1)}× rather than ${nominalRatio.toFixed(1)}×.`,

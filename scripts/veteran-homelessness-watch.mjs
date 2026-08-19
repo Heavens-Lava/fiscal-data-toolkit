@@ -110,8 +110,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Veteran homelessness check:",
-  "",
   `HUD's January ${latest.year} point-in-time count found ${f0(latest.total)} homeless veterans nationwide${latest.unsheltered != null ? ` (${f0(latest.unsheltered)} of them unsheltered — living outside rather than in a shelter)` : ""}.`,
   "",
   `That's down ${Math.abs(changeSinceStart).toFixed(0)}% from ${f0(first.total)} in ${first.year} — one of the more consistent improvement stories in federal homelessness data, driven largely by the HUD-VA Supportive Housing (HUD-VASH) voucher program.`,

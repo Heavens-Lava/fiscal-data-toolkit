@@ -129,8 +129,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Social Security check:",
-  "",
   `The combined Social Security trust funds (retirement + disability) held ${moneyB(current.billions)} in reserves as of the end of ${current.asOf}.`,
   "",
   `That's down from a peak of ${moneyB(peak.billions)} at the end of ${peak.date} — a decline of ${moneyB(Math.abs(declineFromPeak))} in ${current.asOf.split(" ")[1] - peak.date.split(" ")[1]} years, because the program has been paying out more than it collects.`,

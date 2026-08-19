@@ -130,8 +130,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Campaign finance check:",
-  "",
   `Top fundraiser for the ${cycle} election cycle (${officeLabel}): ${leader.name} (${leader.party}-${leader.state}) with ${money(leader.receipts)} raised. ${money(leader.itemized)} of that (${((leader.itemized / leader.receipts) * 100).toFixed(0)}%) came from itemized individual contributions — donations large enough (generally over $200 from one person in a cycle) that federal law requires FEC to record the donor's name, employer, and amount.`,
   "",
   `Across these top 10 fundraisers combined: ${money(totalReceipts)} raised, of which ${money(totalItemized)} (${itemizedShare.toFixed(0)}%) is itemized. The rest is a mix of small-dollar donations under the itemization threshold, PAC contributions, and transfers — FEC's public data doesn't let you distinguish "many small donors" from "a few donations just under $200" without the underlying transaction records, so I'm not going to claim a precise small-vs-large donor split here.`,

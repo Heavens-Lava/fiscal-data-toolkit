@@ -89,8 +89,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Credit card cost check:",
-  "",
   `Total US revolving consumer credit (mostly credit cards) was ${money(totalRevolvingDollars)} as of ${revNow.d}, spread across an estimated ${(householdCount / 1e6).toFixed(1)}M households — an average of about ${usd0(avgBalance)} per household.`,
   "",
   `At today's average credit-card interest rate of ${aprNow.v.toFixed(2)}% (${aprNow.d}, accounts that carry a balance), just the INTEREST on that average balance runs about ${usd0(costNow)}/month — before a single dollar of principal gets paid down.`,

@@ -142,6 +142,20 @@ const html = cardHTML({
   vintage: cpi.latest.d,
 });
 
+const facebook = [
+  `Overall prices are up ${cpi.since2020} since January 2020 — while average hourly earnings are up ${wages.since2020}, ${Math.abs(wageVsCpi).toFixed(1)} points ${wageVsCpi >= 0 ? "ahead of" : "behind"} inflation. Here's the category-by-category breakdown:`,
+  "",
+  `Overall CPI is ${cpi.yoy} year over year and ${cpi.since2020} since Jan 2020.`,
+  "",
+  "Category | Latest | Date | YoY | Since Jan 2020",
+  "---|---:|---:|---:|---:",
+  ...rows.map((r) => `${r.label} | ${fmt(r.latest, r.unit)} | ${r.latest.d} | ${r.yoy} | ${r.since2020}`),
+  "",
+  "Note: CPI category values are index levels, not dollar prices. The percent-change columns are the useful comparison.",
+  "",
+  "Sources: FRED series CPIAUCSL, CUSR0000SAF11, CUSR0000SEHA, GASREGW, CES0500000003, MSPUS, MORTGAGE30US.",
+];
+
 const lines = [
   `Cost-of-living check (${stamp})`,
   "",
@@ -155,6 +169,10 @@ const lines = [
   "Note: CPI category values are index levels, not dollar prices. The percent-change columns are the useful comparison.",
   "",
   "Sources: FRED series CPIAUCSL, CUSR0000SAF11, CUSR0000SEHA, GASREGW, CES0500000003, MSPUS, MORTGAGE30US.",
+  "",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 const csv = [

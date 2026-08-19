@@ -138,6 +138,26 @@ const html = cardHTML({
   vintage: String(year),
 });
 
+const facebook = [
+  `Rent eats up ${pct(hero.rentShare)} of a typical monthly income in ${hero.state} — versus just ${pct(lowest[0].rentShare)} in ${lowest[0].state}. Every state, ranked:`,
+  "",
+  `Metric: median gross rent divided by median monthly household income. Vintage: ACS ${year}.`,
+  "",
+  "Rank | State | Median rent | Median household income | Rent share of monthly income",
+  "---:|---|---:|---:|---:",
+  ...highest.map((r) => `${r.rank} | ${r.state} | ${money(r.rent)} | ${money(r.income)} | ${pct(r.rentShare)}`),
+  "U.S. | U.S. | " + `${money(us.rent)} | ${money(us.income)} | ${pct(us.rentShare)}`,
+  "",
+  "Lowest rent burden states",
+  "",
+  "Rank | State | Median rent | Median household income | Rent share of monthly income",
+  "---:|---|---:|---:|---:",
+  ...lowest.map((r) => `${r.rank} | ${r.state} | ${money(r.rent)} | ${money(r.income)} | ${pct(r.rentShare)}`),
+  "",
+  "Source: U.S. Census Bureau ACS 1-year Data Profile.",
+  "Note: This is a simple state-level affordability ratio, not a household-level rent burden measure.",
+];
+
 const lines = [
   `Rent vs income check (${stamp()})`,
   "",
@@ -156,6 +176,10 @@ const lines = [
   "",
   "Source: U.S. Census Bureau ACS 1-year Data Profile.",
   "Note: This is a simple state-level affordability ratio, not a household-level rent burden measure.",
+  "",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 writeFileSync(`${outBase}.txt`, lines.join("\n"));

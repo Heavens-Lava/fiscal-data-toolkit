@@ -136,8 +136,6 @@ const droppedNote = [...byYear.entries()].some(([y, m]) => Number(y) === thisYea
   : "";
 
 const facebook = [
-  "Crime trend check:",
-  "",
   `The national ${OFFENSES[offenseKey].toLowerCase()} rate was about ${latest.rate.toFixed(0)} per 100,000 people in ${latest.year} (the most recent complete calendar year in FBI's data) — down ${Math.abs(changeFromPeak).toFixed(0)}% from the ${first.year}-${latest.year} peak of ${peak.rate.toFixed(0)} in ${peak.year}, and ${changeFromFirst >= 0 ? "up" : "down"} ${Math.abs(changeFromFirst).toFixed(0)}% compared to ${first.year}.${droppedNote}`,
   "",
   "Important: the FBI's most recent 1-2 months in this feed are always incomplete — local police departments submit crime data on their own schedule, sometimes months late. A chart that includes an in-progress year without accounting for that will show crime crashing to near-zero right at the end, which is a reporting artifact, not reality. This chart only uses years where all 12 months had reported data.",

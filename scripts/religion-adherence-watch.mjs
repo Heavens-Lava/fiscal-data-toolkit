@@ -99,11 +99,9 @@ const html = rankedTwoColumnHTML({
 });
 
 const facebook = [
-  "Religion check:",
+  `${highest[0].name} has the highest formal religious adherence rate in the country at ${highest[0].pct.toFixed(0)}% — versus just ${lowest[0].pct.toFixed(0)}% in ${lowest[0].name}, a ${gap.toFixed(0)}-point gap. Every state, ranked:`,
   "",
   `Note upfront: the Census Bureau is legally barred from asking about religion, so there's no federal data here. This is the 2020 U.S. Religion Census — religious bodies self-report congregation membership to a research consortium (ASARB) on a fixed methodology, published about once a decade.`,
-  "",
-  `By that measure, ${highest[0].name} has the highest formal religious adherence rate — ${highest[0].pct.toFixed(0)}% of its population counted as adherents of a congregation. ${lowest[0].name} has the lowest, at ${lowest[0].pct.toFixed(0)}% — a ${gap.toFixed(0)}-point gap between the two.`,
   "",
   `Arizona: #${az.rank} of ${rows.length}, at ${az.pct.toFixed(0)}% adherence (${compact(az.adherents)} adherents across ${az.congregations.toLocaleString("en-US")} congregations).`,
   "",

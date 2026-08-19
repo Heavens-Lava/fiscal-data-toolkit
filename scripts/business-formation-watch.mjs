@@ -97,8 +97,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Business formation check:",
-  "",
   `Americans filed ${Math.round(latest.value).toLocaleString("en-US")} new business applications in ${mLabel(latest.ym)} (seasonally adjusted) — the Census Bureau's real-time signal for new business creation, built from actual IRS Employer Identification Number filings, not a survey.`,
   ...(yoyChange != null ? [`That's ${yoyChange >= 0 ? "up" : "down"} ${Math.abs(yoyChange).toFixed(1)}% from ${mLabel(yearAgoYm)} (${Math.round(yearAgo.value).toLocaleString("en-US")}).`] : []),
   `5-year high in this window: ${Math.round(peak.value).toLocaleString("en-US")} in ${mLabel(peak.ym)}.`,

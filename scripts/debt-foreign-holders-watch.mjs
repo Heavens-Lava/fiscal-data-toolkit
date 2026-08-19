@@ -94,8 +94,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Who owns US debt check:",
-  "",
   `As of ${latestMonth}, foreign countries and territories held about ${money(grandTotal)} of US Treasury debt — roughly ${foreignShareOfDebt.toFixed(0)}% of the entire $${(federalDebt / 1e12).toFixed(2)}T federal debt. That means about ${(100 - foreignShareOfDebt).toFixed(0)}% is held domestically — by the Federal Reserve, US banks, mutual funds, pension funds, state/local governments, and individual Americans.`,
   "",
   `Top holder: ${leader.country} at ${money(leader.billions)}.`,

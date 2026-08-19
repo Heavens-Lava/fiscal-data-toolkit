@@ -164,8 +164,6 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "CDC mortality check:",
-  "",
   `${CAUSES[causeKey].label} deaths in the US: ${latest.deaths.toLocaleString("en-US")} in ${latest.year} (${latest.rate.toFixed(1)} per 100,000 people) — ${changeFromFirst >= 0 ? "up" : "down"} ${Math.abs(changeFromFirst).toFixed(0)}% from ${first.deaths.toLocaleString("en-US")} in ${first.year}. Peak in this window: ${peak.deaths.toLocaleString("en-US")} in ${peak.year}.`,
   "",
   `Important limitation: CDC WONDER's "Underlying Cause of Death, 1999-2020" database is the most recent version of this specific dataset I could get working programmatically — it does not include 2021 onward. CDC has since published newer datasets, but their query format differs enough that I couldn't verify it live in the time I gave this. For current-year figures, CDC's own NCHS press releases (cdc.gov/nchs/pressroom) publish provisional numbers faster than WONDER updates — worth checking directly rather than assuming this chart is current.`,
