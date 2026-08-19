@@ -46,7 +46,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states have the highest share of foreign-born residents?",
+  `${pct(top[0].share)} of ${top[0].state} residents were born outside the U.S. — versus just ${pct(bottom[0].share)} in ${bottom[0].state}. Every state's foreign-born share, ranked:`,
   "",
   `Census ACS ${year} data — share of the total population that is foreign-born, by state.`,
   "",

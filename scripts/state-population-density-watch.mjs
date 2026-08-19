@@ -62,7 +62,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states are the most — and least — crowded?",
+  `${dense[0].state} packs in ${fmtDensity(dense[0].density)} — versus just ${fmtDensity(sparse[0].density)} in ${sparse[0].state}. Every state's population density, ranked:`,
   "",
   `Census ACS ${year} population ÷ Census Bureau land area — people per square mile, by state.`,
   "",

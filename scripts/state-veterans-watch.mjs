@@ -47,8 +47,9 @@ const html = cardHTML({
   chartSVG, source: "U.S. Census Bureau ACS", vintage: String(year),
 });
 
+const ratio = top[0].share / bottom[0].share;
 const facebook = [
-  "Which states have the highest share of veterans?",
+  `${top[0].state}: ${pct(top[0].share)} of adults are veterans — ${ratio.toFixed(1)}x ${bottom[0].state}'s share. Every state's veteran population, ranked:`,
   "",
   `Census ACS ${year} data — share of the civilian population 18+ who are veterans, by state.`,
   "",

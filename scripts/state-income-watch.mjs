@@ -47,7 +47,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states have the highest median household income?",
+  `Median household income tops out at ${money(highest[0].income)} in ${highest[0].state} — ${(highest[0].income / lowest[0].income).toFixed(1)}x ${lowest[0].state}'s ${money(lowest[0].income)}. Every state, ranked:`,
   "",
   `Census ACS ${year} data — median household income by state.`,
   "",

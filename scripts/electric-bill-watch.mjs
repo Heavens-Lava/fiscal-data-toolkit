@@ -42,7 +42,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states pay the highest average electric bills?",
+  `${highest[0].state}'s average electric bill just hit ${money(highest[0].monthly)}/month — ${(highest[0].monthly / lowest[0].monthly).toFixed(1)}x what ${lowest[0].state} pays. Every state, ranked:`,
   "",
   `EIA ${period} data — average residential electric bill, computed from actual reported monthly revenue divided by residential customer count (not just the per-kWh rate).`,
   "",
