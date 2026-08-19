@@ -199,9 +199,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Where are the most new business applications being filed?",
-  "",
-  `Wyoming recorded ${rate(hero.rate)} applications per 100,000 residents over the latest 52 weeks - far above every other state in this ranking.`,
+  `Wyoming recorded ${rate(hero.rate)} new business applications per 100,000 residents over the latest 52 weeks — far above every other state. Every state, ranked:`,
   "",
   `#1 ${hero.state}: ${rate(hero.rate)} per 100k (${num(hero.applications)} applications)` ,
   ...(az ? [`Arizona: #${az.rank} (${rate(az.rate)} per 100k; ${num(az.applications)} applications).`] : []),

@@ -41,7 +41,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which countries' economies are actually growing the fastest?",
+  `${top[0].name}'s economy grew ${pct(top[0].value)} in ${year} — the fastest of any country with complete data. Every country, ranked:`,
   "",
   `World Bank data, ${year} — real (inflation-adjusted) GDP growth by country, ${rows.length} countries with complete ${year} data.`,
   "",

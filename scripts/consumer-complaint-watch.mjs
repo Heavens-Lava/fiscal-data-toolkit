@@ -53,10 +53,9 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which financial products generate the most CFPB complaints?",
+  `${products[0].name} drew ${num(products[0].count)} CFPB complaints in the past 12 months — ${(products[0].count / products[1].count).toFixed(1)}x the #2 product. Every product, ranked:`,
   "",
   `Published complaints in the latest 12 months: ${num(total)}`,
-  `#1 product: ${products[0].name} (${num(products[0].count)})`,
   `#2 product: ${products[1].name} (${num(products[1].count)})`,
   `Arizona complaints: ${num(azTotal)}; top product: ${azProducts[0]?.name || "n/a"}`,
   "",

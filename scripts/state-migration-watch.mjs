@@ -61,7 +61,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states are people actually packing up and leaving — and which are they moving to?",
+  `${top[0].state} gained ${top[0].ratePer1000.toFixed(1)} residents per 1,000 to domestic migration in ${VINTAGE_YEAR}, while ${bottom.at(-1).state} lost ${Math.abs(bottom.at(-1).ratePer1000).toFixed(1)} per 1,000. Every state, ranked:`,
   "",
   `Census Bureau data, ${VINTAGE_YEAR} — net domestic migration (people who moved in from another state, minus people who moved out), per 1,000 residents:`,
   "",

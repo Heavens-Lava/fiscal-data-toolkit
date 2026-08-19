@@ -48,7 +48,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states are actually the biggest — and smallest — by land?",
+  `${largest[0].state} spans ${fmtArea(largest[0].sqmi)} — ${(largest[0].sqmi / smallest[0].sqmi).toFixed(0)}x the size of ${smallest[0].state}. Every state's land area, ranked:`,
   "",
   "U.S. Census Bureau land area (2020 Census), by state.",
   "",

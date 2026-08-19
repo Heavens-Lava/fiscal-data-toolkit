@@ -47,7 +47,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states have the most college graduates?",
+  `${pct(top[0].share)} of adults in ${top[0].state} hold a bachelor's degree — ${(top[0].share / bottom[0].share).toFixed(1)}x the share in ${bottom[0].state}. Every state, ranked:`,
   "",
   `Census ACS ${year} data — share of adults 25 and older with a bachelor's degree or higher, by state.`,
   "",

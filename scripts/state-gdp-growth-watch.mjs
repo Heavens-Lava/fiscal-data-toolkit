@@ -67,7 +67,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which state economies are actually growing the fastest?",
+  `${top[0].state}'s economy grew ${pct(top[0].growthPct)} year-over-year — the fastest of any state, while ${bottom[0].state} grew just ${pct(bottom[0].growthPct)}. Every state, ranked:`,
   "",
   `BEA data, ${priorYear} to ${latestYear} — real (inflation-adjusted) GDP growth by state.`,
   "",

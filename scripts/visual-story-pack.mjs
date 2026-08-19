@@ -44,8 +44,7 @@ function writeMap({ slug, kicker, title, metric, metricLabel, fmt, tableFmt, que
     chartSVG, source: "U.S. Census Bureau ACS", vintage: String(acsYear),
   });
   const caption = [
-    question,
-    `${high.name} ranks highest at ${tableFmt(high.v)}, while ${low.name} ranks lowest at ${tableFmt(low.v)}.`, "",
+    `${high.name} ranks highest for ${metricLabel} at ${tableFmt(high.v)} — versus ${tableFmt(low.v)} in ${low.name}. Every state, ranked:`, "",
     `State | ${metricLabel}`,
     ...ranked.map((row) => `#${row.rank} ${row.name} | ${tableFmt(row.v)}`), "",
     `Arizona ranks #${az.rank}: ${tableFmt(az.v)}.`,

@@ -59,7 +59,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which states received the most federal disaster declarations over the last ${years} years?`, "",
+  `${byState[0].state} received ${byState[0].count} federal disaster declarations over the last ${years} years — more than any other state. Every state, ranked:`, "",
   `#1 ${byState[0].state}: ${byState[0].count}`,
   `#2 ${byState[1].state}: ${byState[1].count}`,
   ...(az ? [`Arizona: #${az.rank} (${az.count})`] : []),

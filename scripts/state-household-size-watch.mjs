@@ -46,7 +46,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Where do people live in the biggest — and smallest — households?",
+  `${largest[0].state} has the largest average household at ${largest[0].size.toFixed(2)} people — versus just ${smallest[0].size.toFixed(2)} in ${smallest[0].state}. Every state, ranked:`,
   "",
   `Census ACS ${year} data — average household size by state.`,
   "",

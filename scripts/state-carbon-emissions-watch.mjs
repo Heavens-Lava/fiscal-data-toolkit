@@ -59,7 +59,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states produce the most energy-related carbon emissions?",
+  `${top[0].state} emits ${num(top[0].mmt)} MMT of energy-related CO2 a year — more than ${(top[0].mmt / bottom[0].mmt).toFixed(0)}x ${bottom[0].state}. Every state, ranked:`,
   "",
   `EIA SEDS ${period} data — energy-related CO2 emissions by state (million metric tons).`,
   "",

@@ -30,8 +30,7 @@ export function writeStateRankingPost({
   });
   const describe = (row) => rowDetail ? rowDetail(row) : valueFormat(row.value);
   const facebook = [
-    question,
-    `${high[0].state} ranks highest at ${describe(high[0])}, while ${low[0].state} ranks lowest at ${describe(low[0])}.`, "",
+    `${high[0].state} ranks highest at ${describe(high[0])} — versus ${describe(low[0])} in ${low[0].state}. Every state, ranked:`, "",
     `State | ${metricLabel}`,
     ...ranked.map((row) => `#${row.rank} ${row.state} | ${describe(row)}`), "",
     az ? `Arizona ranks #${az.rank}: ${describe(az)}.` : "", "", note, "",

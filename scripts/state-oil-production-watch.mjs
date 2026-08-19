@@ -62,7 +62,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states produce the most crude oil?",
+  `${top[0].state} pumped ${(top[0].mbbl / 1e6).toFixed(2)}M bbl of crude oil in ${period} — ${((top[0].mbbl / nationalTotal) * 100).toFixed(0)}% of all U.S. production by itself. Every state, ranked:`,
   "",
   `EIA ${period} data — crude oil field production by state.`,
   "",

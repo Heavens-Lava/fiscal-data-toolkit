@@ -44,7 +44,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which countries are actually the most crowded?",
+  `${top[0].name} packs in ${Math.round(top[0].density).toLocaleString()} people per km² — versus just ${bottom[0].density.toFixed(1)} in ${bottom[0].name}. Every country, ranked:`,
   "",
   "World Bank data — population per square kilometer of land area, countries with at least 1,000 km² excluded from noise (city-states like Monaco/Singapore aside).",
   "",

@@ -37,7 +37,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which countries actually have the most people?",
+  `${top[0].name} has ${(top[0].value / 1e6).toFixed(0)}M people — about ${((top[0].value / worldTotal) * 100).toFixed(0)}% of everyone on Earth. Every country, ranked:`,
   "",
   `World Bank data, ${year} — total population by country.`,
   "",

@@ -86,7 +86,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  `Which states generate the most ${fuel.label} electricity?`,
+  `${top[0].state} generated ${num(top[0].gwh)} GWh of ${fuel.label} power in ${period} — more than any other state. Every state's ${fuel.label} generation, ranked:`,
   "",
   `EIA ${period} data — ${fuel.label} electricity generation by state.`,
   "",

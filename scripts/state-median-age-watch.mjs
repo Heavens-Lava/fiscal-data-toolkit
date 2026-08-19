@@ -46,7 +46,7 @@ const html = cardHTML({
 });
 
 const facebook = [
-  "Which states have the oldest — and youngest — populations?",
+  `${oldest[0].state}'s median age is ${oldest[0].age.toFixed(1)} — ${(oldest[0].age - youngest[0].age).toFixed(1)} years older than ${youngest[0].state}'s ${youngest[0].age.toFixed(1)}. Every state, ranked:`,
   "",
   `Census ACS ${year} data — median age by state.`,
   "",
