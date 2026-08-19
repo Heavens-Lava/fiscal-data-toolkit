@@ -520,33 +520,46 @@ export function printTable(title, columns, rows, source, unlimited = false) {
 const TREND_ARROW = { up: "▲", down: "▼" };
 const TREND_COLOR = { good: "#0ca30c", bad: C.neg };
 
-export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", chartSVG, source, vintage, heroTrend = null }) {
+export function cardHTML({
+  kicker, title, hero, heroLabel, legendHTML = "", chartSVG, source, vintage, heroTrend = null,
+  brand = C.brand, wordmark = "America by the Numbers", authorInitials = "JM", authorName = "Jeff Macy",
+}) {
   const deltaHTML = heroTrend
     ? `<span class="delta" style="color:${TREND_COLOR[heroTrend.tone]}">${TREND_ARROW[heroTrend.direction]}</span>`
     : "";
   return `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { width:1200px; height:675px; background:${C.surface};
-         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .accent { height:8px; display:flex; }
-  .accent i { flex:1; }
-  .card { width:100%; height:calc(100% - 8px); padding:40px 48px 34px; display:flex; flex-direction:column; }
-  .head { display:flex; justify-content:space-between; align-items:flex-start; }
-  .kicker { font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
-  h1 { font-size:32px; font-weight:750; color:${C.ink}; margin-top:8px; max-width:740px; line-height:1.18; }
-  .hero { text-align:right; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
+  .accent-top { height:4px; background:${brand}; flex-shrink:0; }
+  .header { background:${C.surface}; height:64px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:12px; border-bottom:1px solid ${C.grid}; }
+  .header .wordmark-wrap { display:flex; flex-direction:column; gap:3px; }
+  .header .wordmark { color:${brand}; font-size:15px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .header .rule { width:28px; height:2px; background:${brand}; }
+  .brand-mark-img { width:48px; height:48px; display:block; object-fit:contain; }
+  .avatar-img { width:26px; height:26px; border-radius:50%; display:block; }
+  .card { flex:1; min-height:0; padding:20px 40px 14px; display:flex; flex-direction:column; overflow:hidden; }
+  .head { display:flex; justify-content:space-between; align-items:flex-start; flex-shrink:0; }
+  .kicker { font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size:28px; font-weight:700; color:${C.ink}; margin-top:6px; max-width:700px; line-height:1.2; }
+  .hero { text-align:right; flex-shrink:0; }
   .hero-row { display:flex; align-items:baseline; justify-content:flex-end; gap:10px; }
-  .hero .v { font-size:54px; font-weight:750; color:${C.ink}; line-height:1; }
-  .delta { font-size:20px; font-weight:700; }
-  .hero .l { font-size:15px; color:${C.ink2}; margin-top:6px; max-width:260px; }
-  .legend { display:flex; gap:24px; margin-top:16px; }
-  .key { display:flex; align-items:center; gap:8px; font-size:16px; color:${C.ink2}; }
+  .hero .v { font-size:48px; font-weight:800; color:${brand}; line-height:1; }
+  .delta { font-size:18px; font-weight:700; }
+  .hero .l { font-size:14px; color:${C.ink2}; margin-top:6px; max-width:260px; }
+  .legend { display:flex; gap:24px; margin-top:14px; flex-shrink:0; }
+  .key { display:flex; align-items:center; gap:8px; font-size:15px; color:${C.ink2}; }
   .dot { width:12px; height:12px; border-radius:50%; display:inline-block; }
-  .plotbox { flex:1; margin-top:18px; background:#fff; border:3px solid ${C.ink}; box-shadow:10px 10px 0 ${C.s1}; padding:16px 18px 8px; }
+  .plotbox { flex:1; min-height:0; margin-top:14px; background:#fff; border:1px solid ${C.grid}; border-radius:14px; padding:16px 20px 10px; }
   .plotbox svg { width:100%; height:100%; }
-  .foot { display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; margin-top:14px; }
+  .footer { background:${brand}; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:0 40px; margin-top:14px; }
+  .footer-left { display:flex; align-items:center; gap:10px; }
+  .avatar { width:26px; height:26px; border-radius:50%; border:1.5px solid ${C.brandText}; display:flex; align-items:center; justify-content:center; color:${C.brandText}; font-size:10px; font-weight:700; }
+  .footer-text { color:${C.brandText}; font-size:12px; line-height:1.3; }
+  .footer-right { display:flex; align-items:center; gap:8px; color:${C.brandText}; font-size:12px; }
+  .footer-right b { color:#fff; }
   </style></head><body>
-  <div class="accent"><i style="background:${C.s1}"></i><i style="background:${C.neg}"></i><i style="background:${C.s2}"></i></div>
+  <div class="accent-top"></div>
+  <div class="header"><span class="mark">${abnLogoDataUri() ? `<img class="brand-mark-img" src="${abnLogoDataUri()}" alt="">` : iconSVG("building", brand)}</span><div class="wordmark-wrap"><span class="wordmark">${esc(wordmark)}</span><span class="rule"></span></div></div>
   <div class="card">
     <div class="head">
       <div><div class="kicker">${esc(kicker)}</div><h1>${esc(title)}</h1></div>
@@ -554,8 +567,12 @@ export function cardHTML({ kicker, title, hero, heroLabel, legendHTML = "", char
     </div>
     ${legendHTML}
     <div class="plotbox">${chartSVG}</div>
-    <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
-  </div></body></html>`;
+  </div>
+  <div class="footer">
+    <div class="footer-left">${logoDataUri() ? `<img class="avatar-img" src="${logoDataUri()}" alt="">` : `<div class="avatar">${esc(authorInitials)}</div>`}<div class="footer-text">Source: ${esc(source)}<br>Chart: ${esc(authorName)}</div></div>
+    <div class="footer-right">${iconSVG("calendar", C.brandText)}<span>Data through <b>${esc(vintage)}</b></span></div>
+  </div>
+  </body></html>`;
 }
 
 // ── branded metric-list card (1200x675) ───────────────────────────────────
@@ -679,6 +696,7 @@ export function metricListCard({
 // skill requires as the mitigation for C.s2's sub-3:1 contrast WARN.
 export function tableCard({
   kicker, title, subtitle = "", rows, columnLabels, columnColors = [C.s1, C.s2], source, vintage, footnote = "",
+  brand = C.brand, wordmark = "America by the Numbers", authorInitials = "JM", authorName = "Jeff Macy",
 }) {
   const headCells = columnLabels.map((label, i) =>
     `<th style="background:${columnColors[i]}">${esc(label)}</th>`).join("");
@@ -687,21 +705,36 @@ export function tableCard({
   ).join("");
   return `<!doctype html><html><head><meta charset="utf-8"><style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .card { width:100%; height:100%; padding:40px 56px 30px; display:flex; flex-direction:column; }
-  .kicker { font-size:15px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; text-align:center; }
-  h1 { font-size:34px; font-weight:700; color:${C.ink}; margin-top:8px; text-align:center; }
-  .subtitle { font-size:17px; color:${C.ink2}; margin-top:6px; text-align:center; }
-  table { width:100%; table-layout:fixed; border-collapse:collapse; margin-top:26px; flex:1; }
+  body { width:1200px; height:675px; background:${C.surface}; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; display:flex; flex-direction:column; }
+  .accent-top { height:4px; background:${brand}; flex-shrink:0; }
+  .header { background:${C.surface}; height:64px; flex-shrink:0; display:flex; align-items:center; padding:0 40px; gap:12px; border-bottom:1px solid ${C.grid}; }
+  .header .wordmark-wrap { display:flex; flex-direction:column; gap:3px; }
+  .header .wordmark { color:${brand}; font-size:15px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; }
+  .header .rule { width:28px; height:2px; background:${brand}; }
+  .brand-mark-img { width:48px; height:48px; display:block; object-fit:contain; }
+  .avatar-img { width:26px; height:26px; border-radius:50%; display:block; }
+  .card { flex:1; min-height:0; padding:20px 56px 14px; display:flex; flex-direction:column; overflow:hidden; }
+  .kicker { font-size:14px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:${C.muted}; text-align:center; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size:30px; font-weight:700; color:${C.ink}; margin-top:8px; text-align:center; }
+  .subtitle { font-size:16px; color:${C.ink2}; margin-top:6px; text-align:center; }
+  table { width:100%; table-layout:fixed; border-collapse:collapse; margin-top:20px; flex:1; }
   col.item-col { width:44%; }
-  th { color:#fff; font-size:17px; font-weight:700; padding:11px 16px; text-align:center; }
+  th { color:#fff; font-size:16px; font-weight:700; padding:10px 16px; text-align:center; }
   th:first-child { background:${C.surface} !important; color:${C.ink}; text-align:left; }
-  td { padding:11px 16px; font-size:16px; border-bottom:1px solid ${C.grid}; }
+  td { padding:10px 16px; font-size:15px; border-bottom:1px solid ${C.grid}; }
   td.item { font-weight:600; color:${C.ink2}; }
   td.val { text-align:center; font-weight:650; color:${C.ink}; font-variant-numeric:tabular-nums; }
   .footnote { font-size:12px; color:${C.muted}; margin-top:10px; text-align:center; }
-  .foot { display:flex; justify-content:space-between; font-size:14px; color:${C.muted}; padding-top:12px; }
-  </style></head><body><div class="card">
+  .footer { background:${brand}; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:0 40px; margin-top:12px; }
+  .footer-left { display:flex; align-items:center; gap:10px; }
+  .avatar { width:26px; height:26px; border-radius:50%; border:1.5px solid ${C.brandText}; display:flex; align-items:center; justify-content:center; color:${C.brandText}; font-size:10px; font-weight:700; }
+  .footer-text { color:${C.brandText}; font-size:12px; line-height:1.3; }
+  .footer-right { display:flex; align-items:center; gap:8px; color:${C.brandText}; font-size:12px; }
+  .footer-right b { color:#fff; }
+  </style></head><body>
+  <div class="accent-top"></div>
+  <div class="header"><span class="mark">${abnLogoDataUri() ? `<img class="brand-mark-img" src="${abnLogoDataUri()}" alt="">` : iconSVG("building", brand)}</span><div class="wordmark-wrap"><span class="wordmark">${esc(wordmark)}</span><span class="rule"></span></div></div>
+  <div class="card">
     <div class="kicker">${esc(kicker)}</div>
     <h1>${esc(title)}</h1>
     ${subtitle ? `<div class="subtitle">${esc(subtitle)}</div>` : ""}
@@ -711,8 +744,12 @@ export function tableCard({
       <tbody>${bodyRows}</tbody>
     </table>
     ${footnote ? `<div class="footnote">${esc(footnote)}</div>` : ""}
-    <div class="foot"><span>Source: ${esc(source)} · Chart: Jeff Macy</span><span>Data through ${esc(vintage)}</span></div>
-  </div></body></html>`;
+  </div>
+  <div class="footer">
+    <div class="footer-left">${logoDataUri() ? `<img class="avatar-img" src="${logoDataUri()}" alt="">` : `<div class="avatar">${esc(authorInitials)}</div>`}<div class="footer-text">Source: ${esc(source)}<br>Chart: ${esc(authorName)}</div></div>
+    <div class="footer-right">${iconSVG("calendar", C.brandText)}<span>Data through <b>${esc(vintage)}</b></span></div>
+  </div>
+  </body></html>`;
 }
 
 // ISO 3166-1 alpha-2 code → Unicode regional-indicator flag emoji (e.g. "US" → 🇺🇸).
