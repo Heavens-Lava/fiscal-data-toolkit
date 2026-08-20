@@ -101,6 +101,29 @@ const html = cardHTML({
   vintage: mts.date,
 });
 
+const facebook = [
+  `If the federal government's finances this year were scaled down to a ${money(income)} household income, it would be spending ${money(scaled.spending)} — going ${money(scaled.borrowing)} further into debt this year alone, on top of ${money(scaled.debt)} it already owes.`,
+  "",
+  `Scale: FY${mts.fy} year-to-date federal receipts are treated like ${money(income)} of household income.`,
+  "",
+  `Income: ${money(scaled.income)}`,
+  `Spending: ${money(scaled.spending)}`,
+  `New borrowing: ${money(scaled.borrowing)}`,
+  `Existing debt: ${money(scaled.debt)}`,
+  `Interest paid so far this fiscal year: ${money(scaled.interest)}`,
+  "",
+  "This is a proportional illustration, not a literal household budget — a household can't print currency or borrow at sovereign rates, and this scaling doesn't capture the difference between deficit spending by a government and by a person.",
+  "",
+  "Actual federal figures (not scaled):",
+  `Receipts: ${bigMoney(mts.receipts)} through ${mts.date}`,
+  `Outlays: ${bigMoney(mts.outlays)}`,
+  `Deficit: ${bigMoney(mts.deficit)}`,
+  `Debt: ${bigMoney(debt.total)} as of ${debt.date}`,
+  `Interest expense FYTD: ${bigMoney(interest.fytd)} as of ${interest.date}`,
+  "",
+  "Source: Treasury Fiscal Data API.",
+];
+
 const lines = [
   `Federal budget as a household budget (${stamp})`,
   "",
@@ -120,6 +143,10 @@ const lines = [
   `Interest expense FYTD: ${bigMoney(interest.fytd)} as of ${interest.date}`,
   "",
   "Source: Treasury Fiscal Data API.",
+  "",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 const csv = [

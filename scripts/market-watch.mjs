@@ -189,6 +189,23 @@ const html = cardHTML({
   vintage: okRows.map((r) => r.latestDate).sort().at(-1) || stamp,
 });
 
+const facebook = [
+  best && worst
+    ? `${best.symbol} (${best.name}) leads this snapshot with a ${pct(best.oneYear * 100)} 1-year return, while ${worst.symbol} (${worst.name}) is the weakest at ${pct(worst.oneYear * 100)}.`
+    : "Market snapshot -- no 1-year returns were available for this run.",
+  "",
+  `As of ${okRows.map((r) => r.latestDate).sort().at(-1) || stamp}:`,
+  ...rows.map((r) => r.error
+    ? `${r.symbol} (${r.name}): data unavailable`
+    : `${r.symbol} (${r.name}): ${money(r.price)}, ${pct(r.oneYear * 100)} 1-year / ${pct(r.fiveYear * 100)} 5-year`
+  ),
+  "",
+  "This is a point-in-time snapshot, not investment advice -- prices move by the minute, and 1-year/5-year returns don't predict future performance.",
+  "",
+  "Sources: Yahoo Finance chart API for stocks/ETFs and gold/silver futures.",
+  "Education/research only. Not financial advice.",
+];
+
 const lines = [
   `Market watch (${stamp})`,
   "",
@@ -204,6 +221,10 @@ const lines = [
   "",
   "Sources: Yahoo Finance chart API for stocks/ETFs and gold/silver futures.",
   "Education/research only. Not financial advice.",
+  "",
+  "Facebook post",
+  "-------------",
+  facebook.join("\n"),
 ];
 
 const csv = toCSV(
