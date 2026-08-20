@@ -19,6 +19,7 @@ import { listPendingApprovals, unstageApproval } from "./lib/approval-queue.mjs"
 import { envValue } from "./lib/data-common.mjs";
 import { scheduleFacebookPost } from "./lib/facebook.mjs";
 import { loadPostLog } from "./lib/post-log.mjs";
+import { annotatePending, categoryFor, orderForPromotion } from "./lib/promotion-priority.mjs";
 import { nextAvailableScheduleSlot, parseScheduleSlots } from "./lib/schedule-slots.mjs";
 import { loadScheduledPosts, schedulePost } from "./lib/scheduled-posts.mjs";
 
@@ -34,18 +35,35 @@ const limit = Number(argValue("--limit", "1000"));
 const timeZone = envValue("SOCIAL_SCHEDULE_TIMEZONE") || "America/Phoenix";
 const slots = parseScheduleSlots(envValue("SOCIAL_SCHEDULE_SLOTS") || "08:00,12:00");
 
-// Oldest-staged-first (FIFO) — listPendingApprovals returns newest-first.
-const pending = listPendingApprovals(ROOT, SOCIAL)
-  .filter((post) => post.hasImage || post.hasVideo)
-  .sort((a, b) => a.stagedAt.localeCompare(b.stagedAt))
-  .slice(0, limit);
+// Validation gate -> editorial score + topic-diversity + aging -> ordering.
+// "fail"-verdict posts are excluded outright (never auto-promoted); their
+// topic/date and the specific check(s) that failed are logged so a human
+// can fix them, same as running `validate-posts.mjs --pending --fails-only`.
+const rawPending = listPendingApprovals(ROOT, SOCIAL).filter((post) => post.hasImage || post.hasVideo);
+const annotated = annotatePending(ROOT, SOCIAL, rawPending);
+
+const recentCategories = loadScheduledPosts(ROOT)
+  .filter((p) => p.status === "scheduled")
+  .sort((a, b) => new Date(b.scheduledAt) - new Date(a.scheduledAt))
+  .slice(0, 6)
+  .map((p) => categoryFor(p.topic))
+  .reverse();
+
+const { ordered, excluded } = orderForPromotion(annotated, { recentCategories });
+if (excluded.length) {
+  console.log(`Skipping ${excluded.length} post(s) that failed validation (won't be auto-promoted):`);
+  for (const p of excluded) {
+    for (const f of p.validation.fails) console.log(`  - ${p.topic}-${p.date}: [${f.id}] ${f.message}`);
+  }
+}
+const pending = ordered.slice(0, limit);
 
 if (!pending.length) {
-  console.log("Approval queue is empty — nothing to promote.");
+  console.log("Approval queue is empty (or everything pending failed validation) — nothing to promote.");
   process.exit(0);
 }
 
-console.log(`${pending.length} post(s) pending approval. Promoting as many as fit in the next ${slots.length}x/day Facebook scheduling window...`);
+console.log(`${pending.length} post(s) pending approval and eligible. Promoting as many as fit in the next ${slots.length}x/day Facebook scheduling window...`);
 
 let promoted = 0;
 for (const post of pending) {
