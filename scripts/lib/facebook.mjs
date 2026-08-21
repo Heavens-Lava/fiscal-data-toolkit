@@ -24,7 +24,7 @@ export function envVar(root, name) {
   return null;
 }
 
-function graphUrls(root) {
+export function graphUrls(root) {
   const version = envVar(root, "FB_GRAPH_API_VERSION") || "v25.0";
   return {
     graph: `https://graph.facebook.com/${version}`,

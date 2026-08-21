@@ -3,15 +3,62 @@
 Living plan for future posts, organized by category. Cross-referenced against
 what's already built. Update this file as posts get built or ideas get added.
 
+**Core Editorial Shift**: Move away from generic "every state ranked" tables and prioritize high-stakes questions people already care about:
+- *Can I afford life?*
+- *Is it harder to become an adult?*
+- *Is AI changing the real world / power grid?*
+- *Are wages keeping up with productivity?*
+- *Where are people moving and why?*
+
 **Legend**
+- 🚀 **Top Priority** — Next in queue to build
 - ✅ **Built** — script exists in `scripts/`
 - 🟢 **Easy** — solid official/live data source, straightforward to build
-- 🟡 **Needs research** — a source exists but is awkward (periodic PDF, needs a
-  new API key, coarse granularity, or requires a quick feasibility check
-  before committing)
-- 🔴 **Not feasible (official-only)** — no clean official/audited source found;
-  would require a private/commercial data provider, which breaks this
-  project's "official sources only" standard
+- 🟡 **Needs research** — source exists but requires specific extraction or feasibility check
+- 🔴 **Not feasible (official-only)** — requires private/commercial data provider
+
+---
+
+## 🎯 Top Priority Queue: High-Impact Human Questions
+
+| Priority | Story / Question | Hook / Concept | Primary Data Source | Status |
+|---|---|---|---|---|
+| **#1** | **Why does adulthood seem to start later now?** | *"In 1975, nearly half of Americans ages 25–34 had a job, spouse, children, and their own home. Today, fewer than 1 in 4 do."* | Census Historical Living Arrangements & Milestone tables | ✅ `young-adult-milestones-watch.mjs` |
+| **#2** | **How many hours do you have to work to afford rent?** | *"Forget dollars. How many hours of your life does one month of rent cost?"* | Census ACS Median Rent ÷ BLS / State Median Hourly Wage | ✅ `rent-hours-worked-watch.mjs` |
+| **#3** | **Could a teacher afford the typical home in their own state?** | *"A teacher can earn $100K in one state and under $50K in another—where does a teacher's salary actually go furthest against home prices?"* | BLS OEWS (Teacher Wages) + Census ACS / FRED Home Values | ✅ `teacher-housing-affordability-watch.mjs` |
+| **#4** | **What does $100 buy at the grocery store now vs. 2020?** | *"This basket cost $100 in 2020. What does the exact same cart cost today?"* (Fixed basket: ground beef, milk, eggs, bread, chicken, potatoes, bananas) | BLS Average Price Data (AP Series) / USDA | ✅ `grocery-basket-100-watch.mjs` |
+| **#5** | **The AI & Data Center electricity boom is hitting the grid** | *"AI isn't just changing software anymore. You can see it in America's power grid."* (ERCOT, PJM, Dominion Virginia load growth & server share) | EIA Hourly / Monthly Electric Grid & Sector data | ✅ `ai-grid-electricity-watch.mjs` |
+| **#6** | **How many young adults still live with their parents?** | *"Moving out at 18 was never as universal as people remember—but young Americans are living with their parents much longer."* | Census Current Population Survey (CPS) Historical Table AD-1 | 🟢 Queued |
+| **#7** | **Are workers getting more productive without getting richer?** | *"American workers keep producing more. How much of that improvement is actually showing up in their paycheck?"* | BLS Nonfarm Business Labor Productivity vs Real Hourly Compensation | 🟢 Queued |
+| **#8** | **How many hours of work buys a house today vs. 1980?** | Median home price ÷ median hourly wage across decades (labor hours needed to buy the median home). | FRED / Census Historical Home Prices + BLS Historical Hourly Wages | ✅ `hours-to-buy-a-home-watch.mjs` |
+| **#9** | **What happened to the traditional American family timeline?** | Median age milestone shifts: Leave home → Marriage → First child → Homeownership. | Census CPS / ACS Milestones | 🟢 Queued |
+| **#10** | **Where can a single person actually afford to live alone?** | Solo living index: 1 median worker wage vs. 1-bedroom rent + utilities + transport. | Census ACS 1-Bed Gross Rent + BLS Local Wages | 🟢 Queued |
+| **#11** | **What does it cost to raise a child before kindergarten?** | Infant care + toddler care cumulative cost over 5 years vs. median income. | Women's Bureau National Database of Childcare Prices (NDCP) | 🟢 Queued |
+| **#12** | **Where does childcare cost more than in-state college tuition?** | State-by-state comparison of annual infant care vs. public university tuition. | NDCP Childcare + IPEDS / College Board Tuition | ✅ `childcare-vs-tuition-watch.mjs` |
+| **#13** | **What would happen if mortgage rates went to 5%, 4%, or 3%?** | Monthly payment sensitivity on the median home price across rate scenarios. | FRED 30-Year Mortgage + ACS Median Home Price | ✅ `mortgage-rate-sensitivity-watch.mjs` |
+| **#14** | **Where are jobs growing vs. where are people moving?** | Domestic migration net flows overlaid with job creation & wage growth. | Census Net Domestic Migration + BLS Nonfarm Payroll Growth | ✅ `jobs-vs-migration-watch.mjs` |
+| **#15** | **Which generation owns the homes & what does the bottom 50% own?** | Fed Distributional Financial Accounts (DFA) breakdown by asset category. | Federal Reserve DFA (Z.1) | 🟢 Queued |
+| **#16** | **Are we building enough housing for the people moving in?** | New housing units started per new resident, across five comparable 10-year windows. | FRED (Census/HUD HOUST) + Census population estimates (POPTHM) | ✅ `housing-starts-vs-population-watch.mjs` |
+| **#17** | **Can one income support a family?** | One full-time median income vs. average total spending for married-couple-with-children households. | BLS CPS earnings (LES1252881500Q) + BLS Consumer Expenditure Survey (CXUTOTALEXPLB0604M) | ✅ `one-income-family-watch.mjs` |
+| **#18** | **How long does it take to save a 20% down payment?** | 20% of the median home price ÷ (median household income × national personal savings rate), across decades. | FRED (Census/HUD MSPUS, Census MEHOINUSA646N, BEA PSAVERT) | ✅ `down-payment-savings-time-watch.mjs` |
+
+---
+
+## 📺 Signature Series Frameworks
+
+1. **"How much of your life does it cost?"**
+   - Rent = *X* hours of work
+   - Car payment = *X* weeks of work
+   - House down payment = *X* years of saving
+   - Childcare = *X* workdays per month
+2. **"Then vs. Now" (1980 vs. Today)**
+   - Home, car, tuition, rent, wages, healthcare, electricity, grocery basket, mortgage payment.
+3. **"Can you afford it on this job?"**
+   - Teacher → House
+   - Nurse → 2-Bedroom Apartment
+   - Retail Worker → Childcare
+   - Software Developer → Median Home
+   - Police Officer → Family Cost Basket
 
 ---
 
@@ -256,6 +303,73 @@ live-data "watch" format — lower priority, but a few have real recurring data:
 5. **Periodic/manual-dataset batch** (same treatment as NAIC auto insurance): home insurance, federal land ownership, SAT scores, shipping ports — batch these together since they share the "render-and-verify a periodic report" workflow.
 6. **Skip / revisit only if a new source turns up**: largest employers, billionaires, water/internet bills, traffic congestion, AI adoption, data centers, supercomputers, stadiums/malls/museums.
 
+## 🚫 Research Blocked
+
+Concepts with a clear, worthwhile question but no clean official source found
+after a real search attempt. Left here (not forced into a post) so a future
+session doesn't rediscover the same dead end or, worse, the same invalid
+shortcut. Revisit only if a new source turns up.
+
+**starter-homes** — "What happened to starter homes?" (has the share of
+small/affordable new homes shrunk over time?)
+- Status: RESEARCH BLOCKED
+- Reason: No clean machine-readable official series identified. Census's
+  "Characteristics of New Housing" program does publish a size-category
+  breakdown (e.g. share of new homes under 1,800 sq ft vs. 3,000+ sq ft) that
+  would directly answer this, but it lives only in annual PDF reports and a
+  customized-table tool — no discoverable flat CSV/XLSX or API endpoint after
+  a real search (tried census.gov/construction/chars/xls/ under several
+  guessed filenames, the timeseries/eits/ressales Census API, and FRED — all
+  came up empty or 404).
+- What IS available and clean: FRED `COMPSFLAM1FQ` (Census, median square
+  feet of new single-family homes completed, 1987-present, keyless) — but
+  that only supports "the median new home got bigger," a different and
+  weaker claim than "starter homes disappeared." Don't substitute one for
+  the other.
+- Possible future source: Census New Residential Construction /
+  Characteristics of New Housing PDFs, manually transcribed, or a Census
+  API endpoint that isn't yet discoverable via the public catalog.
+
+**new-car-hours-worked** — "What does a new car cost in hours of work?"
+- Status: RESEARCH BLOCKED
+- Reason: Official spending and unit-sales series have incompatible scopes.
+  FRED has total consumer spending on new vehicles (BEA PCE,
+  `AB67RC1A027NBEA`) and total new light-vehicle unit sales (`ALTSALES`),
+  and dividing one by the other looks like a reasonable way to derive an
+  average transaction price -- but PCE counts consumer purchases only (nets
+  out trade-ins) while unit sales includes fleet/commercial vehicles, so the
+  numerator and denominator don't describe the same population. Sanity-
+  checked the result (~$24,900) against real-world 2024 average transaction
+  prices (~$48,000) and it was roughly half -- confirming the derived figure
+  is wrong, not just approximate.
+- **Do not derive average new-vehicle transaction price from PCE ÷ vehicle
+  sales.** Two individually legitimate government series don't automatically
+  produce a legitimate new statistic when their populations/accounting
+  definitions differ -- this is exactly the kind of error the validation
+  philosophy exists to catch before publishing, not just to catch after.
+- Possible future source: KBB/Cox Automotive/NADA average transaction price
+  if this project's source policy ever expands beyond official/audited
+  government data (it currently doesn't, and shouldn't for this reason
+  alone).
+
+**cost-of-becoming-an-adult** — deprioritized behind the above two; risks
+becoming a synthetic composite index (too many assumptions stacked together)
+rather than a single clean official comparison. Only revisit if a genuinely
+clean single-series or two-series basis turns up — don't build a weighted
+index of milestones as a first attempt.
+
 ## Progress log
 
+- **2026-08-21**: Human-interest batch (7 of 10 candidate posts) — mortgage
+  rate sensitivity, childcare vs. tuition, hours to buy a home (1980 vs.
+  today), housing starts vs. population growth, jobs vs. migration, one
+  income vs. family spending, and down-payment savings time. All built with
+  a documented single-sentence claim, validated (`validate-posts.mjs`), and
+  queued. Two real bugs caught before shipping: a 6-year period compared
+  against full 10-year decades (housing-starts-vs-population), and a
+  self-consistency check that surfaced the invalid PCE÷sales car-price
+  derivation (never shipped, see Research Blocked above). #8 (starter
+  homes) and #9 (new car cost) marked research-blocked rather than forced;
+  #10 (cost of becoming an adult) deferred. Next phase: publish and measure
+  rather than building another large batch — see performance-metadata plan.
 - **2026-07-16**: Energy deep-dive batch (7 posts) + state GDP growth + world GDP growth/population/density (4 posts) = 11 posts built, verified against known facts, staged, and scheduled.
