@@ -11,7 +11,10 @@ import { C, cardHTML, horizontalBarChart, screenshot, toCSV } from "./lib/chart-
 import { readFirstSheetRows } from "./lib/xlsx-lite.mjs";
 import { SOCIAL, STAMP, STATES, envValue, money, rel } from "./lib/data-common.mjs";
 
-const scorecardKey = envValue("COLLEGE_SCORECARD_API_KEY") || "DEMO_KEY";
+// api.data.gov issues one key that works across its participating agencies
+// (FEC, Congress.gov, College Scorecard, NASA, etc.) -- reuse an existing
+// registered key instead of the heavily-rate-limited shared DEMO_KEY.
+const scorecardKey = envValue("COLLEGE_SCORECARD_API_KEY") || envValue("FEC_API_KEY") || envValue("CONGRESS_API_KEY") || "DEMO_KEY";
 const noImage = process.argv.includes("--no-image");
 const outBase = path.join(SOCIAL, `childcare-vs-tuition-watch-${STAMP}`);
 mkdirSync(SOCIAL, { recursive: true });

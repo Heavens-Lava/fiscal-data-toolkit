@@ -47,11 +47,18 @@ function hasMarker(raw) {
 }
 
 function firstParagraph(caption) {
+  // Many scripts across this codebase build their caption array with ""
+  // entries as intended blank-line paragraph separators, then call
+  // .filter(Boolean) on the array before joining -- which silently strips
+  // those separators along with genuinely-empty conditional entries. That
+  // makes blank-line paragraph splitting unreliable as a general heuristic
+  // here, so treat "the opening hook" as just the first line instead (which
+  // is what "hook" actually means anyway) -- falling back to a blank-line
+  // paragraph split only if the first line looks unusually short (under 40
+  // chars), since a few scripts do still produce real blank-line breaks.
+  const firstLine = caption.split(/\r?\n/)[0] || "";
+  if (firstLine.length >= 40) return firstLine;
   const para = caption.split(/\r?\n\r?\n/)[0] || "";
-  // Some captions run the hook straight into a "Label | Value" ranked-list
-  // table with no blank-line break -- cut at the first such row so checks
-  // that scan "the opening paragraph" don't accidentally scan the entire
-  // table (which then gets misread as one giant number-dense hook).
   const tableRowIdx = para.search(/\n[^\n|]{1,40}\|/);
   return tableRowIdx === -1 ? para : para.slice(0, tableRowIdx);
 }
