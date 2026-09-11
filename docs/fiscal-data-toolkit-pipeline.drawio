@@ -1,0 +1,137 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Content Pipeline" id="pipeline1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Swimlane headers -->
+        <mxCell id="lane1" value="SOURCES" style="swimlane;rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;verticalAlign=top;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="220" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" value="EXTRACT / GENERATE" style="swimlane;rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#3B6FD6;verticalAlign=top;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="240" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" value="TRANSFORM (VALIDATE + SCORE)" style="swimlane;rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#D6821E;verticalAlign=top;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="260" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4" value="LOAD (QUEUE + SCHEDULE)" style="swimlane;rounded=0;whiteSpace=wrap;html=1;fillColor=#E6F4EA;strokeColor=#2E8B57;verticalAlign=top;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="880" y="40" width="240" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="lane5" value="DELIVER + MEASURE" style="swimlane;rounded=0;whiteSpace=wrap;html=1;fillColor=#F3E8FD;strokeColor=#7A3FA0;verticalAlign=top;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="40" width="260" height="880" as="geometry" />
+        </mxCell>
+
+        <!-- SOURCES nodes -->
+        <mxCell id="src1" value="Census Bureau&#10;(population, income, migration)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="lane1">
+          <mxGeometry x="20" y="50" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="src2" value="BLS&#10;(wages, prices, CPS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="lane1">
+          <mxGeometry x="20" y="120" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="src3" value="FRED&#10;(FRB St. Louis, keyless)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="lane1">
+          <mxGeometry x="20" y="190" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="src4" value="SEC EDGAR&#10;(10-K / 20-F filings)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="lane1">
+          <mxGeometry x="20" y="260" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="src5" value="BEA / Treasury / USDA /&#10;Congress.gov / etc." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;dashed=1;" vertex="1" parent="lane1">
+          <mxGeometry x="20" y="330" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- EXTRACT nodes -->
+        <mxCell id="ext1" value="Topic script&#10;e.g. childcare-vs-tuition-watch.mjs&#10;(120+ scripts total)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3B6FD6;" vertex="1" parent="lane2">
+          <mxGeometry x="20" y="70" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext2" value="chart-kit.mjs&#10;(shared chart + card primitives)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3B6FD6;" vertex="1" parent="lane2">
+          <mxGeometry x="20" y="160" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ext3" value="social/{topic}-{date}&#10;.txt / .csv / .html / .png" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3B6FD6;dashed=1;" vertex="1" parent="lane2">
+          <mxGeometry x="20" y="240" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- TRANSFORM nodes -->
+        <mxCell id="tr1" value="post-validation.mjs&#10;checks caption, numbers, sources" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6821E;" vertex="1" parent="lane3">
+          <mxGeometry x="20" y="60" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2" value="Verdict: pass / review / fail" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#D6821E;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="150" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3" value="post-quality.mjs&#10;editorial score (0-100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6821E;" vertex="1" parent="lane3">
+          <mxGeometry x="20" y="250" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tr4" value="promotion-priority.mjs&#10;score + topic diversity + queue aging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6821E;" vertex="1" parent="lane3">
+          <mxGeometry x="20" y="330" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tr5" value="fail -&gt; excluded, logged&#10;for a human to fix" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#C0392B;" vertex="1" parent="lane3">
+          <mxGeometry x="20" y="420" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- LOAD nodes -->
+        <mxCell id="ld1" value="approval-queue.json&#10;(pending, ranked)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E8B57;" vertex="1" parent="lane4">
+          <mxGeometry x="20" y="80" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ld2" value="promote-queued-posts.mjs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E8B57;" vertex="1" parent="lane4">
+          <mxGeometry x="20" y="160" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ld3" value="schedule-slots.mjs&#10;(~27-day FB window)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E8B57;" vertex="1" parent="lane4">
+          <mxGeometry x="20" y="240" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ld4" value="scheduled-posts.json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E8B57;dashed=1;" vertex="1" parent="lane4">
+          <mxGeometry x="20" y="320" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- DELIVER + MEASURE nodes -->
+        <mxCell id="dm1" value="Facebook Graph API&#10;(page post)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A3FA0;" vertex="1" parent="lane5">
+          <mxGeometry x="20" y="80" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dm2" value="post-log.json&#10;(published record)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A3FA0;dashed=1;" vertex="1" parent="lane5">
+          <mxGeometry x="20" y="160" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dm3" value="capture-post-metrics.mjs&#10;reactions, comments, shares" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A3FA0;" vertex="1" parent="lane5">
+          <mxGeometry x="20" y="240" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dm4" value="post-metrics.json&#10;+ post-taxonomy.mjs tags&#10;(format / domain / framing)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7A3FA0;dashed=1;" vertex="1" parent="lane5">
+          <mxGeometry x="20" y="330" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Cross-lane edges -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="src1" target="ext1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="src2" target="ext1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="src3" target="ext1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="src4" target="ext1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="src5" target="ext1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e6" parent="lane2" style="html=1;" edge="1" source="ext1" target="ext2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" parent="lane2" style="html=1;" edge="1" source="ext2" target="ext3"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="ext3" target="tr1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" parent="lane3" style="html=1;" edge="1" source="tr1" target="tr2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="pass / review" parent="lane3" style="html=1;fontSize=10;" edge="1" source="tr2" target="tr3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="fail" parent="lane3" style="html=1;fontSize=10;strokeColor=#C0392B;" edge="1" source="tr2" target="tr5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" parent="lane3" style="html=1;" edge="1" source="tr3" target="tr4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="tr4" target="ld1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" parent="lane4" style="html=1;" edge="1" source="ld1" target="ld2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" parent="lane4" style="html=1;" edge="1" source="ld2" target="ld3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" parent="lane4" style="html=1;" edge="1" source="ld3" target="ld4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="ld4" target="dm1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" parent="lane5" style="html=1;" edge="1" source="dm1" target="dm2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" parent="lane5" style="html=1;" edge="1" source="dm2" target="dm3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" parent="lane5" style="html=1;" edge="1" source="dm3" target="dm4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Feedback loop: metrics eventually inform which topics/formats get built next -->
+        <mxCell id="e21" value="feeds next batch&#10;(not yet automated)" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#7A3FA0;fontColor=#7A3FA0;exitX=0;exitY=0.5;entryX=0.5;entryY=0;rounded=1;" edge="1" parent="1" source="dm4" target="ext1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1020" y="30" />
+              <mxPoint x="400" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
